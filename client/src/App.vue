@@ -9,8 +9,8 @@
     import { useStore } from 'vuex'
     import useAuth from './composition/useAuth.js'
 
-    const { restoreSession } = useAuth()
     const store = useStore()
+    const { restoreSession } = useAuth()
 
     const app = computed(() => store.state.app)
 
