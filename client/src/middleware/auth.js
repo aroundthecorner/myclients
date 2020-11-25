@@ -1,5 +1,5 @@
 export default function auth({ to, next, router }) {
-    let user = localStorage.getItem('scaffold_app_name_user')
+    let user = localStorage.getItem('myclients_user')
 
     if (!user) {
         return next('/login')

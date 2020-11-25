@@ -22,7 +22,7 @@ export default {
         {
             Object.assign(state, { ...user });
 
-            localStorage.setItem('scaffold_app_name_user', JSON.stringify(user))
+            localStorage.setItem('myclients_user', JSON.stringify(user))
         },
     },
 }

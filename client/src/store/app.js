@@ -5,7 +5,7 @@ export default {
     {
         return {
             theme: 'dark',
-            app_name: 'scaffold_app_name',
+            app_name: 'myclients',
         }
     },
 

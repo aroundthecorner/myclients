@@ -6,7 +6,7 @@ function useURL()
     }
 
     const authHeaders = {
-        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('scaffold_app_name_user'))?.token,
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('myclients_user'))?.token,
     }
 
     /**

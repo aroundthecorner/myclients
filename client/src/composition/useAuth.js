@@ -76,7 +76,7 @@ function useAuth()
      */
     function userLoggedIn()
     {
-        return localStorage.getItem('scaffold_app_name_user') !== null
+        return localStorage.getItem('myclients_user') !== null
     }
 
     /**
@@ -98,7 +98,7 @@ function useAuth()
      */
     function restoreSession()
     {
-        let user = localStorage.getItem('scaffold_app_name_user')
+        let user = localStorage.getItem('myclients_user')
 
         if (user) {
             store.dispatch('user/setUser', JSON.parse(user))

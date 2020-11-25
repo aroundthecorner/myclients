@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>scaffold_login_page_title</title>
+        <title>Login - myClients</title>
     </teleport>
 
     <div class="login-page">

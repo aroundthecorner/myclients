@@ -2,8 +2,8 @@ version: '3'
 services:
 
   # Nginx client server
-  scaffold-nginx-client:
-    container_name: scaffold-nginx-client
+  myclients-nginx-client:
+    container_name: myclients-nginx-client
     build:
         context: .                  # (!) Dockerfile doesn't see anything outside of this context
         dockerfile: ./docker/nginx-client/Dockerfile
@@ -21,17 +21,17 @@ services:
 
 
   # MySQL server for the server side app
-  scaffold-mysql-server:
+  myclients-mysql-server:
     image: mysql:5.7.22
-    container_name: scaffold-mysql-server
+    container_name: myclients-mysql-server
     restart: always
     tty: true
     ports:
       - "16370:3306"
     environment:
       MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD: scaffold_password
-      MYSQL_DATABASE: scaffold_database
+      MYSQL_ROOT_PASSWORD: m1c*liE_ntS-p@awz88**z
+      MYSQL_DATABASE: myclients
     volumes:
       - ./docker/mysql-server/my.cnf:/etc/mysql/my.cnf
     networks:
@@ -39,8 +39,8 @@ services:
 
 
   # Nginx server for the server side app
-  scaffold-nginx-server:
-    container_name: scaffold-nginx-server
+  myclients-nginx-server:
+    container_name: myclients-nginx-server
     image: nginx:1.17-alpine
     restart: always
     ports:
@@ -49,18 +49,18 @@ services:
       - ./server:/var/www
       - ./docker/nginx-server/etc/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
-    - scaffold-php-server
-    - scaffold-mysql-server
+    - myclients-php-server
+    - myclients-mysql-server
     networks:
       - app-network
 
 
   # PHP server for the server side app
-  scaffold-php-server:
+  myclients-php-server:
     build:
       context: .        # (!) Dockerfile doesn't see anything outside of this context
       dockerfile: ./docker/php-server/Dockerfile
-    container_name: scaffold-php-server
+    container_name: myclients-php-server
     restart: always
     tty: true
     environment:
@@ -74,7 +74,7 @@ services:
     networks:
       - app-network
     depends_on:
-      - scaffold-mysql-server
+      - myclients-mysql-server
 
 
 # Networks
