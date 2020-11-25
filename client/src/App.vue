@@ -4,24 +4,15 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import { computed } from 'vue'
     import { useStore } from 'vuex'
     import useAuth from './composition/useAuth.js'
 
-    export default {
-        setup()
-        {
-            const { restoreSession } = useAuth()
-            const store = useStore()
+    const { restoreSession } = useAuth()
+    const store = useStore()
 
-            const app = computed(() => store.state.app)
+    const app = computed(() => store.state.app)
 
-            restoreSession()
-
-            return {
-                app
-            }
-        },
-    }
+    restoreSession()
 </script>

@@ -32,22 +32,13 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import router from '../routes.js'
     import useAuth from '../composition/useAuth.js'
 
-    export default {
-        setup()
-        {
-            const { login, username, password, isLoading, userLoggedIn } = useAuth()
+    const { login, username, password, isLoading, userLoggedIn } = useAuth()
 
-            if (userLoggedIn()) {
-                router.push({ name: "home" })
-            }
-
-            return {
-                login, username, password, isLoading
-            }
-        },
+    if (userLoggedIn()) {
+        router.push({ name: "home" })
     }
 </script>
