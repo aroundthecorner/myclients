@@ -18,6 +18,8 @@ $ cd myClients
 $ docker-compose up -d
 ````
 
+The app will be running at [http://localhost:47344/](http://localhost:47344/)
+
 ### 📑 License
 
 [MIT](http://opensource.org/licenses/MIT)
