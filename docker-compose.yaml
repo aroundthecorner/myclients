@@ -1,0 +1,83 @@
+version: '3'
+services:
+
+  # Nginx client server
+  scaffold-nginx-client:
+    container_name: scaffold-nginx-client
+    build:
+        context: .                  # (!) Dockerfile doesn't see anything outside of this context
+        dockerfile: ./docker/nginx-client/Dockerfile
+    restart: always
+    stdin_open: true                # Needed for HMR
+    environment:
+      - CHOKIDAR_USEPOLLING=true    # Needed for HMR
+    ports:
+      - 15319:3000
+    volumes:
+      - ./client:/var/www
+      - /var/www/node_modules       # We need this volume so that it won't be overwritten by our bind mount. Since node_modules on the host is empty, the bind will map an empty directory to the container, overriding the new node_modules directory and preventing our application from starting. The named node_modules volume solves this problem by persisting the contents of the node_modules directory and mounting it to the container, hiding the bind.
+    networks:
+      - app-network
+
+
+  # MySQL server for the server side app
+  scaffold-mysql-server:
+    image: mysql:5.7.22
+    container_name: scaffold-mysql-server
+    restart: always
+    tty: true
+    ports:
+      - "37092:3306"
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: scaffold_password
+      MYSQL_DATABASE: scaffold_database
+    volumes:
+      - ./docker/mysql-server/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - app-network
+
+
+  # Nginx server for the server side app
+  scaffold-nginx-server:
+    container_name: scaffold-nginx-server
+    image: nginx:1.17-alpine
+    restart: always
+    ports:
+      - 50846:80
+    volumes:
+      - ./server:/var/www
+      - ./docker/nginx-server/etc/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+    - scaffold-php-server
+    - scaffold-mysql-server
+    networks:
+      - app-network
+
+
+  # PHP server for the server side app
+  scaffold-php-server:
+    build:
+      context: .        # (!) Dockerfile doesn't see anything outside of this context
+      dockerfile: ./docker/php-server/Dockerfile
+    container_name: scaffold-php-server
+    restart: always
+    tty: true
+    environment:
+      SERVICE_NAME: php
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./server:/var/www
+      - ./docker/php-server/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - /var/www/vendor       # We need this volume so that it won't be overwritten by our bind mount. Since vendor on the host is empty, the bind will map an empty directory to the container, overriding the new vendor directory and preventing our application from starting. The named vendor volume solves this problem by persisting the contents of the vendor directory and mounting it to the container, hiding the bind.
+    networks:
+      - app-network
+    depends_on:
+      - scaffold-mysql-server
+
+
+# Networks
+networks:
+  app-network:
+    driver: bridge
