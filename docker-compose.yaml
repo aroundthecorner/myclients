@@ -12,7 +12,7 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true    # Needed for HMR
     ports:
-      - 15319:3000
+      - 47344:3000
     volumes:
       - ./client:/var/www
       - /var/www/node_modules       # We need this volume so that it won't be overwritten by our bind mount. Since node_modules on the host is empty, the bind will map an empty directory to the container, overriding the new node_modules directory and preventing our application from starting. The named node_modules volume solves this problem by persisting the contents of the node_modules directory and mounting it to the container, hiding the bind.
@@ -27,7 +27,7 @@ services:
     restart: always
     tty: true
     ports:
-      - "37092:3306"
+      - "16370:3306"
     environment:
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: scaffold_password
@@ -44,7 +44,7 @@ services:
     image: nginx:1.17-alpine
     restart: always
     ports:
-      - 50846:80
+      - 64794:80
     volumes:
       - ./server:/var/www
       - ./docker/nginx-server/etc/nginx/conf.d:/etc/nginx/conf.d
