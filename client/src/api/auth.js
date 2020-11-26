@@ -1,5 +1,5 @@
-import useEnv from '../composition/useEnv.js'
-import useHTTP from '../composition/useHTTP.js'
+import useEnv from '../features/useEnv.js'
+import useHTTP from '../features/useHTTP.js'
 
 class Auth
 {

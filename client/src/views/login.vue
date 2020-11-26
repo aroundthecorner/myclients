@@ -34,7 +34,7 @@
 
 <script setup>
     import router from '../routes.js'
-    import useAuth from '../composition/useAuth.js'
+    import useAuth from '../features/useAuth.js'
 
     const { login, username, password, isLoading, userLoggedIn } = useAuth()
 

@@ -7,7 +7,7 @@
 <script setup>
     import { computed } from 'vue'
     import { useStore } from 'vuex'
-    import useAuth from './composition/useAuth.js'
+    import useAuth from './features/useAuth.js'
 
     const store = useStore()
     const { restoreSession } = useAuth()
