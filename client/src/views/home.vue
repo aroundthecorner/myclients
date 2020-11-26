@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>myClients - online appointment scheduling app</title>
+        <title>myclients - online appointment scheduling app</title>
     </teleport>
 
     Home

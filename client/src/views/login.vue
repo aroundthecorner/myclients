@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Login - myClients</title>
+        <title>Login - myclients</title>
     </teleport>
 
     <div class="login-page">
