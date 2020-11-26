@@ -3,8 +3,29 @@
         <title>Login - myclients</title>
     </teleport>
 
-    <div class="login-page">
-        <div class="login-box__label">Username</div>
+    <div class="login-page__logo-container">
+        <img
+            class="login-page__logo"
+            src="/img/full_logo400.png"
+            alt="Logo"
+        />
+    </div>
+
+    <div class="login-page__main">
+        <div class="login-page__illustration">
+            <img
+                class="login-page__illustration-img"
+                src="/img/login_illustration.png"
+                alt="Illustration"
+            />
+        </div>
+
+        <div class="login-page__login-form">
+            Login form
+        </div>
+    </div>
+
+        <!-- <div class="login-box__label">Username</div>
 
         <input
             @keyup.enter="login"
@@ -28,8 +49,7 @@
             :class="{ 'app-button--loading': isLoading }">
 
             Log in
-        </div>
-    </div>
+        </div> -->
 </template>
 
 <script setup>
