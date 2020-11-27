@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Raleway';
+    src: local('Raleway'), url('/fonts/Raleway.ttf') format('truetype');
+}
+
 .page {
     min-height: 100vh;
     background-color: #f8fafb;
@@ -16,10 +21,11 @@
     display: flex;
     margin-top: 130px;
     height: calc(100vh - 400px);
+    gap: 60px;
 }
 
 .login-page__illustration {
-    flex: 1;
+    flex: 5;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -30,5 +36,112 @@
 }
 
 .login-page__login-form {
+    flex: 4;
+}
+
+.login-page__form-container {
+    width: 470px;
+}
+
+.login-page__form {
+    background: white;
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 50px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.login-page__title {
+    font-size: 50px;
+    font-family: "Raleway";
+    color: #182c40;
+}
+
+.login-page__subtitle {
+    font-size: 20px;
+    color: #3f566e;
+}
+
+.login-page__field {
+    display: flex;
+    padding: 20px 20px;
+}
+
+.login-page__field--username {
+    background: #edf2f5;
+}
+
+.login-page__field-container {
+    margin-left: 30px;
+}
+
+.login-page__field-label {
+    color: #7c869e;
+}
+
+.login-page__login-check {
+    background: #00ac39;
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.login-page__login-check-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 45px;
+}
+
+.login-page__field-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page__field-container {
     flex: 1;
+}
+
+.login-page__forgot-password {
+    text-align: right;
+    margin: 6px 16px 10px 10px;
+    font-size: 15px;
+}
+
+.login-page__forgot-link {
+    color: #7c869e;
+}
+
+.login-page__field-input {
+    width: 100%;
+}
+
+.login-page__buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.button {
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    padding: 12px 30px;
+    font-family: Raleway;
+    color: rgb(92, 104, 129);
+    font-variation-settings: "wght" 600;
+    box-shadow: 6px 4px 16px -16px rgba(0,0,0,0.56);
+    cursor: pointer;
+    user-select: none;
+}
+
+.button--primary {
+    background: linear-gradient(137deg, #37a0f6 0%, #3f87fb 90%);
+    color: #fff;
 }
