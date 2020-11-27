@@ -3,18 +3,36 @@
     src: local('Raleway'), url('/fonts/Raleway.ttf') format('truetype');
 }
 
+.v-spacer-50 {
+    height: 50px;
+}
+
 .page {
     min-height: 100vh;
     background-color: #f8fafb;
+    overflow: auto;
+    padding-bottom: 100px;
 }
 
 .login-page__logo-container {
     padding: 30px 0px 0px 38px;
 }
 
+@media only screen and (max-width: 1090px) {
+    .login-page__logo-container {
+        padding: 30px 0px 0px 0px;
+    }
+}
+
 .login-page__logo {
     height: 50px;
     display: block;
+}
+
+@media only screen and (max-width: 1090px) {
+    .login-page__logo {
+        margin: 0 auto;
+    }
 }
 
 .login-page__main {
@@ -31,16 +49,95 @@
     align-items: center;
 }
 
+@media only screen and (max-width: 1360px) {
+    .login-page__illustration {
+        flex: 1;
+    }
+}
+
+@media only screen and (max-width: 1090px) {
+    .login-page__illustration {
+        display: none;
+    }
+}
+
 .login-page__illustration-img {
     max-width: 100%;
 }
 
+@media only screen and (max-width: 1530px) {
+    .login-page__illustration-img {
+        width: 690px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .login-page__illustration-img {
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    .login-page__illustration-img {
+        width: 530px;
+    }
+}
+
+@media only screen and (max-width: 1256px) {
+    .login-page__illustration-img {
+        width: 450px;
+    }
+}
+
 .login-page__login-form {
+    padding-top: 30px;
     flex: 4;
+}
+
+@media only screen and (max-width: 1360px) {
+    .login-page__login-form {
+        flex: 1;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .login-page__login-form {
+        padding-top: 60px;
+    }
+}
+
+@media only screen and (max-height: 944px) {
+    .login-page__login-form {
+        padding-top: 0px;
+    }
+}
+
+@media only screen and (max-height: 850px) {
+    .login-page__login-form {
+        margin-top: -60px;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .login-page__login-form {
+        margin-top: -110px;
+    }
 }
 
 .login-page__form-container {
     width: 470px;
+}
+
+@media only screen and (max-width: 1090px) {
+    .login-page__form-container {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .login-page__form-container {
+        width: 90%;
+    }
 }
 
 .login-page__form {
@@ -59,9 +156,33 @@
     color: #182c40;
 }
 
+@media only screen and (max-width: 1090px) {
+    .login-page__title {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .login-page__title {
+        font-size: 40px;
+    }
+}
+
 .login-page__subtitle {
     font-size: 20px;
     color: #3f566e;
+}
+
+@media only screen and (max-width: 1090px) {
+    .login-page__subtitle {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .login-page__subtitle {
+        padding: 0 30px;
+    }
 }
 
 .login-page__field {
@@ -124,6 +245,18 @@
     margin-top: 30px;
     display: flex;
     gap: 20px;
+}
+
+@media only screen and (max-width: 1090px) {
+    .login-page__buttons {
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 385px) {
+    .login-page__buttons {
+        flex-direction: column;
+    }
 }
 
 .button {
