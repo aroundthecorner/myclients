@@ -4,7 +4,7 @@ export default {
     state()
     {
         return {
-            theme: 'dark',
+            theme: 'light',
             app_name: 'myclients',
         }
     },

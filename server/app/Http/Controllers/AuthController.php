@@ -77,4 +77,18 @@ class AuthController extends Controller
             'user' => $user,
         ]);
     }
+
+    /**
+     * Check if a username exists
+     */
+    public function checkUserExists()
+    {
+        $username = request('username');
+
+        $user = User::whereUsername($username)->first();
+
+        return response()->json([
+            'user_exists' => ($user) ? true : false
+        ]);
+    }
 }

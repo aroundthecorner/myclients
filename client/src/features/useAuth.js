@@ -9,6 +9,7 @@ function useAuth()
     const username = ref('admin')
     const password = ref('password')
     const isLoading = ref(false)
+    const userExists = ref(false)
 
     /**
      * Perform user login
@@ -105,8 +106,21 @@ function useAuth()
         }
     }
 
+    /**
+     * Check if user exists
+     */
+    async function checkUserExists()
+    {
+        const result = await Auth.checkUserExists({
+            username: username.value,
+        })
+
+        userExists.value = result
+    }
+
     return {
-        login, username, password, isLoading, userLoggedIn, restoreSession
+        login, username, password, isLoading, userLoggedIn, restoreSession,
+        checkUserExists, userExists,
     }
 }
 

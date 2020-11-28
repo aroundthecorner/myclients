@@ -1,0 +1,16 @@
+<template>
+    <svg class="v-progress-circular" xmlns="http://www.w3.org/2000/svg" viewBox="21.904761904761905 21.904761904761905 43.80952380952381 43.80952380952381" :style="{ 'width': width }">
+        <circle fill="transparent" cx="43.80952380952381" cy="43.80952380952381" r="20" stroke-width="3.8095238095238093" stroke-dasharray="125.664" stroke-dashoffset="125.66370614359172px" class="v-progress-circular__overlay" :style="{ 'stroke-width': strokeWidth, 'color': color }">
+        </circle>
+    </svg>
+</template>
+
+<script setup>
+    import { defineProps } from 'vue'
+
+    const props = defineProps({
+        strokeWidth: Number,
+        color: String,
+        width: String,
+    })
+</script>
