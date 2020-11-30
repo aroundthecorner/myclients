@@ -4,6 +4,7 @@ import routes from './routes.js'
 import store from './store/index.js'
 import '/css/reboot.css'
 import '/css/material-icons.css'
+import '/css/line-awesome.min.css'
 import '/css/style.css'
 import '/css/style-dark.css'
 
