@@ -19,6 +19,11 @@
     --color-shazam: rgba(0,0,0,.87);
     --color-fighter: #ffffffbd;
     --color-ninja: #f8f8f8;
+    --color-brady: #f5f6fa;
+    --color-winney: #efefef;
+    --color-jerry: #b5b5b5;
+    --color-disco: #404040;
+    --color-xing: #43b0ff;
     --shadow-oreo: 6px 4px 16px -16px rgba(0,0,0,0.56);
 }
 
@@ -337,9 +342,6 @@
     color: var(--color-shazam);
     font-size: .875rem;
     fill: transparent;
-    cx: 43.8095;
-    cy: 43.8095;
-    r: 20;
     stroke-width: 3.80952;
     background-repeat: no-repeat;
     box-sizing: inherit;
@@ -368,4 +370,88 @@
         stroke-dasharray: 100,200;
         stroke-dashoffset: -125px;
     }
+}
+
+.app-page {
+    background: var(--color-brady);
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: var(--color-yin);
+    width: 240px;
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+}
+
+.sidebar__item {
+    padding: 16px 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-radius: 10px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.sidebar__item:hover .sidebar__icon,
+.sidebar__item:hover .sidebar__item-text {
+    color: var(--color-xing);
+}
+
+.sidebar__item * {
+    cursor: pointer;
+}
+
+.sidebar__item:hover {
+    background: var(--color-winney);
+}
+
+.sidebar__icon {
+    font-size: 23px;
+    color: var(--color-jerry);
+}
+
+.sidebar__item-text {
+    font-weight: 600;
+    color: var(--color-disco);
+}
+
+::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    height: 8px;
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    visibility: hidden;
+}
+::-webkit-scrollbar-thumb {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #dadce0;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    min-height: 40px;
+}
+
+:hover::-webkit-scrollbar {
+    visibility: visible;
+}
+
+:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+:hover::-webkit-scrollbar-thumb {
+    background: #bdc1c6;
 }
