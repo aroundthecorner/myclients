@@ -399,6 +399,24 @@
     cursor: pointer;
 }
 
+.sidebar__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 5px 0px 20px;
+}
+
+.sidebar__fullname {
+    font-weight: bold;
+}
+
+.sidebar__profile-pic {
+    padding: 10px;
+    border: 1px dashed var(--color-xing);
+    border-radius: 50%;
+}
+
 .sidebar__item:hover .sidebar__icon,
 .sidebar__item:hover .sidebar__item-text {
     color: var(--color-xing);
