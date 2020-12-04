@@ -4,26 +4,27 @@
 }
 
 [data-theme="aconite"] {
-    --color-primary: #5c6881;
-    --color-text: #5c6881;
     --color-yin: #fff;
     --color-yang: #000;
     --color-joy: #f8fafb;
-    --color-irony: #f2f2f2;
-    --color-harvest: #182c40;
-    --color-hippo: #3f566e;
+    --color-text: #5c6881;
+    --color-body: #212529;
     --color-dino: #edf2f5;
-    --color-cuddy: #7c869e;
     --color-dawn: #00ac39;
-    --color-penny: linear-gradient(137deg, #37a0f6 0%, #3f87fb 90%);
-    --color-shazam: rgba(0,0,0,.87);
-    --color-fighter: #ffffffbd;
+    --color-xing: #43b0ff;
+    --color-irony: #f2f2f2;
+    --color-hippo: #3f566e;
+    --color-cuddy: #7c869e;
     --color-ninja: #f8f8f8;
     --color-brady: #f5f6fa;
-    --color-winney: #efefef;
     --color-jerry: #b5b5b5;
     --color-disco: #404040;
-    --color-xing: #43b0ff;
+    --color-winney: #efefef;
+    --color-primary: #5c6881;
+    --color-harvest: #182c40;
+    --color-fighter: #ffffffbd;
+    --color-shazam: rgba(0,0,0,.87);
+    --color-penny: linear-gradient(137deg, #37a0f6 0%, #3f87fb 90%);
     --shadow-oreo: 6px 4px 16px -16px rgba(0,0,0,0.56);
 }
 
@@ -409,6 +410,7 @@
 
 .sidebar__fullname {
     font-weight: bold;
+    color: var(--color-disco);
 }
 
 .sidebar__profile-pic {

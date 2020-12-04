@@ -1,3 +1,45 @@
 [data-theme="azkaban"] {
-    
+    --color-text: #5c6881;
+    --color-body: #757981;
+    --color-zewa: #8dadc4;
+    --color-kobe: #282c34;
+    --color-fury: #d7dae0;
+    --color-jonin: #b5b5b5;
+    --color-celly: #7584a5;
+    --color-primary: #5c6881;
+    --color-passion: #333842;
+    --color-highlighter-1: #ffffff0d;
+}
+
+[data-theme="azkaban"] .sidebar {
+    background: var(--color-passion);
+}
+
+[data-theme="azkaban"] .sidebar__icon {
+    color: var(--color-body);
+}
+
+[data-theme="azkaban"] .sidebar__item-text {
+    color: var(--color-body);
+}
+
+[data-theme="azkaban"] .sidebar__item:hover .sidebar__icon,
+[data-theme="azkaban"] .sidebar__item:hover .sidebar__item-text {
+    color: var(--color-jonin);
+}
+
+[data-theme="azkaban"] .app-page {
+    background: var(--color-kobe);
+}
+
+[data-theme="azkaban"] .sidebar__fullname {
+    color: var(--color-body);
+}
+
+[data-theme="azkaban"] .sidebar__item:hover {
+    background: var(--color-highlighter-1);
+}
+
+[data-theme="azkaban"] .sidebar__profile-pic {
+    border: 1px dashed var(--color-celly);
 }
