@@ -3,7 +3,7 @@
     src: local('Raleway'), url('/fonts/Raleway.ttf') format('truetype');
 }
 
-[data-theme="light"] {
+[data-theme="aconite"] {
     --color-primary: #5c6881;
     --color-text: #5c6881;
     --color-yin: #fff;
