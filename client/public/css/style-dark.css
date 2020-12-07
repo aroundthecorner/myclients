@@ -43,3 +43,7 @@
 [data-theme="azkaban"] .sidebar__profile-pic {
     border: 1px dashed var(--color-celly);
 }
+
+[data-theme="azkaban"] :hover::-webkit-scrollbar-thumb {
+    background: var(--color-highlighter-1);
+}

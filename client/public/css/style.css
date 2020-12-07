@@ -32,6 +32,10 @@
     height: 50px;
 }
 
+.spacer {
+    flex: 1;
+}
+
 .page {
     min-height: 100vh;
     background-color: var(--color-joy);
@@ -391,13 +395,14 @@
 }
 
 .sidebar__item {
-    padding: 16px 20px;
+    padding: 15px 20px;
     display: flex;
     gap: 15px;
     align-items: center;
     border-radius: 10px;
-    transition: .2s;
+    transition: all 0.2s ease 0s;
     cursor: pointer;
+    margin: 6px 0px;
 }
 
 .sidebar__profile {
