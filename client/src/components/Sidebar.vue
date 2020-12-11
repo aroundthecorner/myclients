@@ -1,8 +1,4 @@
 <template>
-    <teleport to="head">
-        <title>myclients - Online Apointment Scheduling App</title>
-    </teleport>
-
     <div class="sidebar">
         <div class="sidebar__profile">
             <img
@@ -15,15 +11,15 @@
             </div>
         </div>
 
-        <div class="sidebar__item">
+        <router-link to="/" class="sidebar__item">
             <i class="sidebar__icon lab la-buffer"></i>
             <span class="sidebar__item-text">Dashboard</span>
-        </div>
+        </router-link>
 
-        <div class="sidebar__item">
+         <router-link to="/calendar" class="sidebar__item">
             <i class="sidebar__icon las la-calendar"></i>
             <span class="sidebar__item-text">Calendar</span>
-        </div>
+        </router-link>
 
         <div class="sidebar__item">
             <i class="sidebar__icon las la-calendar-check"></i>

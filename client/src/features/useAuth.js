@@ -27,7 +27,7 @@ function useAuth()
 
         if (loginSuccessful(result)) {
             setUserInStore(result.user, result.access_token)
-            goToRoute('home')
+            goToRouteBeforeLogin()
         } else {
             showErrorMessage(result?.message ?? 'Error')
         }
@@ -63,10 +63,10 @@ function useAuth()
      * 
      * @param route string
      */
-    function goToRoute(route)
+    function goToRouteBeforeLogin()
     {
         router.push({
-            name: "home"
+            path: localStorage.getItem('myclients_path_before_login')
         })
     }
 

@@ -12,7 +12,9 @@
     "axios": "^0.21.0",
     "vue": "^3.0.3",
     "vue-router": "^4.0.0-rc.5",
-    "vuex": "^4.0.0-rc.2"
+    "vuex": "^4.0.0-rc.2",
+    "@vueuse/core": "4.0.0-rc.8",
+    "@aacassandra/vue3-progressbar": "^1.0.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

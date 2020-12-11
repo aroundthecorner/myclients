@@ -118,6 +118,6 @@
             checkUserExists, userExists } = useAuth()
 
     if (userLoggedIn()) {
-        router.push({ name: "home" })
+        router.push({ name: "dashboard" })
     }
 </script>

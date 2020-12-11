@@ -1,22 +1,28 @@
 import { createWebHistory, createRouter } from "vue-router"
 
+import auth from './middleware/auth.js'
 import AppLayout from "./views/layouts/app.vue"
 import LoginLayout from "./views/layouts/login.vue"
-import Home from "./views/home.vue"
-import Login from "./views/login.vue"
-import auth from './middleware/auth.js'
 
 const routes = [
     {
         path: "/",
         component: AppLayout,
+
         children: [
             {
                 path: '',
-                name: "home",
-                component: Home,
-            }
+                name: "dashboard",
+                component: () => import('./views/dashboard.vue'),
+            },
+
+            {
+                path: '/calendar',
+                name: "calendar",
+                component: () => import('./views/calendar.vue'),
+            },
         ],
+
         meta: {
             middleware: [ auth ],
         },
@@ -29,7 +35,7 @@ const routes = [
             {
                 path: '',
                 name: "login",
-                component: Login,
+                component: () => import('./views/login.vue'),
             }
         ],
     },

@@ -59,14 +59,14 @@
     color: #6c6c6c;
 }
 
-.home-main {
+.dashboard-main {
     display: flex;
     background: #f4f4f4;
     min-height: calc(100vh - 70px);
 }
 
 @media only screen and (max-width: 660px) {
-    .home-main {
+    .dashboard-main {
         display: block;
     }
 }
@@ -243,8 +243,8 @@
 }
 
 
-/* Home tasks */
-.home-tasks {
+/* dashboard tasks */
+.dashboard-tasks {
     padding: 26px 28px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));

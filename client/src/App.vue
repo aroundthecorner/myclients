@@ -1,5 +1,6 @@
 <template>
     <div :data-theme="app.theme" class="app-wrapper">
+        <vue-progress-bar />
         <router-view></router-view>
     </div>
 </template>
