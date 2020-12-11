@@ -23,8 +23,34 @@ function useCalendar()
         return hours
     }
 
+    /**
+     * Scrolls calendar to current time
+     */
+    function scrollToCurrentTime()
+    {
+        let date = new Date()
+        let time = (date.getHours() - 2) + ':00'
+        let timeRow = document.getElementById(time)
+
+        if (timeRow) {
+            document.getElementById(time).scrollIntoView()
+        }
+    }
+
+    /**
+     * Get current time in decimal format
+     */
+    function getDecimalTime()
+    {
+        let date = new Date()
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+
+        return parseFloat(hours + (minutes / 60)).toFixed(2)
+    }
+
     return {
-        generateHours
+        generateHours, scrollToCurrentTime, getDecimalTime
     }
 }
 

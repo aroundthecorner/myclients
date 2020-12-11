@@ -15,7 +15,7 @@
                     <div class="calendar__row">
                         <img
                             class="calendar__profile-pic"
-                            src="/img/fake_person_2.jpg"
+                            :src="`/img/fake_person_${n}.jpg`"
                         />
 
                         <div class="calendar__fullname">
@@ -46,11 +46,35 @@
 
                 <!-- Providers -->
                 <div class="calendar__column" v-for="n in 4">
-                    <div v-if="n < 2" class="event"></div>
+                    <div
+                        class="calendar__hour-line"
+                        :style="{ 'top': decimalTime * 70 + 'px' }">
+                    </div>
+
+                    <div
+                        v-if="n == 1"
+                        class="calendar__hour-dot"
+                        :style="{ 'top': (decimalTime * 70) - 4 + 'px' }">
+                    </div>
+
+                    <div v-if="n < 2" class="calendar__event">
+                        <div class="calendar__event-title">
+                            Hot stone therapy
+                        </div>
+
+                        <div class="calendar__event-time">
+                            1:30 - 14:25
+                        </div>
+
+                        <div class="calendar__event-description">
+                            Some more info here...
+                        </div>
+                    </div>
 
                     <div
                         v-if="n == 2"
-                        class="event">
+                        class="calendar__event"
+                        style="top: 875px; height: 122.50px">
                     </div>
 
                     <div
@@ -65,13 +89,21 @@
 </template>
 
 <script setup>
-    import { onMounted } from 'vue'
+    import { onMounted, ref } from 'vue'
     import useCalendar from '../features/useCalendar.js'
 
-    const { generateHours } = useCalendar()
+    const { generateHours, scrollToCurrentTime, getDecimalTime } = useCalendar()
 
     const hours = generateHours()
-    
+    const decimalTime = ref(0)
+
+    decimalTime.value = getDecimalTime()
+
+    setInterval(() => {
+        decimalTime.value = getDecimalTime()
+        scrollToCurrentTime()
+    }, 10000)
+
     const events = [
         {
             id: 1,
@@ -86,10 +118,10 @@
     ]
 
     onMounted(() => {
-        document.getElementById('11:00').scrollIntoView()
+        scrollToCurrentTime()
 
         setTimeout(() => {
-            document.getElementById('11:00').scrollIntoView()
+            scrollToCurrentTime()
         }, 500)
     })
 </script>

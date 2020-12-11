@@ -12,6 +12,7 @@
     --color-dino: #edf2f5;
     --color-dawn: #00ac39;
     --color-xing: #43b0ff;
+    --color-esther: #a1d8ff;
     --color-irony: #f2f2f2;
     --color-hippo: #3f566e;
     --color-cuddy: #7c869e;
@@ -549,7 +550,7 @@
     background: var(--color-yin);
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 4;
     padding: 20px 0;
     box-shadow: 0px 2px 25px -24px rgba(0,0,0,0.75);
     opacity: 0.96;
@@ -563,6 +564,7 @@
 .calendar__profile-pic {
     border-radius: 50%;
     width: 60px;
+    border: 4px solid #0000001a;
 }
 
 .calendar__fullname {
@@ -571,7 +573,7 @@
     font-weight: bold;
 }
 
-.event {
+.calendar__event {
     position: absolute;
     width: 90%;
     height: 170px;
@@ -581,4 +583,38 @@
     top: 210px; /* 70 * 3h */
     transform: translateX(-50%);
     z-index: 2;
+    color: var(--color-yin);
+    padding: 10px 12px;
+}
+
+.calendar__hour-line {
+    position: absolute;
+    top: 245px;
+    height: 2px;
+    background: var(--color-esther);
+    width: 100%;
+    z-index: 3;
+}
+
+.calendar__hour-dot {
+    position: absolute;
+    top: 216px;
+    left: -6px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-esther);
+    border-radius: 50%;
+}
+
+.calendar__event-title {
+    font-weight: bold;
+}
+
+.calendar__event-time {
+    font-size: 14px;
+}
+
+.calendar__event-description {
+    margin-top: 10px;
+    font-size: 15px;
 }
