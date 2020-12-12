@@ -4,6 +4,9 @@
     </teleport>
 
     <div class="page">
+        <!-- Calendar toolbar -->
+        <calendar-toolbar />
+
         <div class="calendar">
             <!-- Head row -->
             <div class="calendar__head-row">
@@ -90,8 +93,9 @@
 
 <script setup>
     import { onMounted, ref, inject } from 'vue'
-    import { onBeforeRouteLeave } from 'vue-router';
+    import { onBeforeRouteLeave } from 'vue-router'
     import useCalendar from '../features/useCalendar.js'
+    import CalendarToolbar from '../components/Calendar/CalendarToolbar.vue'
 
     const { generateHours, getDecimalTime } = useCalendar()
     const progressBar = inject('progressBar')

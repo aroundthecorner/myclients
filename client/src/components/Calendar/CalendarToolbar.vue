@@ -1,0 +1,80 @@
+<template>
+    <div class="calendar-toolbar">
+        <div class="calendar-toolbar__row">
+            <app-button
+                class="button--primary"
+                loading-color="#fff">
+                Add appointment
+            </app-button>
+
+            <app-button>
+                Filters
+            </app-button>
+
+            <div class="calendar-toolbar__arrow">
+                <svg-left-arrow />
+            </div>
+
+            <div class="calendar-toolbar__arrow">
+                <svg-right-arrow />
+            </div>
+
+            <div class="calendar-toolbar__date">
+                December 12, 2020
+            </div>
+
+            <app-button
+                class="button--primary"
+                loading-color="#fff">
+                Day
+            </app-button>
+
+            <app-button>
+                Week
+            </app-button>
+
+            <app-button>
+                Month
+            </app-button>
+        </div>
+
+        <div class="calendar-toolbar__row">
+            <app-button>
+                <div class="button__select-content">
+                    <span>Location</span>
+                    
+                    <div class="button__icon">
+                        <svg-down-arrow />
+                    </div>
+                </div>
+            </app-button>
+
+            <app-button>
+                <div class="button__select-content">
+                    <span>Providers</span>
+                    
+                    <div class="button__icon">
+                        <svg-down-arrow />
+                    </div>
+                </div>
+            </app-button>
+
+            <app-button>
+                <div class="button__select-content">
+                    <span>Services</span>
+                    
+                    <div class="button__icon">
+                        <svg-down-arrow />
+                    </div>
+                </div>
+            </app-button>
+        </div>
+    </div>
+</template>
+
+<script setup>
+    import AppButton from '../Button.vue'
+    import SvgLeftArrow from '../Svg/LeftArrow.vue'
+    import SvgDownArrow from '../Svg/DownArrow.vue'
+    import SvgRightArrow from '../Svg/RightArrow.vue'
+</script>
