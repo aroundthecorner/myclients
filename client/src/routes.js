@@ -1,8 +1,7 @@
-import { createWebHistory, createRouter } from "vue-router"
-
 import auth from './middleware/auth.js'
 import AppLayout from "./views/layouts/app.vue"
 import LoginLayout from "./views/layouts/login.vue"
+import { createWebHistory, createRouter } from "vue-router"
 
 const routes = [
     {
@@ -65,6 +64,7 @@ function nextFactory(context, middleware, index)
 }
 
 router.beforeEach((to, from, next) => {
+    // Middleware
     if (to.meta.middleware)
     {
         const middleware = Array.isArray(to.meta.middleware)

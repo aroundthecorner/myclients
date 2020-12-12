@@ -11,27 +11,25 @@ import '/css/style-dark.css'
 
 const app = createApp(App)
 
+app.use(store)
+app.use(routes)
+
+/** The v-focus directive gives an element an initial focus */
 app.directive('focus', {
     mounted(el, binding, vnode) {
         el.focus()
     }
 })
 
-app.use(store)
-app.use(routes)
-
+/** App progress bar */
 app.use(VueProgressBar, {
-    color: "#ff0000",
+    color: "#73ccec",
     failedColor: "#874b4b",
     thickness: "5px",
-    transition: {
-        speed: "0.2s",
-        opacity: "0.6s",
-        termination: 300,
-    },
-    autoRevert: true,
-    location: "top",
-    inverse: false,
+    autoFinish: false,
 })
 
+app.provide('progressBar', app.config.globalProperties.$Progress)
+
+/** Mount the application */
 app.mount('#app')

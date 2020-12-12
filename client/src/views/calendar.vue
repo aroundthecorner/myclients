@@ -89,11 +89,19 @@
 </template>
 
 <script setup>
-    import { onMounted, ref } from 'vue'
+    import { onMounted, ref, inject } from 'vue'
+    import { onBeforeRouteLeave } from 'vue-router';
     import useCalendar from '../features/useCalendar.js'
 
     const { generateHours, scrollToCurrentTime, getDecimalTime } = useCalendar()
+    const progressBar = inject('progressBar')
+    
+    // Start progress bar on navigation
+    onBeforeRouteLeave(() => {
+        progressBar.start()
+    })
 
+    // Calendar hours
     const hours = generateHours()
     const decimalTime = ref(0)
 
@@ -101,7 +109,6 @@
 
     setInterval(() => {
         decimalTime.value = getDecimalTime()
-        scrollToCurrentTime()
     }, 10000)
 
     const events = [
@@ -117,6 +124,7 @@
         }
     ]
 
+    // Scroll to current time
     onMounted(() => {
         scrollToCurrentTime()
 
