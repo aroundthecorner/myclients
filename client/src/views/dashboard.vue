@@ -8,8 +8,13 @@
 
 <script setup>
     import { onMounted, inject } from 'vue';
+    import { onBeforeRouteLeave } from 'vue-router';
     
     const progressBar = inject('progressBar')
+
+    onBeforeRouteLeave(() => {
+        progressBar.start()
+    })
 
     onMounted(() => {
         progressBar.finish()

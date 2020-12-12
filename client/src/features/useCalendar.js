@@ -24,20 +24,6 @@ function useCalendar()
     }
 
     /**
-     * Scrolls calendar to current time
-     */
-    function scrollToCurrentTime()
-    {
-        let date = new Date()
-        let time = (date.getHours() - 2) + ':00'
-        let timeRow = document.getElementById(time)
-
-        if (timeRow) {
-            document.getElementById(time).scrollIntoView()
-        }
-    }
-
-    /**
      * Get current time in decimal format
      */
     function getDecimalTime()
@@ -50,7 +36,7 @@ function useCalendar()
     }
 
     return {
-        generateHours, scrollToCurrentTime, getDecimalTime
+        generateHours, getDecimalTime
     }
 }
 

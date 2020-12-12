@@ -93,12 +93,15 @@
     import { onBeforeRouteLeave } from 'vue-router';
     import useCalendar from '../features/useCalendar.js'
 
-    const { generateHours, scrollToCurrentTime, getDecimalTime } = useCalendar()
+    const { generateHours, getDecimalTime } = useCalendar()
     const progressBar = inject('progressBar')
     
-    // Start progress bar on navigation
     onBeforeRouteLeave(() => {
         progressBar.start()
+    })
+
+    onMounted(() => {
+        progressBar.finish()
     })
 
     // Calendar hours
@@ -123,13 +126,4 @@
             durationDecimal: '1.75',
         }
     ]
-
-    // Scroll to current time
-    onMounted(() => {
-        scrollToCurrentTime()
-
-        setTimeout(() => {
-            scrollToCurrentTime()
-        }, 500)
-    })
 </script>

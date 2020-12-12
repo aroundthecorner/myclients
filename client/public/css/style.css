@@ -453,7 +453,8 @@
 }
 
 .sidebar__item.router-link-exact-active .sidebar__icon,
-.sidebar__item.router-link-exact-active .sidebar__item-text {
+.sidebar__item.router-link-exact-active .sidebar__item-text,
+.sidebar__item.router-link-exact-active {
     color: var(--color-xing);
 }
 
