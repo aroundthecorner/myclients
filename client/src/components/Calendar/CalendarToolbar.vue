@@ -7,7 +7,7 @@
                 Add appointment
             </app-button>
 
-            <app-button>
+            <app-button @click="toggleFilters">
                 Filters
             </app-button>
 
@@ -38,7 +38,10 @@
             </app-button>
         </div>
 
-        <div class="calendar-toolbar__row">
+        <div
+            v-if="showFilters"
+            class="calendar-toolbar__row">
+
             <app-button>
                 <div class="button__select-content">
                     <span>Location</span>
@@ -73,8 +76,16 @@
 </template>
 
 <script setup>
+    import { ref } from 'vue'
     import AppButton from '../Button.vue'
     import SvgLeftArrow from '../Svg/LeftArrow.vue'
     import SvgDownArrow from '../Svg/DownArrow.vue'
     import SvgRightArrow from '../Svg/RightArrow.vue'
+
+    const showFilters = ref(false)
+
+    function toggleFilters()
+    {
+        showFilters.value = !showFilters.value
+    }
 </script>
