@@ -22,11 +22,6 @@
         </router-link>
 
         <div class="sidebar__item">
-            <i class="sidebar__icon las la-calendar-check"></i>
-            <span class="sidebar__item-text">Appointments</span>
-        </div>
-
-        <div class="sidebar__item">
             <i class="sidebar__icon lab la-elementor"></i>
             <span class="sidebar__item-text">Services</span>
         </div>
