@@ -657,6 +657,10 @@
     cursor: pointer;
 }
 
+.calendar-toolbar__arrow:hover:active {
+    opacity: .8;
+}
+
 .calendar-toolbar__date {
     flex: 1;
     font-family: Raleway;
