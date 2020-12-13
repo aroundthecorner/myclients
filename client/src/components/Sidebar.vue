@@ -6,7 +6,7 @@
                 src="/img/profile.png"
             />
 
-            <div class="sidebar__fullname">
+            <div class="sidebar__name">
                 Martins Zeltins
             </div>
         </div>

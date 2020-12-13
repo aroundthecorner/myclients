@@ -42,7 +42,7 @@
     background: var(--color-kobe);
 }
 
-[data-theme="azkaban"] .sidebar__fullname {
+[data-theme="azkaban"] .sidebar__name {
     color: var(--color-body);
 }
 

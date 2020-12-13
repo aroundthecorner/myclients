@@ -14,7 +14,7 @@
                         :src="`/img/fake_person_${n}.jpg`"
                     />
 
-                    <div class="calendar__fullname">
+                    <div class="calendar__name">
                         Līga Zeltiņa
                     </div>
                 </div>

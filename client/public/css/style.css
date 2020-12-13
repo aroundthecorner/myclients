@@ -443,7 +443,7 @@
     margin: 5px 0px 20px;
 }
 
-.sidebar__fullname {
+.sidebar__name {
     font-weight: bold;
     color: var(--color-disco);
 }
@@ -587,7 +587,7 @@
     border: 4px solid #0000001a;
 }
 
-.calendar__fullname {
+.calendar__name {
     max-width: 100px;
     margin-left: 14px;
     font-weight: bold;
