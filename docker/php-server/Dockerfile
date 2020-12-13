@@ -41,4 +41,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 
-CMD bash -c "composer install && chmod -R 777 /var/www && php artisan migrate --seed && php-fpm"
+CMD bash -c "composer install && chmod -R 777 /var/www && php artisan storage:link && php artisan migrate --seed && php-fpm"

@@ -3,11 +3,11 @@
         <div class="sidebar__profile">
             <img
                 class="sidebar__profile-pic"
-                src="/img/profile.png"
+                :src="`${env('VITE_SERVER_URL')}/storage/img/${user.profile_picture}`"
             />
 
             <div class="sidebar__name">
-                Martins Zeltins
+                {{ user.name }}
             </div>
         </div>
 
@@ -44,3 +44,14 @@
         </div>
     </div>
 </template>
+
+<script setup>
+    import { computed } from 'vue'
+    import { useStore } from 'vuex'
+    import useEnv from '../features/useEnv.js'
+
+    const { env } = useEnv()
+    const store = useStore()
+
+    const user = computed(() => store.state.user)
+</script>

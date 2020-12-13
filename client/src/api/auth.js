@@ -9,7 +9,7 @@ class Auth
         const { jsonHeaders } = useHTTP()
 
         try {
-            const response = await fetch(`${env('VITE_API_URL')}/login`, {
+            const response = await fetch(`${env('VITE_SERVER_URL')}/login`, {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: jsonHeaders,
@@ -27,7 +27,7 @@ class Auth
         const { jsonHeaders } = useHTTP()
 
         try {
-            let response = await fetch(`${env('VITE_API_URL')}/auth/check-user-exists`, {
+            let response = await fetch(`${env('VITE_SERVER_URL')}/auth/check-user-exists`, {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: jsonHeaders,

@@ -441,6 +441,7 @@
     align-items: center;
     gap: 16px;
     margin: 5px 0px 20px;
+    cursor: pointer;
 }
 
 .sidebar__name {
@@ -451,6 +452,9 @@
 .sidebar__profile-pic {
     padding: 10px;
     border: 1px dashed var(--color-xing);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
 }
 
