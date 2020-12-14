@@ -45,6 +45,7 @@
             <dropdown-menu
                 placement="bottom"
                 offsetY="10"
+                max-height="300px"
                 v-model="showLocationMenu">
 
                 <app-button @click="showLocationMenu = !showLocationMenu">
@@ -60,7 +61,17 @@
                 <template #dropdown>
                     <div class="dropdown-menu">
                         <div class="dropdown-menu__item">E. Birznieka Upisa 99</div>
+                        <div class="dropdown-menu__item">E. Birznieka Upisa 99</div>
+                        <div class="dropdown-menu__item">E. Birznieka Upisa 99</div>
+                        <div class="dropdown-menu__item">E. Birznieka Zeltina iela 1</div>
+                        <div class="dropdown-menu__item">E. Birznieka Upisa 55</div>
+                        <div class="dropdown-menu__item">E. Birznieka Upisa 99</div>
+                        <div class="dropdown-menu__item">E. Birznieka Upisa 99</div>
+                        <div class="dropdown-menu__item">E. Birznieka Upisa 3</div>
+                        <div class="dropdown-menu__item">E. Birznieka Upisa 99</div>
                         <div class="dropdown-menu__item">A. Grina bulvaris 11 - 2</div>
+                        <div class="dropdown-menu__item">A. Grina bulvaris 11 - 2</div>
+                        <div class="dropdown-menu__item">Aleksandra Caka iela 14</div>
                         <div class="dropdown-menu__item">Aleksandra Caka iela 14</div>
                     </div>
                 </template>

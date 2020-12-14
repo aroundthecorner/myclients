@@ -497,6 +497,10 @@
     width: 8px;
 }
 
+.albus-dropdown-menu::-webkit-scrollbar {
+    background: #fff;
+}
+
 ::-webkit-scrollbar-thumb {
     border: none;
     -webkit-box-shadow: none;
@@ -687,6 +691,7 @@
     transition: .2s;
     color: #353535;
     display: block;
+    background: inherit;
 }
 
 .dropdown-menu__item:hover {

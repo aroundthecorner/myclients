@@ -12,7 +12,7 @@
             :class="{ 'albus-dropdown-visible': modelValue }"
             v-cloak
             class="albus-dropdown-menu"
-            :style="{ 'left': left + 'px', top: top + 'px', 'min-width': width + 'px' }">
+            :style="{ 'left': left + 'px', top: top + 'px', 'min-width': width + 'px', 'max-height': maxHeight }">
 
             <slot name="dropdown"></slot>
         </div>
@@ -62,6 +62,11 @@
                 type: Boolean,
                 default: true,
             },
+            
+            maxHeight: {
+                type: String,
+                default: 'auto',
+            }
         },
 
         setup(props, { emit, slots })
