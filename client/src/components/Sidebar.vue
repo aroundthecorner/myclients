@@ -1,15 +1,33 @@
 <template>
     <div class="sidebar">
-        <div class="sidebar__profile">
-            <img
-                class="sidebar__profile-pic"
-                :src="`${env('VITE_SERVER_URL')}/storage/img/${user.profile_picture}`"
-            />
+        <dropdown-menu
+            placement="right"
+            offsetY="10"
+            offsetX="-10"
+            v-model="showProfileMenu">
 
-            <div class="sidebar__name">
-                {{ user.name }}
+            <div
+                @click="showProfileMenu = !showProfileMenu"
+                class="sidebar__profile">
+
+                <img
+                    class="sidebar__profile-pic"
+                    :src="`${env('VITE_SERVER_URL')}/storage/img/${user.profile_picture}`"
+                />
+
+                <div class="sidebar__name">
+                    {{ user.name }}
+                </div>
             </div>
-        </div>
+
+            <template #dropdown>
+                <div class="dropdown-menu">
+                    <router-link to="/profile" class="dropdown-menu__item">My profile</router-link>
+                    <router-link to="/settings" class="dropdown-menu__item">Settings</router-link>
+                    <div class="dropdown-menu__item">Logout</div>
+                </div>
+            </template>
+        </dropdown-menu>
 
         <router-link to="/" class="sidebar__item">
             <i class="sidebar__icon lab la-buffer"></i>
@@ -46,12 +64,14 @@
 </template>
 
 <script setup>
-    import { computed } from 'vue'
+    import { computed, ref } from 'vue'
     import { useStore } from 'vuex'
     import useEnv from '../features/useEnv.js'
+    import DropdownMenu from './DropdownMenu.vue'
 
     const { env } = useEnv()
     const store = useStore()
 
+    const showProfileMenu = ref(false)
     const user = computed(() => store.state.user)
 </script>

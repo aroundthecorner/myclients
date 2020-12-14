@@ -1,6 +1,1 @@
-1. Add progress bar for pages
-    - Asked in Vue forums how to use the global $Progress from setup.
-    - Everything else is installed and set up.
-    - Just need to add to Router navigation guard to trigger $Progress.
-
-2. 
+1. Dropdown if gets too long text or too many items (!)

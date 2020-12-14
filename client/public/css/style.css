@@ -674,3 +674,22 @@
     font-size: 20px;
     padding-top: 10px;
 }
+
+.dropdown-menu {
+    background: #fff;
+    color: var(--color-yang);
+    padding: 7px 0;
+}
+
+.dropdown-menu__item {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: .2s;
+    color: #353535;
+    display: block;
+}
+
+.dropdown-menu__item:hover {
+    background: #eaeaea;
+    color: #353535;
+}

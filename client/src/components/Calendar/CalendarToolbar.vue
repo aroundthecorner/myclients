@@ -42,15 +42,31 @@
             v-if="showFilters"
             class="calendar-toolbar__row">
 
-            <app-button>
-                <div class="button__select-content">
-                    <span>Location</span>
-                    
-                    <div class="button__icon">
-                        <svg-down-arrow />
+            <dropdown-menu
+                placement="bottom"
+                offsetY="10"
+                v-model="showLocationMenu">
+
+                <app-button @click="showLocationMenu = !showLocationMenu">
+                    <div class="button__select-content">
+                        <span>Location</span>
+                        
+                        <div class="button__icon">
+                            <svg-down-arrow />
+                        </div>
                     </div>
-                </div>
-            </app-button>
+                </app-button>
+
+                <template #dropdown>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-menu__item">E. Birznieka Upisa 99</div>
+                        <div class="dropdown-menu__item">A. Grina bulvaris 11 - 2</div>
+                        <div class="dropdown-menu__item">Aleksandra Caka iela 14</div>
+                    </div>
+                </template>
+            </dropdown-menu>
+
+            
 
             <app-button>
                 <div class="button__select-content">
@@ -80,9 +96,11 @@
     import AppButton from '../Button.vue'
     import SvgLeftArrow from '../Svg/LeftArrow.vue'
     import SvgDownArrow from '../Svg/DownArrow.vue'
+    import DropdownMenu from './../DropdownMenu.vue'
     import SvgRightArrow from '../Svg/RightArrow.vue'
 
     const showFilters = ref(false)
+    const showLocationMenu = ref(false)
 
     function toggleFilters()
     {
