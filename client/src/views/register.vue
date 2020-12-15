@@ -12,7 +12,7 @@
             />
         </div>
 
-        <div class="auth-page__main auth-page__main--center">
+        <div class="auth-page__main auth-page__main--center mt-50">
             <div class="auth-page__login-form auth-page__login-form--block">
                 <div class="auth-page__title">Create Account</div>
 
@@ -21,62 +21,128 @@
                 </div>
 
                 <div class="auth-page__form-container">
-                    <div class="auth-page__form">
-                        <!-- Email -->
-                        <div class="auth-page__field auth-page__field--email">
-                            <div class="auth-page__field-icon">
-                                <svg-user />
-                            </div>
-
-                            <div class="auth-page__field-container">
-                                <div class="auth-page__field-label">
-                                    Email
+                    <div class="flex">
+                        <div class="auth-page__form">
+                            <!-- Email -->
+                            <div class="auth-page__field auth-page__field--email">
+                                <div class="auth-page__field-icon">
+                                    <svg-user />
                                 </div>
 
-                                <input
-                                    v-focus
-                                    class="auth-page__field-input"
-                                    type="text"
-                                />
+                                <div class="auth-page__field-container">
+                                    <div class="auth-page__field-label">
+                                        Email
+                                    </div>
+
+                                    <input
+                                        v-focus
+                                        class="auth-page__field-input"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Name -->
+                            <div class="auth-page__field auth-page__field--border">
+                                <div class="auth-page__field-icon">
+                                    <svg-lock />
+                                </div>
+
+                                <div class="auth-page__field-container">
+                                    <div class="auth-page__field-label">
+                                        Full name
+                                    </div>
+
+                                    <input
+                                        class="auth-page__field-input"
+                                        type="password"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="auth-page__field">
+                                <div class="auth-page__field-icon">
+                                    <svg-lock />
+                                </div>
+
+                                <div class="auth-page__field-container">
+                                    <div class="auth-page__field-label">
+                                        Password
+                                    </div>
+
+                                    <input
+                                        class="auth-page__field-input"
+                                        type="password"
+                                    />
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Name -->
-                        <div class="auth-page__field auth-page__field--border">
-                            <div class="auth-page__field-icon">
-                                <svg-lock />
+                        <div>
+                            <div class="auth-page__subtitle mt-30">
+                                Create your organization
                             </div>
 
-                            <div class="auth-page__field-container">
-                                <div class="auth-page__field-label">
-                                    Full name
+                            <div class="auth-page__form mt-20">
+                                <!-- Email -->
+                                <div class="auth-page__field auth-page__field--email">
+                                    <div class="auth-page__field-icon">
+                                        <svg-user />
+                                    </div>
+
+                                    <div class="auth-page__field-container">
+                                        <div class="auth-page__field-label">
+                                            Email
+                                        </div>
+
+                                        <input
+                                            v-focus
+                                            class="auth-page__field-input"
+                                            type="text"
+                                        />
+                                    </div>
                                 </div>
 
-                                <input
-                                    class="auth-page__field-input"
-                                    type="password"
-                                />
-                            </div>
-                        </div>
+                                <!-- Name -->
+                                <div class="auth-page__field auth-page__field--border">
+                                    <div class="auth-page__field-icon">
+                                        <svg-lock />
+                                    </div>
 
-                        <!-- Password -->
-                        <div class="auth-page__field">
-                            <div class="auth-page__field-icon">
-                                <svg-lock />
-                            </div>
+                                    <div class="auth-page__field-container">
+                                        <div class="auth-page__field-label">
+                                            Full name
+                                        </div>
 
-                            <div class="auth-page__field-container">
-                                <div class="auth-page__field-label">
-                                    Password
+                                        <input
+                                            class="auth-page__field-input"
+                                            type="password"
+                                        />
+                                    </div>
                                 </div>
 
-                                <input
-                                    class="auth-page__field-input"
-                                    type="password"
-                                />
+                                <!-- Password -->
+                                <div class="auth-page__field">
+                                    <div class="auth-page__field-icon">
+                                        <svg-lock />
+                                    </div>
+
+                                    <div class="auth-page__field-container">
+                                        <div class="auth-page__field-label">
+                                            Password
+                                        </div>
+
+                                        <input
+                                            class="auth-page__field-input"
+                                            type="password"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
 
                     <div class="auth-page__buttons items-center">
                         <app-button
