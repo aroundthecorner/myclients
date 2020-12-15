@@ -15,10 +15,10 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('email', $request->email)->first();
 
         try {
-            $credentials = request(['username', 'password']);
+            $credentials = request(['email', 'password']);
 
             if (!Auth::attempt($credentials))
             {
@@ -56,12 +56,12 @@ class AuthController extends Controller
     public function register()
     {
         request()->validate([
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ]);
 
         $user = new User;
-        $user->username = request('username');
+        $user->email = request('email');
         $user->password = bcrypt(request('password'));
         $user->save();
 
@@ -79,13 +79,13 @@ class AuthController extends Controller
     }
 
     /**
-     * Check if a username exists
+     * Check if a email exists
      */
     public function checkUserExists()
     {
-        $username = request('username');
+        $email = request('email');
 
-        $user = User::whereUsername($username)->first();
+        $user = User::whereEmail($email)->first();
 
         return response()->json([
             'user_exists' => ($user) ? true : false

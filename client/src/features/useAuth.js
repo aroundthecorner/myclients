@@ -6,7 +6,7 @@ import Auth from '../api/auth.js'
 function useAuth()
 {
     const store = useStore()
-    const username = ref('admin')
+    const email = ref('admin@myclients.org')
     const password = ref('password')
     const isLoading = ref(false)
     const userExists = ref(false)
@@ -19,7 +19,7 @@ function useAuth()
         isLoading.value = true
 
         const result = await Auth.login({
-            username: username.value,
+            email: email.value,
             password: password.value,
         })
 
@@ -88,7 +88,7 @@ function useAuth()
     function showErrorMessage(message)
     {
         if (message == 'Unauthorized') {
-            alert('Wrong username or password')
+            alert('Wrong email or password')
         } else {
             alert('Something went wrong')
         }
@@ -112,14 +112,14 @@ function useAuth()
     async function checkUserExists()
     {
         const result = await Auth.checkUserExists({
-            username: username.value,
+            email: email.value,
         })
 
         userExists.value = result
     }
 
     return {
-        login, username, password, isLoading, userLoggedIn, restoreSession,
+        login, email, password, isLoading, userLoggedIn, restoreSession,
         checkUserExists, userExists,
     }
 }

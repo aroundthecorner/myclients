@@ -18,11 +18,11 @@ class AuthenticationTest extends TestCase
     public function testCheckUserExists()
     {
         User::factory()->create([
-            'username' => 'testUser'
+            'email' => 'testUser'
         ]);
 
         $response = $this->postJson('/auth/check-user-exists', [
-            'username' => 'testUser'
+            'email' => 'testUser'
         ])->json();
 
         $this->assertTrue($response['user_exists']);

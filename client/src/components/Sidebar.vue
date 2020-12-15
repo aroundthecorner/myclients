@@ -12,7 +12,7 @@
 
                 <img
                     class="sidebar__profile-pic"
-                    :src="`${env('VITE_SERVER_URL')}/storage/img/${user.profile_picture}`"
+                    :src="`${env('VITE_SERVER_URL')}/${user.profile_picture}`"
                 />
 
                 <div class="sidebar__name">

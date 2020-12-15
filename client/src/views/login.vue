@@ -24,25 +24,25 @@
             <div class="login-page__title">Welcome Back</div>
 
             <div class="login-page__subtitle">
-                Please login with your personal username and password
+                Please login with your personal email and password
             </div>
 
             <div class="login-page__form-container">
                 <div class="login-page__form">
-                    <!-- Username -->
-                    <div class="login-page__field login-page__field--username">
+                    <!-- Email -->
+                    <div class="login-page__field login-page__field--email">
                         <div class="login-page__field-icon">
                             <svg-user />
                         </div>
 
                         <div class="login-page__field-container">
                             <div class="login-page__field-label">
-                                Username
+                                Email
                             </div>
 
                             <input
                                 @keyup.enter="login"
-                                v-model="username"
+                                v-model="email"
                                 @blur="checkUserExists"
                                 v-focus
                                 class="login-page__field-input"
@@ -114,7 +114,7 @@
     import SvgLock from '../components/Svg/Lock.vue'
     import AppButton from '../components/Button.vue'
 
-    const { login, username, password, isLoading, userLoggedIn,
+    const { login, email, password, isLoading, userLoggedIn,
             checkUserExists, userExists } = useAuth()
 
     if (userLoggedIn()) {
