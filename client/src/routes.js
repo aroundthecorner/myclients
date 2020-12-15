@@ -1,6 +1,6 @@
 import auth from './middleware/auth.js'
 import AppLayout from "./views/layouts/app.vue"
-import LoginLayout from "./views/layouts/login.vue"
+import AuthLayout from "./views/layouts/auth.vue"
 import { createWebHistory, createRouter } from "vue-router"
 
 const routes = [
@@ -29,12 +29,24 @@ const routes = [
 
     {
         path: "/login",
-        component: LoginLayout,
+        component: AuthLayout,
         children: [
             {
                 path: '',
                 name: "login",
                 component: () => import('./views/login.vue'),
+            }
+        ],
+    },
+
+    {
+        path: "/register",
+        component: AuthLayout,
+        children: [
+            {
+                path: '',
+                name: "register",
+                component: () => import('./views/register.vue'),
             }
         ],
     },

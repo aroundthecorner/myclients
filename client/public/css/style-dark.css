@@ -38,7 +38,7 @@
     background: var(--color-highlighter-1);
 }
 
-[data-theme="azkaban"] .app-page {
+[data-theme="azkaban"] .app-layout {
     background: var(--color-kobe);
 }
 

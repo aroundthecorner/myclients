@@ -1,8 +1,8 @@
 <template>
-    <div class="layout app-page">
+    <div class="layout app-layout">
         <app-sidebar />
 
-        <div class="app-page__content">
+        <div class="app-layout__content">
             <router-view></router-view>
         </div>
     </div>

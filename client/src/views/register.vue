@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Login - myclients</title>
+        <title>Create an Account - myclients</title>
     </teleport>
 
     <div class="login-page">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="login-page__login-form">
-                <div class="login-page__title">Welcome Back</div>
+                <div class="login-page__title">Create an Account</div>
 
                 <div class="login-page__subtitle">
                     Please login with your personal email and password
