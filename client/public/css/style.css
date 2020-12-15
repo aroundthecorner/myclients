@@ -143,6 +143,11 @@
     flex: 4;
 }
 
+.auth-page__registration-form {
+    padding-top: 30px;
+    width: 950px;
+}
+
 .auth-page__login-form--block {
     flex: none;
 }
@@ -278,6 +283,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.auth-page__field-icon-svg {
+    width: 31px;
+    fill: var(--color-cuddy);
 }
 
 .auth-page__field-container {
@@ -734,4 +744,16 @@
 
 .mt-50 {
     margin-top: 30px;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.mr-60 {
+    margin-right: 60px;
 }

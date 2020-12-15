@@ -22,9 +22,23 @@
 
             <template #dropdown>
                 <div class="dropdown-menu">
-                    <router-link to="/profile" class="dropdown-menu__item">My profile</router-link>
-                    <router-link to="/settings" class="dropdown-menu__item">Settings</router-link>
-                    <div class="dropdown-menu__item">Logout</div>
+                    <router-link
+                        to="/profile"
+                        class="dropdown-menu__item">
+                        My profile
+                    </router-link>
+
+                    <router-link
+                        to="/settings"
+                        class="dropdown-menu__item">
+                        Settings
+                    </router-link>
+
+                    <div
+                        @click="showProfileMenu = false; logout()"
+                        class="dropdown-menu__item">
+                        Logout
+                    </div>
                 </div>
             </template>
         </dropdown-menu>
@@ -67,10 +81,12 @@
     import { computed, ref } from 'vue'
     import { useStore } from 'vuex'
     import useEnv from '../features/useEnv.js'
+    import useAuth from '../features/useAuth.js'
     import DropdownMenu from './DropdownMenu.vue'
 
     const { env } = useEnv()
     const store = useStore()
+    const { logout } = useAuth()
 
     const showProfileMenu = ref(false)
     const user = computed(() => store.state.user)

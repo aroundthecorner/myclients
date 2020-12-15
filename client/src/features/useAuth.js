@@ -34,6 +34,15 @@ function useAuth()
     }
 
     /**
+     * Log out a user
+     */
+    async function logout()
+    {
+        localStorage.removeItem('myclients_user')
+        window.location = '/login'
+    }
+
+    /**
      * Check if login was successful
      * 
      * @param result json
@@ -120,7 +129,7 @@ function useAuth()
 
     return {
         login, email, password, isLoading, userLoggedIn, restoreSession,
-        checkUserExists, userExists,
+        checkUserExists, userExists, logout,
     }
 }
 
