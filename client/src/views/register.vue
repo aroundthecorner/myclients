@@ -3,102 +3,94 @@
         <title>Create an Account - myclients</title>
     </teleport>
 
-    <div class="login-page">
-        <div class="login-page__logo-container">
+    <div class="registration-page">
+        <div class="page__logo-container">
             <img
-                class="login-page__logo"
+                class="page__logo"
                 src="/img/full_logo400.png"
                 alt="Logo"
             />
         </div>
 
-        <div class="login-page__main">
-            <div class="login-page__illustration">
-                <img
-                    class="login-page__illustration-img"
-                    src="/img/login_illustration.png"
-                    alt="Illustration"
-                />
-            </div>
+        <div class="auth-page__main auth-page__main--center">
+            <div class="auth-page__login-form auth-page__login-form--block">
+                <div class="auth-page__title">Create Account</div>
 
-            <div class="login-page__login-form">
-                <div class="login-page__title">Create an Account</div>
-
-                <div class="login-page__subtitle">
-                    Please login with your personal email and password
+                <div class="auth-page__subtitle">
+                    Create an account on our platform
                 </div>
 
-                <div class="login-page__form-container">
-                    <div class="login-page__form">
+                <div class="auth-page__form-container">
+                    <div class="auth-page__form">
                         <!-- Email -->
-                        <div class="login-page__field login-page__field--email">
-                            <div class="login-page__field-icon">
+                        <div class="auth-page__field auth-page__field--email">
+                            <div class="auth-page__field-icon">
                                 <svg-user />
                             </div>
 
-                            <div class="login-page__field-container">
-                                <div class="login-page__field-label">
+                            <div class="auth-page__field-container">
+                                <div class="auth-page__field-label">
                                     Email
                                 </div>
 
                                 <input
-                                    @keyup.enter="login"
-                                    v-model="email"
-                                    @blur="checkUserExists"
                                     v-focus
-                                    class="login-page__field-input"
+                                    class="auth-page__field-input"
                                     type="text"
                                 />
                             </div>
+                        </div>
 
-                            <div class="login-page__login-check-container">
-                                <div v-if="userExists" class="login-page__login-check">
-                                    <svg-check />
+                        <!-- Name -->
+                        <div class="auth-page__field auth-page__field--border">
+                            <div class="auth-page__field-icon">
+                                <svg-lock />
+                            </div>
+
+                            <div class="auth-page__field-container">
+                                <div class="auth-page__field-label">
+                                    Full name
                                 </div>
+
+                                <input
+                                    class="auth-page__field-input"
+                                    type="password"
+                                />
                             </div>
                         </div>
 
                         <!-- Password -->
-                        <div class="login-page__field">
-                            <div class="login-page__field-icon">
+                        <div class="auth-page__field">
+                            <div class="auth-page__field-icon">
                                 <svg-lock />
                             </div>
 
-                            <div class="login-page__field-container">
-                                <div class="login-page__field-label">
+                            <div class="auth-page__field-container">
+                                <div class="auth-page__field-label">
                                     Password
                                 </div>
 
                                 <input
-                                    @keyup.enter="login"
-                                    v-model="password"
-                                    class="login-page__field-input"
+                                    class="auth-page__field-input"
                                     type="password"
                                 />
                             </div>
-
-                            <div class="login-page__login-check-container"></div>
                         </div>
                     </div>
 
-                    <div class="login-page__forgot-password">
-                        <a class="login-page__forgot-link" href="#">
-                            Forgot Password?
-                        </a>
-                    </div>
-
-                    <div class="login-page__buttons">
+                    <div class="auth-page__buttons items-center">
                         <app-button
-                            @click="login"
                             class="button--primary"
-                            :is-loading="isLoading"
                             loading-color="#fff">
-                            Login Now
-                        </app-button>
-
-                        <app-button>
                             Create Account
                         </app-button>
+
+                        <router-link
+                            to="/login"
+                            class="auth-page__forgot-link">
+
+                            or Log in
+                        </router-link>
                     </div>
 
                     <div class="v-spacer-50"></div>
@@ -111,13 +103,11 @@
 <script setup>
     import router from '../routes.js'
     import useAuth from '../features/useAuth.js'
-    import SvgUser from '../components/Svg/User.vue'
-    import SvgCheck from '../components/Svg/Check.vue'
     import SvgLock from '../components/Svg/Lock.vue'
     import AppButton from '../components/Button.vue'
+    import SvgUser from '../components/Svg/User.vue'
 
-    const { login, email, password, isLoading, userLoggedIn,
-            checkUserExists, userExists } = useAuth()
+    const { userLoggedIn } = useAuth()
 
     if (userLoggedIn()) {
         router.push({ name: "dashboard" })

@@ -4,15 +4,15 @@
     </teleport>
 
     <div class="login-page">
-        <div class="login-page__logo-container">
+        <div class="page__logo-container">
             <img
-                class="login-page__logo"
+                class="page__logo"
                 src="/img/full_logo400.png"
                 alt="Logo"
             />
         </div>
 
-        <div class="login-page__main">
+        <div class="auth-page__main">
             <div class="login-page__illustration">
                 <img
                     class="login-page__illustration-img"
@@ -21,23 +21,23 @@
                 />
             </div>
 
-            <div class="login-page__login-form">
-                <div class="login-page__title">Welcome Back</div>
+            <div class="auth-page__login-form">
+                <div class="auth-page__title">Welcome Back</div>
 
-                <div class="login-page__subtitle">
+                <div class="auth-page__subtitle">
                     Please login with your personal email and password
                 </div>
 
-                <div class="login-page__form-container">
-                    <div class="login-page__form">
+                <div class="auth-page__form-container">
+                    <div class="auth-page__form">
                         <!-- Email -->
-                        <div class="login-page__field login-page__field--email">
-                            <div class="login-page__field-icon">
+                        <div class="auth-page__field auth-page__field--email">
+                            <div class="auth-page__field-icon">
                                 <svg-user />
                             </div>
 
-                            <div class="login-page__field-container">
-                                <div class="login-page__field-label">
+                            <div class="auth-page__field-container">
+                                <div class="auth-page__field-label">
                                     Email
                                 </div>
 
@@ -46,7 +46,7 @@
                                     v-model="email"
                                     @blur="checkUserExists"
                                     v-focus
-                                    class="login-page__field-input"
+                                    class="auth-page__field-input"
                                     type="text"
                                 />
                             </div>
@@ -59,20 +59,20 @@
                         </div>
 
                         <!-- Password -->
-                        <div class="login-page__field">
-                            <div class="login-page__field-icon">
+                        <div class="auth-page__field">
+                            <div class="auth-page__field-icon">
                                 <svg-lock />
                             </div>
 
-                            <div class="login-page__field-container">
-                                <div class="login-page__field-label">
+                            <div class="auth-page__field-container">
+                                <div class="auth-page__field-label">
                                     Password
                                 </div>
 
                                 <input
                                     @keyup.enter="login"
                                     v-model="password"
-                                    class="login-page__field-input"
+                                    class="auth-page__field-input"
                                     type="password"
                                 />
                             </div>
@@ -82,12 +82,12 @@
                     </div>
 
                     <div class="login-page__forgot-password">
-                        <a class="login-page__forgot-link" href="#">
+                        <a class="auth-page__forgot-link" href="#">
                             Forgot Password?
                         </a>
                     </div>
 
-                    <div class="login-page__buttons">
+                    <div class="auth-page__buttons">
                         <app-button
                             @click="login"
                             class="button--primary"
@@ -96,9 +96,11 @@
                             Login Now
                         </app-button>
 
-                        <app-button>
-                            Create Account
-                        </app-button>
+                        <router-link to="/register">
+                            <app-button>
+                                Create Account
+                            </app-button>
+                        </router-link>
                     </div>
 
                     <div class="v-spacer-50"></div>

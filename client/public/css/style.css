@@ -25,12 +25,17 @@
     --color-harvest: #182c40;
     --color-fighter: #ffffffbd;
     --color-shazam: rgba(0,0,0,.87);
+    --color-orbit: #f2f2f2;
     --color-penny: linear-gradient(137deg, #37a0f6 0%, #3f87fb 90%);
     --shadow-oreo: 6px 4px 16px -16px rgba(0,0,0,0.56);
 }
 
 .v-spacer-50 {
     height: 50px;
+}
+
+.items-center {
+    align-items: center;
 }
 
 [v-cloak] {
@@ -54,32 +59,36 @@
     padding-bottom: 100px;
 }
 
-.login-page__logo-container {
+.page__logo-container {
     padding: 30px 0px 0px 38px;
 }
 
 @media only screen and (max-width: 1090px) {
-    .login-page__logo-container {
+    .page__logo-container {
         padding: 30px 0px 0px 0px;
     }
 }
 
-.login-page__logo {
+.page__logo {
     height: 50px;
     display: block;
 }
 
 @media only screen and (max-width: 1090px) {
-    .login-page__logo {
+    .page__logo {
         margin: 0 auto;
     }
 }
 
-.login-page__main {
+.auth-page__main {
     display: flex;
     margin-top: 130px;
     height: calc(100vh - 400px);
     gap: 60px;
+}
+
+.auth-page__main--center {
+    justify-content: center;
 }
 
 .login-page__illustration {
@@ -129,58 +138,62 @@
     }
 }
 
-.login-page__login-form {
+.auth-page__login-form {
     padding-top: 30px;
     flex: 4;
 }
 
+.auth-page__login-form--block {
+    flex: none;
+}
+
 @media only screen and (max-width: 1360px) {
-    .login-page__login-form {
+    .auth-page__login-form {
         flex: 1;
     }
 }
 
 @media only screen and (max-width: 1400px) {
-    .login-page__login-form {
+    .auth-page__login-form {
         padding-top: 60px;
     }
 }
 
 @media only screen and (max-height: 944px) {
-    .login-page__login-form {
+    .auth-page__login-form {
         padding-top: 0px;
     }
 }
 
 @media only screen and (max-height: 850px) {
-    .login-page__login-form {
+    .auth-page__login-form {
         margin-top: -60px;
     }
 }
 
 @media only screen and (max-height: 700px) {
-    .login-page__login-form {
+    .auth-page__login-form {
         margin-top: -110px;
     }
 }
 
-.login-page__form-container {
+.auth-page__form-container {
     width: 470px;
 }
 
 @media only screen and (max-width: 1090px) {
-    .login-page__form-container {
+    .auth-page__form-container {
         margin: 0 auto;
     }
 }
 
 @media only screen and (max-width: 570px) {
-    .login-page__form-container {
+    .auth-page__form-container {
         width: 90%;
     }
 }
 
-.login-page__form {
+.auth-page__form {
     background: white;
     border: 1px solid var(--color-irony);
     border-radius: 10px;
@@ -190,55 +203,59 @@
     width: 100%;
 }
 
-.login-page__title {
+.auth-page__title {
     font-size: 50px;
     font-family: "Raleway";
     color: var(--color-harvest);
 }
 
 @media only screen and (max-width: 1090px) {
-    .login-page__title {
+    .auth-page__title {
         text-align: center;
     }
 }
 
 @media only screen and (max-width: 570px) {
-    .login-page__title {
+    .auth-page__title {
         font-size: 40px;
     }
 }
 
-.login-page__subtitle {
+.auth-page__subtitle {
     font-size: 20px;
     color: var(--color-hippo);
 }
 
 @media only screen and (max-width: 1090px) {
-    .login-page__subtitle {
+    .auth-page__subtitle {
         text-align: center;
     }
 }
 
 @media only screen and (max-width: 570px) {
-    .login-page__subtitle {
+    .auth-page__subtitle {
         padding: 0 30px;
     }
 }
 
-.login-page__field {
+.auth-page__field {
     display: flex;
     padding: 20px 20px;
 }
 
-.login-page__field--email {
+.auth-page__field--border {
+    border-bottom: 1px solid var(--color-orbit);
+}
+
+.auth-page__field--email {
     background: var(--color-dino);
 }
 
-.login-page__field-container {
+.auth-page__field-container {
     margin-left: 30px;
 }
 
-.login-page__field-label {
+.auth-page__field-label {
     color: var(--color-cuddy);
 }
 
@@ -257,13 +274,13 @@
     flex-basis: 45px;
 }
 
-.login-page__field-icon {
+.auth-page__field-icon {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-page__field-container {
+.auth-page__field-container {
     flex: 1;
 }
 
@@ -273,28 +290,28 @@
     font-size: 15px;
 }
 
-.login-page__forgot-link {
+.auth-page__forgot-link {
     color: var(--color-cuddy);
 }
 
-.login-page__field-input {
+.auth-page__field-input {
     width: 100%;
 }
 
-.login-page__buttons {
+.auth-page__buttons {
     margin-top: 30px;
     display: flex;
     gap: 20px;
 }
 
 @media only screen and (max-width: 1090px) {
-    .login-page__buttons {
+    .auth-page__buttons {
         justify-content: center;
     }
 }
 
 @media only screen and (max-width: 385px) {
-    .login-page__buttons {
+    .auth-page__buttons {
         flex-direction: column;
     }
 }
