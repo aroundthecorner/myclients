@@ -55,27 +55,13 @@ class AuthController extends Controller
      */
     public function register()
     {
-        request()->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
         $user = new User;
         $user->email = request('email');
+        $user->name = request('name');
         $user->password = bcrypt(request('password'));
+        $user->email_verified_at = now();
+
         $user->save();
-
-        auth()->login($user);
-
-        $token = $user->createToken('authToken')->plainTextToken;
-
-        return response()->json([
-            'status_code' => 200,
-            'message' => 'Success',
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-            'user' => $user,
-        ]);
     }
 
     /**

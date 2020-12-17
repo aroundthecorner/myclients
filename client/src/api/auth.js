@@ -44,6 +44,43 @@ class Auth
     }
 
     /**
+     * Regiseter a new user
+     */
+    static async register(data)
+    {
+        const { env } = useEnv()
+        const { jsonHeaders } = useHTTP()
+        const { showError } = useErrorHandling()
+
+        try {
+            const response = await fetch(`${env('VITE_SERVER_URL')}/register`, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: jsonHeaders,
+            })
+
+            if (!response.ok) {
+                let errorMessage = {
+                    statusText: response.statusText,
+                    statusCode: response.status,
+                    body: '',
+                    url: response.url,
+                    clientAPI: 'api/auth.js @ register',
+                }
+                
+                const text = await response.text()
+                errorMessage.body = text
+
+                showError(errorMessage)
+                return
+            }
+        } catch (error) {
+            alert('Error occured!')
+            console.log(error)
+        }
+    }
+
+    /**
      * Check if a user exists in database
      */
     static async checkUserExists(data)

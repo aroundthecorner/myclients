@@ -56,7 +56,7 @@
                                         </div>
 
                                         <input
-                                            v-model="fullName"
+                                            v-model="name"
                                             class="auth-page__field-input"
                                             type="text"
                                         />
@@ -191,7 +191,7 @@
     import OrganizationTypes from '../api/organization_types.js'
     import SvgOfficeBuilding from '../components/Svg/OfficeBuilding.vue'
 
-    const { email, fullName, password, isLoading, organizationName,
+    const { email, name, password, isLoading, organizationName,
             selectedOrganizationType, organizationType, register,
             userLoggedIn, } = useAuth()
             

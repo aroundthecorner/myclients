@@ -10,7 +10,7 @@ function useAuth()
     const password = ref('')
     const isLoading = ref(false)
     const userExists = ref(false)
-    const fullName = ref('')
+    const name = ref('')
     const organizationName = ref('')
     const organizationType = ref('')
     const selectedOrganizationType = ref('')
@@ -126,13 +126,13 @@ function useAuth()
      * Register new user
      */
     async function register() {
-        // const result = await Auth.register({
-        //     email: email.value,
-        //     fullName: fullName.value,
-        //     password: password.value,
-        //     organizationName: organizationName.value,
-        //     selectedOrganizationType: selectedOrganizationType.value,
-        // })
+        const result = await Auth.register({
+            email: email.value,
+            name: name.value,
+            password: password.value,
+            organizationName: organizationName.value,
+            selectedOrganizationType: selectedOrganizationType.value,
+        })
 
         alert('Registered, now you can sign them in!')
     }
