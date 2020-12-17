@@ -37,8 +37,9 @@
 
                                         <input
                                             v-focus
+                                            v-model="email"
                                             class="auth-page__field-input"
-                                            type="text"
+                                            type="email"
                                         />
                                     </div>
                                 </div>
@@ -55,6 +56,7 @@
                                         </div>
 
                                         <input
+                                            v-model="fullName"
                                             class="auth-page__field-input"
                                             type="text"
                                         />
@@ -73,6 +75,7 @@
                                         </div>
 
                                         <input
+                                            v-model="password"
                                             class="auth-page__field-input"
                                             type="password"
                                         />
@@ -101,6 +104,7 @@
                                         </div>
 
                                         <input
+                                            v-model="organizationName"
                                             class="auth-page__field-input"
                                             type="text"
                                         />
@@ -128,6 +132,7 @@
                                             v-model="showOrganizationTypeMenu">
 
                                             <input
+                                                v-model="organizationType"
                                                 @focus="showOrganizationTypeMenu = true"
                                                 @click="showOrganizationTypeMenu = true"
                                                 class="auth-page__field-input"
@@ -136,20 +141,12 @@
 
                                             <template #dropdown>
                                                 <div class="dropdown-menu">
-                                                    <div class="dropdown-menu__item">Agriculture & Forestry</div>
-                                                    <div class="dropdown-menu__item">Business & Information</div>
-                                                    <div class="dropdown-menu__item">Construction / Utilities</div>
-                                                    <div class="dropdown-menu__item">Education</div>
-                                                    <div class="dropdown-menu__item">Finance & Insurance</div>
-                                                    <div class="dropdown-menu__item">Food & Hospitality</div>
-                                                    <div class="dropdown-menu__item">Health Services</div>
-                                                    <div class="dropdown-menu__item">Motor Vehicle</div>
-                                                    <div class="dropdown-menu__item">Natural Resources / Environment</div>
-                                                    <div class="dropdown-menu__item">Personal Services</div>
-                                                    <div class="dropdown-menu__item">Real Estate & Housing</div>
-                                                    <div class="dropdown-menu__item">Legal</div>
-                                                    <div class="dropdown-menu__item">Transportation</div>
-                                                    <div class="dropdown-menu__item">Other</div>
+                                                    <div
+                                                        v-for="organizationType in organizationTypes"
+                                                        @click="selectOrganizationType(organizationType)"
+                                                        class="dropdown-menu__item">
+                                                        {{ organizationType.description }}
+                                                    </div>
                                                 </div>
                                             </template>
                                         </dropdown-menu>
@@ -162,6 +159,7 @@
 
                     <div class="auth-page__buttons items-center">
                         <app-button
+                            @click="register"
                             class="button--primary"
                             loading-color="#fff">
                             Create Account
@@ -190,10 +188,34 @@
     import AppButton from '../components/Button.vue'
     import SvgUser from '../components/Svg/User.vue'
     import DropdownMenu from '../components/DropdownMenu.vue'
+    import OrganizationTypes from '../api/organization_types.js'
     import SvgOfficeBuilding from '../components/Svg/OfficeBuilding.vue'
 
-    const { userLoggedIn } = useAuth()
+    const { email, fullName, password, isLoading, organizationName,
+            selectedOrganizationType, organizationType, register,
+            userLoggedIn, } = useAuth()
+            
+    const organizationTypes = ref([])
     const showOrganizationTypeMenu = ref(false)
+
+    /**
+     * Get organization types
+     */
+    async function getOrganizationTypes() {
+        const result = await OrganizationTypes.get()
+        organizationTypes.value = result
+    }
+
+    getOrganizationTypes()
+
+    /**
+     * Select organization type
+     */
+    function selectOrganizationType(type) {
+        showOrganizationTypeMenu.value = false
+        selectedOrganizationType.value = type
+        organizationType.value = type.description
+    }
 
     if (userLoggedIn()) {
         router.push({ name: "dashboard" })

@@ -34,16 +34,6 @@
                         {{ excerpt(serverError.body) }}
                     </i>
                 </div>
-
-                <div v-if="false" class="notification-popup__buttons">
-                    <div class="app-button app-button--notification">
-                        Button 1
-                    </div>
-
-                    <div class="app-button app-button--notification">
-                        Button 2
-                    </div>
-                </div>
             </div>
         </div>
     </transition>

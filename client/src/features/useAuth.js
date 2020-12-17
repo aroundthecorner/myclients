@@ -6,10 +6,14 @@ import Auth from '../api/auth.js'
 function useAuth()
 {
     const store = useStore()
-    const email = ref('admin@myclients.org')
-    const password = ref('password')
+    const email = ref('')
+    const password = ref('')
     const isLoading = ref(false)
     const userExists = ref(false)
+    const fullName = ref('')
+    const organizationName = ref('')
+    const organizationType = ref('')
+    const selectedOrganizationType = ref('')
 
     /**
      * Perform user login
@@ -118,9 +122,24 @@ function useAuth()
         userExists.value = result
     }
 
+    /**
+     * Register new user
+     */
+    async function register() {
+        // const result = await Auth.register({
+        //     email: email.value,
+        //     fullName: fullName.value,
+        //     password: password.value,
+        //     organizationName: organizationName.value,
+        //     selectedOrganizationType: selectedOrganizationType.value,
+        // })
+
+        alert('Registered, now you can sign them in!')
+    }
+
     return {
         login, email, password, isLoading, userLoggedIn, restoreSession,
-        checkUserExists, userExists, logout,
+        checkUserExists, userExists, logout, register,
     }
 }
 
