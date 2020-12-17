@@ -29,7 +29,12 @@ function useAuth()
             setUserInStore(result.user, result.access_token)
             goToRouteBeforeLogin()
         } else {
-            showErrorMessage(result?.message ?? 'Error')
+            store.dispatch('app/showNotificationMessage', {
+                icon: 'img/warning.png',
+                title: 'Wrong username or password',
+                body: 'The username or password you entered is not correct.',
+                hideDelay: 3,
+            })
         }
     }
 
@@ -87,20 +92,6 @@ function useAuth()
     function userLoggedIn()
     {
         return localStorage.getItem('myclients_user') !== null
-    }
-
-    /**
-     * Show error if login was unsuccessful
-     * 
-     * @param message string
-     */
-    function showErrorMessage(message)
-    {
-        if (message == 'Unauthorized') {
-            alert('Wrong email or password')
-        } else {
-            alert('Something went wrong')
-        }
     }
 
     /**
