@@ -3,3 +3,4 @@
 5. Themes update
 9. Forgot password page
 13. Redis cache (organization types etc.)
+14. Clear cache on model events (organization types)

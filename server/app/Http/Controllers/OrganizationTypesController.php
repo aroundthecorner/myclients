@@ -14,7 +14,9 @@ class OrganizationTypesController extends Controller
      */
     public function index()
     {
-        return OrganizationType::all();
+        return cache()->remember('organization_types.all', now()->addDay(), function() {
+            return OrganizationType::all();
+        });
     }
 
     /**

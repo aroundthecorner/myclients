@@ -51,6 +51,7 @@ services:
     depends_on:
     - myclients-php-server
     - myclients-mysql-server
+    - myclients-redis-server
     networks:
       - app-network
 
@@ -75,6 +76,18 @@ services:
       - app-network
     depends_on:
       - myclients-mysql-server
+      - myclients-redis-server
+
+
+  # Redis server for the server side app
+  myclients-redis-server:
+    image: redis:6.0
+    container_name: myclients-redis-server
+    restart: always
+    ports:
+        - 16468:6379
+    networks:
+      - app-network
 
 
 # Networks
