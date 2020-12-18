@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
+use App\Models\Organization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -55,12 +56,19 @@ class AuthController extends Controller
      */
     public function register()
     {
+        $organization = Organization::create([
+            'description' => request('organizationName'),
+            'organization_type_id' => request('organizationTypeId'),
+        ]);
+
         $user = new User;
         $user->email = request('email');
         $user->name = request('name');
-        $user->profile_picture = 'img/default_profile_picture.png';
+        $user->organization_id = $organization->id;
         $user->password = bcrypt(request('password'));
+        $user->profile_picture = 'img/default_profile_picture.png';
         $user->email_verified_at = now();
+
 
         $user->save();
     }
