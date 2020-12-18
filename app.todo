@@ -1,11 +1,5 @@
 1. Languages
-3. Registration
-   - Organizations
 4. Responsive layout
 5. Themes update
-8. Nice error messages
 9. Forgot password page
-10. Required field from backend show in frontend (not server error :) )
-11. default profile pic
-12. valid unique email (!)
 13. Redis cache (organization types etc.)
