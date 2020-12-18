@@ -128,21 +128,28 @@ function useAuth()
     async function register() {
         isLoading.value = true
         
-        const result = await Auth.register({
-            email: email.value,
-            name: name.value,
-            password: password.value,
-            organizationName: organizationName.value,
-            selectedOrganizationType: selectedOrganizationType.value,
-        })
+        try {
+            const result = await Auth.register({
+                email: email.value,
+                name: name.value,
+                password: password.value,
+                organizationTypeId: selectedOrganizationType.value.id,
+                organizationName: organizationName.value,
+            })
 
-        login()
+            if (result.success) {
+                login()
+            }
+        } catch (error) {
+            isLoading.value = false
+            return
+        }
     }
 
     return {
         login, email, name, password, isLoading, userLoggedIn, restoreSession,
         checkUserExists, userExists, logout, register, organizationType,
-        selectedOrganizationType
+        selectedOrganizationType, organizationName,
     }
 }
 

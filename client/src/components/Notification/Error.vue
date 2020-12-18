@@ -48,7 +48,11 @@
 
     function excerpt(string) {
         let index = string.indexOf('trace')
-        return string.substr(0, index) + '...'
+        if (index > -1) {
+            return string.substr(0, index) + '...'
+        } else {
+            return string.substr(0, 120) + '...'
+        }
     }
 
     function hide() {

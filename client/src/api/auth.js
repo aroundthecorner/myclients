@@ -74,6 +74,8 @@ class Auth
                 showError(errorMessage)
                 return
             }
+
+            return await response.json()
         } catch (error) {
             alert('Error occured!')
             console.log(error)

@@ -56,6 +56,14 @@ class AuthController extends Controller
      */
     public function register()
     {
+        $validated = request()->validate([
+            'email' => 'email|unique:users',
+            'name' => 'required',
+            'organizationTypeId' => 'required',
+            'organizationName' => 'required',
+            'password' => 'required',
+        ]);
+
         $organization = Organization::create([
             'description' => request('organizationName'),
             'organization_type_id' => request('organizationTypeId'),
@@ -69,8 +77,9 @@ class AuthController extends Controller
         $user->profile_picture = 'img/default_profile_picture.png';
         $user->email_verified_at = now();
 
-
         $user->save();
+
+        return response()->json(['success' => true]);
     }
 
     /**
