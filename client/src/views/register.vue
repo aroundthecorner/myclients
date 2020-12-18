@@ -161,6 +161,7 @@
                         <app-button
                             @click="register"
                             class="button--primary"
+                            :is-loading="isLoading"
                             loading-color="#fff">
                             Create Account
                         </app-button>
@@ -193,7 +194,7 @@
 
     const { email, name, password, isLoading, organizationName,
             selectedOrganizationType, organizationType, register,
-            userLoggedIn, } = useAuth()
+            userLoggedIn } = useAuth()
             
     const organizationTypes = ref([])
     const showOrganizationTypeMenu = ref(false)

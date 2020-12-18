@@ -126,6 +126,8 @@ function useAuth()
      * Register new user
      */
     async function register() {
+        isLoading.value = true
+        
         const result = await Auth.register({
             email: email.value,
             name: name.value,
@@ -134,12 +136,13 @@ function useAuth()
             selectedOrganizationType: selectedOrganizationType.value,
         })
 
-        alert('Registered, now you can sign them in!')
+        login()
     }
 
     return {
-        login, email, password, isLoading, userLoggedIn, restoreSession,
-        checkUserExists, userExists, logout, register,
+        login, email, name, password, isLoading, userLoggedIn, restoreSession,
+        checkUserExists, userExists, logout, register, organizationType,
+        selectedOrganizationType
     }
 }
 

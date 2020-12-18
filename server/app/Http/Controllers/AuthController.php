@@ -58,6 +58,7 @@ class AuthController extends Controller
         $user = new User;
         $user->email = request('email');
         $user->name = request('name');
+        $user->profile_picture = 'img/default_profile_picture.png';
         $user->password = bcrypt(request('password'));
         $user->email_verified_at = now();
 
