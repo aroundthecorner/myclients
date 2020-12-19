@@ -1,12 +1,12 @@
 version: '3'
 services:
 
-  # Nginx client server
-  myclients-nginx-client:
-    container_name: myclients-nginx-client
+  # Node client server
+  myclients-node-client:
+    container_name: myclients-node-client
     build:
         context: .                  # (!) Dockerfile doesn't see anything outside of this context
-        dockerfile: ./docker/nginx-client/Dockerfile
+        dockerfile: ./docker/node-client/Dockerfile
     restart: always
     stdin_open: true                # Needed for HMR
     environment:
