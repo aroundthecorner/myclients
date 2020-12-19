@@ -1,7 +1,7 @@
 1. Languages
-4. Responsive layout
-5. Themes update
-9. Forgot password page
-13. Redis cache (organization types etc.)
-14. Clear cache on model events (organization types)
-15. Clean up Docker folder. Mysql - delete. Nginx clienter server = NODE??
+2. Responsive layout
+3. Themes update
+4. Forgot password page
+5. Clear cache on model events.
+6. all (auth) pages add loading bar
+7. Possibly refactor Auth (split into Login controller, register, reset pw controllers)

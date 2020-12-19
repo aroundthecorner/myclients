@@ -9,7 +9,10 @@ use App\Http\Controllers\OrganizationTypesController;
  */
 Route::post('login',                        [AuthController::class, 'login']);
 Route::post('register',                     [AuthController::class, 'register']);
-Route::post('auth/check-user-exists',       [AuthController::class, 'checkUserExists']);
+Route::post('check-user-exists',            [AuthController::class, 'checkUserExists']);
+Route::post('forgot-password',              [AuthController::class, 'forgotPassword']);
+Route::get('reset-password/{token}',        function ($token) {})->name('password.reset');
+Route::post('reset-password',               [AuthController::class, 'resetPassword']);
 
 /**
  * Organization types

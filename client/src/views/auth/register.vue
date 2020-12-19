@@ -183,14 +183,14 @@
 
 <script setup>
     import { ref } from 'vue'
-    import router from '../routes.js'
-    import useAuth from '../features/useAuth.js'
-    import SvgLock from '../components/Svg/Lock.vue'
-    import AppButton from '../components/Button.vue'
-    import SvgUser from '../components/Svg/User.vue'
-    import DropdownMenu from '../components/DropdownMenu.vue'
-    import OrganizationTypes from '../api/organization_types.js'
-    import SvgOfficeBuilding from '../components/Svg/OfficeBuilding.vue'
+    import router from '../../routes.js'
+    import useAuth from '../../features/useAuth.js'
+    import SvgLock from '../../components/Svg/Lock.vue'
+    import AppButton from '../../components/Button.vue'
+    import SvgUser from '../../components/Svg/User.vue'
+    import DropdownMenu from '../../components/DropdownMenu.vue'
+    import OrganizationTypes from '../../api/organization_types.js'
+    import SvgOfficeBuilding from '../../components/Svg/OfficeBuilding.vue'
 
     const { email, name, password, isLoading, organizationName,
             selectedOrganizationType, organizationType, register,

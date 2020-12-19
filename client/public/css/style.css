@@ -758,6 +758,16 @@
     color: #353535;
 }
 
+.auth-page__notification {
+    text-align: center;
+    background: #b9dae847;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 16px;
+    color: var(--color-hippo);
+    border: 1px solid #00338014;
+}
+
 .bounce-enter-active {
     animation: bounce-in 0.4s;
 }
@@ -793,11 +803,15 @@
 }
 
 .mt-40 {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .mt-50 {
-    margin-top: 30px;
+    margin-top: 50px;
+}
+
+.mt-100 {
+    margin-top: 100px;
 }
 
 .flex-1 {
@@ -808,11 +822,19 @@
     width: 100%;
 }
 
+.w-400 {
+    width: 400px;
+}
+
 .mr-60 {
     margin-right: 60px;
 }
 
 [v-cloak] {
+    display: none;
+}
+
+.hidden {
     display: none;
 }
 
@@ -830,4 +852,18 @@
 
 .fs-17 {
     font-size: 17px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
 }

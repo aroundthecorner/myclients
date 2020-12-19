@@ -92,7 +92,7 @@ class Auth
         const { showError } = useErrorHandling()
         
         try {
-            let response = await fetch(`${env('VITE_SERVER_URL')}/auth/check-user-exists`, {
+            let response = await fetch(`${env('VITE_SERVER_URL')}/check-user-exists`, {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: jsonHeaders,
@@ -116,6 +116,84 @@ class Auth
 
             response =  await response.json()
             return response.user_exists
+        } catch (error) {
+            alert('Error occured!')
+            console.log(error)
+        }
+    }
+
+    /**
+     * Send reset password link
+     */
+    static async sendResetPasswordLink(data)
+    {
+        const { env } = useEnv()
+        const { jsonHeaders } = useHTTP()
+        const { showError } = useErrorHandling()
+        
+        try {
+            let response = await fetch(`${env('VITE_SERVER_URL')}/forgot-password`, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: jsonHeaders,
+            })
+
+            if (!response.ok) {
+                let errorMessage = {
+                    statusText: response.statusText,
+                    statusCode: response.status,
+                    body: '',
+                    url: response.url,
+                    clientAPI: 'api/auth.js @ sendResetPasswordLink',
+                }
+                
+                const text = await response.text()
+                errorMessage.body = text
+
+                showError(errorMessage)
+                return
+            }
+
+            return await response.json()
+        } catch (error) {
+            alert('Error occured!')
+            console.log(error)
+        }
+    }
+
+    /**
+     * Change password
+     */
+    static async resetPassword(data)
+    {
+        const { env } = useEnv()
+        const { jsonHeaders } = useHTTP()
+        const { showError } = useErrorHandling()
+        
+        try {
+            let response = await fetch(`${env('VITE_SERVER_URL')}/reset-password`, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: jsonHeaders,
+            })
+
+            if (!response.ok) {
+                let errorMessage = {
+                    statusText: response.statusText,
+                    statusCode: response.status,
+                    body: '',
+                    url: response.url,
+                    clientAPI: 'api/auth.js @ resetPassword',
+                }
+                
+                const text = await response.text()
+                errorMessage.body = text
+
+                showError(errorMessage)
+                return
+            }
+
+            return await response.json()
         } catch (error) {
             alert('Error occured!')
             console.log(error)

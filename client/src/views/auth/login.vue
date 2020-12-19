@@ -82,9 +82,9 @@
                     </div>
 
                     <div class="login-page__forgot-password">
-                        <a class="auth-page__forgot-link" href="#">
+                        <router-link to="/forgot-password" class="auth-page__forgot-link">
                             Forgot Password?
-                        </a>
+                        </router-link>
                     </div>
 
                     <div class="auth-page__buttons">
@@ -111,12 +111,12 @@
 </template>
 
 <script setup>
-    import router from '../routes.js'
-    import useAuth from '../features/useAuth.js'
-    import SvgUser from '../components/Svg/User.vue'
-    import SvgCheck from '../components/Svg/Check.vue'
-    import SvgLock from '../components/Svg/Lock.vue'
-    import AppButton from '../components/Button.vue'
+    import router from '../../routes.js'
+    import useAuth from '../../features/useAuth.js'
+    import SvgUser from '../../components/Svg/User.vue'
+    import SvgCheck from '../../components/Svg/Check.vue'
+    import SvgLock from '../../components/Svg/Lock.vue'
+    import AppButton from '../../components/Button.vue'
 
     const { login, email, password, isLoading, userLoggedIn,
             checkUserExists, userExists } = useAuth()

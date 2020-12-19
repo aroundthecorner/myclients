@@ -14,6 +14,7 @@ function useAuth()
     const organizationName = ref('')
     const organizationType = ref('')
     const selectedOrganizationType = ref('')
+    const isResetLinkSent = ref(false)
 
     /**
      * Perform user login
@@ -125,7 +126,8 @@ function useAuth()
     /**
      * Register new user
      */
-    async function register() {
+    async function register()
+    {
         isLoading.value = true
         
         try {
@@ -146,10 +148,68 @@ function useAuth()
         }
     }
 
+    /**
+     * Send a reset password link
+     */
+    async function sendResetPasswordLink()
+    {
+        isLoading.value = true
+        
+        try {
+            const result = await Auth.sendResetPasswordLink({
+                email: email.value,
+            })
+
+            if (result.status == 'success') {
+                isResetLinkSent.value = true
+            } else {
+                isResetLinkSent.value = false
+            }
+
+            isLoading.value = false
+        } catch (error) {
+            isLoading.value = false
+            return
+        }
+    }
+
+    /**
+     * Change password
+     */
+    async function resetPassword()
+    {
+        isLoading.value = true
+        
+        try {
+            const result = await Auth.resetPassword({
+                email: email.value,
+                password: password.value,
+                token: router.currentRoute.value.query.token,
+            })
+
+            if (result.status == 'success') {
+                login()
+            } else {
+                store.dispatch('app/showNotificationMessage', {
+                    icon: 'img/warning.png',
+                    title: 'Wrong email or token',
+                    body: 'The email or token is incorrect or expired.',
+                    hideDelay: 3,
+                })
+            }
+
+            isLoading.value = false
+        } catch (error) {
+            isLoading.value = false
+            return
+        }
+    }
+
     return {
         login, email, name, password, isLoading, userLoggedIn, restoreSession,
         checkUserExists, userExists, logout, register, organizationType,
-        selectedOrganizationType, organizationName,
+        selectedOrganizationType, organizationName, sendResetPasswordLink,
+        resetPassword, isResetLinkSent
     }
 }
 

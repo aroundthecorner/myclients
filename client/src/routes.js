@@ -34,7 +34,7 @@ const routes = [
             {
                 path: '',
                 name: "login",
-                component: () => import('./views/login.vue'),
+                component: () => import('./views/auth/login.vue'),
             }
         ],
     },
@@ -46,7 +46,31 @@ const routes = [
             {
                 path: '',
                 name: "register",
-                component: () => import('./views/register.vue'),
+                component: () => import('./views/auth/register.vue'),
+            }
+        ],
+    },
+
+    {
+        path: "/forgot-password",
+        component: AuthLayout,
+        children: [
+            {
+                path: '',
+                name: "forgotPassword",
+                component: () => import('./views/auth/forgot-password.vue'),
+            }
+        ],
+    },
+
+    {
+        path: "/reset-password",
+        component: AuthLayout,
+        children: [
+            {
+                path: '',
+                name: "resetPassword",
+                component: () => import('./views/auth/reset-password.vue'),
             }
         ],
     },
