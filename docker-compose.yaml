@@ -40,7 +40,7 @@ services:
   # Nginx server for the server side app
   myclients-nginx-server:
     container_name: myclients-nginx-server
-    image: nginx:1.17-alpine
+    image: nginx:1.19-alpine
     restart: always
     ports:
       - 41166:80

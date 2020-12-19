@@ -4,3 +4,4 @@
 9. Forgot password page
 13. Redis cache (organization types etc.)
 14. Clear cache on model events (organization types)
+15. Clean up Docker folder. Mysql - delete. Nginx clienter server = NODE??
