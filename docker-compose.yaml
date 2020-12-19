@@ -22,8 +22,9 @@ services:
 
   # MySQL server for the server side app
   myclients-mysql-server:
-    image: mysql:5.7.22
+    image: mysql:8.0
     container_name: myclients-mysql-server
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
     tty: true
     ports:
@@ -32,8 +33,6 @@ services:
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: m1c*liE_ntS-p@awz88**z
       MYSQL_DATABASE: myclients
-    volumes:
-      - ./docker/mysql-server/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
 
