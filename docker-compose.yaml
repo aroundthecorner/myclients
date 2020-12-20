@@ -89,6 +89,20 @@ services:
       - app-network
 
 
+  # Nginx server for the website
+  myclients-nginx-website:
+    container_name: myclients-nginx-website
+    image: nginx:1.19-alpine
+    restart: always
+    ports:
+      - 6455:80
+    volumes:
+      - ./website:/var/www
+      - ./docker/nginx-website/etc/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - app-network
+
+
 # Networks
 networks:
   app-network:
