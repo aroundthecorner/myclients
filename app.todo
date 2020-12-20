@@ -6,3 +6,4 @@
 6. all (auth) pages add loading bar
 7. Possibly refactor Auth (split into Login controller, register, reset pw controllers)
 8. Error occured from API > show message at bottom nicely
+9. website 2x images
