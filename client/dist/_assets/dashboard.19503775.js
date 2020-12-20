@@ -1,0 +1,1 @@
+import{o as s,a,c as t,T as e,F as n,b as i,i as l,d as o}from"./index.758abd59.js";const r=i("title",null,"myclients - Online Apointment Scheduling App",-1),d=i("div",null,"Dashboard",-1);var p={expose:[],setup(i){const p=l("progressBar");return s((()=>{p.start()})),a((()=>{p.finish()})),(s,a)=>(o(),t(n,null,[(o(),t(e,{to:"head"},[r])),d],64))}};export default p;

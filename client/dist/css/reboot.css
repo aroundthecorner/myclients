@@ -141,7 +141,6 @@ a {
 
 a:hover {
   color: #0056b3;
-  text-decoration: underline;
 }
 
 a:not([href]):not([tabindex]) {
@@ -265,12 +264,16 @@ input[type="month"] {
   -webkit-appearance: listbox;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"],
+input[type="email"] {
     border: 0;
     background: transparent;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
     border: 0;
     outline: none;
 }
