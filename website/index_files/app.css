@@ -10127,10 +10127,6 @@ a.text-dark:focus, a.text-dark:hover {
   content: "\e616";
 }
 
-.icon-trophy:before {
-  content: "\e006";
-}
-
 .icon-screen-smartphone:before {
   content: "\e010";
 }
@@ -10205,10 +10201,6 @@ a.text-dark:focus, a.text-dark:hover {
 
 .icon-graduation:before {
   content: "\e019";
-}
-
-.icon-ghost:before {
-  content: "\e01a";
 }
 
 .icon-game-controller:before {
@@ -10409,10 +10401,6 @@ a.text-dark:focus, a.text-dark:hover {
 
 .icon-share:before {
   content: "\e05b";
-}
-
-.icon-rocket:before {
-  content: "\e05c";
 }
 
 .icon-question:before {

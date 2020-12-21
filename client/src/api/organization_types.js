@@ -11,7 +11,7 @@ class OrganizationTypes
     {
         const { env } = useEnv()
         const { jsonHeaders } = useHTTP()
-        const { showError } = useErrorHandling()
+        const { showError, showErrorOccured } = useErrorHandling()
 
         try {
             const response = await fetch(`${env('VITE_SERVER_URL')}/organization-types`, {
@@ -37,7 +37,7 @@ class OrganizationTypes
 
             return await response.json()
         } catch (error) {
-            alert('Error occured!')
+            showErrorOccured()
             console.log(error)
         }
     }

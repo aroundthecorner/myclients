@@ -415,21 +415,21 @@
             setUHDImage(img);
         }
         function setUHDImage(images) {
-            images.each(function() {
-                loaded++;
-                var this_img = $(this);
-                var img_src = this_img.attr("src");
-                if (typeof img_src !== "undefined") {
-                    var img_type = img_src.split(".").pop();
-                    var retina_img = img_src.replace("." + img_type, "@2x." + img_type);
-                    this_img.attr("src", retina_img);
-                    if (loaded >= total) {
-                        setTimeout(function() {
-                            doc.trigger("images_did_load");
-                        }, 500);
-                    }
-                }
-            });
+            // images.each(function() {
+            //     loaded++;
+            //     var this_img = $(this);
+            //     var img_src = this_img.attr("src");
+            //     if (typeof img_src !== "undefined") {
+            //         var img_type = img_src.split(".").pop();
+            //         var retina_img = img_src.replace("." + img_type, "@2x." + img_type);
+            //         this_img.attr("src", retina_img);
+            //         if (loaded >= total) {
+            //             setTimeout(function() {
+            //                 doc.trigger("images_did_load");
+            //             }, 500);
+            //         }
+            //     }
+            // });
         }
     };
     load_bg_images();
@@ -437,15 +437,15 @@
         var images = doc.find("[data-bg]");
         var uhd = doc.find("[data-uhd][data-bg]");
         if (window.devicePixelRatio >= 1.25) {
-            uhd.each(function() {
-                var this_img = $(this);
-                var img_src = this_img.attr("data-bg");
-                var img_type = img_src.split(".").pop();
-                var retina_img = img_src.replace("." + img_type, "@2x." + img_type);
-                this_img.css({
-                    "background-image": "url('" + retina_img + "')"
-                });
-            });
+            // uhd.each(function() {
+            //     var this_img = $(this);
+            //     var img_src = this_img.attr("data-bg");
+            //     var img_type = img_src.split(".").pop();
+            //     var retina_img = img_src.replace("." + img_type, "@2x." + img_type);
+            //     this_img.css({
+            //         "background-image": "url('" + retina_img + "')"
+            //     });
+            // });
         } else {
             images.each(function() {
                 var this_img = $(this);

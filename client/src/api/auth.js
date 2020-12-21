@@ -11,7 +11,7 @@ class Auth
     {
         const { env } = useEnv()
         const { jsonHeaders } = useHTTP()
-        const { showError } = useErrorHandling()
+        const { showError, showErrorOccured } = useErrorHandling()
 
         try {
             const response = await fetch(`${env('VITE_SERVER_URL')}/login`, {
@@ -38,7 +38,7 @@ class Auth
 
             return await response.json()
         } catch (error) {
-            alert('Error occured!')
+            showErrorOccured()
             console.log(error)
         }
     }
@@ -50,7 +50,7 @@ class Auth
     {
         const { env } = useEnv()
         const { jsonHeaders } = useHTTP()
-        const { showError } = useErrorHandling()
+        const { showError, showErrorOccured } = useErrorHandling()
 
         try {
             const response = await fetch(`${env('VITE_SERVER_URL')}/register`, {
@@ -77,7 +77,7 @@ class Auth
 
             return await response.json()
         } catch (error) {
-            alert('Error occured!')
+            showErrorOccured()
             console.log(error)
         }
     }
@@ -89,7 +89,7 @@ class Auth
     {
         const { env } = useEnv()
         const { jsonHeaders } = useHTTP()
-        const { showError } = useErrorHandling()
+        const { showError, showErrorOccured } = useErrorHandling()
         
         try {
             let response = await fetch(`${env('VITE_SERVER_URL')}/check-user-exists`, {
@@ -117,7 +117,7 @@ class Auth
             response =  await response.json()
             return response.user_exists
         } catch (error) {
-            alert('Error occured!')
+            showErrorOccured()
             console.log(error)
         }
     }
@@ -129,7 +129,7 @@ class Auth
     {
         const { env } = useEnv()
         const { jsonHeaders } = useHTTP()
-        const { showError } = useErrorHandling()
+        const { showError, showErrorOccured } = useErrorHandling()
         
         try {
             let response = await fetch(`${env('VITE_SERVER_URL')}/forgot-password`, {
@@ -156,7 +156,7 @@ class Auth
 
             return await response.json()
         } catch (error) {
-            alert('Error occured!')
+            showErrorOccured()
             console.log(error)
         }
     }
@@ -168,7 +168,7 @@ class Auth
     {
         const { env } = useEnv()
         const { jsonHeaders } = useHTTP()
-        const { showError } = useErrorHandling()
+        const { showError, showErrorOccured } = useErrorHandling()
         
         try {
             let response = await fetch(`${env('VITE_SERVER_URL')}/reset-password`, {
@@ -195,7 +195,7 @@ class Auth
 
             return await response.json()
         } catch (error) {
-            alert('Error occured!')
+            showErrorOccured()
             console.log(error)
         }
     }

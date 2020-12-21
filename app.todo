@@ -1,9 +1,19 @@
+# Todo:
+--------------------------------------------------------------------------------
 1. Languages
 2. Responsive layout
 3. Themes update
-4. Forgot password page
-5. Clear cache on model events.
-6. all (auth) pages add loading bar
-7. Possibly refactor Auth (split into Login controller, register, reset pw controllers)
-8. Error occured from API > show message at bottom nicely
-9. website 2x images
+4. Clear cache on model events.
+5. Login button link on website
+
+6. Error occured from API > show message at bottom nicely
+7. all (auth) pages add loading bar
+
+
+
+
+
+
+
+# Ideas:
+--------------------------------------------------------------------------------
