@@ -23,7 +23,7 @@ app.directive('focus', {
 
 /** App progress bar */
 app.use(VueProgressBar, {
-    color: "#73ccec",
+    color: "#57b9dc",
     failedColor: "#874b4b",
     thickness: "5px",
     autoFinish: false,
