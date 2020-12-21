@@ -4,7 +4,14 @@
             <app-button
                 class="button--primary"
                 loading-color="#fff">
-                Add appointment
+                
+                <div class="calendar-toolbar__add-appointment">
+                    Add appointment
+                </div>
+
+                <div class="calendar-toolbar__add-appointment-small">
+                    <i class="las la-plus-circle"></i>
+                </div>
             </app-button>
 
             <app-button @click="toggleFilters">

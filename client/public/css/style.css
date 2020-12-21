@@ -374,6 +374,13 @@
     position: relative;
 }
 
+
+@media only screen and (max-width: 1320px) {
+    .button {
+        padding: 0 30px;
+    }
+}
+
 .button__select-content {
     display: flex;
     gap: 12px;
@@ -812,6 +819,21 @@
 
     100% {
         transform: scale(1);
+    }
+}
+
+.calendar-toolbar__add-appointment-small {
+    display: none;
+}
+
+@media only screen and (max-width: 1320px) {
+    .calendar-toolbar__add-appointment {
+        display: none;
+    }
+
+    .calendar-toolbar__add-appointment-small {
+        display: block;
+        font-size: 23px;
     }
 }
 

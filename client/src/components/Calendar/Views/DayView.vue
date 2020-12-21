@@ -7,11 +7,11 @@
                 <div class="calendar__row"></div>
             </div>
 
-            <div class="calendar__column" v-for="n in 4">
+            <div class="calendar__column" v-for="n in 8">
                 <div class="calendar__row">
                     <img
                         class="calendar__profile-pic"
-                        :src="`/img/fake_person_${n}.jpg`"
+                        :src="`/img/fake_person_1.jpg`"
                     />
 
                     <div class="calendar__name">
@@ -43,7 +43,7 @@
             </div>
 
             <!-- Providers columns -->
-            <div class="calendar__column" v-for="n in 4">
+            <div class="calendar__column" v-for="n in 8">
 
                 <!-- Current hour line -->
                 <div
