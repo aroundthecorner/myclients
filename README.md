@@ -19,8 +19,8 @@ $ docker-compose up -d
 $ docker-compose logs (after the previous command has finished)
 ````
 
-The website will be running at [http://localhost:6455/](http://localhost:6455/)
-The app will be running at [http://localhost:47344/](http://localhost:47344/)
+<p>The website will be running at [http://localhost:6455/](http://localhost:6455/)</p>
+<p>The app will be running at [http://localhost:47344/](http://localhost:47344/)</p>
 
 ### 📑 License
 
