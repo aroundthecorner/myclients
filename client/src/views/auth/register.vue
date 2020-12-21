@@ -12,13 +12,13 @@
             />
         </div>
 
-        <div class="auth-page__main auth-page__main--center mt-50">
+        <div class="auth-page__main auth-page__main--center mt-50 height-auto">
             <div class="auth-page__registration-form auth-page__login-form--block">
                 <div class="auth-page__title">Create Account</div>
 
                 <div class="auth-page__form-container w-full">
-                    <div class="flex">
-                        <div class="flex-1 mr-60">
+                    <div class="auth-page__register-columns">
+                        <div class="auth-page__register-left">
                             <div class="auth-page__subtitle mt-30">
                                 Create a new user
                             </div>

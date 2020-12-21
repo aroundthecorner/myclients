@@ -243,8 +243,17 @@
                 })
             }
 
+            function hideMenu() {
+                top.value = -999
+                left.value = -999
+            }
+
             onMounted(() => {
                 calculatePosition()
+                
+                nextTick(() => {
+                    hideMenu()
+                })
             })
 
             onBeforeUnmount(() => {
@@ -256,6 +265,7 @@
                     calculatePosition()
                     window.addEventListener('click', closeMenu)
                 } else {
+                    hideMenu()
                     window.removeEventListener('click', closeMenu)
                 }
             })

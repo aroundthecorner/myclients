@@ -210,7 +210,7 @@
 
 @media only screen and (max-height: 700px) {
     .auth-page__login-form {
-        margin-top: -110px;
+        margin-top: -80px;
     }
 }
 
@@ -768,6 +768,31 @@
     border: 1px solid #00338014;
 }
 
+.auth-page__register-columns {
+    display: flex;
+}
+
+@media only screen and (max-width: 987px) {
+    .auth-page__register-columns {
+        display: block;
+    }
+
+    .auth-page__registration-form {
+        width: 80%;
+    }
+}
+
+.auth-page__register-left {
+    flex: 1;
+    margin-right: 60px;
+}
+
+@media only screen and (max-width: 987px) {
+    .auth-page__register-left {
+        margin-right: 0;
+    }
+}
+
 .bounce-enter-active {
     animation: bounce-in 0.4s;
 }
@@ -789,6 +814,9 @@
         transform: scale(1);
     }
 }
+
+
+/* Utility classes */
 
 .mt-10 {
     margin-top: 10px;
@@ -866,4 +894,8 @@
 
 .text-center {
     text-align: center;
+}
+
+.height-auto {
+    height: auto;
 }

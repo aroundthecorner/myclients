@@ -3,10 +3,11 @@
 1. Languages
 2. Responsive layout
 3. Themes update
-4. Clear cache on model events.
+4. Clear (redis) cache on model events.
 5. Login button link on website
 
-6. all (auth) pages add loading bar
+
+
 
 
 
