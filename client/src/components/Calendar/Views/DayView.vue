@@ -7,7 +7,7 @@
             name="calendarDay">
 
             <!-- Hours column -->
-            <div class="calendar__column">
+            <div class="calendar__column calendar__column--hours">
                 <div class="calendar__row calendar__row--hour"></div>
             </div>
 
@@ -33,7 +33,7 @@
             name="calendarDay">
 
             <!-- Hours column -->
-            <div class="calendar__column">
+            <div class="calendar__column calendar__column--hours">
                 <div
                     class="calendar__row calendar__row--hour"
                     v-for="(hour, index) in hours"
@@ -96,7 +96,7 @@
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue'
+    import { ref, onMounted, onUnmounted } from 'vue'
     import useCalendar from '../../../features/useCalendar.js'
 
     const { generateHours, getDecimalTime } = useCalendar()
@@ -160,8 +160,17 @@
          * We need to import the sync scroll lib after the component
          * has been mounted to detect sync elements.
          */
-        let scriptElm = document.createElement('script')
-        scriptElm.src = '/js/lib/syncscroll.js'
-        document.body.appendChild(scriptElm)
+        if (!document.getElementById("syncscroll-js")) {
+            let scriptElm = document.createElement('script')
+            scriptElm.src = '/js/lib/syncscroll.js'
+            scriptElm.id = 'syncscroll-js'
+            document.body.appendChild(scriptElm)
+        }
+    })
+
+    onUnmounted(() => {
+        if (document.getElementById("syncscroll-js")) {
+            document.getElementById("syncscroll-js").remove()
+        }
     })
 </script>

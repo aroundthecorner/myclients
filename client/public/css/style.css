@@ -610,6 +610,13 @@
     position: relative;
 }
 
+.calendar__column--hours {
+    position: sticky;
+    left: 0px;
+    background: var(--color-yin);
+    z-index: 6;
+}
+
 .calendar__column:first-child {
     flex: initial;
     width: 90px;
@@ -659,7 +666,7 @@
     background: var(--color-yin);
     position: sticky;
     top: 0;
-    z-index: 4;
+    z-index: 7;
     padding: 20px 0;
     box-shadow: 0px 2px 25px -24px rgba(0,0,0,0.75);
     opacity: 0.96;
