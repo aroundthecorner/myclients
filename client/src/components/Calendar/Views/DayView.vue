@@ -2,13 +2,18 @@
     <div class="calendar">
 
         <!-- Head row -->
-        <div class="calendar__head-row">
+        <div
+            class="calendar__head-row overflow-hidden syncscroll"
+            name="calendarDay">
+
+            <!-- Hours column -->
             <div class="calendar__column">
-                <div class="calendar__row"></div>
+                <div class="calendar__row calendar__row--hour"></div>
             </div>
 
+            <!-- Providers columns -->
             <div class="calendar__column" v-for="n in 8">
-                <div class="calendar__row">
+                <div class="calendar__row calendar__row--provider">
                     <img
                         class="calendar__profile-pic"
                         :src="`/img/fake_person_1.jpg`"
@@ -23,12 +28,14 @@
 
 
         <!-- Calendar columns -->
-        <div class="flex">
+        <div
+            class="calendar__providers-container syncscroll"
+            name="calendarDay">
 
             <!-- Hours column -->
             <div class="calendar__column">
                 <div
-                    class="calendar__row"
+                    class="calendar__row calendar__row--hour"
                     v-for="(hour, index) in hours"
                     :key="hour.id">
 
@@ -58,7 +65,7 @@
                 </div>
 
                 <!-- Calendar events -->
-                <div v-if="n < 2" class="calendar__event">
+                <div v-if="n < 2" class="calendar__event" @click="doSomething">
                     <div class="calendar__event-title">
                         Hot stone therapy
                     </div>
@@ -79,7 +86,7 @@
                 </div>
 
                 <div
-                    class="calendar__row"
+                    class="calendar__row calendar__row--provider"
                     v-for="hour in hours"
                     :key="`col-${hour.id}`">
                 </div>
@@ -89,7 +96,7 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue'
+    import { ref, onMounted } from 'vue'
     import useCalendar from '../../../features/useCalendar.js'
 
     const { generateHours, getDecimalTime } = useCalendar()
@@ -116,4 +123,45 @@
             durationDecimal: '1.75',
         }
     ]
+
+    function doSomething() {
+        alert('doSomething()')
+    }
+
+    onMounted(() => {
+        // Drag - scroll behavior
+        var x, y, top, left, down
+        var stuff = document.querySelector('.calendar__providers-container')
+
+        stuff.addEventListener('mousedown', function(e) {
+            e.preventDefault()
+            down = true
+            x = e.pageX
+            y = e.pageY
+            top = stuff.scrollTop
+            left = stuff.scrollLeft
+        })
+
+        document.body.addEventListener('mousemove', function(e) {
+            if(down) {
+                var newX = e.pageX
+                var newY = e.pageY
+
+                stuff.scrollTop = top - newY + y
+                stuff.scrollLeft = left - newX + x
+            }
+        })
+
+        document.body.addEventListener('mouseup', function(e) {
+            down = false
+        })
+
+        /**
+         * We need to import the sync scroll lib after the component
+         * has been mounted to detect sync elements.
+         */
+        let scriptElm = document.createElement('script')
+        scriptElm.src = '/js/lib/syncscroll.js'
+        document.body.appendChild(scriptElm)
+    })
 </script>

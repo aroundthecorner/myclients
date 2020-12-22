@@ -8,13 +8,15 @@
     "test": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "@aacassandra/vue3-progressbar": "^1.0.3",
+    "@vueuse/core": "4.0.0-rc.8",
     "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "jquery": "^3.5.1",
+    "sync-scroll": "^1.0.3",
     "vue": "^3.0.3",
     "vue-router": "^4.0.0-rc.5",
-    "vuex": "^4.0.0-rc.2",
-    "@vueuse/core": "4.0.0-rc.8",
-    "@aacassandra/vue3-progressbar": "^1.0.3"
+    "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

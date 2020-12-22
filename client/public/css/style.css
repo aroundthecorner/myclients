@@ -600,6 +600,11 @@
     padding: 10px 10px;
 }
 
+.calendar__providers-container {
+    display: flex;
+    overflow: auto;
+}
+
 .calendar__column {
     flex: 1;
     position: relative;
@@ -627,6 +632,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.calendar__row--hour {
+    min-width: 90px;
+    max-width: 90px;
+}
+
+.calendar__row--provider {
+    min-width: 280px;
+    max-width: 280px;
 }
 
 .calendar__row:first-child {
@@ -920,4 +935,12 @@
 
 .height-auto {
     height: auto;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
