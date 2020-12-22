@@ -2,7 +2,7 @@
     <div class="calendar-toolbar">
         <div class="calendar-toolbar__row">
             <app-button
-                class="button--primary"
+                class="calendar-toolbar__button button--primary"
                 loading-color="#fff">
                 
                 <div class="calendar-toolbar__add-appointment">
@@ -14,7 +14,9 @@
                 </div>
             </app-button>
 
-            <app-button @click="toggleFilters">
+            <app-button
+                class="calendar-toolbar__button"
+                @click="toggleFilters">
                 Filters
             </app-button>
 
@@ -31,16 +33,16 @@
             </div>
 
             <app-button
-                class="button--primary"
+                class="calendar-toolbar__button button--primary"
                 loading-color="#fff">
                 Day
             </app-button>
 
-            <app-button>
+            <app-button class="calendar-toolbar__button">
                 Week
             </app-button>
 
-            <app-button>
+            <app-button class="calendar-toolbar__button">
                 Month
             </app-button>
         </div>

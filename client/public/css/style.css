@@ -376,7 +376,7 @@
 
 
 @media only screen and (max-width: 1320px) {
-    .button {
+    .calendar-toolbar__button {
         padding: 0 30px;
     }
 }
