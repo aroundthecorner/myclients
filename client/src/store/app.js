@@ -1,3 +1,5 @@
+import Languages from '../api/languages.js'
+
 export default {
     namespaced: true,
 
@@ -6,6 +8,7 @@ export default {
         return {
             theme: 'aconite',
             app_name: 'myclients',
+            language: 'en',
             
             serverError: {
                 show: false,
@@ -22,7 +25,9 @@ export default {
                 'title': '',
                 'body': '',
                 'hideDelay': '',
-            }
+            },
+
+            languages: [],
         }
     },
 
@@ -46,6 +51,13 @@ export default {
         hideNotificationMessage({ commit })
         {
             commit('hideNotificationMessage')
+        },
+
+        async fetchLanguages({ commit })
+        {
+            const languages = await Languages.get()
+
+            commit('setLanguages', languages)
         },
     },
 
@@ -77,6 +89,11 @@ export default {
         hideNotificationMessage(state)
         {
             state.notificationMessage.show = false
+        },
+
+        setLanguages(state, languages)
+        {
+            state.languages = languages
         },
     },
 }

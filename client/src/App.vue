@@ -17,6 +17,7 @@
     const store = useStore()
     const { restoreSession } = useAuth()
 
+    store.dispatch('app/fetchLanguages')
     const app = computed(() => store.state.app)
 
     restoreSession()

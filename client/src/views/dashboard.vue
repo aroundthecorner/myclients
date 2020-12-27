@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>myclients - Online Apointment Scheduling App</title>
+        <title>myclients - {{ lang('Login') }}</title>
     </teleport>
 
     <div>Dashboard</div>
@@ -9,8 +9,10 @@
 <script setup>
     import { onMounted, inject } from 'vue';
     import { onBeforeRouteLeave } from 'vue-router';
+    import useLanguage from '../features/useLanguage.js'
     
     const progressBar = inject('progressBar')
+    const { lang } = useLanguage()
 
     onBeforeRouteLeave(() => {
         progressBar.start()

@@ -15,6 +15,7 @@ class LanguageRepository
             'Forgot Password?',
             'Login Now',
             'Create Account',
+            'Online Apointment Scheduling App',
         ];
 
         $languages = [
@@ -35,6 +36,7 @@ class LanguageRepository
                     'Forgot Password?',
                     'Login Now',
                     'Create Account',
+                    'Online Apointment Scheduling App',
                 ]
             ],
 
@@ -55,6 +57,7 @@ class LanguageRepository
                     'Aizmirsāt paroli?',
                     'Ienākt',
                     'Reģistrēties',
+                    'Tiešsaites plānošanas aplikācija',
                 ]
             ],
 
