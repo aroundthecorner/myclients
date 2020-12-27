@@ -648,7 +648,6 @@
 
 .calendar__row--provider {
     min-width: 280px;
-    max-width: 280px;
 }
 
 .calendar__row:first-child {

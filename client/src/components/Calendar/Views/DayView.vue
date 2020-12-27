@@ -12,7 +12,7 @@
             </div>
 
             <!-- Providers columns -->
-            <div class="calendar__column" v-for="n in 8">
+            <div class="calendar__column" v-for="n in 3">
                 <div class="calendar__row calendar__row--provider">
                     <img
                         class="calendar__profile-pic"
@@ -50,7 +50,7 @@
             </div>
 
             <!-- Providers columns -->
-            <div class="calendar__column" v-for="n in 8">
+            <div class="calendar__column" v-for="n in 3">
 
                 <!-- Current hour line -->
                 <div

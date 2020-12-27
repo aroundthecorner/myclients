@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LanguagesController;
 use App\Http\Controllers\OrganizationTypesController;
 
 /**
@@ -18,3 +19,4 @@ Route::post('reset-password',               [AuthController::class, 'resetPasswo
  * Organization types
  */
 Route::get('organization-types',            [OrganizationTypesController::class, 'index']);
+Route::get('languages',                     [LanguagesController::class, 'index']);
