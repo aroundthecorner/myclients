@@ -13,6 +13,9 @@ An online appointment scheduling app.
 ### Build instructions
 
 ````
+# (!) Remove node_modules, vendor and public/storage before building
+# Also, make sure to stop and remove all containers before running them anew.
+
 $ git clone https://github.com/martinszeltins/myClients
 $ cd myClients
 $ docker-compose up -d

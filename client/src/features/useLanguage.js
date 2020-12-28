@@ -8,10 +8,17 @@ function useLanguage()
      */
     function lang(string)
     {
-        let language = computed(() => store.state.app.language)
-        language = language.value
+        const language = computed(() => store.state.app.language)
 
-        return store.state.app.languages[language]['translations'][string]
+        const translation = computed(() => {
+            if (store.state.app.languages !== undefined && store.state.app.languages[language.value] !== undefined) {
+                return store.state.app.languages[language.value]['translations'][string]
+            } else {
+                return ''
+            }
+        })
+
+        return translation.value
     }
 
     return {
