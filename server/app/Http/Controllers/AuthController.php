@@ -19,7 +19,9 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $user = User::with('organization:id,description')
+                    ->where('email', $request->email)
+                    ->first();
 
         try {
             $credentials = request(['email', 'password']);

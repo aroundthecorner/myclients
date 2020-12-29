@@ -18,6 +18,10 @@
                 <div class="sidebar__name">
                     {{ user.name }}
                 </div>
+
+                <div class="sidebar__organization">
+                    {{ user.organization.description }}
+                </div>
             </div>
 
             <template #dropdown>

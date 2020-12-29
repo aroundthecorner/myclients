@@ -20,3 +20,11 @@ Route::post('reset-password',               [AuthController::class, 'resetPasswo
  */
 Route::get('organization-types',            [OrganizationTypesController::class, 'index']);
 Route::get('languages',                     [LanguagesController::class, 'index']);
+
+/**
+ * Area 51
+ */
+Route::get('area51', function() {
+    // $user = \App\Models\User::with('organization:id,description')->first();
+    // return $user;
+});
