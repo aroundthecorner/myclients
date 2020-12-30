@@ -61,6 +61,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- Add new appointment -->
+        <div class="upcoming-appointments mt-40">
+            <div class="upcoming-appointments__item upcoming-appointments__item--add">
+                <div class="upcoming-appointments__add-content">
+                    <div><i class="las la-plus-circle"></i></div>
+                    <div>Add appointment</div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
