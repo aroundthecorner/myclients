@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Sanitizer
+class Sanitize
 {
     /**
      * Handle an incoming request.

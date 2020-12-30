@@ -22,6 +22,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('throttle:30,10');
+        $this->middleware('sanitize')->only(['register']);
     }
 
     /**
