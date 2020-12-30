@@ -26,9 +26,15 @@
     --color-fighter: #ffffffbd;
     --color-shazam: rgba(0,0,0,.87);
     --color-orbit: #f2f2f2;
+    --color-jupiter: #57aa89;
     --color-penny: linear-gradient(137deg, #37a0f6 0%, #3f87fb 90%);
     --shadow-oreo: 6px 4px 16px -16px rgba(0,0,0,0.56);
     --shadow-salty: rgba(50, 50, 50, 0.1) 0px 0px 11px 0px;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Raleway";
+    color: var(--color-hippo);
 }
 
 .v-spacer-50 {
@@ -865,8 +871,65 @@
     }
 }
 
+.upcoming-appointments-title {
+    margin-top: 5px;
+}
 
-/* Utility classes */
+.upcoming-appointments {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 36px;
+    margin-top: 25px;
+}
+
+.upcoming-appointments__item {
+    background: var(--color-yin);
+    border-radius: 8px;
+    padding: 12px 18px;
+    box-shadow: rgba(0, 0, 0, 0.03) 2px 4px 16px;
+}
+
+.upcoming-appointments__title {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.upcoming-appointments__client {
+    font-weight: bold;
+    flex: 1;
+    color: var(--color-hippo);
+}
+
+.upcoming-appointments__status {
+    color: var(--color-jupiter);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.upcoming-appointments__icon {
+    color: var(--color-hippo);
+    font-size: 20px;
+    opacity: .7;
+    position: relative;
+    top: 2px;
+}
+
+.upcoming-appointments__info {
+    padding-left: 6px;
+    font-size: 14px;
+    color: var(--color-hippo);
+}
+
+.dashboard-title {
+    margin-top: 60px;
+}
+
+
+
+/*
+ * Utility classes
+ */
 
 .mt-10 {
     margin-top: 10px;

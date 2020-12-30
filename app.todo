@@ -8,6 +8,7 @@
 4. Clear (redis) cache on model events.
 5. Login button link on website
 6. Update to PHP 8 when Laravel 9 is released
+7. Fix progress bar color on second time
 
 
 
