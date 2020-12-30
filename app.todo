@@ -9,7 +9,7 @@
 5. Login button link on website
 6. Update to PHP 8 when Laravel 9 is released
 8. Security (secure tokens, secure csrf, xss etc. hacking!)
-
+9. Deployment .env's, docker files
 
 
 
