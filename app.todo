@@ -17,10 +17,28 @@
 
 
 
-
-
-
-
-
 # Ideas:
 --------------------------------------------------------------------------------
+
+
+
+
+
+
+# Deployment:
+--------------------------------------------------------------------------------
+
+1. Find a server / hosting.
+
+2. Configure reverse proxy to point to the app's services.
+   reverse  - - - - - > website   [localhost:6455]
+    proxy   - - - - - > frontend  [localhost:47344]
+            - - - - - > backend   [localhost:41166]
+
+3. Use production .env files.
+   client/.env ... VITE_SERVER_URL=http://app.myclients.org/api
+   server/.env ... APP_CLIENT_URL, APP_URL, DB_...
+   
+4. Use production Docker files.
+
+5. Put a CDN in front of the application.
