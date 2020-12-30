@@ -21,7 +21,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('throttle:20,10');
+        $this->middleware('throttle:30,10');
     }
 
     /**
