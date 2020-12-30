@@ -516,6 +516,7 @@ h1, h2, h3, h4 {
     z-index: 2;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .sidebar__item {
