@@ -10,6 +10,7 @@
 6. Update to PHP 8 when Laravel 9 is released
 8. Security (secure tokens, secure csrf, xss etc. hacking!)
 9. Deployment .env's, docker files
+   - hide error message bodies (for security)
 10. Rate limit how many times can login (brute force protection)
 
 

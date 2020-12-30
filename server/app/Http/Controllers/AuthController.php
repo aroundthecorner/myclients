@@ -15,6 +15,16 @@ use Illuminate\Support\Str;
 class AuthController extends Controller
 {
     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('throttle:20,10');
+    }
+
+    /**
      * Log in a user
      */
     public function login(Request $request)
