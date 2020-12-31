@@ -37,7 +37,7 @@ COPY ./docker/php-server/local.ini /usr/local/etc/php/conf.d/local.ini
 
 # Permissions for Laravel
 RUN chown -R www-data:www-data /var/www
-RUN chmod -R 666 /var/www
+RUN chmod -R 777 /var/www
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -45,4 +45,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 
-CMD bash -c "composer install && chmod -R 666 /var/www && php artisan storage:link && php-fpm"
+CMD bash -c "composer install && chmod -R 777 /var/www && php artisan storage:link && php-fpm"
