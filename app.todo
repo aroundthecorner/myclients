@@ -44,6 +44,8 @@
 
 5. Build static frontend assets                                     ❌
 
-6. Put a CDN in front of the application.                           ✅
+6. php artisan migrate --seed                                       ❌
 
-7. Change website Login link                                        ❌
+7. Put a CDN in front of the application.                           ✅
+
+8. Change website Login link                                        ❌
