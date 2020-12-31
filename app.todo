@@ -49,3 +49,5 @@
 7. Put a CDN in front of the application.                           ✅
 
 8. Change website Login link                                        ✅
+
+9. Cloudflare supports only one level subdomain free TLS/SSL cert   ✅
