@@ -12,6 +12,7 @@
 9. Deployment .env's, docker files
    - hide error message bodies (for security)
 10. Rate limit how many times can login (brute force protection)
+11. Make technical documentation of how everything works.
 
 
 
@@ -28,17 +29,21 @@
 # Deployment:
 --------------------------------------------------------------------------------
 
-1. Find a server / hosting.
+1. Find a server / hosting.                                         ✅
 
-2. Configure reverse proxy to point to the app's services.
+2. Configure reverse proxy to point to the app's services.          ✅
    reverse  - - - - - > website   [localhost:6455]
     proxy   - - - - - > frontend  [localhost:47344]
             - - - - - > backend   [localhost:41166]
 
-3. Use production .env files.
+3. Use production .env files.                                       ✅
    client/.env ... VITE_SERVER_URL=http://app.myclients.org/api
    server/.env ... APP_CLIENT_URL, APP_URL, DB_...
    
-4. Use production Docker files.
+4. Use production Docker files.                                     ❌
 
-5. Put a CDN in front of the application.
+5. Build static frontend assets                                     ❌
+
+6. Put a CDN in front of the application.                           ✅
+
+7. Change website Login link                                        ❌
