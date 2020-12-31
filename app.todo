@@ -40,12 +40,12 @@
    client/.env ... VITE_SERVER_URL=http://app.myclients.org/api
    server/.env ... APP_CLIENT_URL, APP_URL, DB_...
    
-4. Use production Docker files.                                     ❌
+4. Use production Docker files.                                     ✅
 
-5. Build static frontend assets                                     ❌
+5. Build static frontend assets                                     ✅
 
-6. php artisan migrate --seed                                       ❌
+6. php artisan migrate --seed                                       ✅
 
 7. Put a CDN in front of the application.                           ✅
 
-8. Change website Login link                                        ❌
+8. Change website Login link                                        ✅
