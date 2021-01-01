@@ -13,7 +13,7 @@ class LanguagesController extends Controller
      */
     public function index()
     {
-        // return cache()->remember('languages', now()->addMonth(), function() {
+        return cache()->remember('languages', now()->addMonth(), function() {
             $language_translations = $this->getLanguageTranslations();
         
             foreach($language_translations as $index => $language_translation) {
