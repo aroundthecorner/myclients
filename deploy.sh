@@ -1,6 +1,6 @@
 # Pull latest changes
 echo "================= Pulling latest changes... ================="
-cd /home/martins/Server/myclients && git pull
+cd /home/martins/Server/myclients && git reset --hard && git pull
 printf "done\n"
 
 
