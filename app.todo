@@ -53,3 +53,6 @@
 8. Change website Login link                                        ✅
 
 9. Cloudflare supports only one level subdomain free TLS/SSL cert   ✅
+
+10. Seed only once, after that only migrate (+ include seeding      ✅
+    with migrations if neccessary)
