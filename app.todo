@@ -56,3 +56,6 @@
 
 10. Seed only once, after that only migrate (+ include seeding      ✅
     with migrations if neccessary)
+
+11. Zero-downtime idea. First, only build the images and then       ✅
+    dcd and dcu. So it will be very fast.
