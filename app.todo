@@ -44,7 +44,7 @@
    - If you already have them on your system, after git pull,
      you need to copy & replace your prod files. (.env & docker-compose)
 
-5. Build static frontend assets                                     ✅
+5. Build static frontend assets (on prod server with prod .env)     ✅
 
 6. php artisan migrate --seed                                       ✅
 
