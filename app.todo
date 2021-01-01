@@ -36,7 +36,7 @@
     proxy   - - - - - > frontend  [localhost:47344]
             - - - - - > backend   [localhost:41166]
 
-3. Use production .env files.                                       ✅
+3. Use production .env files. (copy & replace script)               ✅
    client/.env ... VITE_SERVER_URL=http://app.myclients.org/api
    server/.env ... APP_CLIENT_URL, APP_URL, DB_...
    
