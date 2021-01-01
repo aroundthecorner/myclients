@@ -29,7 +29,10 @@
                     <b>Url</b>: {{ serverError.url }}
                 </div>
 
-                <div class="notification-popup__description">
+                <div
+                    v-if="appEnv == 'dev'"
+                    class="notification-popup__description">
+                    
                     <i>
                         {{ excerpt(serverError.body) }}
                     </i>
@@ -42,9 +45,12 @@
 <script setup>
     import { computed } from 'vue'
     import { useStore } from 'vuex'
+    import useEnv from '../../features/useEnv.js'
 
+    const { env } = useEnv()
     const store = useStore()
     const serverError = computed(() => store.state.app.serverError)
+    const appEnv = env('VITE_APP_ENV')
 
     function excerpt(string) {
         let index = string.indexOf('trace')
