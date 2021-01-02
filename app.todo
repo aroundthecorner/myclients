@@ -13,6 +13,8 @@
    - hide error message bodies (for security)
 10. Rate limit how many times can login (brute force protection)
 11. Make technical documentation of how everything works.
+12. Min password length (javascript)
+13. PHP if user / organization already exists
 
 
 

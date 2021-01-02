@@ -28,15 +28,25 @@
                 <template #dropdown>
                     <div class="dropdown-menu">
                         <router-link
-                            to="/profile"
-                            class="dropdown-menu__item">
-                            My profile
+                            to="/settings/profile"
+                            class="dropdown-menu__item p-0">
+
+                            <div
+                                class="dropdown-menu__item-content"
+                                @click="showProfileMenu = false">
+                                My profile
+                            </div>
                         </router-link>
 
                         <router-link
-                            to="/settings"
-                            class="dropdown-menu__item">
-                            Settings
+                            to="/settings/profile"
+                            class="dropdown-menu__item p-0">
+                            
+                            <div
+                                class="dropdown-menu__item-content"
+                                @click="showProfileMenu = false">
+                                Settings
+                            </div>
                         </router-link>
 
                         <div
@@ -75,10 +85,10 @@
 
             <div class="spacer"></div>
 
-            <div class="sidebar__item">
+            <router-link to="/settings/profile" class="sidebar__item">
                 <i class="sidebar__icon las la-cog"></i>
                 <span class="sidebar__item-text">Settings</span>
-            </div>
+            </router-link>
         </div>
     </div>
 </template>

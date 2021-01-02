@@ -20,6 +20,12 @@ const routes = [
                 name: "calendar",
                 component: () => import('./views/calendar.vue'),
             },
+
+            {
+                path: '/settings/profile',
+                name: 'profileSettings',
+                component: () => import('./views/settings/profile.vue'),
+            },
         ],
 
         meta: {

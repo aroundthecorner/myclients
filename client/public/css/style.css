@@ -817,6 +817,10 @@ h1, h2, h3, h4 {
     background: inherit;
 }
 
+.dropdown-menu__item-content {
+    padding: 10px 20px;
+}
+
 .dropdown-menu__item:hover {
     background: #eaeaea;
     color: #353535;
@@ -1139,4 +1143,8 @@ h1, h2, h3, h4 {
 
 .overflow-hidden {
     overflow: hidden;
+}
+
+.p-0 {
+    padding: 0;
 }
