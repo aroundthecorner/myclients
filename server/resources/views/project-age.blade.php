@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Project age">
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="20" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Project age">
     <title>Project age</title>
 
     <linearGradient id="s" x2="0" y2="100%">
