@@ -15,6 +15,9 @@
 11. Make technical documentation of how everything works.
 12. Min password length (javascript)
 13. PHP if user / organization already exists
+14. TESTS
+15. Templates for (same client always 1 service, same time, price etc.)
+16. Send email using SMTP server (Gmail / Mail.ru or whatever...)
 
 
 
@@ -30,6 +33,11 @@
 
 # Deployment:
 --------------------------------------------------------------------------------
+
+"> Make a new feature
+ > Commit to git
+ > Run deploy.sh on server"
+
 
 1. Find a server / hosting.                                         ✅
 

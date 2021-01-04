@@ -28,6 +28,7 @@
     --color-orbit: #f2f2f2;
     --color-jupiter: #57aa89;
     --color-softis: #1787d7;
+    --color-tenq: #e9e9e9;
     --color-penny: linear-gradient(137deg, #37a0f6 0%, #3f87fb 90%);
     --shadow-oreo: 6px 4px 16px -16px rgba(0,0,0,0.56);
     --shadow-salty: rgba(50, 50, 50, 0.1) 0px 0px 11px 0px;
@@ -1049,11 +1050,92 @@ h1, h2, h3, h4 {
     font-size: 35px;
 }
 
+.page-container {
+    border-radius: 8px;
+    background-color: var(--color-yin);
+    min-height: calc(100vh - 40px);
+}
+
+.page-navigation {
+    padding: 0px 30px;
+    display: flex;
+    border-bottom: 1px solid rgb(228, 231, 235);
+    gap: 25px;
+}
+
+.page-navigation__item {
+    color: var(--color-hippo);
+    padding: 24px 0px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.page-navigation__item:hover {
+    color: var(--color-yang);
+}
+
+.page-navigation__item--active {
+    border-bottom: 2px solid var(--color-xing);
+    color: var(--color-yang);
+}
+
+.page-container__content {
+    padding: 20px 40px;
+}
+
+.settings-item {
+    padding: 35px 0;
+    display: flex;
+    border-bottom: 1px solid var(--color-tenq);
+}
+
+.settings-item:last-child {
+    border-bottom: 0;
+}
+
+.settings-item__left {
+    flex: 1;
+}
+
+.settings-item__right {
+    flex: 3;
+}
+
+.settings-item__left,
+.settings-item__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.settings-item__title {
+    color: var(--color-primary);
+}
+
+input.app-input[type="text"], 
+input.app-input[type="email"], 
+input.app-input[type="password"] {
+    background: var(--color-dino);
+    border-radius: 4px;
+    border: 0px;
+    padding: 10px 15px;
+    color: var(--color-disco);
+}
+
+.app-input:focus {
+    outline: none;
+}
 
 
 /*
- * Utility classes
+ * Utility helper classes
  */
+
+.inline {
+    display: inline-block;
+}
 
 .mt-10 {
     margin-top: 10px;
@@ -1089,6 +1171,10 @@ h1, h2, h3, h4 {
 
 .w-400 {
     width: 400px;
+}
+
+.w-250 {
+    width: 250px;
 }
 
 .mr-60 {
