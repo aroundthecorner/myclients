@@ -16,6 +16,6 @@ class ProjectAgeController extends Controller
         $projectStartDate = new Carbon("2020-11-25");
         $projectAge =  $projectStartDate->diffInDays(now());
 
-        return view('project-age', compact('projectAge'));
+        return response()->view('project-age', compact('projectAge'))->header('Content-Type', 'image/svg+xml');
     }
 }
