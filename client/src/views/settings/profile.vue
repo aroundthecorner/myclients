@@ -93,11 +93,9 @@
                         </div>
 
                         <div class="settings-item__right">
-                            <input
-                                type="text"
-                                class="app-input w-250"
-                                value="Upload"
-                            />
+                            <app-button class="button--flat inline w-250 text-center">
+                                Upload...
+                            </app-button>
                         </div>
                     </div>
                 </div>
