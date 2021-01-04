@@ -4,6 +4,7 @@
 
 <p align="center">
     <img src="https://todo.martinsz.lv/img/mit.svg" alt="License">
+    <img src="https://myclientsapp.martinsz.lv/api/project-age.svg" alt="Project age">
 </p>
 
 <h2 align="center">myClients</h2>
