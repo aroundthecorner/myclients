@@ -5,23 +5,7 @@
 
     <div class="page">
         <div class="page-container">
-            <div class="page-navigation">
-                <div class="page-navigation__item page-navigation__item--active">
-                    Profile Settings
-                </div>
-
-                <div class="page-navigation__item">
-                    Organization Settings
-                </div>
-
-                <div class="page-navigation__item">
-                    Users
-                </div>
-
-                <div class="page-navigation__item">
-                    Plan & Billing
-                </div>
-            </div>
+            <settings-navigation />
 
             <div class="page-container__content">
                 <div class="settings-items">
@@ -88,7 +72,7 @@
                                 <app-button
                                     @click="showThemesMenu = !showThemesMenu"
                                     class="button--flat inline w-250 dropdown-arrows">
-                                    Change theme
+                                    Selected theme!
                                 </app-button>
 
                                 <template #dropdown>
@@ -111,6 +95,39 @@
                                         <div class="theme-picker__item theme-picker__item--dark-forest">
                                             <div class="theme-picker__title">Theme</div>
                                             <div class="theme-picker__description theme-picker__description--dark">Black Forest</div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </dropdown-menu>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-item__left">
+                            <div class="settings-item__title">
+                                Language
+                            </div>
+                        </div>
+
+                        <div class="settings-item__right">
+                            <dropdown-menu
+                                placement="bottom"
+                                v-model="showLanguageMenu">
+
+                                <app-button
+                                    @click="showLanguageMenu = !showLanguageMenu"
+                                    class="button--flat inline w-250 dropdown-arrows">
+                                    Selected language
+                                </app-button>
+
+                                <template #dropdown>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-menu__item">
+                                            Language 1
+                                        </div>
+
+                                        <div class="dropdown-menu__item">
+                                            Language 2
                                         </div>
                                     </div>
                                 </template>
@@ -147,12 +164,14 @@
     import { onMounted, inject, computed, ref } from 'vue';
     import AppButton from '../../components/Button.vue'
     import DropdownMenu from '../../components/DropdownMenu.vue'
+    import SettingsNavigation from '../../components/Navigation/SettingsNavigation.vue'
     
     const store = useStore()
     const progressBar = inject('progressBar')
 
     const password = ref('')
     const showThemesMenu = ref(false)
+    const showLanguageMenu = ref(false)
     const user = computed(() => store.state.user)
 
     onBeforeRouteLeave(() => {

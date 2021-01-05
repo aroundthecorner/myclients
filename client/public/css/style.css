@@ -1091,7 +1091,7 @@ h1, h2, h3, h4 {
     color: var(--color-yang);
 }
 
-.page-navigation__item--active {
+.page-navigation__item.router-link-exact-active {
     border-bottom: 2px solid var(--color-xing);
     color: var(--color-yang);
 }

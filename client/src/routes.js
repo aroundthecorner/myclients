@@ -26,6 +26,12 @@ const routes = [
                 name: 'profileSettings',
                 component: () => import('./views/settings/profile.vue'),
             },
+
+            {
+                path: '/settings/organization',
+                name: 'organizationSettings',
+                component: () => import('./views/settings/organization.vue'),
+            },
         ],
 
         meta: {
