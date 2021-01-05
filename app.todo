@@ -22,6 +22,8 @@
 18. Cache & save language in local storage
 19. User roles & permissions
 20. Add for position to dropdown menu
+21. Encrypt (crypto-js) local storage keys for production (extra layer of security)
+    - leave unencrypted for dev for easier development
 
 
 
