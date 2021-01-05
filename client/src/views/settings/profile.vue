@@ -77,11 +77,40 @@
                         </div>
 
                         <div class="settings-item__right">
-                            <input
-                                type="text"
-                                class="app-input w-250"
-                                value="Change theme"
-                            />
+                            <dropdown-menu
+                                placement="bottom"
+                                v-model="showThemesMenu">
+
+                                <app-button
+                                    @click="showThemesMenu = !showThemesMenu"
+                                    class="button--flat inline w-250 dropdown-arrows">
+                                    Change theme
+                                </app-button>
+
+                                <template #dropdown>
+                                    <div class="dropdown-menu dropdown-menu--theme">
+                                        <div class="theme-picker__item theme-picker__item--aconite theme-picker__item--aconite-selected">
+                                            <div class="theme-picker__title">Theme</div>
+                                            <div class="theme-picker__description">Aconite</div>
+                                        </div>
+
+                                        <div class="theme-picker__item theme-picker__item--centaurs">
+                                            <div class="theme-picker__title">Theme</div>
+                                            <div class="theme-picker__description">Centaurs</div>
+                                        </div>
+
+                                        <div class="theme-picker__item theme-picker__item--azkaban">
+                                            <div class="theme-picker__title">Theme</div>
+                                            <div class="theme-picker__description theme-picker__description--dark">Azkaban</div>
+                                        </div>
+
+                                        <div class="theme-picker__item theme-picker__item--dark-forest">
+                                            <div class="theme-picker__title">Theme</div>
+                                            <div class="theme-picker__description theme-picker__description--dark">Black Forest</div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </dropdown-menu>
                         </div>
                     </div>
 
@@ -113,11 +142,13 @@
     import { onBeforeRouteLeave } from 'vue-router';
     import { onMounted, inject, computed, ref } from 'vue';
     import AppButton from '../../components/Button.vue'
+    import DropdownMenu from '../../components/DropdownMenu.vue'
     
     const store = useStore()
     const progressBar = inject('progressBar')
 
     const password = ref('')
+    const showThemesMenu = ref(false)
     const user = computed(() => store.state.user)
 
     onBeforeRouteLeave(() => {

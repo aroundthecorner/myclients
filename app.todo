@@ -19,7 +19,7 @@
 15. Templates for (same client always 1 service, same time, price etc.)
 16. Send email using SMTP server (Gmail / Mail.ru or whatever...)
 17. Better datatable component
-
+18. Cache & save language in local storage
 
 
 
