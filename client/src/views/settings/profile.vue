@@ -17,6 +17,10 @@
                 <div class="page-navigation__item">
                     Users
                 </div>
+
+                <div class="page-navigation__item">
+                    Plan & Billing
+                </div>
             </div>
 
             <div class="page-container__content">
