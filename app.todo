@@ -21,6 +21,7 @@
 17. Better datatable component
 18. Cache & save language in local storage
 19. User roles & permissions
+20. Add for position to dropdown menu
 
 
 
@@ -38,7 +39,12 @@
 
 "> Make a new feature
  > Commit to git
- > Run deploy.sh on server"
+ > Run deploy.sh on server
+ 
+ > commit "My new feature"       - alias for "git add . && git commit -m"
+ > ssh hostserver                - ssh key alias
+ > deploy                        - alias for '../deploy.sh'
+ "
 
 
 1. Find a server / hosting.                                         ✅
