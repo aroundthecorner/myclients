@@ -8,9 +8,9 @@
             Organization Settings
         </router-link>
 
-        <div class="page-navigation__item">
+        <router-link to="/settings/users" class="page-navigation__item">
             Users
-        </div>
+        </router-link>
 
         <div class="page-navigation__item">
             Plan & Billing

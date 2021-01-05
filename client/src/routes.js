@@ -32,6 +32,12 @@ const routes = [
                 name: 'organizationSettings',
                 component: () => import('./views/settings/organization.vue'),
             },
+
+            {
+                path: '/settings/users',
+                name: 'usersSettings',
+                component: () => import('./views/settings/users.vue'),
+            },
         ],
 
         meta: {
