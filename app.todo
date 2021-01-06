@@ -25,7 +25,10 @@
 21. Encrypt (crypto-js) local storage keys for production (extra layer of security)
     - leave unencrypted for dev for easier development
 22. Refactoring (move page loaders to composition f-ns?)
-23. Page to see and manage all clients, their users, invoices, contacts etc.
+23. Admin panel
+    - see and manage all clients, their users, invoices, contacts etc.
+    - be able to send messages and chat with clients (websockets)
+    - be able to see what a client is doing (transfer screenshots somehow?)
 
 
 
