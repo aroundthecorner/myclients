@@ -24,6 +24,7 @@
 20. Add for position to dropdown menu
 21. Encrypt (crypto-js) local storage keys for production (extra layer of security)
     - leave unencrypted for dev for easier development
+22. Refactoring (move page loaders to composition f-ns?)
 
 
 

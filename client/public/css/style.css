@@ -1208,6 +1208,243 @@ input.app-input[type="password"] {
 }
 
 
+/*
+ * Datatable
+ */
+ .datatable-container {
+    overflow: auto;
+    height: calc(100vh - 350px);
+}
+
+.datatable {
+    display: table;
+    padding: 5px;
+    min-width: 100%;
+    position: relative;
+    border-collapse: collapse;
+    color: #8e8e8e;
+}
+
+.datatable tbody {
+    border-radius: 4px;
+}
+
+.datatable tr {
+    border: 0 !important;
+}
+
+.datatable__filters {
+    display: table-row;
+    padding: 5px;
+    height: 60px;
+    white-space: nowrap;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #7a7a7a;
+    padding: 15px 0px;
+}
+
+.datatable__header {
+    display: table-row;
+    padding: 5px;
+    height: 43px;
+    white-space: nowrap;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #929292;
+    padding: 15px 0px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.datatable__row {
+    display: table-row;
+    padding: 5px;
+    height: 43px;
+    font-family: Roboto,sans-serif;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+.datatable__cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+
+/* Rounded corners */
+.datatable__header .datatable__cell {
+    border-radius: 3px 0 0 0;
+    border: 0 !important;
+    padding: 0px 40px 0px 40px !important;
+    cursor: pointer;
+    background: var(--background-light);
+    transition: .2s;
+}
+
+.datatable__header .datatable__cell:hover {
+    background: #34353a;
+}
+
+.datatable__row:last-child .datatable__cell {
+    border-radius: 0 0 6px 0;
+    border: 0 !important;
+}
+
+.datatable__row:first-child .datatable__cell {
+    border: 0 !important;
+}
+
+.datatable__filters .datatable__cell {
+    border: 0 !important;
+    padding: 0px 10px 12px 0 !important;
+    text-align: left;
+}
+
+/* Spacing */
+.datatable__header .datatable__cell {
+    padding: 0 20px;
+}
+
+.datatable__row .datatable__cell {
+    padding: 0px 20px;
+    background: rgba(41, 42, 45, 0.90);
+}
+
+.datatable__row:nth-child(even) .datatable__cell {
+    background: rgba(47, 47, 49, 0.75);
+}
+
+.datatable__filters .text-filter input {
+    width: 100% !important;
+    border: 0 !important;
+    height: 36px !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    background: #fff !important;
+    box-sizing: border-box !important;
+    color: #000 !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+.datatable__filters input:focus {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.datatable__loading {
+    position: absolute;
+    top: 62px;
+    width: 100%;
+    padding-right: 0px;
+    z-index: 2;
+}
+
+.datatable__loading-on {
+    opacity: 0.6;
+}
+
+.datatable__pagination {
+    background: var(--background-light);
+    height: 60px;
+    align-items: center;
+    margin-top: 45px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+    width: auto;
+    display: inline-block;
+    padding-top: 15px;
+    position: relative;
+}
+
+.datatable__pagination-items li a {
+    color: #7b7b7b;
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+}
+
+.datatable__pagination-items li {
+    display: inline-block;
+    border-radius: 2px;
+    text-align: center;
+    vertical-align: top;
+    height: 30px;
+}
+
+ul:not(.browser-default) {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.datatable__pagination-items li.datatable__pagination-active {
+    background-color: #3a3a3c;
+}
+
+.datatable__pagination-items li i {
+    position: relative;
+    top: 3px;
+}
+
+ul:not(.browser-default)>li {
+    list-style-type: none;
+}
+
+.datatable__pagination.disabled li a {
+    color: #999;
+}
+
+.datatable__pagination.disabled li.datatable__pagination-active {
+    background-color: #e6e6e6;
+}
+
+.datatable__pagination .disabled-loading-progress {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    border-radius: 8px;
+    opacity: .1;
+    z-index: 3;
+}
+
+.datatable__header.sticky > .datatable__cell {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+tr.datatable__row {
+    transition: .3s;
+}
+
+.datatable__footer td {
+    text-align: center;
+    font-style: italic;
+    color: #808080;
+    padding-top: 27px;
+}
+
+.datatable__filters .datatable__cell:last-child {
+    padding-right: 0 !important;
+}
+
+.datatable-users__toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 30px 0;
+}
+
+
 
 
 /*
