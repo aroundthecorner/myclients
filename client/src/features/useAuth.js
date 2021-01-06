@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { useStore } from 'vuex'
 import router from '../routes.js'
 import Auth from '../api/auth.js'
+import useEncryption from './useEncryption.js'
 
 function useAuth()
 {
@@ -84,8 +85,10 @@ function useAuth()
      */
     function goToRouteBeforeLogin()
     {
+        const { decrypt } = useEncryption()
+        
         router.push({
-            path: localStorage.getItem('myclients_path_before_login')
+            path: decrypt(localStorage.getItem('myclients_path_before_login'))
         })
     }
 
@@ -106,8 +109,10 @@ function useAuth()
     {
         let user = localStorage.getItem('myclients_user')
 
+        const { decrypt } = useEncryption()
+
         if (user) {
-            store.dispatch('user/setUser', JSON.parse(user))
+            store.dispatch('user/setUser', JSON.parse(decrypt(user)))
         }
     }
 

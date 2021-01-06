@@ -1,12 +1,19 @@
+import useEncryption from './useEncryption.js'
+
 function useURL()
 {
+    const { decrypt } = useEncryption()
+
     const jsonHeaders = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
     }
 
+    const user = decrypt(localStorage.getItem('myclients_user'))
+    const token = (user) ? JSON.parse(user)?.token : ''
+
     const authHeaders = {
-        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('myclients_user'))?.token,
+        'Authorization': 'Bearer ' + token,
     }
 
     /**

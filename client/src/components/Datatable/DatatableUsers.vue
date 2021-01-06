@@ -133,7 +133,7 @@
         
         <ul class="datatable__pagination-items">
             <li :class="prevPageClass" @click="prevPage">
-                <a><</a>
+                <a>prev</a>
             </li>
 
             <li
@@ -169,7 +169,7 @@
             </li>
 
             <li :class="nextPageClass" @click="nextPage">
-                <a>></a>
+                <a>next</a>
             </li>
         </ul>
     </div>

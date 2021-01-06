@@ -1,3 +1,7 @@
+import useEncryption from '../features/useEncryption.js'
+
+const { encrypt } = useEncryption()
+
 export default {
     namespaced: true,
 
@@ -20,9 +24,9 @@ export default {
     {
         setUser(state, user)
         {
-            Object.assign(state, { ...user });
+            Object.assign(state, { ...user })
 
-            localStorage.setItem('myclients_user', JSON.stringify(user))
+            localStorage.setItem('myclients_user', encrypt(JSON.stringify(user)))
         },
     },
 }
