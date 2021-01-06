@@ -25,6 +25,7 @@
 21. Encrypt (crypto-js) local storage keys for production (extra layer of security)
     - leave unencrypted for dev for easier development
 22. Refactoring (move page loaders to composition f-ns?)
+23. Page to see and manage all clients, their users, invoices, contacts etc.
 
 
 
