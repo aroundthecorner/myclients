@@ -15,8 +15,8 @@
         <table class="datatable">
 
             <!-- Loading... -->
-            <div class="datatable__loading">
-                <div class="datatable__loading-bar"></div>
+            <div v-if="isLoading" class="datatable__loading">
+                <loading-linear borderRadius="0 0 4px 4px" />
             </div>
 
             <thead>
@@ -77,7 +77,7 @@
                     <td class="datatable__cell" @click="sortBy('')">role</td>
                     <td class="datatable__cell" @click="sortBy('')">email</td>
                     <td class="datatable__cell" @click="sortBy('')">user since</td>
-                    <td class="datatable__cell" @click="sortBy('')"></td>
+                    <td class="datatable__cell w-10p" @click="sortBy('')"></td>
                 </tr>
             </thead>
 
@@ -86,7 +86,7 @@
             <tbody>
                 <template v-if="data.rows !== undefined">
                     <tr
-                        v-for="n in 5"
+                        v-for="n in 50"
                         :key="n"
                         class="datatable__row"
                         :class="{ 'datatable__loading-on': isLoading }">
@@ -110,7 +110,10 @@
                         <td class="datatable__cell">root</td>
                         <td class="datatable__cell">admin@myclients.org</td>
                         <td class="datatable__cell">25.11.2020</td>
-                        <td class="datatable__cell"></td>
+
+                        <td class="datatable__cell text-right">
+                            <i class="las la-ellipsis-h datatable__more"></i>
+                        </td>
                     </tr>
                 </template>
             </tbody>
@@ -132,7 +135,7 @@
 
     <!-- Pagination -->
     <div
-        v-if="pagination.totalPages > 1"
+        v-if="pagination.totalPages > 1 && showPagination"
         class="datatable__pagination">
         
         <ul class="datatable__pagination-items">
@@ -184,14 +187,16 @@
     import { ref, computed } from 'vue'
     import AppButton from '../Button.vue'
     import useEnv from '../../features/useEnv.js'
+    import LoadingLinear from '../Loading/Linear.vue'
 
     const { env } = useEnv()
     const store = useStore()
     const isLoading = ref(false)
     const showFooter = ref(false)
     const showFilters = ref(false)
-    const stickyHeader = ref(false)
+    const stickyHeader = ref(true)
     const showCheckbox = ref(false)
+    const showPagination = ref(false)
 
     const data = ref({
         rows: []

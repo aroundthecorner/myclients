@@ -87,6 +87,11 @@
 
             <router-link to="/settings/profile" class="sidebar__item">
                 <i class="sidebar__icon las la-cog"></i>
+                <span class="sidebar__item-text">Admin panel</span>
+            </router-link>
+
+            <router-link to="/settings/profile" class="sidebar__item">
+                <i class="sidebar__icon las la-cog"></i>
                 <span class="sidebar__item-text">Settings</span>
             </router-link>
         </div>

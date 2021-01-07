@@ -1219,7 +1219,7 @@ input.app-input[type="password"] {
  */
  .datatable-container {
     overflow: auto;
-    height: calc(100vh - 368px);
+    height: calc(100vh - 260px);
 }
 
 .datatable {
@@ -1271,7 +1271,7 @@ input.app-input[type="password"] {
 .datatable__cell {
     display: table-cell;
     vertical-align: middle;
-    text-align: center;
+    text-align: left;
     position: relative;
 }
 
@@ -1315,21 +1315,8 @@ input.app-input[type="password"] {
     position: absolute;
     top: 54px;
     width: 100%;
-    padding-right: 0px;
     z-index: 2;
-}
-
-.datatable__loading-bar {
-    height: 3px;
-    opacity: 0;
-    background-image:
-	   -webkit-linear-gradient(-45deg, 
-	                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
-	                           rgba(0,0, 0, .1) 66%, transparent 66%),
-	   -webkit-linear-gradient(top, 
-	                           rgba(255, 255, 255, .25), 
-	                           rgba(0, 0, 0, .25)),
-	   -webkit-linear-gradient(left, #09c, #f44);
+    padding: 0 4px;
 }
 
 .datatable__loading-on {
@@ -1438,7 +1425,7 @@ tr.datatable__row:last-child {
 
 .datatable__user-name {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 18px;
 }
@@ -1460,6 +1447,112 @@ tr.datatable__row:last-child {
     width: 50px;
     height: 50px;
 }
+
+.datatable__more {
+    font-size: 30px;
+    color: var(--color-hippo);
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+
+/*
+ * Linear loading
+ */
+ .v-progress-linear {
+    overflow: hidden;
+    position: relative;
+    transition: .2s cubic-bezier(.4,0,.6,1);
+    width: 100%;
+    border-radius: 4px;
+    height: 8px;
+}
+
+.v-progress-linear__background {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    background-color: #ccc;
+    border-color: #ccc;
+    opacity: 0.3;
+    left: 0%;
+    width: 100%;
+}
+
+.v-progress-linear__buffer {
+    height: inherit;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.v-progress-linear__indeterminate--long {
+    background-color: #ccc;
+    border-color: #ccc;
+    bottom: 0;
+    height: inherit;
+    left: 0;
+    position: absolute;
+    right: auto;
+    top: 0;
+    width: auto;
+    will-change: left,right;
+    animation-name: indeterminate-ltr;
+    animation-duration: 2.2s;
+    animation-iteration-count: infinite;
+}
+
+.v-progress-linear__indeterminate--short {
+    background-color: #ccc;
+    border-color: #ccc;
+    bottom: 0;
+    height: inherit;
+    left: 0;
+    position: absolute;
+    right: auto;
+    top: 0;
+    width: auto;
+    will-change: left,right;
+    animation-name: indeterminate-short-ltr;
+    animation-duration: 2.2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes indeterminate-short-ltr {
+    0% {
+        left: -200%;
+        right: 100%;
+    }
+
+    60% {
+        left: 107%;
+        right: -8%;
+    }
+
+    100% {
+        left: 107%;
+        right: -8%;
+    }
+}
+
+@keyframes indeterminate-ltr {
+    0% {
+        left: -90%;
+        right: 100%;
+    }
+
+    60% {
+        left: -90%;
+        right: 100%;
+    }
+    100% {
+        left: 100%;
+        right: -35%;
+    }
+}
+
+
 
 
 
@@ -1497,6 +1590,10 @@ tr.datatable__row:last-child {
 
 .flex-1 {
     flex: 1;
+}
+
+.w-10p {
+    width: 10%;
 }
 
 .w-25p {
@@ -1559,6 +1656,10 @@ tr.datatable__row:last-child {
 
 .text-center {
     text-align: center;
+}
+
+.text-right {
+    text-align: right;
 }
 
 .height-auto {
