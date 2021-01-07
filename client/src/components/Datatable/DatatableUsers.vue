@@ -3,6 +3,7 @@
         <input
             type="text"
             placeholder="Search"
+            v-model="searchQuery"
             class="app-input w-300"
         />
 
@@ -197,9 +198,16 @@
     const stickyHeader = ref(true)
     const showCheckbox = ref(false)
     const showPagination = ref(false)
+    const searchQuery = ref('')
 
     const data = ref({
-        rows: []
+        rows: [
+            { id: 1, name: 'Martins Zeltins', email: 'thatguy@gmail.com' },
+            { id: 2, name: 'Egils Levits', email: 'him@gmail.com' },
+            { id: 3, name: 'Bils Geitss', email: 'richdude@gmail.com' },
+            { id: 4, name: 'Steve Jobs', email: 'appleman@gmail.com' },
+            { id: 5, name: 'Elon Musk', email: 'rocketman@gmail.com' },
+        ]
     })
 
     const pagination = ref({
@@ -207,6 +215,14 @@
         currentPage: 1,
         firstPage: 1,
         prevPage: 1,
+    })
+
+    const searchedRows = computed(() => {
+        if (!searchQuery.value) return []
+
+        return data.value.rows.filter(row => {
+            return row.name.includes(searchQuery.value) || row.email.includes(searchQuery.value)
+        })
     })
 
     const user = computed(() => store.state.user)

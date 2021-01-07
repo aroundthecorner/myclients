@@ -1281,6 +1281,7 @@ input.app-input[type="password"] {
     cursor: pointer;
     background: var(--color-dino);
     transition: .2s;
+    opacity: .96;
 }
 
 .datatable__header .datatable__cell:first-child {
