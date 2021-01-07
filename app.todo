@@ -19,16 +19,18 @@
 15. Templates for (same client always 1 service, same time, price etc.)
 16. Send email using SMTP server (Gmail / Mail.ru or whatever...)
 17. Better datatable component
-18. Cache & save language in local storage
-19. User roles & permissions
-20. Add for position to dropdown menu
-21. Encrypt (crypto-js) local storage keys for production (extra layer of security)
+18. User roles & permissions
+29. Add for position to dropdown menu
+20. Encrypt (crypto-js) local storage keys for production (extra layer of security)
     - leave unencrypted for dev for easier development
-22. Refactoring (move page loaders to composition f-ns?)
-23. Admin panel
+21. Refactoring (move page loaders to composition f-ns?)
+22. Admin panel
     - see and manage all clients, their users, invoices, contacts etc.
     - be able to send messages and chat with clients (websockets)
     - be able to see what a client is doing (transfer screenshots somehow?)
+    - password re-prompts & 2FA
+23. User roles (root, admin, super admin, moderator, user, guest)
+    - not one root user but multiple to be able to see access logs for each
 
 
 

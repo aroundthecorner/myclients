@@ -1,7 +1,14 @@
 <template>
     <div class="datatable-users__toolbar">
-        <input value="Search">
-        <button>New user</button>
+        <input
+            type="text"
+            placeholder="Search"
+            class="app-input w-300"
+        />
+
+        <app-button class="button--primary">
+            New user
+        </app-button>
     </div>
 
     <div class="datatable-container">
@@ -9,7 +16,7 @@
 
             <!-- Loading... -->
             <div class="datatable__loading">
-                Loading...
+                <div class="datatable__loading-bar"></div>
             </div>
 
             <thead>
@@ -66,17 +73,11 @@
 
                 <!-- Headings -->
                 <tr class="datatable__header" :class="{ sticky: stickyHeader }">
-                    <td class="datatable__cell" @click="sortBy('created_at')">date</td>
-                    <td class="datatable__cell" @click="sortBy('employee_id')">cashier</td>
-                    <td class="datatable__cell" @click="sortBy('employee_id')">food</td>
-                    <td class="datatable__cell" @click="sortBy('order_sum')">sum</td>
-                    <td class="datatable__cell" @click="sortBy('payment_method')">payment_method</td>
-                    <td class="datatable__cell" @click="sortBy('is_paid')">paid</td>
-                    <td class="datatable__cell" @click="sortBy('discount')">discount_sigma</td>
-                    <td class="datatable__cell" @click="sortBy('applied_discount')">discount</td>
-                    <td class="datatable__cell" @click="sortBy('applied_discount_type')">discount_type</td>
-                    <td class="datatable__cell" @click="sortBy('is_deleted')">deleted</td>
-                    <td class="datatable__cell" @click="sortBy('table')">table</td>
+                    <td class="datatable__cell w-25p" @click="sortBy('')">name</td>
+                    <td class="datatable__cell" @click="sortBy('')">role</td>
+                    <td class="datatable__cell" @click="sortBy('')">email</td>
+                    <td class="datatable__cell" @click="sortBy('')">user since</td>
+                    <td class="datatable__cell" @click="sortBy('')"></td>
                 </tr>
             </thead>
 
@@ -85,22 +86,31 @@
             <tbody>
                 <template v-if="data.rows !== undefined">
                     <tr
-                        v-for="n in 100"
+                        v-for="n in 5"
                         :key="n"
                         class="datatable__row"
                         :class="{ 'datatable__loading-on': isLoading }">
 
-                        <td class="datatable__cell">created_at</td>
-                        <td class="datatable__cell">fullname</td>
-                        <td class="datatable__cell">Hello</td>
-                        <td class="datatable__cell">order_sum</td>
-                        <td class="datatable__cell">cash</td>
-                        <td class="datatable__cell">yes</td>
-                        <td class="datatable__cell">discount</td>
-                        <td class="datatable__cell">applied_discount</td>
-                        <td class="datatable__cell">applied_discount_type</td>
-                        <td class="datatable__cell">yes</td>
-                        <td class="datatable__cell">table</td>
+                        <td class="datatable__cell">
+                            <div class="datatable__user-name">
+                                <div>
+                                    <img
+                                        class="datatable__user-name-img sidebar__profile-pic sidebar__profile-pic--no-border"
+                                        :src="`${env('VITE_SERVER_URL')}/${user.profile_picture}`"
+                                    />
+                                </div>
+
+                                <div class="datatable__user-text">
+                                    <div class="datatable__user-title">Mārtiņš Zeltiņš</div>
+                                    <div class="datatable__user-subtitle">root</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="datatable__cell">root</td>
+                        <td class="datatable__cell">admin@myclients.org</td>
+                        <td class="datatable__cell">25.11.2020</td>
+                        <td class="datatable__cell"></td>
                     </tr>
                 </template>
             </tbody>
@@ -110,12 +120,6 @@
                 v-if="data.rows !== undefined && showFooter">
 
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -176,8 +180,13 @@
 </template>
 
 <script setup>
+    import { useStore } from 'vuex'
     import { ref, computed } from 'vue'
+    import AppButton from '../Button.vue'
+    import useEnv from '../../features/useEnv.js'
 
+    const { env } = useEnv()
+    const store = useStore()
     const isLoading = ref(false)
     const showFooter = ref(false)
     const showFilters = ref(false)
@@ -194,6 +203,8 @@
         firstPage: 1,
         prevPage: 1,
     })
+
+    const user = computed(() => store.state.user)
 
     const prevPageClass = computed(() => {
         return {

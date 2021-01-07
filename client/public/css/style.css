@@ -29,6 +29,7 @@
     --color-jupiter: #57aa89;
     --color-softis: #1787d7;
     --color-tenq: #e9e9e9;
+    --color-halls: #7b7b7b;
     --color-penny: linear-gradient(137deg, #37a0f6 0%, #3f87fb 90%);
     --shadow-oreo: 6px 4px 16px -16px rgba(0,0,0,0.56);
     --shadow-salty: rgba(50, 50, 50, 0.1) 0px 0px 11px 0px;
@@ -571,6 +572,11 @@ h1, h2, h3, h4 {
     width: 120px;
     height: 120px;
     border-radius: 50%;
+}
+
+.sidebar__profile-pic--no-border {
+    border: 0;
+    padding: 0;
 }
 
 .sidebar__item * {
@@ -1213,7 +1219,7 @@ input.app-input[type="password"] {
  */
  .datatable-container {
     overflow: auto;
-    height: calc(100vh - 350px);
+    height: calc(100vh - 368px);
 }
 
 .datatable {
@@ -1222,7 +1228,6 @@ input.app-input[type="password"] {
     min-width: 100%;
     position: relative;
     border-collapse: collapse;
-    color: #8e8e8e;
 }
 
 .datatable tbody {
@@ -1230,7 +1235,7 @@ input.app-input[type="password"] {
 }
 
 .datatable tr {
-    border: 0 !important;
+    border: 0;
 }
 
 .datatable__filters {
@@ -1238,11 +1243,7 @@ input.app-input[type="password"] {
     padding: 5px;
     height: 60px;
     white-space: nowrap;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #7a7a7a;
     padding: 15px 0px;
 }
 
@@ -1251,23 +1252,20 @@ input.app-input[type="password"] {
     padding: 5px;
     height: 43px;
     white-space: nowrap;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: #929292;
     padding: 15px 0px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: bold;
+    color: var(--color-halls);
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 .datatable__row {
     display: table-row;
     padding: 5px;
     height: 43px;
-    font-family: Roboto,sans-serif;
     line-height: 1.5;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .datatable__cell {
@@ -1279,71 +1277,59 @@ input.app-input[type="password"] {
 
 /* Rounded corners */
 .datatable__header .datatable__cell {
-    border-radius: 3px 0 0 0;
-    border: 0 !important;
-    padding: 0px 40px 0px 40px !important;
+    padding: 0px 40px 0px 40px;
     cursor: pointer;
-    background: var(--background-light);
+    background: var(--color-dino);
     transition: .2s;
 }
 
-.datatable__header .datatable__cell:hover {
-    background: #34353a;
+.datatable__header .datatable__cell:first-child {
+    border-radius: 6px 0 0 6px;
 }
 
-.datatable__row:last-child .datatable__cell {
-    border-radius: 0 0 6px 0;
-    border: 0 !important;
+.datatable__header .datatable__cell:last-child {
+    border-radius: 0 6px 6px 0;
 }
+
 
 .datatable__row:first-child .datatable__cell {
-    border: 0 !important;
+    border: 0;
 }
 
 .datatable__filters .datatable__cell {
-    border: 0 !important;
-    padding: 0px 10px 12px 0 !important;
+    border: 0;
+    padding: 0px 10px 12px 0;
     text-align: left;
 }
 
 /* Spacing */
 .datatable__header .datatable__cell {
-    padding: 0 20px;
+    padding: 18px 20px;
 }
 
 .datatable__row .datatable__cell {
-    padding: 0px 20px;
-    background: rgba(41, 42, 45, 0.90);
-}
-
-.datatable__row:nth-child(even) .datatable__cell {
-    background: rgba(47, 47, 49, 0.75);
-}
-
-.datatable__filters .text-filter input {
-    width: 100% !important;
-    border: 0 !important;
-    height: 36px !important;
-    text-align: center !important;
-    border-radius: 4px !important;
-    background: #fff !important;
-    box-sizing: border-box !important;
-    color: #000 !important;
-    font-size: 15px !important;
-    font-weight: 500 !important;
-}
-
-.datatable__filters input:focus {
-    border: 0 !important;
-    box-shadow: none !important;
+    padding: 20px 20px;
 }
 
 .datatable__loading {
     position: absolute;
-    top: 62px;
+    top: 54px;
     width: 100%;
     padding-right: 0px;
     z-index: 2;
+}
+
+.datatable__loading-bar {
+    height: 3px;
+    opacity: 0;
+    background-image:
+	   -webkit-linear-gradient(-45deg, 
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
+	                           rgba(0,0, 0, .1) 66%, transparent 66%),
+	   -webkit-linear-gradient(top, 
+	                           rgba(255, 255, 255, .25), 
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #09c, #f44);
 }
 
 .datatable__loading-on {
@@ -1351,7 +1337,7 @@ input.app-input[type="password"] {
 }
 
 .datatable__pagination {
-    background: var(--background-light);
+    background: var(--color-yin);
     height: 60px;
     align-items: center;
     margin-top: 45px;
@@ -1425,6 +1411,12 @@ ul:not(.browser-default)>li {
 
 tr.datatable__row {
     transition: .3s;
+    border-bottom: 1px solid var(--color-winney);
+}
+
+tr.datatable__row:last-child {
+    transition: .3s;
+    border-bottom: 0;
 }
 
 .datatable__footer td {
@@ -1435,7 +1427,7 @@ tr.datatable__row {
 }
 
 .datatable__filters .datatable__cell:last-child {
-    padding-right: 0 !important;
+    padding-right: 0;
 }
 
 .datatable-users__toolbar {
@@ -1444,6 +1436,30 @@ tr.datatable__row {
     margin: 10px 0 30px 0;
 }
 
+.datatable__user-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.datatable__user-text {
+    text-align: left;
+}
+
+.datatable__user-title {
+    font-weight: bold;
+    color: var(--color-hippo);
+}
+
+.datatable__user-subtitle {
+    color: var(--color-text);
+}
+
+.datatable__user-name-img {
+    width: 50px;
+    height: 50px;
+}
 
 
 
@@ -1483,12 +1499,20 @@ tr.datatable__row {
     flex: 1;
 }
 
+.w-25p {
+    width: 25%;
+}
+
 .w-full {
     width: 100%;
 }
 
 .w-400 {
     width: 400px;
+}
+
+.w-300 {
+    width: 300px;
 }
 
 .w-250 {
