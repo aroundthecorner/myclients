@@ -33,6 +33,7 @@
 23. User roles (root, admin, super admin, moderator, user, guest)
     - not one root user but multiple to be able to see access logs for each
 24. Fix small height (sidebar background)
+25. Settings tabs active sidebar settings (only first works)
 
 
 
