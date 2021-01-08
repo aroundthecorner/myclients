@@ -44,6 +44,12 @@ const routes = [
                 name: 'usersPlanBilling',
                 component: () => import('./views/settings/plan-billing.vue'),
             },
+
+            {
+                path: '/admin-panel/chat',
+                name: 'adminPanelChat',
+                component: () => import('./views/admin-panel/chat.vue'),
+            },
         ],
 
         meta: {

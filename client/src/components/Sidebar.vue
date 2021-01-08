@@ -85,7 +85,7 @@
 
             <div class="spacer"></div>
 
-            <router-link to="/settings/profile" class="sidebar__item">
+            <router-link to="/admin-panel/chat" class="sidebar__item">
                 <i class="sidebar__icon las la-cog"></i>
                 <span class="sidebar__item-text">Admin panel</span>
             </router-link>
