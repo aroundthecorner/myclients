@@ -12,8 +12,8 @@
             Users
         </router-link>
 
-        <div class="page-navigation__item">
+        <router-link to="/settings/plan-billing" class="page-navigation__item">
             Plan & Billing
-        </div>
+        </router-link>
     </div>
 </template>
