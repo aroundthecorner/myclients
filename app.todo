@@ -35,6 +35,11 @@
 24. Fix small height (sidebar background)
 25. Settings tabs active sidebar settings (only first works)
 26. Fix file names SettingsNavigation.vue /Navigation/Settings.vue
+27. See who is online and who is active. Online WS ping, active on click last
+    activity
+
+
+
 
 
 
