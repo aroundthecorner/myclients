@@ -37,6 +37,8 @@
 26. Fix file names SettingsNavigation.vue /Navigation/Settings.vue
 27. See who is online and who is active. Online WS ping, active on click last
     activity
+28. Show some message at any time to any client
+29. Cut off client if invoice not paid
 
 
 
