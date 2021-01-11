@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>admin-users - myclients</title>
+        <title>Screen - myclients</title>
     </teleport>
 
     <div class="page">
@@ -60,62 +60,7 @@
                     </div>
 
                     <div class="admin-users__right">
-                        <div class="admin-users__messages">
-                            <div v-for="n in 10" class="admin-users__message">
-                                <div class="admin-users__message-pic">
-                                    <img
-                                        class="admin-users__message-img"
-                                        src="http://localhost:41166/img/martins_profile_picture.png"
-                                    />
-                                </div>
-
-                                <div class="admin-users__message-msg">
-                                    <div class="admin-users__message-text">Hi, my name is Bill Gates!</div>
-                                    <div class="admin-users__message-ago">9h ago</div>
-                                </div>
-                            </div>
-
-                            <div class="admin-users__message row-reverse">
-                                <div class="admin-users__message-pic">
-                                    <img
-                                        class="admin-users__message-img"
-                                        src="http://localhost:41166/img/martins_profile_picture.png"
-                                    />
-                                </div>
-
-                                <div class="admin-users__message-msg">
-                                    <div class="admin-users__message-text">Hi, my name is Bill Gates!</div>
-                                    <div class="admin-users__message-ago text-right">9h ago</div>
-                                </div>
-                            </div>
-
-                            <div class="admin-users__message row-reverse">
-                                <div class="admin-users__message-pic">
-                                    <img
-                                        class="admin-users__message-img"
-                                        src="http://localhost:41166/img/martins_profile_picture.png"
-                                    />
-                                </div>
-
-                                <div class="admin-users__message-msg">
-                                    <div class="admin-users__message-text">Hi, my name is Bill Gates!</div>
-                                    <div class="admin-users__message-ago text-right">9h ago</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="admin-users__send-box">
-                            <input
-                                class="admin-users__send-input"
-                                type="text"
-                                placeholder="Your message"
-                            />
-
-                            <app-button
-                                class="button--primary">
-                                Send
-                            </app-button>
-                        </div>
+                        Screenshot
                     </div>
                 </div>
             </div>

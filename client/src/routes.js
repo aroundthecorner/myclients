@@ -50,6 +50,18 @@ const routes = [
                 name: 'adminPanelChat',
                 component: () => import('./views/admin-panel/chat.vue'),
             },
+
+            {
+                path: '/admin-panel/screen',
+                name: 'adminPanelScreen',
+                component: () => import('./views/admin-panel/screen.vue'),
+            },
+
+            {
+                path: '/admin-panel/clients-users',
+                name: 'adminPanelClientsUsers',
+                component: () => import('./views/admin-panel/clients-users.vue'),
+            },
         ],
 
         meta: {
