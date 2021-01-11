@@ -1708,13 +1708,16 @@ tr.datatable__row:last-child {
  }
 
  .chat__messages {
-    height: calc(100% - 100px);
-    padding: 20px 20px;
+    height: calc(100% - 120px);
+    padding: 32px 32px;
     overflow-y: auto;
+    margin-bottom: 20px;
  }
 
  .chat__message {
      display: flex;
+     gap: 14px;
+     margin-bottom: 25px;
  }
 
  .chat__message-img {
@@ -1725,10 +1728,29 @@ tr.datatable__row:last-child {
  .chat__message-text {
      background: var(--color-yin);
      border-radius: 10px;
+     padding: 10px 10px;
+     box-shadow: 2px 3px 5px -1px rgba(0,0,0,0.1);
+ }
+ .chat__message-ago {
+    color: var(--color-cuddy);
+    font-size: 14px;
+    padding-left: 3px;
+    margin-top: 2px;
  }
 
- .chat__message-msg {
-     margin-left: 10px;
+ .chat__send-box {
+    display: flex;
+    background: var(--color-yin);
+    border-radius: 6px;
+    padding: 10px 10px;
+    width: 94%;
+    margin: 0 auto;
+    box-shadow: 2px 3px 5px -1px rgba(0,0,0,0.1);
+ }
+
+ .chat__send-input {
+     flex: 1;
+     padding: 0 10px;
  }
 
 
@@ -1841,6 +1863,10 @@ tr.datatable__row:last-child {
 
 .text-right {
     text-align: right;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
 }
 
 .height-auto {

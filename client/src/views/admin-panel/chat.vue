@@ -61,7 +61,7 @@
 
                     <div class="chat__right">
                         <div class="chat__messages">
-                            <div class="chat__message">
+                            <div v-for="n in 10" class="chat__message">
                                 <div class="chat__message-pic">
                                     <img
                                         class="chat__message-img"
@@ -70,10 +70,51 @@
                                 </div>
 
                                 <div class="chat__message-msg">
-                                    <div class="chat__message-text">Text</div>
+                                    <div class="chat__message-text">Hi, my name is Bill Gates!</div>
                                     <div class="chat__message-ago">9h ago</div>
                                 </div>
                             </div>
+
+                            <div class="chat__message row-reverse">
+                                <div class="chat__message-pic">
+                                    <img
+                                        class="chat__message-img"
+                                        src="http://localhost:41166/img/martins_profile_picture.png"
+                                    />
+                                </div>
+
+                                <div class="chat__message-msg">
+                                    <div class="chat__message-text">Hi, my name is Bill Gates!</div>
+                                    <div class="chat__message-ago text-right">9h ago</div>
+                                </div>
+                            </div>
+
+                            <div class="chat__message row-reverse">
+                                <div class="chat__message-pic">
+                                    <img
+                                        class="chat__message-img"
+                                        src="http://localhost:41166/img/martins_profile_picture.png"
+                                    />
+                                </div>
+
+                                <div class="chat__message-msg">
+                                    <div class="chat__message-text">Hi, my name is Bill Gates!</div>
+                                    <div class="chat__message-ago text-right">9h ago</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat__send-box">
+                            <input
+                                class="chat__send-input"
+                                type="text"
+                                placeholder="Your message"
+                            />
+
+                            <app-button
+                                class="button--primary">
+                                Send
+                            </app-button>
                         </div>
                     </div>
                 </div>
