@@ -1,7 +1,8 @@
 <template>
     <div
         ref="activatorContainer"
-        class="albus-dropdown-menu-activator">
+        class="albus-dropdown-menu-activator"
+        :class="{ 'albus-dropdown-menu-activator--full-width': activatorFullWidth }">
 
         <slot></slot>
     </div>
@@ -61,6 +62,11 @@
             fullWidth: {
                 type: Boolean,
                 default: true,
+            },
+
+            activatorFullWidth: {
+                type: Boolean,
+                default: false,
             },
             
             maxHeight: {
@@ -300,5 +306,9 @@
     .albus-dropdown-visible {
         visibility: visible;
         opacity: 1;
+    }
+
+    .albus-dropdown-menu-activator--full-width {
+        width: 100%;
     }
 </style>
