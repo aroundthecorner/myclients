@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Clients & Users - myclients</title>
+        <title>Users - myclients</title>
     </teleport>
 
     <div class="page">
@@ -8,7 +8,7 @@
             <admin-panel-navigation />
 
             <div class="page-container__content">
-                Clients & Users
+                <datatable-clients-users-users />
             </div>
         </div>
     </div>
@@ -18,6 +18,7 @@
     import { onBeforeRouteLeave } from 'vue-router';
     import { onMounted, inject } from 'vue';
     import AdminPanelNavigation from '../../components/Navigation/AdminPanel.vue'
+    import DatatableClientsUsersUsers from '../../components/Datatable/DatatableClientsUsersUsers.vue'
     
     const progressBar = inject('progressBar')
 

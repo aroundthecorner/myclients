@@ -8,8 +8,21 @@
             Screen
         </router-link>
 
-        <router-link to="/admin-panel/clients-users" class="page-navigation__item">
+        <router-link
+            to="/admin-panel/clients-users/clients"
+            class="page-navigation__item"
+            :class="{ 'router-link-exact-active': isClientsUsersPage }">
+
             Clients & Users
         </router-link>
     </div>
 </template>
+
+<script setup>
+    import { computed } from 'vue'
+    import router from '../../routes.js'
+
+    const isClientsUsersPage = computed(() => {
+        return router.currentRoute.value.path.includes('/admin-panel/clients-users')
+    })
+</script>

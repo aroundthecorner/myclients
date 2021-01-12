@@ -40,6 +40,7 @@
 28. Show some message at any time to any client
 29. Cut off client if invoice not paid
 30. Move chat from page to its own component
+31. Move route loaders to global beforeEach hook
 
 
 

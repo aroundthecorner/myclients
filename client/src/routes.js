@@ -58,9 +58,15 @@ const routes = [
             },
 
             {
-                path: '/admin-panel/clients-users',
-                name: 'adminPanelClientsUsers',
-                component: () => import('./views/admin-panel/clients-users.vue'),
+                path: '/admin-panel/clients-users/clients',
+                name: 'adminPanelClientsUsersClients',
+                component: () => import('./views/admin-panel/clients-users-clients.vue'),
+            },
+
+            {
+                path: '/admin-panel/clients-users/users',
+                name: 'adminPanelClientsUsersUsers',
+                component: () => import('./views/admin-panel/clients-users-users.vue'),
             },
         ],
 
