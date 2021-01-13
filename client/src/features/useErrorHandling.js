@@ -19,6 +19,17 @@ function useErrorHandling()
             return
         }
 
+        if (errorMessage.body.includes('IP address banned. Too many login attempts')) {
+            store.dispatch('app/showNotificationMessage', {
+                icon: 'img/warning.png',
+                title: 'IP address banned',
+                body: 'Your IP address has been banned. Too many failed login attempts.',
+                hideDelay: 3,
+            })
+
+            return
+        }
+
         store.dispatch('app/showServerError', errorMessage)
     }
 

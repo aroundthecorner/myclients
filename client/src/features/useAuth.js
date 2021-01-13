@@ -35,12 +35,7 @@ function useAuth()
             setUserInStore(result.user, result.access_token)
             goToRouteBeforeLogin()
         } else {
-            store.dispatch('app/showNotificationMessage', {
-                icon: 'img/warning.png',
-                title: 'Wrong username or password',
-                body: 'The username or password you entered is not correct.',
-                hideDelay: 3,
-            })
+            showUnsuccessfulLoginMessage(result)
         }
     }
 
@@ -207,6 +202,23 @@ function useAuth()
         } catch (error) {
             isLoading.value = false
             return
+        }
+    }
+
+    /**
+     * Show unsuccessful login message
+     */
+    function showUnsuccessfulLoginMessage(response)
+    {
+        if (response === undefined) return;
+
+        if (response.status_code == 401) {
+            store.dispatch('app/showNotificationMessage', {
+                icon: 'img/warning.png',
+                title: 'Wrong username or password',
+                body: 'The username or password you entered is not correct.',
+                hideDelay: 3,
+            })
         }
     }
 

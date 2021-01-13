@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
+use Illuminate\Support\Str;
 use App\Models\Organization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -21,7 +23,6 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('throttle:30,10');
         $this->middleware('sanitize')->only(['register']);
     }
 
@@ -30,6 +31,8 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
+        $this->checkTooManyFailedAttempts();
+
         $user = User::with('organization:id,description')
                     ->where('email', $request->email)
                     ->first();
@@ -39,8 +42,10 @@ class AuthController extends Controller
 
             if (!Auth::attempt($credentials))
             {
+                RateLimiter::hit($this->throttleKey(), $seconds = 3600);
+
                 return response()->json([
-                    'status_code' => 500,
+                    'status_code' => 401,
                     'message' => 'Unauthorized',
                 ]);
             }
@@ -50,6 +55,8 @@ class AuthController extends Controller
             }
 
             $token = $user->createToken('authToken')->plainTextToken;
+
+            RateLimiter::clear($this->throttleKey());
 
             return response()->json([
                 'status_code' => 200,
@@ -72,7 +79,7 @@ class AuthController extends Controller
      */
     public function register()
     {
-        $validated = request()->validate([
+        request()->validate([
             'email' => 'email|unique:users',
             'name' => 'required',
             'organizationTypeId' => 'required',
@@ -92,7 +99,6 @@ class AuthController extends Controller
         $user->password = bcrypt(request('password'));
         $user->profile_picture = 'img/default_profile_picture.png';
         $user->email_verified_at = now();
-
         $user->save();
 
         return response()->json(['success' => true]);
@@ -154,5 +160,29 @@ class AuthController extends Controller
         return $status == Password::PASSWORD_RESET
                     ? response()->json(['status' => 'success'])
                     : response()->json(['status' => 'error']);
+    }
+
+    /**
+     * Get the rate limiting throttle key for the request.
+     *
+     * @return string
+     */
+    public function throttleKey()
+    {
+        return Str::lower(request('email')) . '|' . request()->ip();
+    }
+
+    /**
+     * Ensure the login request is not rate limited.
+     *
+     * @return void
+     */
+    public function checkTooManyFailedAttempts()
+    {
+        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 10)) {
+            return;
+        }
+
+        throw new Exception('IP address banned. Too many login attempts.');
     }
 }
