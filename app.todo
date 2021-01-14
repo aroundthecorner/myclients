@@ -1,36 +1,27 @@
 # Todo:
---------------------------------------------------------------------------------
-1. Languages
-2. Responsive layout
-   - calendar view
-   - notification messages
-3. Themes update
-4. Clear (redis) cache on model events.
-5. Login button link on website
-6. Update to PHP 8 when Laravel 9 is released
-8. Security (secure tokens, secure csrf, xss etc. hacking!)
-9. Deployment .env's, docker files
-   - hide error message bodies (for security)
-10. Rate limit how many times can login (brute force protection)
-11. Make technical documentation of how everything works.
-12. Min password length (javascript)
-13. PHP if user / organization already exists
-14. TESTS
-15. Templates for (same client always 1 service, same time, price etc.)
-16. Send email using SMTP server (Gmail / Mail.ru or whatever...)
-17. Better datatable component
-18. User roles & permissions
-29. Add force-position to dropdown menu
-20. Encrypt (crypto-js) local storage keys for production (extra layer of security)
-    - leave unencrypted for dev for easier development
-21. Refactoring (move page loaders to composition f-ns?)
-22. Admin panel
+------------------- FEAT - FIX - REMINDER - TEST - REFACTOR --------------------
+1. FEAT: Languages
+2. FEAT: Responsive layout
+         - calendar view - notification messages
+3. FEAT: Themes update
+4. REMINDER: Clear (redis) cache on model events.
+5. FEAT: Login button and logged in username link on website
+6. REMINDER: Update to PHP 8 when Laravel 9 is released
+8. REMINDER: Security (secure tokens, secure csrf, xss etc. hacking!)
+11. FEAT: Make technical documentation of how everything works.
+12. FIX: Min password length (javascript)
+13. FIX: PHP if user / organization already exists
+14. TEST: Write tests
+15. FEAT: Templates for (same client always 1 service, same time, price etc.)
+16. FEAT: Send email using SMTP server (Gmail / Mail.ru or whatever...)
+29. FEAT: Add force-position to dropdown menu
+22. FEAT: Admin panel
     - see and manage all clients, their users, invoices, contacts etc.
     - be able to send messages and chat with clients (websockets)
     - be able to see what a client is doing (transfer screenshots somehow?)
     - password re-prompts & 2FA
     - See screen with html2canvas (screenshot via websockets)
-23. User roles (root, admin, super admin, moderator, user, guest)
+23. FEAT: User roles (root, admin, super admin, moderator, user, guest)
     - not one root user but multiple to be able to see access logs for each
 24. FIX: small height (sidebar background)
 25. FIX: Settings tabs active sidebar settings (only first works)
