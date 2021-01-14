@@ -32,15 +32,14 @@
     - See screen with html2canvas (screenshot via websockets)
 23. User roles (root, admin, super admin, moderator, user, guest)
     - not one root user but multiple to be able to see access logs for each
-24. Fix small height (sidebar background)
-25. Settings tabs active sidebar settings (only first works)
-26. Fix file names SettingsNavigation.vue /Navigation/Settings.vue
-27. See who is online and who is active. Online WS ping, active on click last
+24. FIX: small height (sidebar background)
+25. FIX: Settings tabs active sidebar settings (only first works)
+26. FIX: file names SettingsNavigation.vue /Navigation/Settings.vue
+27. FEAT: See who is online and who is active. Online WS ping, active on click last
     activity
-28. Show some message at any time to any client
-29. Cut off client if invoice not paid
-30. Move chat from page to its own component
-31. Move route loaders to global beforeEach hook
+28. FEAT: Show some message at any time to any client
+29. FEAT: Cut off client if invoice not paid
+30. REFACTOR: Move chat from page to its own component
 
 
 
