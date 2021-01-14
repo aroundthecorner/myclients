@@ -31,6 +31,10 @@
 28. FEAT: Show some message at any time to any client
 29. FEAT: Cut off client if invoice not paid
 30. REFACTOR: Move chat from page to its own component
+31. FIX: To prevent accidentally leaking env variables to the client, only variables prefixed with VITE_ are exposed to your Vite-processed code. e.g. the following file:
+         DB_PASSWORD=foobar
+         VITE_SOME_KEY=123
+         Only VITE_SOME_KEY will be exposed as import.meta.env.VITE_SOME_KEY to your client source code, but DB_PASSWORD will not.
 
 
 
