@@ -7,6 +7,8 @@ function useErrorHandling()
      */
     function showError(errorMessage)
     {
+        const response = JSON.parse(errorMessage.body)
+
         if (errorMessage.statusCode == 422)
         {
             store.dispatch('app/showNotificationMessage', {
@@ -19,12 +21,12 @@ function useErrorHandling()
             return
         }
 
-        if (errorMessage.body.includes('IP address banned. Too many login attempts')) {
+        if (response.message == 'IP address banned. Too many login attempts.') {
             store.dispatch('app/showNotificationMessage', {
                 icon: 'img/warning.png',
                 title: 'IP address banned',
                 body: 'Your IP address has been banned. Too many failed login attempts.',
-                hideDelay: 3,
+                hideDelay: 5,
             })
 
             return

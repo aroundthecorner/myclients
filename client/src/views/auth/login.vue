@@ -112,8 +112,6 @@
 
 <script setup>
     import router from '../../routes.js'
-    import { onMounted, inject } from 'vue'
-    import { onBeforeRouteLeave } from 'vue-router'
     import useAuth from '../../features/useAuth.js'
     import SvgUser from '../../components/Svg/User.vue'
     import SvgCheck from '../../components/Svg/Check.vue'
@@ -122,16 +120,6 @@
 
     const { login, email, password, isLoading, userLoggedIn,
             checkUserExists, userExists } = useAuth()
-
-    const progressBar = inject('progressBar')
-
-    onBeforeRouteLeave(() => {
-        progressBar.start()
-    })
-
-    onMounted(() => {
-        progressBar.finish()
-    })
 
     if (userLoggedIn()) {
         router.push({ name: "dashboard" })

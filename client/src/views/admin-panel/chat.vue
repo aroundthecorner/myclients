@@ -124,23 +124,10 @@
 </template>
 
 <script setup>
-    import { onBeforeRouteLeave } from 'vue-router';
-    import { onMounted, inject, ref } from 'vue';
+    import { ref } from 'vue';
     import AppButton from '../../components/Button.vue'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import AdminPanelNavigation from '../../components/Navigation/AdminPanel.vue'
     
-    const progressBar = inject('progressBar')
     const showOrganizationsMenu = ref(false)
-
-    /**
-     * Page navigation progress bar
-     */
-    onBeforeRouteLeave(() => {
-        progressBar.start()
-    })
-
-    onMounted(() => {
-        progressBar.finish()
-    })
 </script>

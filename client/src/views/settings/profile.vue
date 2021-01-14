@@ -160,25 +160,14 @@
 
 <script setup>
     import { useStore } from 'vuex'
-    import { onBeforeRouteLeave } from 'vue-router';
-    import { onMounted, inject, computed, ref } from 'vue';
+    import { computed, ref } from 'vue';
     import AppButton from '../../components/Button.vue'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import SettingsNavigation from '../../components/Navigation/SettingsNavigation.vue'
     
     const store = useStore()
-    const progressBar = inject('progressBar')
-
     const password = ref('')
     const showThemesMenu = ref(false)
     const showLanguageMenu = ref(false)
     const user = computed(() => store.state.user)
-
-    onBeforeRouteLeave(() => {
-        progressBar.start()
-    })
-
-    onMounted(() => {
-        progressBar.finish()
-    })
 </script>

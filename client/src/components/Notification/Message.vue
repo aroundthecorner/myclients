@@ -36,20 +36,23 @@
 </template>
 
 <script setup>
-    import { computed, watch } from 'vue'
+    import { computed, watch, ref } from 'vue'
     import { useStore } from 'vuex'
 
     const store = useStore()
     const notificationMessage = computed(() => store.state.app.notificationMessage)
+    const timeout = ref('')
 
     function hide() {
+        clearTimeout(timeout.value)
         store.dispatch('app/hideNotificationMessage')
     }
 
     watch(notificationMessage, () => {
         if (notificationMessage.value.show) {
-            setTimeout(() => {
+            timeout.value = setTimeout(() => {
                 hide()
+                clearTimeout(timeout.value)
             }, 1000 * notificationMessage.value.hideDelay)
         }
     })

@@ -183,9 +183,8 @@
 
 <script setup>
     import router from '../../routes.js'
-    import { ref, onMounted, inject } from 'vue'
+    import { ref } from 'vue'
     import useAuth from '../../features/useAuth.js'
-    import { onBeforeRouteLeave } from 'vue-router'
     import SvgLock from '../../components/Svg/Lock.vue'
     import AppButton from '../../components/Button.vue'
     import SvgUser from '../../components/Svg/User.vue'
@@ -218,16 +217,6 @@
         selectedOrganizationType.value = type
         organizationType.value = type.description
     }
-
-    const progressBar = inject('progressBar')
-    
-    onBeforeRouteLeave(() => {
-        progressBar.start()
-    })
-
-    onMounted(() => {
-        progressBar.finish()
-    })
 
     if (userLoggedIn()) {
         router.push({ name: "dashboard" })

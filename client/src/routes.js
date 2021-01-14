@@ -148,6 +148,7 @@ function nextFactory(context, middleware, index)
 }
 
 router.beforeEach((to, from, next) => {
+
     // Middleware
     if (to.meta.middleware)
     {

@@ -15,21 +15,6 @@
 </template>
 
 <script setup>
-    import { onBeforeRouteLeave } from 'vue-router';
-    import { onMounted, inject } from 'vue';
     import SettingsNavigation from '../../components/Navigation/SettingsNavigation.vue'
     import DatatableUsers from '../../components/Datatable/DatatableUsers.vue'
-    
-    const progressBar = inject('progressBar')
-
-    /**
-     * Page navigation progress bar
-     */
-    onBeforeRouteLeave(() => {
-        progressBar.start()
-    })
-
-    onMounted(() => {
-        progressBar.finish()
-    })
 </script>

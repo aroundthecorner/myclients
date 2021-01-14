@@ -69,8 +69,7 @@
 
 <script setup>
     import { useStore } from 'vuex'
-    import { onBeforeRouteLeave } from 'vue-router';
-    import { onMounted, inject, computed, ref } from 'vue';
+    import { ref } from 'vue';
     import AppButton from '../../components/Button.vue'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import OrganizationTypes from '../../api/organization_types.js'
@@ -79,7 +78,6 @@
     const store = useStore()
     const organizationTypes = ref([])
     const showOrganizationTypeMenu = ref(false)
-    const progressBar = inject('progressBar')
 
     /**
      * Get organization types
@@ -90,15 +88,4 @@
     }
 
     getOrganizationTypes()
-
-    /**
-     * Page navigation progress bar
-     */
-    onBeforeRouteLeave(() => {
-        progressBar.start()
-    })
-
-    onMounted(() => {
-        progressBar.finish()
-    })
 </script>
