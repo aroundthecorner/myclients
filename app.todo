@@ -26,8 +26,8 @@
 16. FIX: PHP if user / organization already exists
 17. FEAT: See who is online and who is active. Online WS ping, active on click last
           activity
-18. FEAT: Show some message at any time to any client
-19. FEAT: Cut off client if invoice not paid
+18. FEAT: (!) Show some message at any time to any client
+19. FEAT: (!) Cut off client if invoice not paid
 20. REFACTOR: Move chat from page to its own component (components/chat.vue..)
 
 

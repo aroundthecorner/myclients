@@ -119,7 +119,7 @@
                             potentialTop += activatorElement.value.offsetHeight
                             potentialTop += parseInt(props.offsetY)
 
-                        if ((potentialTop + menu.value.offsetHeight) > window_height) {
+                        if (menu.value && ((potentialTop + menu.value.offsetHeight) > window_height)) {
                             placement.value = 'top'
                         }
                     }
@@ -146,7 +146,7 @@
                         let potentialLeft = activatorElement.value.offsetLeft + activatorElement.value.offsetWidth
                             potentialLeft += parseInt(props.offsetX)
 
-                        if ((potentialLeft + menu.value.offsetWidth) > window_width) {
+                        if (menu.value && ((potentialLeft + menu.value.offsetWidth) > window_width)) {
                             placement.value = 'left'
                         }
                     }
@@ -161,7 +161,9 @@
                         top.value += activatorElement.value.offsetHeight
 
                         // Formula for getting in middle
-                        left.value = left.value + ((activatorElement.value.offsetWidth - menu.value.offsetWidth) / 2)
+                        if (activatorElement.value && menu.value) {
+                            left.value = left.value + ((activatorElement.value.offsetWidth - menu.value.offsetWidth) / 2)
+                        }
 
                         // Too close to the edge?
                             if (left.value < 0) {

@@ -16,6 +16,7 @@ function useAuth()
     const organizationType = ref('')
     const selectedOrganizationType = ref('')
     const isResetLinkSent = ref(false)
+    const validationErrors = ref([])
 
     /**
      * Perform user login
@@ -128,6 +129,12 @@ function useAuth()
      */
     async function register()
     {
+        if (await hasValidationErrors()) {
+            console.log(validationErrors.value)
+            return
+        }
+
+
         isLoading.value = true
         
         try {
@@ -220,6 +227,37 @@ function useAuth()
                 hideDelay: 3,
             })
         }
+    }
+
+    /**
+     * Do we have validation errors
+     */
+    async function hasValidationErrors()
+    {
+        await validate()
+
+        return validationErrors.value.length > 0
+    }
+
+    /**
+     * Validate the form
+     */
+    async function validate()
+    {
+        // Password strength
+        let strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
+        if (!strongPassword.test(password.value)) validationErrors.value.push('WEAK_PASSWORD')
+
+        // Check if user already exists
+        const result = await Auth.checkUserExists({
+            email: email.value,
+        })
+
+        userExists.value = result
+        if (userExists.value === true) validationErrors.value.push('USER_EXISTS')
+
+        // Check if organization already exists
+
     }
 
     return {
