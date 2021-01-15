@@ -512,7 +512,7 @@ h1, h2, h3, h4 {
     position: fixed;
     left: 0;
     top: 0;
-    background: url('/img/sidebar-bg.jpg');
+    background: linear-gradient(rgba(255, 255, 255, 0.95),rgba(255, 255, 255,0.95)),url('/img/sidebar-bg.jpg');
     background-size: cover;
     background-position: center;
     width: 240px;
@@ -521,19 +521,6 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: column;
     padding: 20px 20px;
-}
-
-.sidebar::after {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    display: block;
-    background: #fff;
-    opacity: .95;
 }
 
 .sidebar-content {
