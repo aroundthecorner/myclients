@@ -22,14 +22,13 @@
         - See screen with html2canvas (screenshot via websockets)
 14. FEAT: User roles (root, admin, super admin, moderator, user, guest)
         - not one root user but multiple to be able to see access logs for each
-15. FIX: file names SettingsNavigation.vue /Navigation/Settings.vue
-16. FIX: Min password length (javascript)
-17. FIX: PHP if user / organization already exists
-18. FEAT: See who is online and who is active. Online WS ping, active on click last
+15. FIX: Min password length (javascript)
+16. FIX: PHP if user / organization already exists
+17. FEAT: See who is online and who is active. Online WS ping, active on click last
           activity
-19. FEAT: Show some message at any time to any client
-20. FEAT: Cut off client if invoice not paid
-21. REFACTOR: Move chat from page to its own component (components/chat.vue..)
+18. FEAT: Show some message at any time to any client
+19. FEAT: Cut off client if invoice not paid
+20. REFACTOR: Move chat from page to its own component (components/chat.vue..)
 
 
 
