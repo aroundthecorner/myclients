@@ -5,7 +5,7 @@
 
     <div class="page">
         <div class="page-container">
-            <settings-navigation />
+            <navigation-settings />
 
             <div class="page-container__content">
                 <datatable-users />
@@ -15,6 +15,6 @@
 </template>
 
 <script setup>
-    import SettingsNavigation from '../../components/Navigation/SettingsNavigation.vue'
-    import DatatableUsers from '../../components/Datatable/DatatableUsers.vue'
+    import NavigationSettings from '../../components/Navigation/Settings.vue'
+    import DatatableUsers from '../../components/Datatable/Settings/Users.vue'
 </script>

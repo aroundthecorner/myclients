@@ -159,13 +159,13 @@
 
 
                     <div class="auth-page__buttons items-center">
-                        <app-button
+                        <button-app
                             @click="register"
                             class="button--primary"
                             :is-loading="isLoading"
                             loading-color="#fff">
                             Create Account
-                        </app-button>
+                        </button-app>
 
                         <router-link
                             to="/login"
@@ -187,7 +187,7 @@
     import { ref } from 'vue'
     import useAuth from '../../features/useAuth.js'
     import SvgLock from '../../components/Svg/Lock.vue'
-    import AppButton from '../../components/Button.vue'
+    import ButtonApp from '../../components/Button.vue'
     import SvgUser from '../../components/Svg/User.vue'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import OrganizationTypes from '../../api/organization_types.js'

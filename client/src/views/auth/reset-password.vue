@@ -67,13 +67,13 @@
                     </div>
 
                     <div class="auth-page__buttons items-center">
-                        <app-button
+                        <button-app
                             @click="resetPassword"
                             class="button--primary"
                             :is-loading="isLoading"
                             loading-color="#fff">
                             Change password
-                        </app-button>
+                        </button-app>
                     </div>
 
                     <div class="v-spacer-50"></div>
@@ -86,7 +86,7 @@
 <script setup>
     import router from '../../routes.js'
     import useAuth from '../../features/useAuth.js'
-    import AppButton from '../../components/Button.vue'
+    import ButtonApp from '../../components/Button.vue'
     import SvgLock from '../../components/Svg/Lock.vue'
     import SvgUser from '../../components/Svg/User.vue'
 

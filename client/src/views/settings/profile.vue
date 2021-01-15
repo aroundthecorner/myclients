@@ -5,7 +5,7 @@
 
     <div class="page">
         <div class="page-container">
-            <settings-navigation />
+            <navigation-settings />
 
             <div class="page-container__content">
                 <div class="settings-items">
@@ -69,11 +69,11 @@
                                 placement="bottom"
                                 v-model="showThemesMenu">
 
-                                <app-button
+                                <button-app
                                     @click="showThemesMenu = !showThemesMenu"
                                     class="button--flat inline w-250 dropdown-arrows">
                                     Selected theme!
-                                </app-button>
+                                </button-app>
 
                                 <template #dropdown>
                                     <div class="dropdown-menu dropdown-menu--theme">
@@ -114,11 +114,11 @@
                                 placement="bottom"
                                 v-model="showLanguageMenu">
 
-                                <app-button
+                                <button-app
                                     @click="showLanguageMenu = !showLanguageMenu"
                                     class="button--flat inline w-250 dropdown-arrows">
                                     Selected language
-                                </app-button>
+                                </button-app>
 
                                 <template #dropdown>
                                     <div class="dropdown-menu">
@@ -143,16 +143,16 @@
                         </div>
 
                         <div class="settings-item__right">
-                            <app-button class="button--flat inline w-250 text-center">
+                            <button-app class="button--flat inline w-250 text-center">
                                 Upload...
-                            </app-button>
+                            </button-app>
                         </div>
                     </div>
                 </div>
 
-                <app-button class="button--primary inline mt-40">
+                <button-app class="button--primary inline mt-40">
                     Save settings
-                </app-button>
+                </button-app>
             </div>
         </div>
     </div>
@@ -161,9 +161,9 @@
 <script setup>
     import { useStore } from 'vuex'
     import { computed, ref } from 'vue';
-    import AppButton from '../../components/Button.vue'
+    import ButtonApp from '../../components/Button.vue'
     import DropdownMenu from '../../components/DropdownMenu.vue'
-    import SettingsNavigation from '../../components/Navigation/SettingsNavigation.vue'
+    import NavigationSettings from '../../components/Navigation/Settings.vue'
     
     const store = useStore()
     const password = ref('')

@@ -5,7 +5,7 @@
 
     <div class="page">
         <div class="page-container">
-            <settings-navigation />
+            <navigation-settings />
 
             <div class="page-container__content">
                 <div class="settings-items">
@@ -38,11 +38,11 @@
                                 maxHeight="350px"
                                 v-model="showOrganizationTypeMenu">
 
-                                <app-button
+                                <button-app
                                     @click="showOrganizationTypeMenu = !showOrganizationTypeMenu"
                                     class="button--flat inline w-250 dropdown-arrows">
                                     Selected organization type
-                                </app-button>
+                                </button-app>
 
                                 <template #dropdown>
                                     <div class="dropdown-menu">
@@ -60,9 +60,9 @@
                     </div>
                 </div>
 
-                <app-button class="button--primary inline mt-40">
+                <button-app class="button--primary inline mt-40">
                     Save settings
-                </app-button>
+                </button-app>
             </div>
         </div>
     </div>
@@ -71,10 +71,10 @@
 <script setup>
     import { useStore } from 'vuex'
     import { ref } from 'vue';
-    import AppButton from '../../components/Button.vue'
+    import ButtonApp from '../../components/Button.vue'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import OrganizationTypes from '../../api/organization_types.js'
-    import SettingsNavigation from '../../components/Navigation/SettingsNavigation.vue'
+    import NavigationSettings from '../../components/Navigation/Settings.vue'
     
     const store = useStore()
     const organizationTypes = ref([])

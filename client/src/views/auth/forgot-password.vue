@@ -56,13 +56,13 @@
                     </div>
 
                     <div class="auth-page__buttons items-center">
-                        <app-button
+                        <button-app
                             @click="sendResetPasswordLink"
                             class="button--primary"
                             :is-loading="isLoading"
                             loading-color="#fff">
                             Send password reset link
-                        </app-button>
+                        </button-app>
                     </div>
 
                     <div class="v-spacer-50"></div>
@@ -75,7 +75,7 @@
 <script setup>
     import router from '../../routes.js'
     import useAuth from '../../features/useAuth.js'
-    import AppButton from '../../components/Button.vue'
+    import ButtonApp from '../../components/Button.vue'
     import SvgUser from '../../components/Svg/User.vue'
 
     const { email, isLoading, userLoggedIn, sendResetPasswordLink,

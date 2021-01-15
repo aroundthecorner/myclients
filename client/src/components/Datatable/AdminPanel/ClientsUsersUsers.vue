@@ -1,5 +1,5 @@
 <template>
-    <div class="datatable-users__toolbar">
+    <div class="datatable-clients-users__toolbar">
         <input
             type="text"
             placeholder="Search"
@@ -7,9 +7,19 @@
             class="app-input w-300"
         />
 
-        <app-button class="button--primary">
-            New user
-        </app-button>
+        <div class="flex-1"></div>
+
+        <router-link to="/admin-panel/clients-users/clients">
+            <button-app class="button--secondary">
+                Clients
+            </button-app>
+        </router-link>
+
+        <router-link to="/admin-panel/clients-users/users">
+            <button-app class="button--primary">
+                Users
+            </button-app>
+        </router-link>
     </div>
 
     <div class="datatable-container">
@@ -186,9 +196,9 @@
 <script setup>
     import { useStore } from 'vuex'
     import { ref, computed } from 'vue'
-    import AppButton from '../Button.vue'
-    import useEnv from '../../features/useEnv.js'
-    import LoadingLinear from '../Loading/Linear.vue'
+    import ButtonApp from '../../Button.vue'
+    import useEnv from '../../../features/useEnv.js'
+    import LoadingLinear from '../../Loading/Linear.vue'
 
     const { env } = useEnv()
     const store = useStore()

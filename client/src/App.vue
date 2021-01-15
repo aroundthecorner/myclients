@@ -2,7 +2,7 @@
     <div :data-theme="app.theme" class="app-wrapper">
         <router-view></router-view>
         <vue-progress-bar />
-        <error-notification />
+        <notification-error />
         <notification-message />
     </div>
 </template>
@@ -12,7 +12,7 @@
     import { useStore } from 'vuex'
     import router from './routes.js'
     import useAuth from './features/useAuth.js'
-    import ErrorNotification from './components/Notification/Error.vue'
+    import NotificationError from './components/Notification/Error.vue'
     import NotificationMessage from './components/Notification/Message.vue'
 
     const store = useStore()

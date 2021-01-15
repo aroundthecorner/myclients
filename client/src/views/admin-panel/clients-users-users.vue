@@ -5,16 +5,16 @@
 
     <div class="page">
         <div class="page-container">
-            <admin-panel-navigation />
+            <navigation-admin-panel />
 
             <div class="page-container__content">
-                <datatable-clients-users-users />
+                <datatable-users />
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-    import AdminPanelNavigation from '../../components/Navigation/AdminPanel.vue'
-    import DatatableClientsUsersUsers from '../../components/Datatable/DatatableClientsUsersUsers.vue'
+    import NavigationAdminPanel from '../../components/Navigation/AdminPanel.vue'
+    import DatatableUsers from '../../components/Datatable/AdminPanel/ClientsUsersUsers.vue'
 </script>

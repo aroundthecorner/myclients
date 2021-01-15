@@ -5,7 +5,7 @@
 
     <div class="page">
         <div class="page-container">
-            <admin-panel-navigation />
+            <navigation-admin-panel />
 
             <div class="page-container__content">
                 <div class="admin-users">
@@ -16,11 +16,11 @@
                             activatorFullWidth
                             v-model="showOrganizationsMenu">
 
-                            <app-button
+                            <button-app
                                 @click="showOrganizationsMenu = !showOrganizationsMenu"
                                 class="button--flat inline w-full dropdown-arrows">
                                 Organization
-                            </app-button>
+                            </button-app>
 
                             <template #dropdown>
                                 <div class="dropdown-menu">
@@ -70,9 +70,9 @@
 
 <script setup>
     import { ref } from 'vue';
-    import AppButton from '../../components/Button.vue'
+    import ButtonApp from '../../components/Button.vue'
     import DropdownMenu from '../../components/DropdownMenu.vue'
-    import AdminPanelNavigation from '../../components/Navigation/AdminPanel.vue'
+    import NavigationAdminPanel from '../../components/Navigation/AdminPanel.vue'
     
     const showOrganizationsMenu = ref(false)
 </script>

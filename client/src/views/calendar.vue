@@ -4,12 +4,12 @@
     </teleport>
 
     <div class="page">
-        <calendar-toolbar />
-        <calendar-day-view />
+        <toolbar-calendar />
+        <calendar-view-day />
     </div>
 </template>
 
 <script setup>
-    import CalendarDayView from '../components/Calendar/Views/DayView.vue'
-    import CalendarToolbar from '../components/Calendar/CalendarToolbar.vue'
+    import CalendarViewDay from '../components/Calendar/Views/Day.vue'
+    import ToolbarCalendar from '../components/Calendar/Toolbar.vue'
 </script>

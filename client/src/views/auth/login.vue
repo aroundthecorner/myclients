@@ -88,18 +88,18 @@
                     </div>
 
                     <div class="auth-page__buttons">
-                        <app-button
+                        <button-app
                             @click="login"
                             class="button--primary"
                             :is-loading="isLoading"
                             loading-color="#fff">
                             Login Now
-                        </app-button>
+                        </button-app>
 
                         <router-link to="/register">
-                            <app-button>
+                            <button-app>
                                 Create Account
-                            </app-button>
+                            </button-app>
                         </router-link>
                     </div>
 
@@ -116,7 +116,7 @@
     import SvgUser from '../../components/Svg/User.vue'
     import SvgCheck from '../../components/Svg/Check.vue'
     import SvgLock from '../../components/Svg/Lock.vue'
-    import AppButton from '../../components/Button.vue'
+    import ButtonApp from '../../components/Button.vue'
 
     const { login, email, password, isLoading, userLoggedIn,
             checkUserExists, userExists } = useAuth()

@@ -5,7 +5,7 @@
 
     <div class="page">
         <div class="page-container">
-            <settings-navigation />
+            <navigation-settings />
 
             <div class="page-container__content">
                 <div class="your-subscription">
@@ -59,5 +59,5 @@
 </template>
 
 <script setup>
-    import SettingsNavigation from '../../components/Navigation/SettingsNavigation.vue'
+    import NavigationSettings from '../../components/Navigation/Settings.vue'
 </script>

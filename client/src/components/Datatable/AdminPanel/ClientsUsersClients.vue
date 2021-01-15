@@ -10,15 +10,15 @@
         <div class="flex-1"></div>
 
         <router-link to="/admin-panel/clients-users/clients">
-            <app-button class="button--primary">
+            <button-app class="button--primary">
                 Clients
-            </app-button>
+            </button-app>
         </router-link>
 
         <router-link to="/admin-panel/clients-users/users">
-            <app-button class="button--secondary">
+            <button-app class="button--secondary">
                 Users
-            </app-button>
+            </button-app>
         </router-link>
     </div>
 
@@ -196,9 +196,9 @@
 <script setup>
     import { useStore } from 'vuex'
     import { ref, computed } from 'vue'
-    import AppButton from '../Button.vue'
-    import useEnv from '../../features/useEnv.js'
-    import LoadingLinear from '../Loading/Linear.vue'
+    import ButtonApp from '../../Button.vue'
+    import useEnv from '../../../features/useEnv.js'
+    import LoadingLinear from '../../Loading/Linear.vue'
 
     const { env } = useEnv()
     const store = useStore()

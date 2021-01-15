@@ -1,7 +1,7 @@
 <template>
     <div class="calendar-toolbar">
         <div class="calendar-toolbar__row">
-            <app-button
+            <button-app
                 class="calendar-toolbar__button button--primary"
                 loading-color="#fff">
                 
@@ -12,13 +12,13 @@
                 <div class="calendar-toolbar__add-appointment-small">
                     <i class="las la-plus-circle"></i>
                 </div>
-            </app-button>
+            </button-app>
 
-            <app-button
+            <button-app
                 class="calendar-toolbar__button"
                 @click="toggleFilters">
                 Filters
-            </app-button>
+            </button-app>
 
             <div class="calendar-toolbar__arrow">
                 <svg-left-arrow />
@@ -32,19 +32,19 @@
                 December 12, 2020
             </div>
 
-            <app-button
+            <button-app
                 class="calendar-toolbar__button button--primary"
                 loading-color="#fff">
                 Day
-            </app-button>
+            </button-app>
 
-            <app-button class="calendar-toolbar__button">
+            <button-app class="calendar-toolbar__button">
                 Week
-            </app-button>
+            </button-app>
 
-            <app-button class="calendar-toolbar__button">
+            <button-app class="calendar-toolbar__button">
                 Month
-            </app-button>
+            </button-app>
         </div>
 
         <div
@@ -57,7 +57,7 @@
                 max-height="300px"
                 v-model="showLocationMenu">
 
-                <app-button @click="showLocationMenu = !showLocationMenu">
+                <button-app @click="showLocationMenu = !showLocationMenu">
                     <div class="button__select-content">
                         <span>Location</span>
                         
@@ -65,7 +65,7 @@
                             <svg-down-arrow />
                         </div>
                     </div>
-                </app-button>
+                </button-app>
 
                 <template #dropdown>
                     <div class="dropdown-menu">
@@ -86,9 +86,7 @@
                 </template>
             </dropdown-menu>
 
-            
-
-            <app-button>
+            <button-app>
                 <div class="button__select-content">
                     <span>Providers</span>
                     
@@ -96,9 +94,9 @@
                         <svg-down-arrow />
                     </div>
                 </div>
-            </app-button>
+            </button-app>
 
-            <app-button>
+            <button-app>
                 <div class="button__select-content">
                     <span>Services</span>
                     
@@ -106,14 +104,14 @@
                         <svg-down-arrow />
                     </div>
                 </div>
-            </app-button>
+            </button-app>
         </div>
     </div>
 </template>
 
 <script setup>
     import { ref } from 'vue'
-    import AppButton from '../Button.vue'
+    import ButtonApp from '../Button.vue'
     import SvgLeftArrow from '../Svg/LeftArrow.vue'
     import SvgDownArrow from '../Svg/DownArrow.vue'
     import DropdownMenu from './../DropdownMenu.vue'
