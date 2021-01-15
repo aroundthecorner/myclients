@@ -23,7 +23,7 @@
         - See screen with html2canvas (screenshot via websockets)
 23. FEAT: User roles (root, admin, super admin, moderator, user, guest)
         - not one root user but multiple to be able to see access logs for each
-25. FIX: Settings tabs active sidebar settings (only first works)
+25. FIX: Settings & Admin panel tabs active sidebar settings (only first works)
 26. FIX: file names SettingsNavigation.vue /Navigation/Settings.vue
 27. FEAT: See who is online and who is active. Online WS ping, active on click last
           activity
