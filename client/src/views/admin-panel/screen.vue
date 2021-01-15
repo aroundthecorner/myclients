@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="admin-users__users">
-                            <div v-for="n in 5" class="admin-users__user">
+                            <div v-for="n in 5" :key="n" class="admin-users__user">
                                 <div class="admin-users_user-pic">
                                     <img
                                         class="admin-users__user-img"

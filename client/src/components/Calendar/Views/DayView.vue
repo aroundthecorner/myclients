@@ -12,7 +12,7 @@
             </div>
 
             <!-- Providers columns -->
-            <div class="calendar__column" v-for="n in 3">
+            <div class="calendar__column" v-for="n in 3" :key="n">
                 <div class="calendar__row calendar__row--provider">
                     <img
                         class="calendar__profile-pic"

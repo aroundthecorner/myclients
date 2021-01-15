@@ -32,7 +32,7 @@
         <h2 class="upcoming-appointments-title">Upcoming appointments</h2>
 
         <div class="upcoming-appointments">
-            <div v-for="n in 4" class="upcoming-appointments__item">
+            <div v-for="n in 4" :key="n" class="upcoming-appointments__item">
                 <div class="upcoming-appointments__title">
                     <div class="upcoming-appointments__client">Līga Zeltiņa</div>
                     <div class="upcoming-appointments__status">Approved</div>

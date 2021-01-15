@@ -143,6 +143,7 @@
                                                 <div class="dropdown-menu">
                                                     <div
                                                         v-for="organizationType in organizationTypes"
+                                                        :key="organizationType.id"
                                                         @click="selectOrganizationType(organizationType)"
                                                         class="dropdown-menu__item">
                                                         {{ organizationType.description }}
