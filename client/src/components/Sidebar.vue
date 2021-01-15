@@ -85,12 +85,20 @@
 
             <div class="spacer"></div>
 
-            <router-link to="/admin-panel/chat" class="sidebar__item">
+            <router-link
+                to="/admin-panel/chat"
+                class="sidebar__item"
+                :class="{ 'router-link-exact-active': isActiveAdminPanel }">
+
                 <i class="sidebar__icon las la-cog"></i>
                 <span class="sidebar__item-text">Admin panel</span>
             </router-link>
 
-            <router-link to="/settings/profile" class="sidebar__item">
+            <router-link
+                to="/settings/profile"
+                class="sidebar__item"
+                :class="{ 'router-link-exact-active': isActiveSettings }">
+
                 <i class="sidebar__icon las la-cog"></i>
                 <span class="sidebar__item-text">Settings</span>
             </router-link>
@@ -99,8 +107,9 @@
 </template>
 
 <script setup>
-    import { computed, ref } from 'vue'
     import { useStore } from 'vuex'
+    import router from '../routes.js'
+    import { computed, ref } from 'vue'
     import useEnv from '../features/useEnv.js'
     import useAuth from '../features/useAuth.js'
     import DropdownMenu from './DropdownMenu.vue'
@@ -111,4 +120,12 @@
 
     const showProfileMenu = ref(false)
     const user = computed(() => store.state.user)
+
+    const isActiveSettings = computed(() => {
+        return router.currentRoute.value.path.startsWith('/settings')
+    })
+
+    const isActiveAdminPanel = computed(() => {
+        return router.currentRoute.value.path.startsWith('/admin-panel')
+    })
 </script>
