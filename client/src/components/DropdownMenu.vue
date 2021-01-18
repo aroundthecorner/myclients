@@ -170,7 +170,7 @@
                                 left.value = activatorElement.value.offsetLeft
                             }
 
-                            if ((left.value + menu.value.offsetWidth) > window_width) {
+                            if (menu.value.offsetWidth && ((left.value + menu.value.offsetWidth) > window_width)) {
                                 let end = activatorElement.value.offsetLeft + activatorElement.value.offsetWidth
                                 left.value = end - menu.value.offsetWidth
                             }

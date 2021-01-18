@@ -118,6 +118,20 @@ class AuthController extends Controller
     }
 
     /**
+     * Check if an organization exists
+     */
+    public function checkOrganizationExists()
+    {
+        $organizationName = request('organizationName');
+
+        $organization = Organization::whereDescription($organizationName)->first();
+
+        return response()->json([
+            'user_exists' => ($organization) ? true : false
+        ]);
+    }
+
+    /**
      * User requested a password reset link
      */
     public function forgotPassword()

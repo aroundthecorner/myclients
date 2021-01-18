@@ -17,6 +17,27 @@ function useAuth()
     const selectedOrganizationType = ref('')
     const isResetLinkSent = ref(false)
     const validationErrors = ref([])
+    const validationErrorMessages = ref({
+        WEAK_PASSWORD: {
+            title: 'Weak password',
+            message: 'Password must contain symbols, numbers and lowercase and uppercase letters.',
+        },
+
+        USER_EXISTS: {
+            title: 'User already exists',
+            message: 'This user already exists.',
+        },
+
+        ORGANIZATION_EXISTS: {
+            title: 'Organization exists',
+            message: 'This organization already exists.',
+        },
+
+        ALL_FIELDS_REQUIRED: {
+            title: 'All fields required',
+            message: 'All fileds are required to be filled.',
+        },
+    })
 
     /**
      * Perform user login
@@ -129,13 +150,22 @@ function useAuth()
      */
     async function register()
     {
+        isLoading.value = true
+
         if (await hasValidationErrors()) {
-            console.log(validationErrors.value)
+            isLoading.value = false
+
+            let validationError = validationErrors.value[0]
+
+            store.dispatch('app/showNotificationMessage', {
+                icon: 'img/warning.png',
+                title: validationErrorMessages.value[validationError]['title'],
+                body: validationErrorMessages.value[validationError]['message'],
+                hideDelay: 5,
+            })
+
             return
         }
-
-
-        isLoading.value = true
         
         try {
             const result = await Auth.register({
@@ -244,12 +274,15 @@ function useAuth()
      */
     async function validate()
     {
+        let result
+        validationErrors.value = []
+
         // Password strength
         let strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
         if (!strongPassword.test(password.value)) validationErrors.value.push('WEAK_PASSWORD')
 
         // Check if user already exists
-        const result = await Auth.checkUserExists({
+        result = await Auth.checkUserExists({
             email: email.value,
         })
 
@@ -257,7 +290,19 @@ function useAuth()
         if (userExists.value === true) validationErrors.value.push('USER_EXISTS')
 
         // Check if organization already exists
+        result = await Auth.checkOrganizationExists({
+            organizationName: organizationName.value,
+        })
 
+        let organizationExists = result
+        if (organizationExists) validationErrors.value.push('ORGANIZATION_EXISTS')
+
+        // Check if all fields are filled
+        if (!email.value || !name.value ||
+            !password.value || !selectedOrganizationType.value.id ||
+            !organizationName.value) {
+            validationErrors.value.push('ALL_FIELDS_REQUIRED')
+        }
     }
 
     return {

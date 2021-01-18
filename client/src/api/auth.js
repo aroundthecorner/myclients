@@ -123,6 +123,46 @@ class Auth
     }
 
     /**
+     * Check if an organization exists in database
+     */
+    static async checkOrganizationExists(data)
+    {
+        const { env } = useEnv()
+        const { jsonHeaders } = useHTTP()
+        const { showError, showErrorOccured } = useErrorHandling()
+        
+        try {
+            let response = await fetch(`${env('VITE_SERVER_URL')}/check-organization-exists`, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: jsonHeaders,
+            })
+
+            if (!response.ok) {
+                let errorMessage = {
+                    statusText: response.statusText,
+                    statusCode: response.status,
+                    body: '',
+                    url: response.url,
+                    clientAPI: 'api/auth.js @ checkOrganizationExists',
+                }
+                
+                const text = await response.text()
+                errorMessage.body = text
+
+                showError(errorMessage)
+                return
+            }
+
+            response =  await response.json()
+            return response.user_exists
+        } catch (error) {
+            showErrorOccured()
+            console.log(error)
+        }
+    }
+
+    /**
      * Send reset password link
      */
     static async sendResetPasswordLink(data)
