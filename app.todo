@@ -4,11 +4,11 @@
 02. REMINDER: Update to PHP 8 when Laravel 9 is released
 03. REMINDER: Security (secure tokens, secure csrf, xss etc. hacking!)
 04. REMINDER: REFACTOR: Vue Style guide (:key, component names...)
-05. FEAT: (!) Languages
-06. FEAT: Responsive layout
+05. REMINDER: Clear (redis) cache on model events.
+06. FEAT: (!) Languages
+07. FEAT: Responsive layout
        - calendar view - notification messages
-07. FEAT: Themes update
-08. REMINDER: Clear (redis) cache on model events.
+08. FEAT: Themes update
 09. FEAT: Login button and logged in username link on website
 10. FEAT: Make technical documentation of how everything works.
 11. TEST: Write tests
