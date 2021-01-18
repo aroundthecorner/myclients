@@ -25,6 +25,7 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
+            'role' => 'user',
             'email_verified_at' => now(),
             'profile_picture' => 'img/default_profile_picture.png',
             'password' => '$2y$10$3M27qP3R0wFpy3Sgk2Qy6eY1dfUWDW5GH0b3Tm9hx4YVrfMAf5qKq', // password

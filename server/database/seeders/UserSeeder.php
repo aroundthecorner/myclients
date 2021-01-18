@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'name' => 'Mārtiņš Zeltiņš',
             'email' => 'admin@myclients.org',
+            'role' => 'root',
             'organization_id' => Organization::factory()->create()->id,
             'profile_picture' => 'img/martins_profile_picture.png',
         ]);
