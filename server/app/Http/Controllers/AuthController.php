@@ -82,7 +82,7 @@ class AuthController extends Controller
             'email' => 'email|unique:users',
             'name' => 'required',
             'organizationTypeId' => 'required',
-            'organizationName' => 'required',
+            'organizationName' => 'required|unique:organizations,description',
             'password' => 'required',
         ]);
 
