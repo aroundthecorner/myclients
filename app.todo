@@ -8,6 +8,11 @@
 06. TEST: Write tests
 07. REFACTOR: Move chat from page to its own component (components/chat.vue..)
 08. FEAT: (!) Cut off client if invoice not paid
+          - how do we want to do this?
+          - show a red message at the top - unpaid invoice
+          - disable features of calendar only, when making a backend call, then
+            show that your invoice is not paid.
+          - still allow to browser most pages.
 09. FEAT: (!) Languages
 10. FEAT: Responsive layout
           - calendar view - notification messages
