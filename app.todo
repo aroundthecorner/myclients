@@ -7,9 +7,12 @@
 05. REMINDER: Clear (redis) cache on model events.
 06. TEST: Write tests
 07. REFACTOR: Move chat from page to its own component (components/chat.vue..)
-08. FEAT: (!) Languages
-09. FEAT: (!) Show some message at any time to any client
-10. FEAT: (!) Cut off client if invoice not paid
+08. FEAT: (!) Show some message at any time to any client
+          - message in which we put inside whatever HTML formatted content
+          - each client can dismiss it for themselves
+          - able to do it from admin panel
+09. FEAT: (!) Cut off client if invoice not paid
+10. FEAT: (!) Languages
 11. FEAT: Responsive layout
           - calendar view - notification messages
 12. FEAT: Themes update
