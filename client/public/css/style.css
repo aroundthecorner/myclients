@@ -886,7 +886,7 @@ h1, h2, h3, h4 {
 }
 
 .bounce-leave-active {
-    animation: bounce-in 0.4s reverse;
+    animation: bounce-in 50.4s reverse;
 }
 
 @keyframes bounce-in {
@@ -900,6 +900,28 @@ h1, h2, h3, h4 {
 
     100% {
         transform: scale(1);
+    }
+}
+
+.bouncecenter-enter-active {
+    animation: bouncecenter-in 0.4s;
+}
+
+.bouncecenter-leave-active {
+    animation: bouncecenter-in 0.4s reverse;
+}
+
+@keyframes bouncecenter-in {
+    0% {
+        transform: translateX(-50%) scale(0) ;
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.15) ;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1) ;
     }
 }
 
@@ -1777,17 +1799,39 @@ tr.datatable__row:last-child {
      flex: 1;
  }
 
- .message-global {
-     position: fixed;
-     top: 100px;
-     left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-yin);
-    padding: 30px 80px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-salty);
+ .message-global__overlay {
+    position: fixed;
+    background: #00000005;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
  }
 
+ .message-global {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    min-width: 100px;
+    text-align: center;
+    z-index: 10;
+    transform: translateX(-50%);
+    background: var(--color-yin);
+    padding: 20px 50px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-salty);
+    box-shadow: rgba(50, 50, 50, 0.3) 2px 0px 26px -1px;
+ }
+
+ .message-global__close {
+    position: absolute;
+    right: 14px;
+    width: 8px;
+    top: 5px;
+    cursor: pointer;
+    fill: rgb(162 162 206);
+ }
 
 
 

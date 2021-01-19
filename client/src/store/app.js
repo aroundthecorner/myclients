@@ -28,8 +28,8 @@ export default {
             },
 
             messageGlobal: {
-                show: true,
-                body: 'Test',
+                show: false,
+                body: '',
             },
 
             languages: [],
