@@ -6,27 +6,26 @@
 04. REMINDER: REFACTOR: Vue Style guide (:key, component names...)
 05. REMINDER: Clear (redis) cache on model events.
 06. TEST: Write tests
-27. REFACTOR: Move chat from page to its own component (components/chat.vue..)
+07. REFACTOR: Move chat from page to its own component (components/chat.vue..)
 08. FEAT: (!) Languages
-09. FEAT: (!) Add force-position to dropdown menu
-10. FEAT: (!) User roles (root, admin, super admin, moderator, user, guest)
-11. FEAT: (!) Show some message at any time to any client
-12. FEAT: (!) Cut off client if invoice not paid
-13. FEAT: Responsive layout
+09. FEAT: (!) User roles (root, admin, super admin, moderator, user, guest)
+10. FEAT: (!) Show some message at any time to any client
+11. FEAT: (!) Cut off client if invoice not paid
+12. FEAT: Responsive layout
           - calendar view - notification messages
-14. FEAT: Themes update
-15. FEAT: Login button and logged in username link on website
-16. FEAT: Make technical documentation of how everything works.
-17. FEAT: Templates for (same client always 1 service, same time, price etc.)
-18. FEAT: Send email using SMTP server (Gmail / Mail.ru or whatever...)
-19. FEAT: Admin panel
+13. FEAT: Themes update
+14. FEAT: Login button and logged in username link on website
+15. FEAT: Make technical documentation of how everything works.
+16. FEAT: Templates for (same client always 1 service, same time, price etc.)
+17. FEAT: Send email using SMTP server (Gmail / Mail.ru or whatever...)
+18. FEAT: Admin panel
           - see and manage all clients, their users, invoices, contacts etc.
           - be able to send messages and chat with clients (websockets)
           - be able to see what a client is doing (transfer screenshots somehow?)
           - password re-prompts & 2FA
           - See screen with html2canvas (screenshot via websockets)
           - not one root user but multiple to be able to see access logs for each
-20. FEAT: See who is online and who is active. Online WS ping, active on click last
+19. FEAT: See who is online and who is active. Online WS ping, active on click last
           activity
 
 

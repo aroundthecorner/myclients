@@ -72,6 +72,11 @@
             maxHeight: {
                 type: String,
                 default: 'auto',
+            },
+
+            forcePosition: {
+                type: Boolean,
+                default: true,
             }
         },
 
@@ -114,40 +119,43 @@
 
                 nextTick(() => {
                     // Auto detect window edge
-                    if (placement.value == 'bottom') {
-                        let potentialTop = activatorElement.value.offsetTop
-                            potentialTop += activatorElement.value.offsetHeight
-                            potentialTop += parseInt(props.offsetY)
+                    if (props.forcePosition === false)
+                    {
+                        if (placement.value == 'bottom') {
+                            let potentialTop = activatorElement.value.offsetTop
+                                potentialTop += activatorElement.value.offsetHeight
+                                potentialTop += parseInt(props.offsetY)
 
-                        if (menu.value && ((potentialTop + menu.value.offsetHeight) > window_height)) {
-                            placement.value = 'top'
+                            if (menu.value && ((potentialTop + menu.value.offsetHeight) > window_height)) {
+                                placement.value = 'top'
+                            }
                         }
-                    }
 
-                    if (placement.value == 'top') {
-                        let potentialTop = activatorElement.value.offsetTop - menu.value.offsetHeight
-                            potentialTop -= parseInt(props.offsetY)
+                        if (placement.value == 'top') {
+                            let potentialTop = activatorElement.value.offsetTop - menu.value.offsetHeight
+                                potentialTop -= parseInt(props.offsetY)
 
-                        if (potentialTop < 0) {
-                            placement.value = 'bottom'
+                            if (potentialTop < 0) {
+                                placement.value = 'bottom'
+                            }
                         }
-                    }
 
-                    if (placement.value == 'left') {
-                        let potentialLeft = activatorElement.value.offsetLeft - menu.value.offsetWidth
-                            potentialLeft -= parseInt(props.offsetX)
+                        if (placement.value == 'left') {
+                            let potentialLeft = activatorElement.value.offsetLeft - menu.value.offsetWidth
+                                potentialLeft -= parseInt(props.offsetX)
 
-                        if (potentialLeft < 0) {
-                            placement.value = 'right'
+                            if (potentialLeft < 0) {
+                                placement.value = 'right'
+                            }
                         }
-                    }
 
-                    if (placement.value == 'right') {
-                        let potentialLeft = activatorElement.value.offsetLeft + activatorElement.value.offsetWidth
-                            potentialLeft += parseInt(props.offsetX)
+                        if (placement.value == 'right') {
+                            let potentialLeft = activatorElement.value.offsetLeft + activatorElement.value.offsetWidth
+                                potentialLeft += parseInt(props.offsetX)
 
-                        if (menu.value && ((potentialLeft + menu.value.offsetWidth) > window_width)) {
-                            placement.value = 'left'
+                            if (menu.value && ((potentialLeft + menu.value.offsetWidth) > window_width)) {
+                                placement.value = 'left'
+                            }
                         }
                     }
 
