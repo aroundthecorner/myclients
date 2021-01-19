@@ -68,6 +68,12 @@ const routes = [
                 name: 'adminPanelClientsUsersUsers',
                 component: () => import('./views/admin-panel/clients-users-users.vue'),
             },
+
+            {
+                path: '/admin-panel/message',
+                name: 'adminPanelMessage',
+                component: () => import('./views/admin-panel/message.vue'),
+            },
         ],
 
         meta: {

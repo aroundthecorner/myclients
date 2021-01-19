@@ -27,6 +27,11 @@ export default {
                 'hideDelay': '',
             },
 
+            messageGlobal: {
+                show: true,
+                body: 'Test',
+            },
+
             languages: [],
         }
     },
@@ -51,6 +56,16 @@ export default {
         hideNotificationMessage({ commit })
         {
             commit('hideNotificationMessage')
+        },
+
+        showMessageGlobal({ commit }, message)
+        {
+            commit('showMessageGlobal', message)
+        },
+
+        hideMessageGlobal({ commit })
+        {
+            commit('hideMessageGlobal')
         },
 
         async fetchLanguages({ commit })
@@ -80,15 +95,29 @@ export default {
 
             state.notificationMessage.show = true
         },
+        
+        hideNotificationMessage(state)
+        {
+            state.notificationMessage.show = false
+        },
+
+        showMessageGlobal(state, message)
+        {
+            state.messageGlobal = {
+                ...message
+            }
+
+            state.messageGlobal.show = true
+        },
+        
+        hideMessageGlobal(state)
+        {
+            state.messageGlobal.show = false
+        },
 
         hideServerError(state)
         {
             state.serverError.show = false
-        },
-
-        hideNotificationMessage(state)
-        {
-            state.notificationMessage.show = false
         },
 
         setLanguages(state, languages)

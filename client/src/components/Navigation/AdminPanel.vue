@@ -15,6 +15,10 @@
 
             Clients & Users
         </router-link>
+
+        <router-link to="/admin-panel/message" class="page-navigation__item">
+            Message
+        </router-link>
     </div>
 </template>
 
