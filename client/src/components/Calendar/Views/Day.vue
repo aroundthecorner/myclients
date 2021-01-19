@@ -65,7 +65,7 @@
                 </div>
 
                 <!-- Calendar events -->
-                <div v-if="n < 2" class="calendar__event" @click="doSomething">
+                <div v-if="n < 2" class="calendar__event">
                     <div class="calendar__event-title">
                         Hot stone therapy
                     </div>
@@ -123,10 +123,6 @@
             durationDecimal: '1.75',
         }
     ]
-
-    function doSomething() {
-        alert('doSomething()')
-    }
 
     onMounted(() => {
         // Drag - scroll behavior

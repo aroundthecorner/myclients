@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>myclients - {{ lang('Dashboard') }}</title>
+        <title>{{ lang('Dashboard') }} - myclients</title>
     </teleport>
 
     <div class="page">
