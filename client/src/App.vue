@@ -12,12 +12,14 @@
     import { useStore } from 'vuex'
     import router from './routes.js'
     import useAuth from './features/useAuth.js'
+    import useWebsocket from './features/useWebsocket.js'
     import NotificationError from './components/Notification/Error.vue'
     import NotificationMessage from './components/Notification/Message.vue'
 
     const store = useStore()
     const { restoreSession } = useAuth()
     const progressBar = inject('progressBar')
+    const { connect: connectWebsocket, data: WebsocketData, send: sendWebsocket } = useWebsocket()
 
     /*
      * Start the progress bar on page navigation
@@ -42,4 +44,9 @@
      * Restore the user session
      */
     restoreSession()
+
+    /*
+     * Establish a websocket connection
+     */
+    connectWebsocket()
 </script>

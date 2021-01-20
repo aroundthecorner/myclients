@@ -9,6 +9,7 @@ export default {
             theme: 'aconite',
             app_name: 'myclients',
             language: 'en',
+            WebsocketData: '',
             
             serverError: {
                 show: false,
@@ -79,6 +80,11 @@ export default {
         {
             commit('setLanguage', language)
         },
+
+        setWebsocketData({ commit }, data)
+        {
+            commit('setWebsocketData', data)
+        },
     },
 
     mutations:
@@ -133,6 +139,11 @@ export default {
         setLanguage(state, language)
         {
             state.language = language
+        },
+
+        setWebsocketData(state, data)
+        {
+            state.WebsocketData = data
         },
     },
 }
