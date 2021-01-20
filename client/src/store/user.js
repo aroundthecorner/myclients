@@ -17,6 +17,7 @@ export default {
         setUser({ commit }, user)
         {
             commit('setUser', user)
+            commit('app/setLanguage', user.language, { root: true })
         },
     },
 
