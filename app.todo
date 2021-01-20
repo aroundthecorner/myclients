@@ -14,6 +14,7 @@
             show that your invoice is not paid.
           - still allow to browser most pages.
 09. FEAT: (!) Languages
+          - check if switching a langauge works in real time
 10. FEAT: Responsive layout
           - calendar view - notification messages
 11. FEAT: Themes update

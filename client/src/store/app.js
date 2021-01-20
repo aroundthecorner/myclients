@@ -38,6 +38,11 @@ export default {
 
     actions: 
     {
+        changeLanguage({ commit }, language)
+        {
+            commit('changeLanguage', language)
+        },
+
         showServerError({ commit }, errorMessage)
         {
             commit('showServerError', errorMessage)
@@ -78,6 +83,11 @@ export default {
 
     mutations:
     {
+        changeLanguage(state, language)
+        {
+            state.language = language
+        },
+
         showServerError(state, errorMessage)
         {
             state.serverError = {
