@@ -8,9 +8,9 @@
 </template>
 
 <script setup>
-    import { computed, inject } from 'vue'
     import { useStore } from 'vuex'
     import router from './routes.js'
+    import { computed, inject } from 'vue'
     import useAuth from './features/useAuth.js'
     import useOnline from './features/useOnline.js'
     import useWebsocket from './features/useWebsocket.js'
