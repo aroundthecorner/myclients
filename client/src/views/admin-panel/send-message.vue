@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Message - myclients</title>
+        <title>{{ lang('Send message') }} - myclients</title>
     </teleport>
 
     <div class="page">
@@ -19,7 +19,7 @@
                             <button-app
                                 @click="showOrganizationsMenu = !showOrganizationsMenu"
                                 class="button--flat inline w-full dropdown-arrows">
-                                Organization
+                                {{ lang('Organization') }}
                             </button-app>
 
                             <template #dropdown>
@@ -36,7 +36,7 @@
                         </dropdown-menu>
 
                         <div class="admin-users__users-label">
-                            <div class="admin-users__users-title">Users</div>
+                            <div class="admin-users__users-title">{{ lang('Users') }}</div>
                             <div class="admin-users__users-count">99</div>
                         </div>
 
@@ -67,12 +67,12 @@
                         <div class="admin-users__action-container">
                             <button-app
                                 class="button--primary">
-                                Send
+                                {{ lang('Send') }}
                             </button-app>
 
                             <button-app
                                 class="button--primary">
-                                Send to all
+                                {{ lang('Send to all') }}
                             </button-app>
                         </div>
                     </div>
@@ -85,8 +85,10 @@
 <script setup>
     import { ref } from 'vue';
     import ButtonApp from '../../components/Button.vue'
+    import useLanguage from '../../features/useLanguage.js'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import NavigationAdminPanel from '../../components/Navigation/AdminPanel.vue'
     
+    const { lang } = useLanguage()
     const showOrganizationsMenu = ref(false)
 </script>

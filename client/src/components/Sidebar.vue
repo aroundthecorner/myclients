@@ -34,7 +34,7 @@
                             <div
                                 class="dropdown-menu__item-content"
                                 @click="showProfileMenu = false">
-                                My profile
+                                {{ lang('My profile') }}
                             </div>
                         </router-link>
 
@@ -45,14 +45,14 @@
                             <div
                                 class="dropdown-menu__item-content"
                                 @click="showProfileMenu = false">
-                                Settings
+                                {{ lang('Settings') }}
                             </div>
                         </router-link>
 
                         <div
                             @click="showProfileMenu = false; logout()"
                             class="dropdown-menu__item">
-                            Logout
+                            {{ lang('Logout') }}
                         </div>
                     </div>
                 </template>
@@ -60,27 +60,27 @@
 
             <router-link to="/" class="sidebar__item">
                 <i class="sidebar__icon lab la-buffer"></i>
-                <span class="sidebar__item-text">Dashboard</span>
+                <span class="sidebar__item-text">{{ lang('Dashboard') }}</span>
             </router-link>
 
             <router-link to="/calendar" class="sidebar__item">
                 <i class="sidebar__icon las la-calendar"></i>
-                <span class="sidebar__item-text">Calendar</span>
+                <span class="sidebar__item-text">{{ lang('Calendar') }}</span>
             </router-link>
 
             <div class="sidebar__item">
                 <i class="sidebar__icon lab la-elementor"></i>
-                <span class="sidebar__item-text">Services</span>
+                <span class="sidebar__item-text">{{ lang('Services') }}</span>
             </div>
 
             <div class="sidebar__item">
                 <i class="sidebar__icon las la-map-marker"></i>
-                <span class="sidebar__item-text">Locations</span>
+                <span class="sidebar__item-text">{{ lang('Locations') }}</span>
             </div>
 
             <div class="sidebar__item">
                 <i class="sidebar__icon las la-user-friends"></i>
-                <span class="sidebar__item-text">Service providers</span>
+                <span class="sidebar__item-text">{{ lang('Service providers') }}</span>
             </div>
 
             <div class="spacer"></div>
@@ -91,7 +91,7 @@
                 :class="{ 'router-link-exact-active': isActiveAdminPanel }">
 
                 <i class="sidebar__icon las la-cog"></i>
-                <span class="sidebar__item-text">Admin panel</span>
+                <span class="sidebar__item-text">{{ lang('Admin panel') }}</span>
             </router-link>
 
             <router-link
@@ -100,7 +100,7 @@
                 :class="{ 'router-link-exact-active': isActiveSettings }">
 
                 <i class="sidebar__icon las la-cog"></i>
-                <span class="sidebar__item-text">Settings</span>
+                <span class="sidebar__item-text">{{ lang('Settings') }}</span>
             </router-link>
         </div>
     </div>
@@ -113,10 +113,12 @@
     import useEnv from '../features/useEnv.js'
     import useAuth from '../features/useAuth.js'
     import DropdownMenu from './DropdownMenu.vue'
+    import useLanguage from '../features/useLanguage.js'
 
     const { env } = useEnv()
     const store = useStore()
     const { logout } = useAuth()
+    const { lang } = useLanguage()
 
     const showProfileMenu = ref(false)
     const user = computed(() => store.state.user)

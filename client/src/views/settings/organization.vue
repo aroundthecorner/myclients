@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Organization settings - myclients</title>
+        <title>{{ lang('Organization Settings') }} - myclients</title>
     </teleport>
 
     <div class="page">
@@ -12,7 +12,7 @@
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Organization name
+                                {{ lang('Organization name') }}
                             </div>
                         </div>
 
@@ -27,7 +27,7 @@
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Organization type
+                                {{ lang('Organization type') }}
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@
                 </div>
 
                 <button-app class="button--primary inline mt-40">
-                    Save settings
+                    {{ lang('Save settings') }}
                 </button-app>
             </div>
         </div>
@@ -69,14 +69,17 @@
 </template>
 
 <script setup>
-    import { useStore } from 'vuex'
     import { ref } from 'vue';
+    import { useStore } from 'vuex'
     import ButtonApp from '../../components/Button.vue'
+    import useLanguage from '../../features/useLanguage.js'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import OrganizationTypes from '../../api/organization_types.js'
     import NavigationSettings from '../../components/Navigation/Settings.vue'
     
     const store = useStore()
+    const { lang } = useLanguage()
+
     const organizationTypes = ref([])
     const showOrganizationTypeMenu = ref(false)
 

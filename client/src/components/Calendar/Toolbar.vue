@@ -6,7 +6,7 @@
                 loading-color="#fff">
                 
                 <div class="calendar-toolbar__add-appointment">
-                    Add appointment
+                    {{ lang('Add appointment') }}
                 </div>
 
                 <div class="calendar-toolbar__add-appointment-small">
@@ -17,7 +17,7 @@
             <button-app
                 class="calendar-toolbar__button"
                 @click="toggleFilters">
-                Filters
+                {{ lang('Filters') }}
             </button-app>
 
             <div class="calendar-toolbar__arrow">
@@ -35,15 +35,15 @@
             <button-app
                 class="calendar-toolbar__button button--primary"
                 loading-color="#fff">
-                Day
+                {{ lang('Day') }}
             </button-app>
 
             <button-app class="calendar-toolbar__button">
-                Week
+                {{ lang('Week') }}
             </button-app>
 
             <button-app class="calendar-toolbar__button">
-                Month
+                {{ lang('Month') }}
             </button-app>
         </div>
 
@@ -59,7 +59,7 @@
 
                 <button-app @click="showLocationMenu = !showLocationMenu">
                     <div class="button__select-content">
-                        <span>Location</span>
+                        <span>{{ lang('Location') }}</span>
                         
                         <div class="button__icon">
                             <svg-down-arrow />
@@ -88,7 +88,7 @@
 
             <button-app>
                 <div class="button__select-content">
-                    <span>Providers</span>
+                    <span>{{ lang('Provider') }}</span>
                     
                     <div class="button__icon">
                         <svg-down-arrow />
@@ -98,7 +98,7 @@
 
             <button-app>
                 <div class="button__select-content">
-                    <span>Services</span>
+                    <span>{{ lang('Services') }}</span>
                     
                     <div class="button__icon">
                         <svg-down-arrow />
@@ -116,12 +116,13 @@
     import SvgDownArrow from '../Svg/DownArrow.vue'
     import DropdownMenu from './../DropdownMenu.vue'
     import SvgRightArrow from '../Svg/RightArrow.vue'
-
+    import useLanguage from '../../features/useLanguage.js'
+    
+    const { lang } = useLanguage()
     const showFilters = ref(false)
     const showLocationMenu = ref(false)
 
-    function toggleFilters()
-    {
+    function toggleFilters() {
         showFilters.value = !showFilters.value
     }
 </script>

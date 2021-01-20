@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Profile settings - myclients</title>
+        <title>{{ lang('Profile Settings') }} - myclients</title>
     </teleport>
 
     <div class="page">
@@ -12,7 +12,7 @@
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Name
+                                {{ lang('Name') }}
                             </div>
                         </div>
 
@@ -28,7 +28,7 @@
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Email
+                                {{ lang('Email') }}
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Password
+                                {{ lang('Password') }}
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Theme
+                                {{ lang('Theme') }}
                             </div>
                         </div>
 
@@ -78,22 +78,22 @@
                                 <template #dropdown>
                                     <div class="dropdown-menu dropdown-menu--theme">
                                         <div class="theme-picker__item theme-picker__item--aconite theme-picker__item--aconite-selected">
-                                            <div class="theme-picker__title">Theme</div>
+                                            <div class="theme-picker__title">{{ lang('Theme') }}</div>
                                             <div class="theme-picker__description">Aconite</div>
                                         </div>
 
                                         <div class="theme-picker__item theme-picker__item--centaurs">
-                                            <div class="theme-picker__title">Theme</div>
+                                            <div class="theme-picker__title">{{ lang('Theme') }}</div>
                                             <div class="theme-picker__description">Centaurs</div>
                                         </div>
 
                                         <div class="theme-picker__item theme-picker__item--azkaban">
-                                            <div class="theme-picker__title">Theme</div>
+                                            <div class="theme-picker__title">{{ lang('Theme') }}</div>
                                             <div class="theme-picker__description theme-picker__description--dark">Azkaban</div>
                                         </div>
 
                                         <div class="theme-picker__item theme-picker__item--dark-forest">
-                                            <div class="theme-picker__title">Theme</div>
+                                            <div class="theme-picker__title">{{ lang('Theme') }}</div>
                                             <div class="theme-picker__description theme-picker__description--dark">Black Forest</div>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Language
+                                {{ lang('Language') }}
                             </div>
                         </div>
 
@@ -138,20 +138,20 @@
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Profile picture
+                                {{ lang('Profile picture') }}
                             </div>
                         </div>
 
                         <div class="settings-item__right">
                             <button-app class="button--flat inline w-250 text-center">
-                                Upload...
+                                {{ lang('Upload...') }}
                             </button-app>
                         </div>
                     </div>
                 </div>
 
                 <button-app class="button--primary inline mt-40">
-                    Save settings
+                    {{ lang('Save settings') }}
                 </button-app>
             </div>
         </div>
@@ -162,12 +162,16 @@
     import { useStore } from 'vuex'
     import { computed, ref } from 'vue';
     import ButtonApp from '../../components/Button.vue'
+    import useLanguage from '../../features/useLanguage.js'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import NavigationSettings from '../../components/Navigation/Settings.vue'
     
     const store = useStore()
+    const { lang } = useLanguage()
+
     const password = ref('')
     const showThemesMenu = ref(false)
     const showLanguageMenu = ref(false)
+
     const user = computed(() => store.state.user)
 </script>

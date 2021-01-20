@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Users - myclients</title>
+        <title>{{ lang('Users') }} - myclients</title>
     </teleport>
 
     <div class="page">
@@ -15,6 +15,9 @@
 </template>
 
 <script setup>
+    import useLanguage from '../../features/useLanguage.js'
     import NavigationAdminPanel from '../../components/Navigation/AdminPanel.vue'
     import DatatableUsers from '../../components/Datatable/AdminPanel/ClientsUsersUsers.vue'
+    
+    const { lang } = useLanguage()
 </script>

@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Plan & billing - myclients</title>
+        <title>{{ lang('Plan & Billing') }} - myclients</title>
     </teleport>
 
     <div class="page">
@@ -9,15 +9,15 @@
 
             <div class="page-container__content">
                 <div class="your-subscription">
-                    <div class="your-subscription__title">Your Subscription Plan</div>
-                    <div class="your-subscription__plan">Monthly</div>
+                    <div class="your-subscription__title">{{ lang('Your Subscription Plan') }}</div>
+                    <div class="your-subscription__plan">{{ lang('Monthly') }}</div>
                 </div>
 
                  <div class="settings-items">
                     <div class="settings-item">
                         <div class="settings-item__left">
                             <div class="settings-item__title">
-                                Change subscription plan
+                                {{ lang('Change subscription plan') }}
                             </div>
                         </div>
 
@@ -29,7 +29,7 @@
                                         <div class="subscription-plans__amount">15</div>
                                     </div>
 
-                                    <div class="subscription-plans__name">Monthly</div>
+                                    <div class="subscription-plans__name">{{ lang('Monthly') }}</div>
                                 </div>
 
                                 <div class="subscription-plans__plan">
@@ -38,7 +38,7 @@
                                         <div class="subscription-plans__amount">99</div>
                                     </div>
 
-                                    <div class="subscription-plans__name">Yearly</div>
+                                    <div class="subscription-plans__name">{{ lang('Yearly') }}</div>
                                 </div>
 
                                 <div class="subscription-plans__plan">
@@ -47,7 +47,7 @@
                                         <div class="subscription-plans__amount">350</div>
                                     </div>
 
-                                    <div class="subscription-plans__name">Forever</div>
+                                    <div class="subscription-plans__name">{{ lang('Forever') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -59,5 +59,8 @@
 </template>
 
 <script setup>
+    import useLanguage from '../../features/useLanguage.js'
     import NavigationSettings from '../../components/Navigation/Settings.vue'
+
+    const { lang } = useLanguage()
 </script>

@@ -3,39 +3,43 @@ import { useStore } from 'vuex'
 import router from '../routes.js'
 import Auth from '../api/auth.js'
 import useEncryption from './useEncryption.js'
+import useLanguage from '../features/useLanguage.js'
 
 function useAuth()
 {
     const store = useStore()
+    const { lang } = useLanguage()
+
+    const name = ref('')
     const email = ref('')
     const password = ref('')
     const isLoading = ref(false)
     const userExists = ref(false)
-    const name = ref('')
+    const validationErrors = ref([])
     const organizationName = ref('')
     const organizationType = ref('')
-    const selectedOrganizationType = ref('')
     const isResetLinkSent = ref(false)
-    const validationErrors = ref([])
+    const selectedOrganizationType = ref('')
+
     const validationErrorMessages = ref({
         WEAK_PASSWORD: {
-            title: 'Weak password',
-            message: 'Password must contain symbols, numbers and lowercase and uppercase letters.',
+            title: lang('Weak password'),
+            message: lang('Password must contain symbols, numbers and lowercase and uppercase letters.'),
         },
 
         USER_EXISTS: {
-            title: 'User already exists',
-            message: 'This user already exists.',
+            title: lang('User already exists'),
+            message: lang('This user already exists.'),
         },
 
         ORGANIZATION_EXISTS: {
-            title: 'Organization exists',
-            message: 'This organization already exists.',
+            title: lang('Organization exists'),
+            message: lang('This organization already exists.'),
         },
 
         ALL_FIELDS_REQUIRED: {
-            title: 'All fields required',
-            message: 'All fileds are required to be filled.',
+            title: lang('All fields required'),
+            message: lang('All fileds are required to be filled.'),
         },
     })
 
@@ -229,8 +233,8 @@ function useAuth()
             } else {
                 store.dispatch('app/showNotificationMessage', {
                     icon: 'img/warning.png',
-                    title: 'Wrong email or token',
-                    body: 'The email or token is incorrect or expired.',
+                    title: lang('Wrong email or token'),
+                    body: lang('The email or token is incorrect or expired.'),
                     hideDelay: 3,
                 })
             }
@@ -252,8 +256,8 @@ function useAuth()
         if (response.status_code == 401) {
             store.dispatch('app/showNotificationMessage', {
                 icon: 'img/warning.png',
-                title: 'Wrong username or password',
-                body: 'The username or password you entered is not correct.',
+                title: lang('Wrong username or password'),
+                body: lang('The username or password you entered is not correct.'),
                 hideDelay: 3,
             })
         }

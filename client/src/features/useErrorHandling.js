@@ -1,4 +1,7 @@
 import store from '../store/index.js'
+import useLanguage from '../features/useLanguage.js'
+
+const { lang } = useLanguage()
 
 function useErrorHandling()
 {
@@ -13,8 +16,8 @@ function useErrorHandling()
         {
             store.dispatch('app/showNotificationMessage', {
                 icon: 'img/warning.png',
-                title: 'Incorrect data',
-                body: 'The data you provided was incorrect. Please try again!',
+                title: lang('Incorrect data'),
+                body: lang('The data you provided was incorrect. Please try again!'),
                 hideDelay: 5,
             })
 
@@ -24,8 +27,8 @@ function useErrorHandling()
         if (response.message == 'IP address banned. Too many login attempts.') {
             store.dispatch('app/showNotificationMessage', {
                 icon: 'img/warning.png',
-                title: 'IP address banned',
-                body: 'Your IP address has been banned. Too many failed login attempts.',
+                title: lang('IP address banned'),
+                body: lang('Your IP address has been banned. Too many failed login attempts.'),
                 hideDelay: 5,
             })
 
@@ -42,8 +45,8 @@ function useErrorHandling()
     {
         store.dispatch('app/showNotificationMessage', {
             icon: 'img/warning.png',
-            title: 'Error occured',
-            body: 'An error has occured, please try again later!',
+            title: lang('Error occured'),
+            body: lang('An error has occured, please try again later!'),
             hideDelay: 5,
         })
     }

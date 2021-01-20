@@ -18,15 +18,15 @@
                 </div>
 
                 <div class="notification-popup__description">
-                    <b>Status code</b>: {{ serverError.statusCode }}
+                    <b>{{ lang('Status code') }}</b>: {{ serverError.statusCode }}
                 </div>
                 
                 <div class="notification-popup__description">
-                    <b>Client API</b>: {{ serverError.clientAPI }}
+                    <b>{{ lang('Client API') }}</b>: {{ serverError.clientAPI }}
                 </div>
 
                 <div class="notification-popup__description">
-                    <b>Url</b>: {{ serverError.url }}
+                    <b>{{ lang('URL') }}</b>: {{ serverError.url }}
                 </div>
 
                 <div
@@ -46,9 +46,12 @@
     import { computed } from 'vue'
     import { useStore } from 'vuex'
     import useEnv from '../../features/useEnv.js'
+    import useLanguage from '../../features/useLanguage.js'
 
     const { env } = useEnv()
     const store = useStore()
+    const { lang } = useLanguage()
+
     const serverError = computed(() => store.state.app.serverError)
     const appEnv = env('VITE_APP_ENV')
 

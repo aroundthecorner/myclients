@@ -8,7 +8,7 @@
         />
 
         <button-app class="button--primary">
-            New user
+            {{ lang('New user') }}
         </button-app>
     </div>
 
@@ -74,10 +74,10 @@
 
                 <!-- Headings -->
                 <tr class="datatable__header" :class="{ sticky: stickyHeader }">
-                    <td class="datatable__cell w-25p" @click="sortBy('')">name</td>
-                    <td class="datatable__cell" @click="sortBy('')">role</td>
-                    <td class="datatable__cell" @click="sortBy('')">email</td>
-                    <td class="datatable__cell" @click="sortBy('')">user since</td>
+                    <td class="datatable__cell w-25p" @click="sortBy('')">{{ lang('Name') }}</td>
+                    <td class="datatable__cell" @click="sortBy('')">{{ lang('Role') }}</td>
+                    <td class="datatable__cell" @click="sortBy('')">{{ lang('Email') }}</td>
+                    <td class="datatable__cell" @click="sortBy('')">{{ lang('User since') }}</td>
                     <td class="datatable__cell w-10p" @click="sortBy('')"></td>
                 </tr>
             </thead>
@@ -103,12 +103,12 @@
 
                                 <div class="datatable__user-text">
                                     <div class="datatable__user-title">Mārtiņš Zeltiņš</div>
-                                    <div class="datatable__user-subtitle">root</div>
+                                    <div class="datatable__user-subtitle">{{ lang('root') }}</div>
                                 </div>
                             </div>
                         </td>
 
-                        <td class="datatable__cell">root</td>
+                        <td class="datatable__cell">{{ lang('root') }}</td>
                         <td class="datatable__cell">admin@myclients.org</td>
                         <td class="datatable__cell">25.11.2020</td>
 
@@ -189,9 +189,12 @@
     import ButtonApp from '../../Button.vue'
     import useEnv from '../../../features/useEnv.js'
     import LoadingLinear from '../../Loading/Linear.vue'
+    import useLanguage from '../../../features/useLanguage.js'
 
     const { env } = useEnv()
     const store = useStore()
+    const { lang } = useLanguage()
+
     const isLoading = ref(false)
     const showFooter = ref(false)
     const showFilters = ref(false)

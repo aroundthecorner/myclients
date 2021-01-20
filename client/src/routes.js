@@ -70,9 +70,9 @@ const routes = [
             },
 
             {
-                path: '/admin-panel/message',
-                name: 'adminPanelMessage',
-                component: () => import('./views/admin-panel/message.vue'),
+                path: '/admin-panel/send-message',
+                name: 'adminPanelSendMessage',
+                component: () => import('./views/admin-panel/send-message.vue'),
             },
         ],
 
