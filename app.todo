@@ -7,7 +7,6 @@
 05. REMINDER: Clear (redis) cache on model events.
 06. TEST: Write tests
 07. REFACTOR: Move chat from page to its own component (components/chat.vue..)
-08. FIX:  Sidebar is not fixed (can be seen on Calendar page)
 08. FEAT: (!) Cut off client if invoice not paid
           - how do we want to do this?
           - show a red message at the top - unpaid invoice
