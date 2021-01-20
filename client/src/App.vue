@@ -42,15 +42,4 @@
      * Restore the user session
      */
     restoreSession()
-
-    const host = window.location.hostname
-    const ws = new WebSocket(`ws://${host}:46295`)
-
-    ws.addEventListener('message', event => {
-        console.log('message received', event.data)
-    })
-
-    setTimeout(() => {
-        ws.send('Test data over ws!')
-    }, 2000)
 </script>
