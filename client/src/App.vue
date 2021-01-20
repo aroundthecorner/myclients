@@ -21,7 +21,7 @@
     const { restoreSession } = useAuth()
     const progressBar = inject('progressBar')
     const { sendUserOnlinePing } = useOnline()
-    const { connect: connectWebsocket, data: WebsocketData, send: sendWebsocket } = useWebsocket()
+    const { connect: connectWebsocket } = useWebsocket()
 
     /*
      * Start the progress bar on page navigation

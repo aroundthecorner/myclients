@@ -5,7 +5,7 @@ function useWebsocket()
 {
     let ws
     const host = window.location.hostname
-    const data = computed(() => store.state.app.WebsocketData)
+    const data = computed(() => store.state.app.websocketData)
 
     /**
      * Establish a websocket connection

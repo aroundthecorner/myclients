@@ -7,9 +7,9 @@ export default {
     {
         return {
             theme: 'aconite',
-            app_name: 'myclients',
+            appName: 'myclients',
             language: 'en',
-            WebsocketData: '',
+            websocketData: '',
             lastClick: '',
             
             serverError: {
@@ -144,7 +144,7 @@ export default {
 
         setWebsocketData(state, data)
         {
-            state.WebsocketData = data
+            state.websocketData = data
         },
     },
 }
