@@ -12,6 +12,7 @@
     import { useStore } from 'vuex'
     import router from './routes.js'
     import useAuth from './features/useAuth.js'
+    import useOnline from './features/useOnline.js'
     import useWebsocket from './features/useWebsocket.js'
     import NotificationError from './components/Notification/Error.vue'
     import NotificationMessage from './components/Notification/Message.vue'
@@ -19,6 +20,7 @@
     const store = useStore()
     const { restoreSession } = useAuth()
     const progressBar = inject('progressBar')
+    const { sendUserOnlinePing } = useOnline()
     const { connect: connectWebsocket, data: WebsocketData, send: sendWebsocket } = useWebsocket()
 
     /*
@@ -49,4 +51,9 @@
      * Establish a websocket connection
      */
     connectWebsocket()
+
+    /*
+     * Send user online ping
+     */
+    sendUserOnlinePing()
 </script>

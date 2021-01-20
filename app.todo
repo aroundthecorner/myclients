@@ -30,6 +30,12 @@
           - not one root user but multiple to be able to see access logs for each
 16. FEAT: See who is online and who is active. Online WS ping, active on click last
           activity
+18. FIX: (!) IMPORTANT - create websocket server production, save to server and ...
+19. FIX: If you are no longer online, go to login (maybe expired)
+19. FIX: Don't send online ping if not authenticated
+20. FIX: SyntaxError: Unexpected end of JSON input
+            at Function.ping (user_online.js:38)
+                return await response.json()
 
 
 

@@ -10,6 +10,7 @@ export default {
             app_name: 'myclients',
             language: 'en',
             WebsocketData: '',
+            lastClick: '',
             
             serverError: {
                 show: false,
