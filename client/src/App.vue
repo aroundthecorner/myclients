@@ -23,6 +23,8 @@
     const { sendUserOnlinePing } = useOnline()
     const { connect: connectWebsocket } = useWebsocket()
 
+    const app = computed(() => store.state.app)
+
     /*
      * Start the progress bar on page navigation
      */
@@ -39,8 +41,6 @@
      * Load the languages
      */
     store.dispatch('app/fetchLanguages')
-
-    const app = computed(() => store.state.app)
 
     /*
      * Restore the user session
