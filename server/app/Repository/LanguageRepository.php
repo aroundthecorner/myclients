@@ -90,6 +90,7 @@ class LanguageRepository
             'Revenue',
             'Upcoming appointments',
             'Approved',
+            'Bookings',
         ];
 
         $languages = [
@@ -185,6 +186,7 @@ class LanguageRepository
                     'Revenue',
                     'Upcoming appointments',
                     'Approved',
+                    'Bookings',
                 ]
             ],
 
@@ -280,6 +282,7 @@ class LanguageRepository
                     'Peļņa',
                     'Tuvākie pieraksti',
                     'Apstiprināts',
+                    'Pieraksti',
                 ]
             ],
         ];
