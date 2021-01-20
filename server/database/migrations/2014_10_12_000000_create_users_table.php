@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('profile_picture')->nullable();
             $table->enum('language', ['en', 'lv'])->default('en');
             $table->integer('organization_id');
+            $table->dateTime('last_click', $precision = 0)->nullable();
+            $table->dateTime('last_ping', $precision = 0)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
