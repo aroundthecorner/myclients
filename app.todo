@@ -7,29 +7,28 @@
 05. REMINDER: Clear (redis) cache on model events.
 06. TEST: Write tests
 07. REFACTOR: Move chat from page to its own component (components/chat.vue..)
+
 08. FEAT: (!) Cut off client if invoice not paid
           - how do we want to do this?
           - show a red message at the top - unpaid invoice
           - disable features of calendar only, when making a backend call, then
             show that your invoice is not paid.
           - still allow to browser most pages.
-09. FEAT: (!) Languages
-          - check if switching a langauge works in real time
-10. FEAT: Responsive layout
+09. FEAT: Responsive layout
           - calendar view - notification messages
-11. FEAT: Themes update
-12. FEAT: Login button and logged in username link on website
-13. FEAT: Make technical documentation of how everything works.
-14. FEAT: Templates for (same client always 1 service, same time, price etc.)
-15. FEAT: Send email using SMTP server (Gmail / Mail.ru or whatever...)
-16. FEAT: Admin panel
+10. FEAT: Themes update
+11. FEAT: Login button and logged in username link on website
+12. FEAT: Make technical documentation of how everything works.
+13. FEAT: Templates for (same client always 1 service, same time, price etc.)
+14. FEAT: Send email using SMTP server (Gmail / Mail.ru or whatever...)
+15. FEAT: Admin panel
           - see and manage all clients, their users, invoices, contacts etc.
           - be able to send messages and chat with clients (websockets)
           - be able to see what a client is doing (transfer screenshots somehow?)
           - password re-prompts & 2FA
           - See screen with html2canvas (screenshot via websockets)
           - not one root user but multiple to be able to see access logs for each
-17. FEAT: See who is online and who is active. Online WS ping, active on click last
+16. FEAT: See who is online and who is active. Online WS ping, active on click last
           activity
 
 
