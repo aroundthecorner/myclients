@@ -33,6 +33,13 @@
 17. FIX: If you are no longer online, go to login (maybe expired)
 18. FIX: Cloudflare TLS websocket connection - check if it works
 19. FIX: Laravel job worker with supervisor
+         - QUEUE_CONNECTION=database
+         - php artisan queue:table
+         - php artisan migrate
+         - install supervisor
+         - supervisor configuration
+         - php artisan queue:work
+20. FIX: Update production .env (added queue)
 
 
 
