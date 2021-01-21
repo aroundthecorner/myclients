@@ -39,6 +39,7 @@
          - install supervisor
          - supervisor configuration
          - php artisan queue:work
+         - start supervisor workers
 20. FIX: Update production .env (added queue)
 
 
