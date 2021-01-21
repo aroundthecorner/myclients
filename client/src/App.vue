@@ -61,8 +61,4 @@
      * Register user active listener
      */
     registerUserActiveListener()
-
-    setInterval(() => {
-        send('ping')
-    }, 10000)
 </script>

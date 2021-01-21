@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import useEnv from './useEnv.js'
 import store from '../store/index.js'
 
 function useWebsocket()
@@ -14,11 +15,28 @@ function useWebsocket()
     {
         ws = null
         let protocol = (window.location.protocol == 'http:') ? 'ws' : 'wss'
-        ws = new WebSocket(`${protocol}://${host}/ws/`)
-        // ws = new WebSocket(`${protocol}://${host}:46295`)
 
+        const appEnv = env('VITE_APP_ENV')
+
+        if (appEnv == 'dev') {
+            ws = new WebSocket(`${protocol}://${host}:46295`)
+        } else {
+            ws = new WebSocket(`${protocol}://${host}/ws/`)
+        }
+
+        /* 
+         * Keep the connection open as Cloudflare and others close it after
+         * 60 - 100 seconds of inactivity.
+         */
+        setInterval(() => {
+            ws.send('ping')
+        }, 30000)
+
+        /* 
+         * Reconnect when lost connection
+         */
         ws.onclose = () => {
-            console.error('ws connection lost. reconnecting...')
+            console.log('Reconnecting websocket...')
 
             setTimeout(() => {
                 connect()
