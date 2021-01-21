@@ -1,0 +1,17 @@
+FROM node:14
+
+WORKDIR /var/www
+
+COPY ./websocket/package*.json ./
+COPY ./websocket .
+
+RUN npm install pm2@4.5.1 -g
+
+RUN npm install
+
+RUN chmod -R 777 /var/www
+
+# When the container is fully built and run (and only then) this command will run
+# Run in foreground with pm2-runtime, otherwise container with exit as there is
+# nothing more to do.
+CMD ["pm2-runtime", "app.js"]
