@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     graphviz \
-    curl
+    curl \
+    supervisor
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -41,4 +42,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 
-CMD bash -c "composer install && chmod -R 777 /var/www && php artisan storage:link && php artisan migrate --seed && php-fpm"
+CMD bash -c "composer install && chmod -R 777 /var/www && php artisan storage:link && php artisan migrate --seed && service supervisor start && supervisorctl reread && supervisorctl update && supervisorctl start laravel-queue-worker:* && php-fpm"

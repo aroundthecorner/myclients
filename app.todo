@@ -41,6 +41,8 @@
          - php artisan queue:work
          - start supervisor workers
 20. FIX: Update production .env (added queue)
+21. FIX: Update also prod php server Dockerfile
+21. FIX: Update also prod docker compose
 
 
 

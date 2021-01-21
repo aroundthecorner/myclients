@@ -89,6 +89,7 @@ services:
     volumes:
       - ./server:/var/www
       - ./docker/php-server/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./docker/php-server/laravel-worker.conf:/etc/supervisor/conf.d/laravel-worker.conf
       - /var/www/vendor       # We need this volume so that it won't be overwritten by our bind mount. Since vendor on the host is empty, the bind will map an empty directory to the container, overriding the new vendor directory and preventing our application from starting. The named vendor volume solves this problem by persisting the contents of the vendor directory and mounting it to the container, hiding the bind.
     networks:
       - app-network
