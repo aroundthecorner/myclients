@@ -30,6 +30,9 @@
           - not one root user but multiple to be able to see access logs for each
 
 16. FIX: Create websocket server production, save to server and ...
+20. FIX: Update production .env (added queue)
+21. FIX: Update also prod php server Dockerfile
+
 17. FIX: If you are no longer online, go to login (maybe expired)
 18. FIX: Cloudflare TLS websocket connection - check if it works
 19. FIX: Laravel job worker with supervisor
@@ -40,8 +43,6 @@
          - supervisor configuration
          - php artisan queue:work
          - start supervisor workers
-20. FIX: Update production .env (added queue)
-21. FIX: Update also prod php server Dockerfile
 21. FIX: Update also prod docker compose
 
 
