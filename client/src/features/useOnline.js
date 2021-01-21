@@ -15,7 +15,7 @@ function useOnline()
      */
     function sendUserOnlinePing()
     {
-        if (isLoggedIn.vaue) {
+        if (isLoggedIn.value) {
             UserOnline.ping()
         }
 
@@ -29,7 +29,7 @@ function useOnline()
      */
     function sendUserActive()
     {
-        if (isLoggedIn.vaue) {
+        if (isLoggedIn.value) {
             UserOnline.isActive()
         }
     }
