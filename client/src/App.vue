@@ -62,7 +62,7 @@
      */
     registerUserActiveListener()
 
-    setTimeout(() => {
-        send('hey there!')
-    }, 5000)
+    setInterval(() => {
+        send('ping')
+    }, 10000)
 </script>
