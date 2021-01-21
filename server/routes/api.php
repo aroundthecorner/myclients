@@ -49,7 +49,5 @@ Route::get('project-age.svg',               [ProjectAgeController::class, 'index
  * Area 51
  */
 Route::get('area51', function() {
-    \App\Jobs\TestJob::dispatch();
-    
-    return 'TestJob dispatched.!!';
+    //
 });

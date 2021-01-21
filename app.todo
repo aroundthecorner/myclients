@@ -29,21 +29,13 @@
           - See screen with html2canvas (screenshot via websockets)
           - not one root user but multiple to be able to see access logs for each
 
-16. FIX: Create websocket server production, save to server and ...
-20. FIX: Update production .env (added queue)
-21. FIX: Update also prod php server Dockerfile
+16. FIX: Create websocket & supervisor server production, save to server and ...
+17. FIX: Update production .env (added queue)
+18. FIX: Update also prod php server Dockerfile
+19. FIX: Update also prod docker compose
 
-17. FIX: If you are no longer online, go to login (maybe expired)
-18. FIX: Cloudflare TLS websocket connection - check if it works
-19. FIX: Laravel job worker with supervisor
-         - QUEUE_CONNECTION=database
-         - php artisan queue:table
-         - php artisan migrate
-         - install supervisor
-         - supervisor configuration
-         - php artisan queue:work
-         - start supervisor workers
-21. FIX: Update also prod docker compose
+20. FIX: Cloudflare TLS websocket connection - check if it works
+21. FIX: If you are no longer online, go to login (maybe expired)
 
 
 
