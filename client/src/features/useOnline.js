@@ -1,9 +1,12 @@
 import { computed } from 'vue'
 import store from '../store/index.js'
+import useAuth from '../features/useAuth.js'
 import UserOnline from '../api/user_online.js'
 
 function useOnline()
 {
+    const { isLoggedIn } = useAuth()
+
     const lastClick = computed(() => store.state.app.lastClick)
 
     /**
@@ -12,7 +15,9 @@ function useOnline()
      */
     function sendUserOnlinePing()
     {
-        UserOnline.ping()
+        if (isLoggedIn.vaue) {
+            UserOnline.ping()
+        }
 
         setTimeout(() => {
             sendUserOnlinePing()
@@ -24,7 +29,9 @@ function useOnline()
      */
     function sendUserActive()
     {
-        UserOnline.isActive()
+        if (isLoggedIn.vaue) {
+            UserOnline.isActive()
+        }
     }
 
     /**

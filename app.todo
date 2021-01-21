@@ -31,9 +31,8 @@
 
 16. FIX: Create websocket server production, save to server and ...
 17. FIX: If you are no longer online, go to login (maybe expired)
-18. FIX: Don't send online ping if not authenticated
-19. FIX: Cloudflare TLS websocket connection - check if it works
-20. FIX: Laravel job worker with supervisor
+18. FIX: Cloudflare TLS websocket connection - check if it works
+19. FIX: Laravel job worker with supervisor
 
 
 

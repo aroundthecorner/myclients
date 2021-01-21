@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import router from '../routes.js'
 import Auth from '../api/auth.js'
@@ -42,6 +42,11 @@ function useAuth()
             message: lang('All fileds are required to be filled.'),
         },
     })
+
+    /**
+     * Is user logged in
+     */
+    const isLoggedIn = computed(() => localStorage.getItem('myclients_user') !== null)
 
     /**
      * Perform user login
@@ -313,7 +318,7 @@ function useAuth()
         login, email, name, password, isLoading, userLoggedIn, restoreSession,
         checkUserExists, userExists, logout, register, organizationType,
         selectedOrganizationType, organizationName, sendResetPasswordLink,
-        resetPassword, isResetLinkSent
+        resetPassword, isResetLinkSent, isLoggedIn
     }
 }
 
