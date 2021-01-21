@@ -5,6 +5,7 @@ import store from '../store/index.js'
 function useWebsocket()
 {
     let ws
+    const { env } = useEnv()
     const host = window.location.hostname
     const data = computed(() => store.state.app.websocketData)
 
@@ -37,10 +38,7 @@ function useWebsocket()
          */
         ws.onclose = () => {
             console.log('Reconnecting websocket...')
-
-            setTimeout(() => {
-                connect()
-            }, 5000)
+            connect()
         }
 
         listen()
