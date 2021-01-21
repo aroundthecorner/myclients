@@ -86,6 +86,11 @@ export default {
         {
             commit('setWebsocketData', data)
         },
+
+        updateLastClick({ commit })
+        {
+            commit('setLastClick')
+        },
     },
 
     mutations:
@@ -145,6 +150,11 @@ export default {
         setWebsocketData(state, data)
         {
             state.websocketData = data
+        },
+
+        setLastClick(state)
+        {
+            state.lastClick = Date.now()
         },
     },
 }

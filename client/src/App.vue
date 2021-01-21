@@ -20,8 +20,8 @@
     const store = useStore()
     const { restoreSession } = useAuth()
     const progressBar = inject('progressBar')
-    const { sendUserOnlinePing } = useOnline()
     const { connect: connectWebsocket } = useWebsocket()
+    const { sendUserOnlinePing, registerUserActiveListener } = useOnline()
 
     const app = computed(() => store.state.app)
 
@@ -56,4 +56,9 @@
      * Send user online ping
      */
     sendUserOnlinePing()
+
+    /*
+     * Register user active listener
+     */
+    registerUserActiveListener()
 </script>

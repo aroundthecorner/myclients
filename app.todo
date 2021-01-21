@@ -36,6 +36,9 @@
 20. FIX: SyntaxError: Unexpected end of JSON input
             at Function.ping (user_online.js:38)
                 return await response.json()
+21. FIX: Cloudflare TLS websocket connection - check if it works
+22. FIX: Laravel job worker with supervisor
+
 
 
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LanguagesController;
 use App\Http\Controllers\ProjectAgeController;
 use App\Http\Controllers\UserOnlineController;
+use App\Http\Controllers\UserActiveController;
 use App\Http\Controllers\OrganizationTypesController;
 
 /**
@@ -30,6 +31,12 @@ Route::get('languages',                     [LanguagesController::class, 'index'
  * User online
  */
 Route::post('user-online',                   [UserOnlineController::class, 'store']);
+
+
+/**
+ * Use active
+ */
+Route::post('user-is-active',                [UserActiveController::class, 'store']);
 
 
 /**
