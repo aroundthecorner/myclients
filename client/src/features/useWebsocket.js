@@ -13,7 +13,8 @@ function useWebsocket()
     function connect()
     {
         ws = null
-        ws = new WebSocket(`ws://${host}:46295`)
+        let protocol = (window.location.protocol == 'http:') ? 'ws' : 'wss'
+        ws = new WebSocket(`${protocol}://${host}:46295`)
 
         ws.onclose = () => {
             console.error('ws connection lost. reconnecting...')
