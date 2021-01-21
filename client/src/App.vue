@@ -62,5 +62,7 @@
      */
     registerUserActiveListener()
 
-    send('hey there!')
+    setTimeout(() => {
+        send('hey there!')
+    }, 5000)
 </script>
