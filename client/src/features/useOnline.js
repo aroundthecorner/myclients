@@ -15,8 +15,6 @@ function useOnline()
      */
     function sendUserOnlinePing()
     {
-        console.log('sendUserOnlinePing()')
-        console.log(`isLoggedIn.value: ${isLoggedIn.value}`)
         if (isLoggedIn.value) {
             UserOnline.ping()
         }
@@ -56,9 +54,12 @@ function useOnline()
      */
     function registerUserActiveListener()
     {
-        console.log('registerUserActiveListener()')
         document.addEventListener('click', event => {
-            console.log('click()')
+
+            console.log(localStorage.getItem('myclients_user') !== null)
+            console.log(localStorage.getItem('myclients_user'))
+            console.log(typeof localStorage.getItem('myclients_user'))
+
             if (isOneMinuteAgo(lastClick)) {
                 sendUserActive()
                 store.dispatch('app/updateLastClick')
