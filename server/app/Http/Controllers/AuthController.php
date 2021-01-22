@@ -23,6 +23,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('sanitize')->only(['register']);
+        $this->middleware('auth:sanctum')->only(['logout']);
     }
 
     /**
@@ -71,6 +72,14 @@ class AuthController extends Controller
                 'error' => $error,
             ]);
         }
+    }
+
+    /**
+     * Logout a user
+     */
+    public function logout(Request $request)
+    {
+        auth()->user()->currentAccessToken()->delete();
     }
 
     /**

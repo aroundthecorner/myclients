@@ -12,6 +12,7 @@ use App\Http\Controllers\OrganizationTypesController;
  * Authentication
  */
 Route::post('login',                        [AuthController::class, 'login']);
+Route::post('logout',                       [AuthController::class, 'logout']);
 Route::post('register',                     [AuthController::class, 'register']);
 Route::post('check-user-exists',            [AuthController::class, 'checkUserExists']);
 Route::post('check-organization-exists',    [AuthController::class, 'checkOrganizationExists']);
@@ -49,5 +50,7 @@ Route::get('project-age.svg',               [ProjectAgeController::class, 'index
  * Area 51
  */
 Route::get('area51', function() {
-    //
+    // return request()->user();
+    // return request()->user()->currentAccessToken();
+    // return request()->user()->currentAccessToken()->delete();
 });

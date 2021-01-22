@@ -74,6 +74,7 @@ function useAuth()
      */
     async function logout()
     {
+        await Auth.logout()
         localStorage.removeItem('myclients_user')
         window.location = '/login'
     }
