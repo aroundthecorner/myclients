@@ -16,12 +16,20 @@ function useOnline()
     function sendUserOnlinePing()
     {
         if (isLoggedIn()) {
-            UserOnline.ping()
+            pingOnline()
         }
 
         setTimeout(() => {
             sendUserOnlinePing()
         }, 60000)
+    }
+
+    /**
+     * Online ping
+     */
+    function pingOnline()
+    {
+        UserOnline.ping()
     }
 
     /**
@@ -63,7 +71,8 @@ function useOnline()
     }
 
     return {
-        sendUserOnlinePing, registerUserActiveListener
+        sendUserOnlinePing, registerUserActiveListener, sendUserActive,
+        pingOnline,
     }
 }
 

@@ -1,13 +1,13 @@
 import { ref, computed } from 'vue'
-import { useStore } from 'vuex'
 import router from '../routes.js'
 import Auth from '../api/auth.js'
+import store from '../store/index.js'
 import useEncryption from './useEncryption.js'
+import useOnline from '../features/useOnline.js'
 import useLanguage from '../features/useLanguage.js'
 
 function useAuth()
 {
-    const store = useStore()
     const { lang } = useLanguage()
 
     const name = ref('')
@@ -48,6 +48,8 @@ function useAuth()
      */
     async function login()
     {
+        const { sendUserActive, pingOnline } = useOnline()
+
         isLoading.value = true
 
         const result = await Auth.login({
@@ -59,6 +61,8 @@ function useAuth()
 
         if (loginSuccessful(result)) {
             setUserInStore(result.user, result.access_token)
+            pingOnline()
+            sendUserActive()
             goToRouteBeforeLogin()
         } else {
             showUnsuccessfulLoginMessage(result)
