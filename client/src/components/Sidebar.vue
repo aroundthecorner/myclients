@@ -130,19 +130,22 @@
     import useEnv from '../features/useEnv.js'
     import useAuth from '../features/useAuth.js'
     import DropdownMenu from './DropdownMenu.vue'
+    import useHelpers from '../features/useHelpers.js'
     import useLanguage from '../features/useLanguage.js'
 
     const { env } = useEnv()
     const store = useStore()
     const { logout } = useAuth()
     const { lang } = useLanguage()
+    const { fadeOut } = useHelpers()
 
     const showProfileMenu = ref(false)
     const showLogoutSubmenu = ref(false)
     const user = computed(() => store.state.user)
 
     function onLogoutClick(logoutType) {
-        showProfileMenu = false
+        showProfileMenu.value = false
+        fadeOut('body')
         logout(logoutType)
     }
 
