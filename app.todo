@@ -30,6 +30,7 @@
           - not one root user but multiple to be able to see access logs for each
 
 16. FIX: If you are no longer online, go to login (maybe expired)
+17. FIX: Logout doesn't log out from backend (clear all user's tokens)
 
 
 
