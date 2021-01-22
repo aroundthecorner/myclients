@@ -28,9 +28,9 @@
           - password re-prompts & 2FA
           - See screen with html2canvas (screenshot via websockets)
           - not one root user but multiple to be able to see access logs for each
+16. FEAT: Maybe add option for user to logout from all devices?
 
-16. FIX: If you are no longer online, go to login (maybe expired)
-17. FIX: Logout doesn't log out from backend (clear all user's tokens)
+17. FIX: If you are no longer logged in / expired, go to login (maybe expired)
 
 
 
