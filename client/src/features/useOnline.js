@@ -15,6 +15,8 @@ function useOnline()
      */
     function sendUserOnlinePing()
     {
+        console.log('sendUserOnlinePing()')
+        console.log(`isLoggedIn.value: ${isLoggedIn.value}`)
         if (isLoggedIn.value) {
             UserOnline.ping()
         }
@@ -54,7 +56,9 @@ function useOnline()
      */
     function registerUserActiveListener()
     {
+        console.log('registerUserActiveListener()')
         document.addEventListener('click', event => {
+            console.log('click()')
             if (isOneMinuteAgo(lastClick)) {
                 sendUserActive()
                 store.dispatch('app/updateLastClick')

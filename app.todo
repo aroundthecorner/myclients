@@ -29,8 +29,7 @@
           - See screen with html2canvas (screenshot via websockets)
           - not one root user but multiple to be able to see access logs for each
 
-16. FIX: Websocket connection timed out
-17. FIX: Doesn't register click for active user
+17. FIX: (!) Doesn't register click for active user / or send online ping
 18. FIX: If you are no longer online, go to login (maybe expired)
 
 
