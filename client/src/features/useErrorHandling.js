@@ -12,6 +12,12 @@ function useErrorHandling()
     {
         const response = JSON.parse(errorMessage.body)
 
+        if (errorMessage.statusCode == 401 && response.message == 'Unauthenticated.') {
+            localStorage.removeItem('myclients_user')
+            window.location = '/login'
+            return
+        }
+
         if (errorMessage.statusCode == 422)
         {
             store.dispatch('app/showNotificationMessage', {
