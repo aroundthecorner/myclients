@@ -44,11 +44,6 @@ function useAuth()
     })
 
     /**
-     * Is user logged in
-     */
-    const isLoggedIn = computed(() => localStorage.getItem('myclients_user') !== null)
-
-    /**
      * Perform user login
      */
     async function login()
@@ -312,6 +307,14 @@ function useAuth()
             !organizationName.value) {
             validationErrors.value.push('ALL_FIELDS_REQUIRED')
         }
+    }
+
+    /**
+     * Is user logged in
+     */
+    function isLoggedIn()
+    {
+        return localStorage.getItem('myclients_user') !== null
     }
 
     return {
