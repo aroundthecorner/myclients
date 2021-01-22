@@ -59,6 +59,9 @@ function useOnline()
             console.log(localStorage.getItem('myclients_user') !== null)
             console.log(localStorage.getItem('myclients_user'))
             console.log(typeof localStorage.getItem('myclients_user'))
+            console.log('----------------')
+            console.log(`isLoggedIn`, isLoggedIn)
+            console.log(`isLoggedIn.value`, isLoggedIn.value)
 
             if (isOneMinuteAgo(lastClick)) {
                 sendUserActive()
