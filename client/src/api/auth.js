@@ -46,14 +46,14 @@ class Auth
     /**
      * Logout a user
      */
-    static async logout()
+    static async logout(logoutType)
     {
         const { env } = useEnv()
         const { jsonHeaders, authHeaders } = useHTTP()
         const { showError, showErrorOccured } = useErrorHandling()
 
         try {
-            const response = await fetch(`${env('VITE_SERVER_URL')}/logout`, {
+            const response = await fetch(`${env('VITE_SERVER_URL')}/logout/${logoutType}`, {
                 method: 'POST',
                 headers: { ...jsonHeaders, ...authHeaders },
             })

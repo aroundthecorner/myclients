@@ -843,7 +843,7 @@ h1, h2, h3, h4 {
 }
 
 .dropdown-menu__item:hover {
-    background: #eaeaea;
+    background-color: #eaeaea;
     color: #353535;
 }
 
@@ -924,6 +924,16 @@ h1, h2, h3, h4 {
     100% {
         transform: translateX(-50%) scale(1) ;
     }
+}
+
+.dropdown-menu__sub-items {
+    overflow: hidden;
+    max-height: 0;
+    transition: .4s;
+}
+
+.dropdown-menu__sub-items--visible {
+    max-height: 150px;
 }
 
 .calendar-toolbar__add-appointment-small {
@@ -1957,6 +1967,10 @@ tr.datatable__row:last-child {
 
 .overflow-hidden {
     overflow: hidden;
+}
+
+.pl-12 {
+    padding-left: 12px;
 }
 
 .p-0 {

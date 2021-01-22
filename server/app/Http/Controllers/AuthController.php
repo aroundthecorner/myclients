@@ -77,9 +77,13 @@ class AuthController extends Controller
     /**
      * Logout a user
      */
-    public function logout(Request $request)
+    public function logout($type)
     {
-        auth()->user()->currentAccessToken()->delete();
+        if ($type == 'logout') {
+            auth()->user()->currentAccessToken()->delete();
+        } else {
+            auth()->user()->tokens()->delete();
+        }
     }
 
     /**

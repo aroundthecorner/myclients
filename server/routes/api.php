@@ -12,7 +12,7 @@ use App\Http\Controllers\OrganizationTypesController;
  * Authentication
  */
 Route::post('login',                        [AuthController::class, 'login']);
-Route::post('logout',                       [AuthController::class, 'logout']);
+Route::post('logout/{type}',                [AuthController::class, 'logout']);
 Route::post('register',                     [AuthController::class, 'register']);
 Route::post('check-user-exists',            [AuthController::class, 'checkUserExists']);
 Route::post('check-organization-exists',    [AuthController::class, 'checkOrganizationExists']);

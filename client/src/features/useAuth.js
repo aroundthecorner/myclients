@@ -72,9 +72,9 @@ function useAuth()
     /**
      * Log out a user
      */
-    async function logout()
+    async function logout(logoutType)
     {
-        await Auth.logout()
+        await Auth.logout(logoutType)
         localStorage.removeItem('myclients_user')
         window.location = '/login'
     }

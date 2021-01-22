@@ -50,9 +50,26 @@
                         </router-link>
 
                         <div
-                            @click="showProfileMenu = false; logout()"
-                            class="dropdown-menu__item">
-                            {{ lang('Logout') }}
+                            @click="showLogoutSubmenu = !showLogoutSubmenu"
+                            class="dropdown-menu__item dropdown-arrows">
+                            {{ lang('Log out') }}
+                        </div>
+
+                        <div
+                            class="dropdown-menu__sub-items"
+                            :class="{ 'dropdown-menu__sub-items--visible': showLogoutSubmenu }">
+
+                            <div class="dropdown-menu__item" @click="onLogoutClick('logout')">
+                                <div>
+                                    <div class="pl-12">{{ lang('Log out') }}</div>
+                                </div>
+                            </div>
+    
+                            <div class="dropdown-menu__item" @click="onLogoutClick('logout_all')">
+                                <div>
+                                    <div class="pl-12">{{ lang('Log out from all') }}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </template>
@@ -121,7 +138,13 @@
     const { lang } = useLanguage()
 
     const showProfileMenu = ref(false)
+    const showLogoutSubmenu = ref(false)
     const user = computed(() => store.state.user)
+
+    function onLogoutClick(logoutType) {
+        showProfileMenu = false
+        logout(logoutType)
+    }
 
     const isActiveSettings = computed(() => {
         return router.currentRoute.value.path.startsWith('/settings')

@@ -46,7 +46,7 @@ class LanguageRepository
             'URL',
             'My profile',
             'Settings',
-            'Logout',
+            'Log out',
             'Calendar',
             'Locations',
             'Service providers',
@@ -91,6 +91,7 @@ class LanguageRepository
             'Upcoming appointments',
             'Approved',
             'Bookings',
+            'Log out from all',
         ];
 
         $languages = [
@@ -142,7 +143,7 @@ class LanguageRepository
                     'URL',
                     'My profile',
                     'Settings',
-                    'Logout',
+                    'Log out',
                     'Calendar',
                     'Locations',
                     'Service providers',
@@ -187,6 +188,7 @@ class LanguageRepository
                     'Upcoming appointments',
                     'Approved',
                     'Bookings',
+                    'Log out from all',
                 ]
             ],
 
@@ -238,7 +240,7 @@ class LanguageRepository
                     'URL',
                     'Mans profils',
                     'Iestatījumi',
-                    'Logout',
+                    'Iziet',
                     'Kalendārs',
                     'Filiāles',
                     'Pakalpojuma sniedzēji',
@@ -283,6 +285,7 @@ class LanguageRepository
                     'Tuvākie pieraksti',
                     'Apstiprināts',
                     'Pieraksti',
+                    'Iziet visur',
                 ]
             ],
         ];
