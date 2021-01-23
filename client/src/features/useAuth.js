@@ -114,7 +114,7 @@ function useAuth()
         const { decrypt } = useEncryption()
 
         let route = decrypt(localStorage.getItem('myclients_path_before_login'))
-        route = (route == '/login') ? '/' : route
+        route = (!route || route == '/login') ? '/' : route
         
         router.push({
             path: route

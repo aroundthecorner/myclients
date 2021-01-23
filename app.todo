@@ -28,7 +28,6 @@
           - password re-prompts & 2FA
           - See screen with html2canvas (screenshot via websockets)
           - not one root user but multiple to be able to see access logs for each
-16. FIX:  Calendar header has moved
 
 
 
