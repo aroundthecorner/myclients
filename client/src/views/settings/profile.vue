@@ -163,14 +163,37 @@
                         </div>
 
                         <div class="settings-item__right">
-                            <button-app class="button--flat inline w-250 text-center">
+                            <button-app
+                                :is-loading="isUploading"
+                                loading-color="#929292"
+                                @click="chooseProfilePicture"
+                                class="button--flat inline w-250 text-center">
+
                                 {{ lang('Upload...') }}
+
+                                <input
+                                    ref="profilePictureUpload"
+                                    class="settings-item__input-upload"
+                                    type="file"
+                                    accept="image/*"
+                                />
                             </button-app>
+
+                            <img
+                                @change="changeProfilePicture"
+                                class="settings-item__uploaded-profile-picture"
+                                :src="profilePicture"
+                            />
                         </div>
                     </div>
                 </div>
 
-                <button-app class="button--primary inline mt-40">
+                <button-app
+                    @click="save"
+                    :is-loading="isSaving"
+                    loading-color="#fff"
+                    class="button--primary inline mt-40">
+
                     {{ lang('Save settings') }}
                 </button-app>
             </div>
@@ -181,40 +204,68 @@
 <script setup>
     import { useStore } from 'vuex'
     import { computed, ref } from 'vue';
+    import useEnv from '../../features/useEnv.js'
     import ButtonApp from '../../components/Button.vue'
+    import UserProfile from '../../api/user_profile.js'
     import useLanguage from '../../features/useLanguage.js'
     import DropdownMenu from '../../components/DropdownMenu.vue'
     import NavigationSettings from '../../components/Navigation/Settings.vue'
     
     const store = useStore()
     const { lang } = useLanguage()
+    const { env } = useEnv()
 
     const user = computed(() => store.state.user)
 
-    // Profile fields
     const name = ref('')
     const email = ref('')
     const password = ref('')
     const theme = ref('')
     const language = ref('')
+    const isSaving = ref(false)
     const profilePicture = ref('')
+    const isUploading = ref(false)
+    const showThemesMenu = ref(false)
+    const showLanguageMenu = ref(false)
+    const profilePictureUpload = ref('')
 
-    // Theme select
     theme.value = user.value.theme
+    language.value = user.value.language
+    profilePicture.value = `${env('VITE_SERVER_URL')}/${user.value.profile_picture}`
 
     function selectTheme(selectedTheme) {
         theme.value = selectedTheme
         showThemesMenu.value = false
     }
 
-    // Language select
-    language.value = user.value.language
-
     function selectLanguage(selectedLanguage) {
         language.value = selectedLanguage
         showLanguageMenu.value = false
     }
 
-    const showThemesMenu = ref(false)
-    const showLanguageMenu = ref(false)
+    // Choose profile picture
+    function chooseProfilePicture() {
+        profilePictureUpload.value.click()
+    }
+
+    // Change profile picture
+    async function changeProfilePicture(event) {
+        isUploading.value = true
+
+        let formData = new FormData()
+        let file = event.target.files[0]
+        let filename = event.target.files[0].name
+
+        formData.append('file', file)
+        formData.append('filename', filename)
+
+        const result = await UserProfile.uploadProfilePicture(formData)
+        profilePicture.value = result
+
+        isUploading.value = false
+    }
+
+    async function save() {
+        isSaving.value = true
+    }
 </script>

@@ -1167,6 +1167,15 @@ h1, h2, h3, h4 {
     color: var(--color-primary);
 }
 
+.settings-item__input-upload {
+    display: none;
+}
+
+.settings-item__uploaded-profile-picture {
+    height: 100px;
+    margin-top: 20px;
+}
+
 input.app-input[type="text"], 
 input.app-input[type="email"], 
 input.app-input[type="password"] {
