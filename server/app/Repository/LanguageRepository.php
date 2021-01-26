@@ -92,6 +92,8 @@ class LanguageRepository
             'Approved',
             'Bookings',
             'Log out from all',
+            'en',
+            'lv',
         ];
 
         $languages = [
@@ -189,6 +191,8 @@ class LanguageRepository
                     'Approved',
                     'Bookings',
                     'Log out from all',
+                    'English',
+                    'Latviešu',
                 ]
             ],
 
@@ -286,6 +290,8 @@ class LanguageRepository
                     'Apstiprināts',
                     'Pieraksti',
                     'Iziet visur',
+                    'English',
+                    'Latviešu',
                 ]
             ],
         ];

@@ -133,17 +133,21 @@
                                 <button-app
                                     @click="showLanguageMenu = !showLanguageMenu"
                                     class="button--flat inline w-250 dropdown-arrows">
-                                    Selected language
+                                    {{ language ? lang(language) : user.language }}
                                 </button-app>
 
                                 <template #dropdown>
                                     <div class="dropdown-menu">
-                                        <div class="dropdown-menu__item">
-                                            Language 1
+                                        <div
+                                            @click="selectLanguage('en')"
+                                            class="dropdown-menu__item">
+                                            English
                                         </div>
 
-                                        <div class="dropdown-menu__item">
-                                            Language 2
+                                        <div
+                                            @click="selectLanguage('lv')"
+                                            class="dropdown-menu__item">
+                                            Latviešu
                                         </div>
                                     </div>
                                 </template>
@@ -201,6 +205,14 @@
     function selectTheme(selectedTheme) {
         theme.value = selectedTheme
         showThemesMenu.value = false
+    }
+
+    // Language select
+    language.value = user.value.language
+
+    function selectLanguage(selectedLanguage) {
+        language.value = selectedLanguage
+        showLanguageMenu.value = false
     }
 
     const showThemesMenu = ref(false)
