@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['root', 'admin', 'user'])->default('user');
             $table->string('profile_picture')->nullable();
             $table->enum('language', ['en', 'lv'])->default('en');
+            $table->string('theme')->default('Aconite');
             $table->integer('organization_id');
             $table->dateTime('last_click', $precision = 0)->nullable();
             $table->dateTime('last_ping', $precision = 0)->nullable();

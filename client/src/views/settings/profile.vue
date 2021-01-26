@@ -72,27 +72,43 @@
                                 <button-app
                                     @click="showThemesMenu = !showThemesMenu"
                                     class="button--flat inline w-250 dropdown-arrows">
-                                    Selected theme!
+                                    {{ theme ? theme : user.theme }}
                                 </button-app>
 
                                 <template #dropdown>
                                     <div class="dropdown-menu dropdown-menu--theme">
-                                        <div class="theme-picker__item theme-picker__item--aconite theme-picker__item--aconite-selected">
+                                        <div
+                                            @click="selectTheme('Aconite')"
+                                            class="theme-picker__item theme-picker__item--aconite"
+                                            :class="{ 'theme-picker__item--aconite-selected': theme == 'Aconite' }">
+
                                             <div class="theme-picker__title">{{ lang('Theme') }}</div>
                                             <div class="theme-picker__description">Aconite</div>
                                         </div>
 
-                                        <div class="theme-picker__item theme-picker__item--centaurs">
+                                        <div
+                                            @click="selectTheme('Centaurs')"
+                                            class="theme-picker__item theme-picker__item--centaurs"
+                                            :class="{ 'theme-picker__item--centaurs-selected': theme == 'Centaurs' }">
+
                                             <div class="theme-picker__title">{{ lang('Theme') }}</div>
                                             <div class="theme-picker__description">Centaurs</div>
                                         </div>
 
-                                        <div class="theme-picker__item theme-picker__item--azkaban">
+                                        <div
+                                            @click="selectTheme('Azkaban')"
+                                            class="theme-picker__item theme-picker__item--azkaban"
+                                            :class="{ 'theme-picker__item--azkaban-selected': theme == 'Azkaban' }">
+
                                             <div class="theme-picker__title">{{ lang('Theme') }}</div>
                                             <div class="theme-picker__description theme-picker__description--dark">Azkaban</div>
                                         </div>
 
-                                        <div class="theme-picker__item theme-picker__item--dark-forest">
+                                        <div
+                                            @click="selectTheme('Black Forest')"
+                                            class="theme-picker__item theme-picker__item--dark-forest"
+                                            :class="{ 'theme-picker__item--black-forest-selected': theme == 'Black Forest' }">
+
                                             <div class="theme-picker__title">{{ lang('Theme') }}</div>
                                             <div class="theme-picker__description theme-picker__description--dark">Black Forest</div>
                                         </div>
@@ -169,9 +185,24 @@
     const store = useStore()
     const { lang } = useLanguage()
 
+    const user = computed(() => store.state.user)
+
+    // Profile fields
+    const name = ref('')
+    const email = ref('')
     const password = ref('')
+    const theme = ref('')
+    const language = ref('')
+    const profilePicture = ref('')
+
+    // Theme select
+    theme.value = user.value.theme
+
+    function selectTheme(selectedTheme) {
+        theme.value = selectedTheme
+        showThemesMenu.value = false
+    }
+
     const showThemesMenu = ref(false)
     const showLanguageMenu = ref(false)
-
-    const user = computed(() => store.state.user)
 </script>

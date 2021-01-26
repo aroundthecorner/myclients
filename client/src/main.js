@@ -7,7 +7,7 @@ import '/css/reboot.css'
 import '/css/material-icons.css'
 import '/css/line-awesome.min.css'
 import '/css/style.css'
-import '/css/style-dark.css'
+import '/css/style-azkaban.css'
 
 const app = createApp(App)
 
