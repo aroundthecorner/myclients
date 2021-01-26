@@ -172,6 +172,7 @@
                                 {{ lang('Upload...') }}
 
                                 <input
+                                    @change="changeProfilePicture"
                                     ref="profilePictureUpload"
                                     class="settings-item__input-upload"
                                     type="file"
@@ -180,7 +181,6 @@
                             </button-app>
 
                             <img
-                                @change="changeProfilePicture"
                                 class="settings-item__uploaded-profile-picture"
                                 :src="profilePicture"
                             />
@@ -258,6 +258,8 @@
 
         formData.append('file', file)
         formData.append('filename', filename)
+
+        console.log({a:1})
 
         const result = await UserProfile.uploadProfilePicture(formData)
         profilePicture.value = result

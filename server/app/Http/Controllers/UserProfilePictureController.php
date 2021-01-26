@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
+
 class UserProfilePictureController extends Controller
 {
     /**
@@ -9,6 +11,10 @@ class UserProfilePictureController extends Controller
      */
     public function store()
     {
-        
+        request()->validate(['file' => 'required|image']);
+
+        $path = request()->file('file')->store('app/public/img/uploads');
+
+        return $path;
     }
 }

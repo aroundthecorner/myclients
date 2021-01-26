@@ -8,7 +8,7 @@
             <div class="notification-popup__left">
                 <img
                     class="notification-popup__icon h-45"
-                    :src="notificationMessage.icon"
+                    :src="`/${notificationMessage.icon}`"
                 />
             </div>
 
