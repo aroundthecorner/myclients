@@ -259,8 +259,6 @@
         formData.append('file', file)
         formData.append('filename', filename)
 
-        console.log({a:1})
-
         const result = await UserProfile.uploadProfilePicture(formData)
         profilePicture.value = result
 

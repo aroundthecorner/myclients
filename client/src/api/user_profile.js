@@ -16,8 +16,7 @@ class UserProfile
         try {
             const response = await fetch(`${env('VITE_SERVER_URL')}/user-settings/profile-picture`, {
                 method: 'POST',
-                body: JSON.stringify(data),
-                headers: { ...jsonHeaders, ...authHeaders },
+                body: data,
             })
 
             if (!response.ok) {

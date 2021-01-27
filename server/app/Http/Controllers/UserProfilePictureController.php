@@ -13,8 +13,11 @@ class UserProfilePictureController extends Controller
     {
         request()->validate(['file' => 'required|image']);
 
-        $path = request()->file('file')->store('app/public/img/uploads');
+        $extension = request()->file('file')->extension();
+        $filename = Str::random(30) . ".$extension";
+        
+        $path = request()->file('file')->storeAs('public/img/uploads', $filename);
 
-        return $path;
+        return $filename;
     }
 }
