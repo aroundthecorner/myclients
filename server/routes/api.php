@@ -55,9 +55,9 @@ Route::post('user-settings/profile-picture',    [UserProfilePictureController::c
 
 
 /**
- * User settings
+ * User profile settings
  */
-Route::patch('user-settings',                   [UserProfilePictureController::class, 'update']);
+Route::patch('user-settings/profile',           [UserProfileSettingsController::class, 'update']);
 
 
 /**

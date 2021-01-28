@@ -10,7 +10,7 @@ class UserProfile
     static async uploadProfilePicture(data)
     {
         const { env } = useEnv()
-        const { authHeaders } = useHTTP()
+        const { authHeaders, jsonHeaders } = useHTTP()
         const { showError, showErrorOccured } = useErrorHandling()
 
         try {
@@ -37,6 +37,43 @@ class UserProfile
             }
 
             return await response.json()
+        } catch (error) {
+            showErrorOccured()
+            console.log(error)
+        }
+    }
+
+    /**
+     * Update user's profile
+     */
+    static async update(data)
+    {
+        const { env } = useEnv()
+        const { authHeaders } = useHTTP()
+        const { showError, showErrorOccured } = useErrorHandling()
+
+        try {
+            const response = await fetch(`${env('VITE_SERVER_URL')}/user-settings/profile`, {
+                method: 'PATCH',
+                body: data,
+                headers: { ...authHeaders, ...jsonHeaders  }
+            })
+
+            if (!response.ok) {
+                let errorMessage = {
+                    statusText: response.statusText,
+                    statusCode: response.status,
+                    body: '',
+                    url: response.url,
+                    clientAPI: 'api/user_profile.js @ update',
+                }
+                
+                const text = await response.text()
+                errorMessage.body = text
+
+                showError(errorMessage)
+                return
+            }
         } catch (error) {
             showErrorOccured()
             console.log(error)
