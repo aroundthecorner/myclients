@@ -10,13 +10,14 @@ class UserProfile
     static async uploadProfilePicture(data)
     {
         const { env } = useEnv()
-        const { jsonHeaders, authHeaders } = useHTTP()
+        const { authHeaders } = useHTTP()
         const { showError, showErrorOccured } = useErrorHandling()
 
         try {
             const response = await fetch(`${env('VITE_SERVER_URL')}/user-settings/profile-picture`, {
                 method: 'POST',
                 body: data,
+                headers: { ...authHeaders, 'Accept': 'application/json' }
             })
 
             if (!response.ok) {
@@ -34,6 +35,8 @@ class UserProfile
                 showError(errorMessage)
                 return
             }
+
+            return await response.json()
         } catch (error) {
             showErrorOccured()
             console.log(error)
