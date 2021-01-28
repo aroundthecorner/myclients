@@ -8,6 +8,7 @@ use App\Http\Controllers\UserOnlineController;
 use App\Http\Controllers\UserActiveController;
 use App\Http\Controllers\OrganizationTypesController;
 use App\Http\Controllers\UserProfilePictureController;
+use App\Http\Controllers\UserProfileSettingsController;
 
 
 /**
