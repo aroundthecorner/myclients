@@ -33,6 +33,8 @@
 17. FIX: Check if storage will persist
 18. FIX: Upload taking too long
 19. FIX: Universal logger
+         - "log" and "logs" result in a global helper methods log_message('')
+         - backend and frontend
 20. FIX: Client API repeated code
 21. FIX: Update scaffolding (include logger)
 

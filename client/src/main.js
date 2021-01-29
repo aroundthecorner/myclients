@@ -3,6 +3,7 @@ import { createApp } from 'vue'
 import routes from './routes.js'
 import store from './store/index.js'
 import VueProgressBar from "@aacassandra/vue3-progressbar"
+import './features/globalHelpers.js'
 import '/css/reboot.css'
 import '/css/material-icons.css'
 import '/css/line-awesome.min.css'
