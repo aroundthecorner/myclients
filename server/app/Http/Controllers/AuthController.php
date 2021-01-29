@@ -140,7 +140,7 @@ class AuthController extends Controller
         $organization = Organization::whereDescription($organizationName)->first();
 
         return response()->json([
-            'user_exists' => ($organization) ? true : false
+            'organization_exists' => ($organization) ? true : false
         ]);
     }
 

@@ -36,7 +36,13 @@
          - "log" and "logs" result in a global helper methods log_message('')
          - backend and frontend
 20. FIX: Client API repeated code
+            const response = await HTTP.post(`${env('VITE_SERVER_URL')}/login`, {
+                headers: '',
+                body: '',
+                clientAPI: '',
+            })
 21. FIX: Update scaffolding (include logger)
+21. FIX: Login small height background
 
 
 

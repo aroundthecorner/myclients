@@ -1,6 +1,6 @@
+const API = 'api/auth.js'
 import useEnv from '../features/useEnv.js'
 import useHTTP from '../features/useHTTP.js'
-import useErrorHandling from '../features/useErrorHandling.js'
 
 class Auth
 {
@@ -10,37 +10,16 @@ class Auth
     static async login(data)
     {
         const { env } = useEnv()
-        const { jsonHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
+        const { HTTP, jsonHeaders } = useHTTP()
 
-        try {
-            const response = await fetch(`${env('VITE_SERVER_URL')}/login`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: jsonHeaders,
-            })
+        const response = await HTTP.post(`${env('VITE_SERVER_URL')}/login`, {
+            headers: { ...jsonHeaders },
+            body: JSON.stringify(data),
+            clientAPI: `${API} @ login`,
+            returnResponse: true,
+        })
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/auth.js @ login',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
-
-                showError(errorMessage)
-                return
-            }
-
-            return await response.json()
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response
     }
 
     /**
@@ -49,34 +28,16 @@ class Auth
     static async logout(logoutType)
     {
         const { env } = useEnv()
-        const { jsonHeaders, authHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
+        const { HTTP, jsonHeaders, authHeaders } = useHTTP()
 
-        try {
-            const response = await fetch(`${env('VITE_SERVER_URL')}/logout/${logoutType}`, {
-                method: 'POST',
-                headers: { ...jsonHeaders, ...authHeaders },
-            })
+        const response = await HTTP.post(`${env('VITE_SERVER_URL')}/logout/${logoutType}`, {
+            headers: { ...jsonHeaders, ...authHeaders },
+            body: '',
+            clientAPI: `${API} @ logout`,
+            returnResponse: false,
+        })
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/auth.js @ logout',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
-
-                showError(errorMessage)
-                return
-            }
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response
     }
 
     /**
@@ -85,37 +46,16 @@ class Auth
     static async register(data)
     {
         const { env } = useEnv()
-        const { jsonHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
+        const { HTTP, jsonHeaders } = useHTTP()
 
-        try {
-            const response = await fetch(`${env('VITE_SERVER_URL')}/register`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: jsonHeaders,
-            })
+        const response = await HTTP.post(`${env('VITE_SERVER_URL')}/register`, {
+            headers: { ...jsonHeaders },
+            body: JSON.stringify(data),
+            clientAPI: `${API} @ register`,
+            returnResponse: true,
+        })
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/auth.js @ register',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
-
-                showError(errorMessage)
-                return
-            }
-
-            return await response.json()
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response
     }
 
     /**
@@ -124,38 +64,16 @@ class Auth
     static async checkUserExists(data)
     {
         const { env } = useEnv()
-        const { jsonHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
-        
-        try {
-            let response = await fetch(`${env('VITE_SERVER_URL')}/check-user-exists`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: jsonHeaders,
-            })
+        const { HTTP, jsonHeaders } = useHTTP()
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/auth.js @ checkUserExists',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
+        const response = await HTTP.post(`${env('VITE_SERVER_URL')}/check-user-exists`, {
+            headers: { ...jsonHeaders },
+            body: JSON.stringify(data),
+            clientAPI: `${API} @ checkUserExists`,
+            returnResponse: true,
+        })
 
-                showError(errorMessage)
-                return
-            }
-
-            response =  await response.json()
-            return response.user_exists
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response.user_exists
     }
 
     /**
@@ -164,38 +82,16 @@ class Auth
     static async checkOrganizationExists(data)
     {
         const { env } = useEnv()
-        const { jsonHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
-        
-        try {
-            let response = await fetch(`${env('VITE_SERVER_URL')}/check-organization-exists`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: jsonHeaders,
-            })
+        const { HTTP, jsonHeaders } = useHTTP()
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/auth.js @ checkOrganizationExists',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
+        const response = await HTTP.post(`${env('VITE_SERVER_URL')}/check-organization-exists`, {
+            headers: { ...jsonHeaders },
+            body: JSON.stringify(data),
+            clientAPI: `${API} @ checkOrganizationExists`,
+            returnResponse: true,
+        })
 
-                showError(errorMessage)
-                return
-            }
-
-            response =  await response.json()
-            return response.user_exists
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response.organization_exists
     }
 
     /**
@@ -204,37 +100,16 @@ class Auth
     static async sendResetPasswordLink(data)
     {
         const { env } = useEnv()
-        const { jsonHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
-        
-        try {
-            let response = await fetch(`${env('VITE_SERVER_URL')}/forgot-password`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: jsonHeaders,
-            })
+        const { HTTP, jsonHeaders } = useHTTP()
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/auth.js @ sendResetPasswordLink',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
+        const response = await HTTP.post(`${env('VITE_SERVER_URL')}/forgot-password`, {
+            headers: { ...jsonHeaders },
+            body: JSON.stringify(data),
+            clientAPI: `${API} @ sendResetPasswordLink`,
+            returnResponse: true,
+        })
 
-                showError(errorMessage)
-                return
-            }
-
-            return await response.json()
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response.organization_exists
     }
 
     /**
@@ -243,37 +118,16 @@ class Auth
     static async resetPassword(data)
     {
         const { env } = useEnv()
-        const { jsonHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
-        
-        try {
-            let response = await fetch(`${env('VITE_SERVER_URL')}/reset-password`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: jsonHeaders,
-            })
+        const { HTTP, jsonHeaders } = useHTTP()
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/auth.js @ resetPassword',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
+        const response = await HTTP.post(`${env('VITE_SERVER_URL')}/reset-password`, {
+            headers: { ...jsonHeaders },
+            body: JSON.stringify(data),
+            clientAPI: `${API} @ resetPassword`,
+            returnResponse: true,
+        })
 
-                showError(errorMessage)
-                return
-            }
-
-            return await response.json()
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response.organization_exists
     }
 }
 

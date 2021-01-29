@@ -1,4 +1,5 @@
 import useEncryption from './useEncryption.js'
+import useErrorHandling  from './useErrorHandling.js'
 
 function useURL()
 {
@@ -24,8 +25,117 @@ function useURL()
         return Object.keys(obj).map(key => key + '=' + obj[key]).join('&')
     }
 
+    /**
+     * HTTP client
+     */
+    const HTTP = {
+        post: async function(url, options) {
+            const { showError, showErrorOccured } = useErrorHandling()
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: options.body,
+                    headers: options.headers,
+                })
+
+                if (!response.ok) {
+                    let errorMessage = {
+                        statusText: response.statusText,
+                        statusCode: response.status,
+                        body: '',
+                        url: response.url,
+                        clientAPI: options.clientAPI,
+                    }
+                    
+                    const text = await response.text()
+                    errorMessage.body = text
+
+                    showError(errorMessage)
+                    return
+                }
+
+                if (options.returnResponse) {
+                    return await response.json()
+                }
+            } catch (error) {
+                showErrorOccured()
+                console.log(error)
+            }
+        },
+
+        get: async function(url, options) {
+            const { showError, showErrorOccured } = useErrorHandling()
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: options.headers,
+                })
+
+                if (!response.ok) {
+                    let errorMessage = {
+                        statusText: response.statusText,
+                        statusCode: response.status,
+                        body: '',
+                        url: response.url,
+                        clientAPI: options.clientAPI,
+                    }
+                    
+                    const text = await response.text()
+                    errorMessage.body = text
+
+                    showError(errorMessage)
+                    return
+                }
+
+                if (options.returnResponse) {
+                    return await response.json()
+                }
+            } catch (error) {
+                showErrorOccured()
+                console.log(error)
+            }
+        },
+
+        patch: async function(url, options) {
+            const { showError, showErrorOccured } = useErrorHandling()
+
+            try {
+                const response = await fetch(url, {
+                    method: 'PATCH',
+                    body: options.body,
+                    headers: options.headers,
+                })
+
+                if (!response.ok) {
+                    let errorMessage = {
+                        statusText: response.statusText,
+                        statusCode: response.status,
+                        body: '',
+                        url: response.url,
+                        clientAPI: options.clientAPI,
+                    }
+                    
+                    const text = await response.text()
+                    errorMessage.body = text
+
+                    showError(errorMessage)
+                    return
+                }
+
+                if (options.returnResponse) {
+                    return await response.json()
+                }
+            } catch (error) {
+                showErrorOccured()
+                console.log(error)
+            }
+        }
+    }
+
     return {
-        objectToQueryString, jsonHeaders, authHeaders
+        objectToQueryString, jsonHeaders, authHeaders, HTTP
     }
 }
 

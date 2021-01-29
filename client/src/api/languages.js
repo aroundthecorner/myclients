@@ -1,45 +1,24 @@
+const API = 'api/languages.js'
 import useEnv from '../features/useEnv.js'
 import useHTTP from '../features/useHTTP.js'
-import useErrorHandling from '../features/useErrorHandling.js'
 
 class Languages
 {
     /**
      * Retrieve languages and translations
      */
-    static async get(data = null)
+    static async get()
     {
         const { env } = useEnv()
-        const { jsonHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
+        const { HTTP, jsonHeaders } = useHTTP()
 
-        try {
-            const response = await fetch(`${env('VITE_SERVER_URL')}/languages`, {
-                method: 'GET',
-                headers: jsonHeaders,
-            })
+        const response = await HTTP.get(`${env('VITE_SERVER_URL')}/languages`, {
+            headers: { ...jsonHeaders },
+            clientAPI: `${API} @ get`,
+            returnResponse: true,
+        })
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/languages.js @ get',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
-
-                showError(errorMessage)
-                return
-            }
-
-            return await response.json()
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response
     }
 }
 

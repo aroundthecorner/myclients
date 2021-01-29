@@ -1,6 +1,6 @@
+const API = 'api/user_profile.js'
 import useEnv from '../features/useEnv.js'
 import useHTTP from '../features/useHTTP.js'
-import useErrorHandling from '../features/useErrorHandling.js'
 
 class UserProfile
 {
@@ -10,37 +10,16 @@ class UserProfile
     static async uploadProfilePicture(data)
     {
         const { env } = useEnv()
-        const { authHeaders, jsonHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
+        const { HTTP, authHeaders } = useHTTP()
 
-        try {
-            const response = await fetch(`${env('VITE_SERVER_URL')}/user-settings/profile-picture`, {
-                method: 'POST',
-                body: data,
-                headers: { ...authHeaders, 'Accept': 'application/json' }
-            })
+        const response = await HTTP.post(`${env('VITE_SERVER_URL')}/user-settings/profile-picture`, {
+            headers: { ...authHeaders, 'Accept': 'application/json' },
+            body: data,
+            clientAPI: `${API} @ uploadProfilePicture`,
+            returnResponse: true,
+        })
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/user_profile.js @ uploadProfilePicture',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
-
-                showError(errorMessage)
-                return
-            }
-
-            return await response.json()
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response
     }
 
     /**
@@ -49,35 +28,16 @@ class UserProfile
     static async update(data)
     {
         const { env } = useEnv()
-        const { authHeaders } = useHTTP()
-        const { showError, showErrorOccured } = useErrorHandling()
+        const { HTTP, authHeaders, jsonHeaders } = useHTTP()
 
-        try {
-            const response = await fetch(`${env('VITE_SERVER_URL')}/user-settings/profile`, {
-                method: 'PATCH',
-                body: data,
-                headers: { ...authHeaders, ...jsonHeaders  }
-            })
+        const response = await HTTP.patch(`${env('VITE_SERVER_URL')}/user-settings/profile`, {
+            headers: { ...authHeaders, ...jsonHeaders  },
+            body: JSON.stringify(data),
+            clientAPI: `${API} @ update`,
+            returnResponse: false,
+        })
 
-            if (!response.ok) {
-                let errorMessage = {
-                    statusText: response.statusText,
-                    statusCode: response.status,
-                    body: '',
-                    url: response.url,
-                    clientAPI: 'api/user_profile.js @ update',
-                }
-                
-                const text = await response.text()
-                errorMessage.body = text
-
-                showError(errorMessage)
-                return
-            }
-        } catch (error) {
-            showErrorOccured()
-            console.log(error)
-        }
+        return response
     }
 }
 
