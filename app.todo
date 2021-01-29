@@ -34,6 +34,7 @@
 18. FIX: Upload taking too long
 19. FIX: Universal logger
 20. FIX: Client API repeated code
+21. FIX: Update scaffolding (include logger)
 
 
 

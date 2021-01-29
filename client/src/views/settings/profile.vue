@@ -266,17 +266,17 @@
     }
 
     async function save() {
-        isSaving.value = true
+        // isSaving.value = true
 
-        await UserProfile.update({
-            name: name.value,
-            email: email.value,
-            password: password.value,
-            theme: theme.value,
-            language: language.value,
-            profile_picture: profilePicture.value,
-        })
+        // await UserProfile.update({
+        //     name: name.value,
+        //     email: email.value,
+        //     password: password.value,
+        //     theme: theme.value,
+        //     language: language.value,
+        //     profile_picture: profilePicture.value,
+        // })
 
-        isSaving.value = false
+        // isSaving.value = false
     }
 </script>
