@@ -94,6 +94,8 @@ class LanguageRepository
             'Log out from all',
             'en',
             'lv',
+            'Uploaded file invalid',
+            'The file must be an image less than 5 MB',
         ];
 
         $languages = [
@@ -193,6 +195,8 @@ class LanguageRepository
                     'Log out from all',
                     'English',
                     'Latviešu',
+                    'Uploaded file invalid',
+                    'The file must be an image less than 5 MB',
                 ]
             ],
 
@@ -292,6 +296,8 @@ class LanguageRepository
                     'Iziet visur',
                     'English',
                     'Latviešu',
+                    'Fails nav pareizs',
+                    'Failam ir jābūt attēlam ne lielākam par 5 MB',
                 ]
             ],
         ];

@@ -31,7 +31,7 @@
           - See screen with html2canvas (screenshot via websockets)
           - not one root user but multiple to be able to see access logs for each
 17. FIX: Check if storage will persist
-18. FIX: Upload taking too long
+18. FIX: Upload if file is too large?
 21. FIX: Update scaffolding (include logger)
 21. FIX: Login small height background
 

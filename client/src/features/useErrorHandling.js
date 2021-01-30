@@ -12,6 +12,17 @@ function useErrorHandling()
     {
         const response = JSON.parse(errorMessage.body)
 
+        if (errorMessage.statusCode == 422 && response.message == 'Must be an image less than 5 MB') {
+            store.dispatch('app/showNotificationMessage', {
+                icon: 'img/warning.png',
+                title: lang('Uploaded file invalid'),
+                body: lang('The file must be an image less than 5 MB'),
+                hideDelay: 5,
+            })
+
+            return
+        }
+
         if (errorMessage.statusCode == 401 && response.message == 'Unauthenticated.') {
             localStorage.removeItem('myclients_user')
             window.location = '/login'
