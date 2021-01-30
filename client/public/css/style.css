@@ -126,7 +126,6 @@ h1, h2, h3, h4 {
 .auth-page__main {
     display: flex;
     margin-top: 130px;
-    height: calc(100vh - 400px);
     gap: 60px;
 }
 
