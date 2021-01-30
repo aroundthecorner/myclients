@@ -543,10 +543,11 @@ h1, h2, h3, h4 {
 }
 
 .sidebar__organization {
-    line-height: 0;
+    line-height: 1;
     color: var(--color-cuddy);
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 .sidebar__profile {
