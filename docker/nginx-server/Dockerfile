@@ -9,4 +9,4 @@ WORKDIR /var/www
 # COPY all website files
 COPY ./server .
 
-CMD ["/bin/bash", "-c", "ln -s /var/www/storage/app/public /var/www/public/storage && nginx -g 'daemon off;'"]
+CMD ["/bin/sh", "-c", "ln -s /var/www/storage/app/public /var/www/public/storage && nginx -g 'daemon off;'"]
