@@ -8,3 +8,5 @@ WORKDIR /var/www
 
 # COPY all website files
 COPY ./server .
+
+CMD bash -c "ln -s /var/www/storage/app/public /var/www/public/storage"
