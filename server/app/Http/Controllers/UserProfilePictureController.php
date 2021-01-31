@@ -45,7 +45,7 @@ class UserProfilePictureController extends Controller
         
         request()->file('file')->storeAs('public/img/uploads', $filename);
 
-        return $filename;
+        return "storage/img/uploads/$filename";
     }
 
     /**

@@ -261,7 +261,7 @@
 
         try {
             const result = await UserProfile.uploadProfilePicture(formData)
-            profilePicture.value = `${env('VITE_SERVER_URL')}/storage/img/uploads/${result.filename}`
+            profilePicture.value = `${env('VITE_SERVER_URL')}/${result.filename}`
         } catch (error) {}
         
         isUploading.value = false
