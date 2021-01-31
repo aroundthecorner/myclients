@@ -55,6 +55,8 @@ class UserProfilePictureController extends Controller
      */
     public function updateUserProfilePicture($filename)
     {
+        $filename = "storage/img/uploads/$filename";
+
         User::find(auth()->id())->update([ 'profile_picture' => $filename ]);
     }
 }
