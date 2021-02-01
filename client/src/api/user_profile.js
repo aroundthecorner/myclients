@@ -34,7 +34,7 @@ class UserProfile
             headers: { ...authHeaders, ...jsonHeaders  },
             body: JSON.stringify(data),
             clientAPI: `${API} @ update`,
-            returnResponse: false,
+            returnResponse: true,
         })
 
         return response

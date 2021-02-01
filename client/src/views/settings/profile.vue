@@ -20,7 +20,7 @@
                             <input
                                 type="text"
                                 class="app-input w-250"
-                                v-model="user.name"
+                                v-model="name"
                             />
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             <input
                                 type="text"
                                 class="app-input w-250"
-                                v-model="user.email"
+                                v-model="email"
                             />
                         </div>
                     </div>
@@ -229,6 +229,8 @@
     const showLanguageMenu = ref(false)
     const profilePictureUpload = ref('')
 
+    name.value = user.value.name
+    email.value = user.value.email
     theme.value = user.value.theme
     language.value = user.value.language
     profilePicture.value = `${env('VITE_SERVER_URL')}/${user.value.profile_picture}`
@@ -268,17 +270,51 @@
     }
 
     async function save() {
-        // isSaving.value = true
+        isSaving.value = true
 
-        // await UserProfile.update({
-        //     name: name.value,
-        //     email: email.value,
-        //     password: password.value,
-        //     theme: theme.value,
-        //     language: language.value,
-        //     profile_picture: profilePicture.value,
-        // })
+        validatePasswordStrength()
 
-        // isSaving.value = false
+        const user = await UserProfile.update({
+            name: name.value,
+            email: email.value,
+            password: password.value,
+            theme: theme.value,
+            language: language.value,
+        })
+
+        refreshUserStore(user)
+
+        isSaving.value = false
+    }
+
+    function validatePasswordStrength() {
+        if (password.value == '') return
+
+        let strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
+
+        try {
+            if (!strongPassword.test(password.value)) {
+                isSaving.value = false
+                throw "Weak password"
+            }
+        } catch (error) {
+            showWeakPasswordMessage()
+        }
+    }
+
+    function showWeakPasswordMessage() {
+        store.dispatch('app/showNotificationMessage', {
+            icon: 'img/warning.png',
+            title: lang('Weak password'),
+            body: lang('Password must contain symbols, numbers and lowercase and uppercase letters.'),
+            hideDelay: 5,
+        })
+    }
+
+    async function refreshUserStore(user) {
+        store.dispatch('user/setUser', {
+            ...user,
+            token: store.state.user.token,
+        })
     }
 </script>
