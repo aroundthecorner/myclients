@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Requests\RegisterUserRequest;
 use Illuminate\Support\Facades\RateLimiter;
 
 class AuthController extends Controller
@@ -89,16 +90,8 @@ class AuthController extends Controller
     /**
      * Register a user
      */
-    public function register()
+    public function register(RegisterUserRequest $request)
     {
-        request()->validate([
-            'email' => 'email|unique:users',
-            'name' => 'required',
-            'organizationTypeId' => 'required',
-            'organizationName' => 'required|unique:organizations,description',
-            'password' => 'required',
-        ]);
-
         $organization = Organization::create([
             'description' => request('organizationName'),
             'organization_type_id' => request('organizationTypeId'),

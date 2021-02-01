@@ -6,9 +6,9 @@ use App\Http\Controllers\LanguagesController;
 use App\Http\Controllers\ProjectAgeController;
 use App\Http\Controllers\UserOnlineController;
 use App\Http\Controllers\UserActiveController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\OrganizationTypesController;
 use App\Http\Controllers\UserProfilePictureController;
-use App\Http\Controllers\UserProfileSettingsController;
 
 
 /**
@@ -58,7 +58,7 @@ Route::post('user-settings/profile-picture',    [UserProfilePictureController::c
 /**
  * User profile settings
  */
-Route::patch('user-settings/profile',           [UserProfileSettingsController::class, 'update']);
+Route::patch('user-settings/profile',           [UserProfileController::class, 'update']);
 
 
 /**
