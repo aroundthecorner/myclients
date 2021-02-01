@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Imagick;
 use Exception;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -23,16 +24,16 @@ class UserProfilePictureController extends Controller
      */
     public function store()
     {
-        try {
+        // try {
             request()->validate(['file' => 'required|image|max:5000']);
     
             $filename = $this->uploadFile();
             $this->updateUserProfilePicture($filename);
     
             return response()->json(['filename' => $filename]);
-        } catch (Exception $exception) {
-            return response()->json(['message' => 'Must be an image less than 5 MB'], 422);
-        }
+        // } catch (Exception $exception) {
+        //     return response()->json(['message' => 'Must be an image less than 5 MB'], 422);
+        // }
     }
 
     /**
@@ -43,7 +44,8 @@ class UserProfilePictureController extends Controller
         $extension = request()->file('file')->extension();
         $filename = Str::random(30) . ".$extension";
         
-        request()->file('file')->storeAs('public/img/uploads', $filename);
+        $path = request()->file('file')->storeAs('public/img/uploads', $filename);
+        $this->cropImage($filename);
 
         return "storage/img/uploads/$filename";
     }
@@ -56,5 +58,21 @@ class UserProfilePictureController extends Controller
     public function updateUserProfilePicture($filename)
     {
         User::find(auth()->id())->update([ 'profile_picture' => $filename ]);
+    }
+
+    /**
+     * Crop the uploaded image
+     *
+     * @param  string  $filename
+     */
+    public function cropImage($filename)
+    {
+        $path = storage_path("app/public/img/uploads/$filename");
+
+        $image = new Imagick($path);
+	    $image->cropThumbnailImage(225, 225);
+	    $image->setImagePage(0, 0, 0, 0);
+
+	    file_put_contents($path, $image->getImageBlob());
     }
 }
