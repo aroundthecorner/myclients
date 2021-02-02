@@ -24,16 +24,16 @@ class UserProfilePictureController extends Controller
      */
     public function store()
     {
-        // try {
+        try {
             request()->validate(['file' => 'required|image|max:5000']);
     
             $filename = $this->uploadFile();
             $this->updateUserProfilePicture($filename);
     
             return response()->json(['filename' => $filename]);
-        // } catch (Exception $exception) {
-        //     return response()->json(['message' => 'Must be an image less than 5 MB'], 422);
-        // }
+        } catch (Exception $exception) {
+            return response()->json(['message' => 'Must be an image less than 5 MB'], 422);
+        }
     }
 
     /**

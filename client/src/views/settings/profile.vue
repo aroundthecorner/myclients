@@ -204,6 +204,7 @@
 <script setup>
     import { useStore } from 'vuex'
     import { computed, ref } from 'vue';
+
     import useEnv from '../../features/useEnv.js'
     import ButtonApp from '../../components/Button.vue'
     import UserProfile from '../../api/user_profile.js'
@@ -245,12 +246,10 @@
         showLanguageMenu.value = false
     }
 
-    // Choose profile picture
     function chooseProfilePicture() {
         profilePictureUpload.value.click()
     }
 
-    // Change profile picture
     async function changeProfilePicture(event) {
         isUploading.value = true
 
