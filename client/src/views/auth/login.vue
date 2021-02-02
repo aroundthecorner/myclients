@@ -124,4 +124,9 @@
     if (userLoggedIn()) {
         router.push({ name: "dashboard" })
     }
+
+    if (window.location.host == 'localhost:47344') {
+        email.value = 'admin@myclients.org'
+        password.value = 'password'
+    }
 </script>
