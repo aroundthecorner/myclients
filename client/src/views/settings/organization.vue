@@ -41,7 +41,7 @@
                                 <button-app
                                     @click="showOrganizationTypeMenu = !showOrganizationTypeMenu"
                                     class="button--flat inline w-250 dropdown-arrows">
-                                    Selected organization type
+                                    {{ selectedOrganizationType }}
                                 </button-app>
 
                                 <template #dropdown>
@@ -49,7 +49,7 @@
                                         <div
                                             v-for="organizationType in organizationTypes"
                                             :key="organizationType.id"
-                                            @click="selectOrganizationType(organizationType)"
+                                            @click="selectOrganizationType(organizationType.id)"
                                             class="dropdown-menu__item">
                                             {{ organizationType.description }}
                                         </div>
@@ -69,8 +69,8 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue';
     import { useStore } from 'vuex'
+    import { ref, reactive, computed } from 'vue';
     import ButtonApp from '../../components/Button.vue'
     import useLanguage from '../../features/useLanguage.js'
     import DropdownMenu from '../../components/DropdownMenu.vue'
@@ -80,16 +80,33 @@
     const store = useStore()
     const { lang } = useLanguage()
 
+    const user = computed(() => store.state.user)
+
     const organizationTypes = ref([])
     const showOrganizationTypeMenu = ref(false)
+    const organizationType = reactive({
+        id: '',
+        description: '',
+    })
 
-    /**
-     * Get organization types
-     */
+    const selectedOrganizationType = computed(() => {
+        // if (organizationType.id) {
+        //     return organizationType.description.limit(20)
+        // } else {
+        //     return user.value.organizationType.description.limit(20)
+        // }
+    })
+
+    function selectOrganizationType(id) {
+        console.log(id)
+    }
+
     async function getOrganizationTypes() {
         const result = await OrganizationTypes.get()
         organizationTypes.value = result
     }
 
     getOrganizationTypes()
+
+
 </script>

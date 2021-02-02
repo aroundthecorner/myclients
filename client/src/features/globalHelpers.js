@@ -20,3 +20,10 @@ window.log_msg = async function (message)
         }
     })
 }
+
+/**
+ * String limit
+ */
+String.prototype.limit = function(n) {
+    return this.substr(0, n-1) + (this.length > n ? '...' : '')
+}

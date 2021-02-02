@@ -34,7 +34,7 @@ class AuthController extends Controller
     {
         $this->checkTooManyFailedAttempts();
 
-        $user = User::with('organization:id,description')
+        $user = User::with('organization:id,description,organization_type_id')
                     ->where('email', $request->email)
                     ->first();
 

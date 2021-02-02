@@ -48,7 +48,7 @@ class UserProfileController extends Controller
     public function getUser()
     {
         return User::whereId(auth()->id())
-                   ->with('organization:id,description')
+                   ->with('organization:id,description,organization_type_id')
                    ->first();
     }
 }
