@@ -46,9 +46,8 @@ RUN chmod -R 777 /var/www
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Cron
 RUN echo "* * * * * root php /var/www/artisan schedule:run >> /var/log/cron.log 2>&1" >> /etc/crontab
-
-# Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 
 # Expose port 9000 and start php-fpm server

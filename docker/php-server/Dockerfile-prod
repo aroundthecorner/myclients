@@ -5,6 +5,7 @@ WORKDIR /var/www
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
+    cron \
     build-essential \
     libpng-dev \
     libjpeg62-turbo-dev \
@@ -50,7 +51,11 @@ RUN chmod -R 777 /var/www
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Cron
+RUN echo "* * * * * root php /var/www/artisan schedule:run >> /var/log/cron.log 2>&1" >> /etc/crontab
+RUN touch /var/log/cron.log
+
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 
-CMD bash -c "composer install && chmod -R 777 /var/www && php artisan storage:link && service supervisor start && supervisorctl reread && supervisorctl update && supervisorctl start laravel-queue-worker:* && php-fpm"
+CMD bash -c "composer install && chmod -R 777 /var/www && php artisan storage:link && php artisan telescope:install && service supervisor start && supervisorctl reread && supervisorctl update && supervisorctl start laravel-queue-worker:* && cron && php-fpm"
