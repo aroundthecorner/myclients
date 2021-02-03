@@ -25,5 +25,7 @@ class OrganizationSubscriptionController extends Controller
         $organizationId = auth()->user()->organization_id;
 
         $subscription = Subscription::find($organizationId);
+
+        return $subscription;
     }
 }

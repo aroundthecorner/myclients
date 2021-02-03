@@ -1608,10 +1608,12 @@ tr.datatable__row:last-child {
 }
 
 .your-subscription__loading {
-    height: 28px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -6px;
 }
 
 .your-subscription__title {
@@ -1621,7 +1623,7 @@ tr.datatable__row:last-child {
 .your-subscription__plan {
     border-radius: 20px;
     background: var(--color-xing);
-    padding: 2px 10px;
+    padding: 3px 10px 2px 10px;
     color: var(--color-yin);
     font-size: 14px;
     position: relative;
