@@ -125,13 +125,13 @@
 
 <script setup>
     import { useStore } from 'vuex'
-    import router from '../routes.js'
+    import router from '/@/routes.js'
     import { computed, ref } from 'vue'
-    import useEnv from '../features/useEnv.js'
-    import useAuth from '../features/useAuth.js'
-    import DropdownMenu from './DropdownMenu.vue'
-    import useHelpers from '../features/useHelpers.js'
-    import useLanguage from '../features/useLanguage.js'
+    import useEnv from '/@/features/useEnv.js'
+    import useAuth from '/@/features/useAuth.js'
+    import useHelpers from '/@/features/useHelpers.js'
+    import useLanguage from '/@/features/useLanguage.js'
+    import DropdownMenu from '/@/components/DropdownMenu.vue'
 
     const { env } = useEnv()
     const store = useStore()

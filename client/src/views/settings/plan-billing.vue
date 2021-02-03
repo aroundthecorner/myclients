@@ -65,9 +65,9 @@
 
 <script setup>
     import { ref } from 'vue'
-    import useLanguage from '../../features/useLanguage.js'
-    import NavigationSettings from '@/components/Navigation/Settings.vue'
-    import LoadingCircle from '../../components/Loading/Circle.vue'
+    import useLanguage from '/@/features/useLanguage.js'
+    import LoadingCircle from '/@/components/Loading/Circle.vue'
+    import NavigationSettings from '/@/components/Navigation/Settings.vue'
 
     const { lang } = useLanguage()
 

@@ -111,12 +111,12 @@
 
 <script setup>
     import { ref } from 'vue'
-    import ButtonApp from '../Button.vue'
-    import SvgLeftArrow from '../Svg/LeftArrow.vue'
-    import SvgDownArrow from '../Svg/DownArrow.vue'
-    import DropdownMenu from './../DropdownMenu.vue'
-    import SvgRightArrow from '../Svg/RightArrow.vue'
-    import useLanguage from '../../features/useLanguage.js'
+    import ButtonApp from '/@/components/Button.vue'
+    import SvgLeftArrow from '/@/components/Svg/LeftArrow.vue'
+    import SvgDownArrow from '/@/components/Svg/DownArrow.vue'
+    import DropdownMenu from '/@/components/DropdownMenu.vue'
+    import SvgRightArrow from '/@/components/Svg/RightArrow.vue'
+    import useLanguage from '/@/features/useLanguage.js'
     
     const { lang } = useLanguage()
     const showFilters = ref(false)

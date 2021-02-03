@@ -1,4 +1,4 @@
-import useEncryption from '../features/useEncryption.js'
+import useEncryption from '/@/features/useEncryption.js'
 
 export default function auth({ to, next, router }) {
     let user = localStorage.getItem('myclients_user')

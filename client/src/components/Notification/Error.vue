@@ -45,8 +45,8 @@
 <script setup>
     import { computed } from 'vue'
     import { useStore } from 'vuex'
-    import useEnv from '../../features/useEnv.js'
-    import useLanguage from '../../features/useLanguage.js'
+    import useEnv from '/@/features/useEnv.js'
+    import useLanguage from '/@/features/useLanguage.js'
 
     const { env } = useEnv()
     const store = useStore()

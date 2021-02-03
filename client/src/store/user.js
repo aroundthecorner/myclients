@@ -1,4 +1,4 @@
-import useEncryption from '../features/useEncryption.js'
+import useEncryption from '/@/features/useEncryption.js'
 
 const { encrypt } = useEncryption()
 

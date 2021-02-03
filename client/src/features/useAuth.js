@@ -1,10 +1,10 @@
 import { ref, computed } from 'vue'
-import router from '../routes.js'
-import Auth from '../api/auth.js'
-import store from '../store/index.js'
-import useEncryption from './useEncryption.js'
-import useOnline from '../features/useOnline.js'
-import useLanguage from '../features/useLanguage.js'
+import router from '/@/routes.js'
+import Auth from '/@/api/auth.js'
+import store from '/@/store/index.js'
+import useEncryption from '/@/features/useEncryption.js'
+import useOnline from '/@/features/useOnline.js'
+import useLanguage from '/@/features/useLanguage.js'
 
 function useAuth()
 {

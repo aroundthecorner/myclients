@@ -4,7 +4,7 @@ module.exports = {
     },
 
     alias: {
-        '/@/': path.resolve(__dirname, './src')
+        '/@/': require('path').resolve(__dirname, 'src')
     },
 
     hmr: {

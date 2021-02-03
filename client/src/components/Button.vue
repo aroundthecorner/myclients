@@ -16,7 +16,7 @@
 
 <script setup>
     import { defineProps } from 'vue'
-    import LoadingCircle from '../components/Loading/Circle.vue'
+    import LoadingCircle from '/@/components/Loading/Circle.vue'
 
     const props = defineProps({
         isLoading: Boolean,

@@ -97,7 +97,7 @@
 
 <script setup>
     import { ref, onMounted, onUnmounted } from 'vue'
-    import useCalendar from '../../../features/useCalendar.js'
+    import useCalendar from '/@/features/useCalendar.js'
 
     const { generateHours, getDecimalTime } = useCalendar()
 

@@ -1,6 +1,6 @@
 import { computed } from 'vue'
-import useEnv from './useEnv.js'
-import store from '../store/index.js'
+import store from '/@/store/index.js'
+import useEnv from '/@/features/useEnv.js'
 
 function useWebsocket()
 {

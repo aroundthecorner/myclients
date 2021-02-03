@@ -1,5 +1,5 @@
-import store from '../store/index.js'
-import useLanguage from '../features/useLanguage.js'
+import store from '/@/store/index.js'
+import useLanguage from '/@/features/useLanguage.js'
 
 const { lang } = useLanguage()
 

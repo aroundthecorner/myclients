@@ -1,6 +1,6 @@
 const API = 'api/user_profile.js'
-import useEnv from '../features/useEnv.js'
-import useHTTP from '../features/useHTTP.js'
+import useEnv from '/@/features/useEnv.js'
+import useHTTP from '/@/features/useHTTP.js'
 
 class UserProfile
 {

@@ -1,6 +1,6 @@
-import auth from './middleware/auth.js'
-import AppLayout from "./views/layouts/app.vue"
-import AuthLayout from "./views/layouts/auth.vue"
+import auth from '/@/middleware/auth.js'
+import AppLayout from "/@/views/layouts/app.vue"
+import AuthLayout from "/@/views/layouts/auth.vue"
 import { createWebHistory, createRouter } from "vue-router"
 
 const routes = [
@@ -12,67 +12,67 @@ const routes = [
             {
                 path: '',
                 name: "dashboard",
-                component: () => import('./views/dashboard.vue'),
+                component: () => import('/@/views/dashboard.vue'),
             },
 
             {
                 path: '/calendar',
                 name: "calendar",
-                component: () => import('./views/calendar.vue'),
+                component: () => import('/@/views/calendar.vue'),
             },
 
             {
                 path: '/settings/profile',
                 name: 'profileSettings',
-                component: () => import('./views/settings/profile.vue'),
+                component: () => import('/@/views/settings/profile.vue'),
             },
 
             {
                 path: '/settings/organization',
                 name: 'organizationSettings',
-                component: () => import('./views/settings/organization.vue'),
+                component: () => import('/@/views/settings/organization.vue'),
             },
 
             {
                 path: '/settings/users',
                 name: 'usersSettings',
-                component: () => import('./views/settings/users.vue'),
+                component: () => import('/@/views/settings/users.vue'),
             },
 
             {
                 path: '/settings/plan-billing',
                 name: 'usersPlanBilling',
-                component: () => import('./views/settings/plan-billing.vue'),
+                component: () => import('/@/views/settings/plan-billing.vue'),
             },
 
             {
                 path: '/admin-panel/chat',
                 name: 'adminPanelChat',
-                component: () => import('./views/admin-panel/chat.vue'),
+                component: () => import('/@/views/admin-panel/chat.vue'),
             },
 
             {
                 path: '/admin-panel/screen',
                 name: 'adminPanelScreen',
-                component: () => import('./views/admin-panel/screen.vue'),
+                component: () => import('/@/views/admin-panel/screen.vue'),
             },
 
             {
                 path: '/admin-panel/clients-users/clients',
                 name: 'adminPanelClientsUsersClients',
-                component: () => import('./views/admin-panel/clients-users-clients.vue'),
+                component: () => import('/@/views/admin-panel/clients-users-clients.vue'),
             },
 
             {
                 path: '/admin-panel/clients-users/users',
                 name: 'adminPanelClientsUsersUsers',
-                component: () => import('./views/admin-panel/clients-users-users.vue'),
+                component: () => import('/@/views/admin-panel/clients-users-users.vue'),
             },
 
             {
                 path: '/admin-panel/send-message',
                 name: 'adminPanelSendMessage',
-                component: () => import('./views/admin-panel/send-message.vue'),
+                component: () => import('/@/views/admin-panel/send-message.vue'),
             },
         ],
 
@@ -88,7 +88,7 @@ const routes = [
             {
                 path: '',
                 name: "login",
-                component: () => import('./views/auth/login.vue'),
+                component: () => import('/@/views/auth/login.vue'),
             }
         ],
     },
@@ -100,7 +100,7 @@ const routes = [
             {
                 path: '',
                 name: "register",
-                component: () => import('./views/auth/register.vue'),
+                component: () => import('/@/views/auth/register.vue'),
             }
         ],
     },
@@ -112,7 +112,7 @@ const routes = [
             {
                 path: '',
                 name: "forgotPassword",
-                component: () => import('./views/auth/forgot-password.vue'),
+                component: () => import('/@/views/auth/forgot-password.vue'),
             }
         ],
     },
@@ -124,7 +124,7 @@ const routes = [
             {
                 path: '',
                 name: "resetPassword",
-                component: () => import('./views/auth/reset-password.vue'),
+                component: () => import('/@/views/auth/reset-password.vue'),
             }
         ],
     },

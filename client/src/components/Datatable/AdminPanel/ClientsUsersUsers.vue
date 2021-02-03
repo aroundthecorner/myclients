@@ -196,10 +196,10 @@
 <script setup>
     import { useStore } from 'vuex'
     import { ref, computed } from 'vue'
-    import ButtonApp from '../../Button.vue'
-    import useEnv from '../../../features/useEnv.js'
-    import LoadingLinear from '../../Loading/Linear.vue'
-    import useLanguage from '../../../features/useLanguage.js'
+    import useEnv from '/@/features/useEnv.js'
+    import ButtonApp from '/@/components/Button.vue'
+    import useLanguage from '/@/features/useLanguage.js'
+    import LoadingLinear from '/@/components/Loading/Linear.vue'
 
     const { env } = useEnv()
     const store = useStore()

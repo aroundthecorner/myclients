@@ -24,8 +24,8 @@
 
 <script setup>
     import { computed } from 'vue'
-    import router from '../../routes.js'
-    import useLanguage from '../../features/useLanguage.js'
+    import router from '/@/routes.js'
+    import useLanguage from '/@/features/useLanguage.js'
 
     const { lang } = useLanguage()
 

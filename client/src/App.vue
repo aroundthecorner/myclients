@@ -9,13 +9,13 @@
 
 <script setup>
     import { useStore } from 'vuex'
-    import router from './routes.js'
+    import router from '/@/routes.js'
     import { computed, inject } from 'vue'
-    import useAuth from './features/useAuth.js'
-    import useOnline from './features/useOnline.js'
-    import useWebsocket from './features/useWebsocket.js'
-    import NotificationError from './components/Notification/Error.vue'
-    import NotificationMessage from './components/Notification/Message.vue'
+    import useAuth from '/@/features/useAuth.js'
+    import useOnline from '/@/features/useOnline.js'
+    import useWebsocket from '/@/features/useWebsocket.js'
+    import NotificationError from '/@/components/Notification/Error.vue'
+    import NotificationMessage from '/@/components/Notification/Message.vue'
 
     const store = useStore()
     const { restoreSession } = useAuth()

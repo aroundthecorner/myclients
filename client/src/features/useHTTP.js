@@ -1,5 +1,5 @@
-import useEncryption from './useEncryption.js'
-import useErrorHandling  from './useErrorHandling.js'
+import useEncryption from '/@/features/useEncryption.js'
+import useErrorHandling  from '/@/features/useErrorHandling.js'
 
 function useURL()
 {

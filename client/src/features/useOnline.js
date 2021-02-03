@@ -1,7 +1,7 @@
 import { computed } from 'vue'
-import store from '../store/index.js'
-import useAuth from '../features/useAuth.js'
-import UserOnline from '../api/user_online.js'
+import store from '/@/store/index.js'
+import useAuth from '/@/features/useAuth.js'
+import UserOnline from '/@/api/user_online.js'
 
 function useOnline()
 {

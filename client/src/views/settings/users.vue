@@ -15,9 +15,9 @@
 </template>
 
 <script setup>
-    import useLanguage from '../../features/useLanguage.js'
-    import NavigationSettings from '../../components/Navigation/Settings.vue'
-    import DatatableUsers from '../../components/Datatable/Settings/Users.vue'
+    import useLanguage from '/@/features/useLanguage.js'
+    import NavigationSettings from '/@/components/Navigation/Settings.vue'
+    import DatatableUsers from '/@/components/Datatable/Settings/Users.vue'
 
     const { lang } = useLanguage()
 </script>

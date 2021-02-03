@@ -205,12 +205,12 @@
     import { useStore } from 'vuex'
     import { computed, ref } from 'vue';
 
-    import useEnv from '../../features/useEnv.js'
-    import ButtonApp from '../../components/Button.vue'
-    import UserProfile from '../../api/user_profile.js'
-    import useLanguage from '../../features/useLanguage.js'
-    import DropdownMenu from '../../components/DropdownMenu.vue'
-    import NavigationSettings from '../../components/Navigation/Settings.vue'
+    import useEnv from '/@/features/useEnv.js'
+    import ButtonApp from '/@/components/Button.vue'
+    import UserProfile from '/@/api/user_profile.js'
+    import useLanguage from '/@/features/useLanguage.js'
+    import DropdownMenu from '/@/components/DropdownMenu.vue'
+    import NavigationSettings from '/@/components/Navigation/Settings.vue'
     
     const store = useStore()
     const { lang } = useLanguage()

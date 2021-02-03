@@ -76,12 +76,12 @@
 <script setup>
     import { useStore } from 'vuex'
     import { ref, reactive, computed } from 'vue'
-    import ButtonApp from '../../components/Button.vue'
-    import useLanguage from '../../features/useLanguage.js'
-    import DropdownMenu from '../../components/DropdownMenu.vue'
-    import UserOrganization from '../../api/user_organization.js'
-    import OrganizationTypes from '../../api/organization_types.js'
-    import NavigationSettings from '../../components/Navigation/Settings.vue'
+    import ButtonApp from '/@/components/Button.vue'
+    import useLanguage from '/@/features/useLanguage.js'
+    import DropdownMenu from '/@/components/DropdownMenu.vue'
+    import UserOrganization from '/@/api/user_organization.js'
+    import OrganizationTypes from '/@/api/organization_types.js'
+    import NavigationSettings from '/@/components/Navigation/Settings.vue'
     
     const store = useStore()
     const { lang } = useLanguage()

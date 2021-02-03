@@ -125,10 +125,10 @@
 
 <script setup>
     import { ref } from 'vue';
-    import ButtonApp from '../../components/Button.vue'
-    import useLanguage from '../../features/useLanguage.js'
-    import DropdownMenu from '../../components/DropdownMenu.vue'
-    import NavigationAdminPanel from '../../components/Navigation/AdminPanel.vue'
+    import ButtonApp from '/@/components/Button.vue'
+    import useLanguage from '/@/features/useLanguage.js'
+    import DropdownMenu from '/@/components/DropdownMenu.vue'
+    import NavigationAdminPanel from '/@/components/Navigation/AdminPanel.vue'
     
     const { lang } = useLanguage()
     const showOrganizationsMenu = ref(false)

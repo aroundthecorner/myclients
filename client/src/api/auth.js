@@ -1,6 +1,6 @@
 const API = 'api/auth.js'
-import useEnv from '../features/useEnv.js'
-import useHTTP from '../features/useHTTP.js'
+import useEnv from '/@/features/useEnv.js'
+import useHTTP from '/@/features/useHTTP.js'
 
 class Auth
 {

@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-    import useLanguage from '../../features/useLanguage.js'
+    import useLanguage from '/@/features/useLanguage.js'
     
     const { lang } = useLanguage()
 </script>

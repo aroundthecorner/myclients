@@ -11,6 +11,6 @@
 </template>
 
 <script setup>
-    import SidebarApp from '../../components/Sidebar.vue'
-    import MessageGlobal from '../../components/Notification/MessageGlobal.vue'
+    import SidebarApp from '/@/components/Sidebar.vue'
+    import MessageGlobal from '/@/components/Notification/MessageGlobal.vue'
 </script>

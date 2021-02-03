@@ -1,4 +1,4 @@
-import Languages from '../api/languages.js'
+import Languages from '/@/api/languages.js'
 
 export default {
     namespaced: true,

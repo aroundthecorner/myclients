@@ -111,12 +111,12 @@
 </template>
 
 <script setup>
-    import router from '../../routes.js'
-    import useAuth from '../../features/useAuth.js'
-    import SvgUser from '../../components/Svg/User.vue'
-    import SvgCheck from '../../components/Svg/Check.vue'
-    import SvgLock from '../../components/Svg/Lock.vue'
-    import ButtonApp from '../../components/Button.vue'
+    import router from '/@/routes.js'
+    import useAuth from '/@/features/useAuth.js'
+    import SvgUser from '/@/components/Svg/User.vue'
+    import SvgCheck from '/@/components/Svg/Check.vue'
+    import SvgLock from '/@/components/Svg/Lock.vue'
+    import ButtonApp from '/@/components/Button.vue'
 
     const { login, email, password, isLoading, userLoggedIn,
             checkUserExists, userExists } = useAuth()

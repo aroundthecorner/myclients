@@ -15,9 +15,9 @@
 </template>
 
 <script setup>
-    import useLanguage from '../../features/useLanguage.js'
-    import NavigationAdminPanel from '../../components/Navigation/AdminPanel.vue'
-    import DatatableUsers from '../../components/Datatable/AdminPanel/ClientsUsersUsers.vue'
+    import useLanguage from '/@/features/useLanguage.js'
+    import NavigationAdminPanel from '/@/components/Navigation/AdminPanel.vue'
+    import DatatableUsers from '/@/components/Datatable/AdminPanel/ClientsUsersUsers.vue'
     
     const { lang } = useLanguage()
 </script>

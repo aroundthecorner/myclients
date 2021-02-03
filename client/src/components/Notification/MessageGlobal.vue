@@ -18,7 +18,7 @@
 <script setup>
     import { computed } from 'vue'
     import { useStore } from 'vuex'
-    import SvgClose from '../Svg/Close.vue'
+    import SvgClose from '/@/components/Svg/Close.vue'
 
     const store = useStore()
     const messageGlobal = computed(() => store.state.app.messageGlobal)
