@@ -73,6 +73,7 @@ Route::patch('user-settings/organization',      [UserOrganizationController::cla
  * Organization subscription
  */
 Route::get('organization/subscription',         [OrganizationSubscriptionController::class, 'show']);
+Route::patch('organization/subscription',       [OrganizationSubscriptionController::class, 'update']);
 
 
 /**

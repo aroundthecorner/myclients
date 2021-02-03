@@ -28,4 +28,14 @@ class OrganizationSubscriptionController extends Controller
 
         return $subscription;
     }
+
+    /**
+     * Update organization's subscription plan
+     */
+    public function update(ShowOrganizationSubscriptionRequest $request)
+    {
+        $request = request()->only(['id', 'plan']);
+
+        Subscription::find($request['id'])->update($request);
+    }
 }

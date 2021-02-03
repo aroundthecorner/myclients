@@ -20,6 +20,24 @@ class OrganizationSubscription
 
         return response
     }
+
+    /**
+     * Update the organization's subscription plan
+     */
+    static async update(data)
+    {
+        const { env } = useEnv()
+        const { HTTP, authHeaders, jsonHeaders } = useHTTP()
+
+        const response = await HTTP.patch(`${env('VITE_SERVER_URL')}/organization/subscription`, {
+            headers: { ...authHeaders, ...jsonHeaders  },
+            body: JSON.stringify(data),
+            clientAPI: `${API} @ update`,
+            returnResponse: false,
+        })
+
+        return response
+    }
 }
 
 export default OrganizationSubscription

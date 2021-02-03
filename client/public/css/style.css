@@ -1630,6 +1630,7 @@ tr.datatable__row:last-child {
     top: 1px;
     height: 28px;
     min-width: 70px;
+    text-align: center;
 }
 
 .subscription-plans {
