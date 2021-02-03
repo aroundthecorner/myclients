@@ -1607,6 +1607,13 @@ tr.datatable__row:last-child {
     align-items: center;
 }
 
+.your-subscription__loading {
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .your-subscription__title {
     font-size: 22px;
 }
@@ -1619,6 +1626,8 @@ tr.datatable__row:last-child {
     font-size: 14px;
     position: relative;
     top: 1px;
+    height: 28px;
+    min-width: 70px;
 }
 
 .subscription-plans {

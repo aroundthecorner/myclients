@@ -11,10 +11,12 @@
                 <div class="your-subscription">
                     <div class="your-subscription__title">{{ lang('Your Subscription Plan') }}</div>
                     
-                    <div class="your-subscription__plan">{{ lang('Monthly') }}</div>
-                    
-                    <div>
-                        <loading-circle color="#fff" />
+                    <div class="your-subscription__plan">
+                        <div v-if="!isLoading">{{ lang('Monthly') }}</div>
+
+                        <div v-else class="your-subscription__loading">
+                            <loading-circle color="#fff" />
+                        </div>
                     </div>
                 </div>
 
@@ -68,14 +70,21 @@
     import useLanguage from '/@/features/useLanguage.js'
     import LoadingCircle from '/@/components/Loading/Circle.vue'
     import NavigationSettings from '/@/components/Navigation/Settings.vue'
+    import OrganizationSubscription from '/@/api/organization_subscription.js'
 
     const { lang } = useLanguage()
 
     const isLoading = ref(false)
+    const subscription = ref('')
 
     getOrganizationSubscription()
 
     async function getOrganizationSubscription() {
         isLoading.value = true
+
+        const result = await OrganizationSubscription.get()
+        subscription.value = result
+
+        isLoading.value = false
     }
 </script>

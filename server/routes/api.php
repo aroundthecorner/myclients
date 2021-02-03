@@ -10,6 +10,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserOrganizationController;
 use App\Http\Controllers\OrganizationTypesController;
 use App\Http\Controllers\UserProfilePictureController;
+use App\Http\Controllers\OrganizationSubscriptionController;
 
 
 /**
@@ -69,10 +70,14 @@ Route::patch('user-settings/organization',      [UserOrganizationController::cla
 
 
 /**
+ * Organization subscription
+ */
+Route::get('organization/subscription',         [OrganizationSubscriptionController::class, 'show']);
+
+
+/**
  * Area 51
  */
 Route::get('area51', function() {
-    // return request()->user();
-    // return request()->user()->currentAccessToken();
-    // return request()->user()->currentAccessToken()->delete();
+    // 
 });
