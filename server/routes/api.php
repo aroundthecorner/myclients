@@ -7,6 +7,7 @@ use App\Http\Controllers\ProjectAgeController;
 use App\Http\Controllers\UserOnlineController;
 use App\Http\Controllers\UserActiveController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\UserOrganizationController;
 use App\Http\Controllers\OrganizationTypesController;
 use App\Http\Controllers\UserProfilePictureController;
 
@@ -59,6 +60,12 @@ Route::post('user-settings/profile-picture',    [UserProfilePictureController::c
  * User profile settings
  */
 Route::patch('user-settings/profile',           [UserProfileController::class, 'update']);
+
+
+/**
+ * User organization settings
+ */
+Route::patch('user-settings/organization',      [UserOrganizationController::class, 'update']);
 
 
 /**

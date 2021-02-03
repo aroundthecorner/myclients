@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Organization;
 
-class UserProfileController extends Controller
+class UserOrganizationController extends Controller
 {
     /**
      * Instantiate a new controller instance.
@@ -18,29 +19,20 @@ class UserProfileController extends Controller
     }
 
     /**
-     * Update user's profile settings
+     * Update user's organization settings
      */
     public function update()
     {
-        $profileData = $this->filterEmpty(request()->only([
-            'name', 'email', 'password', 'theme', 'language'
-        ]));
+        $request = request()->only(['organizationName', 'organizationType']);
 
-        if (isset($profileData['password'])) {
-            $profileData['password'] = bcrypt($profileData['password']);
-        }
+        $organization = Organization::find(auth()->user()->organization_id);
 
-        User::find(auth()->id())->update($profileData);
+        $organization->update([
+            'description' => $request['organizationName'],
+            'organization_type_id' => $request['organizationType']['id'],
+        ]);
 
         return response()->json($this->getUser());
-    }
-
-    /**
-     * Filter empty values
-     */
-    public function filterEmpty($array)
-    {
-        return array_filter($array, fn($value) => !is_null($value) && $value !== '');
     }
 
     /**
