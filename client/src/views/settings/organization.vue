@@ -75,7 +75,7 @@
 
 <script setup>
     import { useStore } from 'vuex'
-    import { ref, reactive, computed } from 'vue';
+    import { ref, reactive, computed } from 'vue'
     import ButtonApp from '../../components/Button.vue'
     import useLanguage from '../../features/useLanguage.js'
     import DropdownMenu from '../../components/DropdownMenu.vue'

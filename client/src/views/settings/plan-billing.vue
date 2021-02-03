@@ -10,7 +10,12 @@
             <div class="page-container__content">
                 <div class="your-subscription">
                     <div class="your-subscription__title">{{ lang('Your Subscription Plan') }}</div>
+                    
                     <div class="your-subscription__plan">{{ lang('Monthly') }}</div>
+                    
+                    <div>
+                        <loading-circle color="#fff" />
+                    </div>
                 </div>
 
                  <div class="settings-items">
@@ -59,8 +64,18 @@
 </template>
 
 <script setup>
+    import { ref } from 'vue'
     import useLanguage from '../../features/useLanguage.js'
-    import NavigationSettings from '../../components/Navigation/Settings.vue'
+    import NavigationSettings from '@/components/Navigation/Settings.vue'
+    import LoadingCircle from '../../components/Loading/Circle.vue'
 
     const { lang } = useLanguage()
+
+    const isLoading = ref(false)
+
+    getOrganizationSubscription()
+
+    async function getOrganizationSubscription() {
+        isLoading.value = true
+    }
 </script>
