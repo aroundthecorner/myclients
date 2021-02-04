@@ -190,6 +190,7 @@
     import ButtonApp from '/@/components/Button.vue'
     import useLanguage from '/@/features/useLanguage.js'
     import LoadingLinear from '/@/components/Loading/Linear.vue'
+    import OrganizationUsers from '/@/api/organization_users.js'
 
     const { env } = useEnv()
     const store = useStore()
@@ -220,6 +221,16 @@
         prevPage: 1,
     })
 
+    const user = computed(() => store.state.user)
+
+    fetchData()
+
+    async function fetchData() {
+        const result = await OrganizationUsers.get({
+            organizationId: user.value.organization_id
+        })
+    }
+
     const searchedRows = computed(() => {
         if (!searchQuery.value) return []
 
@@ -227,8 +238,6 @@
             return row.name.includes(searchQuery.value) || row.email.includes(searchQuery.value)
         })
     })
-
-    const user = computed(() => store.state.user)
 
     const prevPageClass = computed(() => {
         return {

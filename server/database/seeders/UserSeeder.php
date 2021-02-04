@@ -19,12 +19,12 @@ class UserSeeder extends Seeder
             'name' => 'Mārtiņš Zeltiņš',
             'email' => 'admin@myclients.org',
             'role' => 'root',
-            'organization_id' => Organization::factory()->create()->id,
+            'organization_id' => 1,
             'profile_picture' => 'img/martins_profile_picture.png',
         ]);
 
-        User::factory()->create([
-            'organization_id' => Organization::factory()->create()->id,
+        User::factory()->count(50)->create([
+            'organization_id' => 1,
         ]);
     }
 }

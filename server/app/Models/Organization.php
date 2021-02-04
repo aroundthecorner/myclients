@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\OrganizationType;
 use App\Events\OrganizationCreated;
 use Illuminate\Database\Eloquent\Model;
@@ -29,5 +30,13 @@ class Organization extends Model
     public function organizationType()
     {
         return $this->belongsTo(OrganizationType::class, 'organization_type_id');
+    }
+
+    /**
+     * Organization's users
+     */
+    public function users()
+    {
+        return $this->hasMany(User::class, 'organization_id');
     }
 }
