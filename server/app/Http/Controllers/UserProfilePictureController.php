@@ -39,7 +39,7 @@ class UserProfilePictureController extends Controller
     /**
      * Upload the user's profile picture
      */
-    public function uploadFile()
+    private function uploadFile()
     {
         $extension = request()->file('file')->extension();
         $filename = Str::random(30) . ".$extension";
@@ -55,7 +55,7 @@ class UserProfilePictureController extends Controller
      *
      * @param  string  $filename
      */
-    public function updateUserProfilePicture($filename)
+    private function updateUserProfilePicture($filename)
     {
         User::find(auth()->id())->update([ 'profile_picture' => $filename ]);
     }
@@ -65,7 +65,7 @@ class UserProfilePictureController extends Controller
      *
      * @param  string  $filename
      */
-    public function cropImage($filename)
+    private function cropImage($filename)
     {
         $path = storage_path("app/public/img/uploads/$filename");
 

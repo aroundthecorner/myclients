@@ -38,7 +38,7 @@ class UserProfileController extends Controller
     /**
      * Filter empty values
      */
-    public function filterEmpty($array)
+    private function filterEmpty($array)
     {
         return array_filter($array, fn($value) => !is_null($value) && $value !== '');
     }
@@ -46,7 +46,7 @@ class UserProfileController extends Controller
     /**
      * Get current user
      */
-    public function getUser()
+    private function getUser()
     {
         return User::whereId(auth()->id())
                    ->with('organization:id,description,organization_type_id')

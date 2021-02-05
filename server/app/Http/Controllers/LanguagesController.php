@@ -37,7 +37,7 @@ class LanguagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getLanguageTranslations()
+    private function getLanguageTranslations()
     {
         return LanguageTranslation::join(
             'languages', 'languages.id', '=', 'language_translations.lang_id'

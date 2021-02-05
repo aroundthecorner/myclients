@@ -38,7 +38,7 @@ class UserOrganizationController extends Controller
     /**
      * Get current user
      */
-    public function getUser()
+    private function getUser()
     {
         return User::whereId(auth()->id())
                    ->with('organization:id,description,organization_type_id')

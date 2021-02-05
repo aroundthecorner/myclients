@@ -186,7 +186,7 @@ class AuthController extends Controller
      *
      * @return string
      */
-    public function throttleKey()
+    private function throttleKey()
     {
         return Str::lower(request('email')) . '|' . request()->ip();
     }
@@ -196,7 +196,7 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function checkTooManyFailedAttempts()
+    private function checkTooManyFailedAttempts()
     {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 10)) {
             return;
