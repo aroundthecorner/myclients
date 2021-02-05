@@ -26,6 +26,10 @@ $ docker-compose logs (after the previous command has finished)
 The website will be running at [http://localhost:6455/](http://localhost:6455/)<br>
 The app will be running at [http://localhost:47344/](http://localhost:47344/)
 
+![Screenshot 1](https://www.martinsz.lv/myclients1.jpg "Screenshot 1")
+
+![Screenshot 2](https://www.martinsz.lv/myclients2.jpg "Screenshot 2")
+
 ### 📑 License
 
 [MIT](http://opensource.org/licenses/MIT)
