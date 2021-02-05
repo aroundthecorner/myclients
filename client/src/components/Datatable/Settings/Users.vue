@@ -229,6 +229,8 @@
         const result = await OrganizationUsers.get({
             organizationId: user.value.organization_id
         })
+
+        data.value.rows = result
     }
 
     const searchedRows = computed(() => {

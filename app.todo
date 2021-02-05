@@ -31,9 +31,11 @@
           - See screen with html2canvas (screenshot via websockets)
           - not one root user but multiple to be able to see access logs for each
 17. FIX: Update scaffolding (include logger) 
-18. FIX: replace imports with @/...
 19. FIX: Leave settings, admin panel only for Root and admin, not regular users
-20. FIX: Get rid of localhost so it can be viewed from other network pc on local
+
+    Settings > Users
+      - No need for server side searching, sorting, filters if there is only one page (!)
+      - Otherwise, yes perform a backend request
 
 
 
