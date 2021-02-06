@@ -29,7 +29,7 @@
 
             <!-- Loading... -->
             <div v-if="isLoading" class="datatable__loading">
-                <loading-linear borderRadius="0 0 4px 4px" />
+                <loading-linear borderRadius="0 0 100px 100px" />
             </div>
 
             <thead>

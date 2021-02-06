@@ -6,9 +6,12 @@ class UserFilters extends Filters
 {
     protected $filters = ['search', 'name', 'email', 'role', 'created_at'];
 
-    public function search($query)
+    public function search($keyword)
     {
-        return $this->builder->where('name', 'like', "%$query%");
+        return $this->builder->where(function ($query) use ($keyword) {
+               $query->where('name', 'like', "%$keyword%")
+                     ->orWhere('email', 'like', "%$keyword%");
+        });
     }
 
     public function name()
