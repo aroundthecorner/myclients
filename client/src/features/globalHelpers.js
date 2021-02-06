@@ -34,3 +34,11 @@ String.prototype.limit = function(n) {
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1)
 }
+
+/**
+ * Convert date time to human format
+ */
+window.datetime = function (datetime) {
+    let date = new Date(datetime)
+    return date.toDateString()
+}

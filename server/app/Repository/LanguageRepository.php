@@ -96,6 +96,7 @@ class LanguageRepository
             'lv',
             'Uploaded file invalid',
             'The file must be an image less than 5 MB',
+            'total',
         ];
 
         $languages = [
@@ -197,6 +198,7 @@ class LanguageRepository
                     'Latviešu',
                     'Uploaded file invalid',
                     'The file must be an image less than 5 MB',
+                    'total',
                 ]
             ],
 
@@ -298,6 +300,7 @@ class LanguageRepository
                     'Latviešu',
                     'Fails nav pareizs',
                     'Failam ir jābūt attēlam ne lielākam par 5 MB',
+                    'kopā',
                 ]
             ],
         ];

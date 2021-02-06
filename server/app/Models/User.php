@@ -44,4 +44,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Organization::class);
     }
+
+    /**
+     * Filter users
+     */
+    public function scopeFilter($query, $filters)
+    {
+        return $filters->apply($query);
+    }
 }

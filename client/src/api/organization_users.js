@@ -12,7 +12,7 @@ class OrganizationUsers
         const { env } = useEnv()
         const { HTTP, authHeaders, jsonHeaders } = useHTTP()
 
-        const response = await HTTP.get(`${env('VITE_SERVER_URL')}/organization/${data.organizationId}/users`, {
+        const response = await HTTP.get(`${env('VITE_SERVER_URL')}/organization/${data.organizationId}/users/?perPage=${data.perPage}&search=${data.search}`, {
             headers: { ...authHeaders, ...jsonHeaders  },
             clientAPI: `${API} @ get`,
             returnResponse: true,

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Organization;
+use App\Filters\UserFilters;
 use App\Http\Requests\OrganizationUsersRequest;
 
 class OrganizationUsersController extends Controller
@@ -20,8 +22,10 @@ class OrganizationUsersController extends Controller
     /**
      * Return the users of an organization
      */
-    public function index(OrganizationUsersRequest $request, Organization $organization)
+    public function index(OrganizationUsersRequest $request, Organization $organization, UserFilters $filters)
     {
-        return $organization->users;
+        return User::whereOrganizationId($organization->id)
+                   ->filter($filters)
+                   ->paginate($request->perPage);
     }
 }

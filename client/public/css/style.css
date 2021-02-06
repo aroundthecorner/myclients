@@ -1458,10 +1458,17 @@ tr.datatable__row:last-child {
     padding-right: 0;
 }
 
+.datatable__total {
+    color: var(--color-hippo);
+    font-style: italic;
+}
+
 .datatable-users__toolbar {
     display: flex;
     justify-content: space-between;
     margin: 10px 0 30px 0;
+    align-items: center;
+    gap: 20px;
 }
 
 .datatable-clients-users__toolbar {

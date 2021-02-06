@@ -1,18 +1,30 @@
 <template>
     <div class="datatable-users__toolbar">
         <input
+            @keyup="performSearch"
             type="text"
             placeholder="Search"
-            v-model="searchQuery"
+            v-model="search"
             class="app-input w-300"
         />
+
+        <div class="spacer"></div>
+
+        <div v-if="!search" class="datatable__total">
+            {{ Number(total).toLocaleString() }} {{ lang('total') }}
+        </div>
+
+        <button-app
+            class="button--secondary">
+            {{ lang('Filters') }}
+        </button-app>
 
         <button-app class="button--primary">
             {{ lang('New user') }}
         </button-app>
     </div>
 
-    <div class="datatable-container">
+    <div @scroll="onDatatableScroll" class="datatable-container">
         <table class="datatable">
 
             <!-- Loading... -->
@@ -21,59 +33,7 @@
             </div>
 
             <thead>
-                <!-- Filters -->
-                <tr
-                    v-if="showFilters"
-                    class="datatable__filters"
-                    :class="{ sticky: stickyHeader }">
-                    
-                    <td class="datatable__cell">
-                        <button>Filter 1</button>
-                    </td>
-
-                    <td class="datatable__cell">
-                        <button>Filter 3</button>
-                    </td>
-
-                    <td class="datatable__cell">
-                        <button>Filter 4</button>
-                    </td>
-
-                    <td class="datatable__cell">
-                        <input />
-                    </td>
-
-                    <td class="datatable__cell">
-                        <button>Filter 5</button>
-                    </td>
-
-                    <td class="datatable__cell">
-                        <button>Filter 6</button>
-                    </td>
-
-                    <td class="datatable__cell">
-                        <input />
-                    </td>
-
-                    <td class="datatable__cell">
-                        <input />
-                    </td>
-
-                    <td class="datatable__cell">
-                        <button>Filter 7</button>
-                    </td>
-
-                    <td class="datatable__cell">
-                        <button>Filter 8</button>
-                    </td>
-
-                    <td class="datatable__cell">
-                        <button>Filter 9</button>
-                    </td>
-                </tr>
-
-                <!-- Headings -->
-                <tr class="datatable__header" :class="{ sticky: stickyHeader }">
+                <tr class="datatable__header sticky">
                     <td class="datatable__cell w-25p" @click="sortBy('')">{{ lang('Name') }}</td>
                     <td class="datatable__cell" @click="sortBy('')">{{ lang('Role') }}</td>
                     <td class="datatable__cell" @click="sortBy('')">{{ lang('Email') }}</td>
@@ -82,13 +42,12 @@
                 </tr>
             </thead>
 
-
             <!-- Rows -->
             <tbody>
-                <template v-if="data.rows !== undefined">
+                <template v-if="rows !== undefined">
                     <tr
-                        v-for="n in 50"
-                        :key="n"
+                        v-for="row in searchedRows"
+                        :key="row.id"
                         class="datatable__row"
                         :class="{ 'datatable__loading-on': isLoading }">
 
@@ -97,20 +56,20 @@
                                 <div>
                                     <img
                                         class="datatable__user-name-img sidebar__profile-pic sidebar__profile-pic--no-border"
-                                        :src="`${env('VITE_SERVER_URL')}/${user.profile_picture}`"
+                                        :src="`${env('VITE_SERVER_URL')}/${row.profile_picture}`"
                                     />
                                 </div>
 
                                 <div class="datatable__user-text">
-                                    <div class="datatable__user-title">Mārtiņš Zeltiņš</div>
-                                    <div class="datatable__user-subtitle">{{ lang('root') }}</div>
+                                    <div class="datatable__user-title">{{ row.name }}</div>
+                                    <div class="datatable__user-subtitle">{{ lang(row.role) }}</div>
                                 </div>
                             </div>
                         </td>
 
-                        <td class="datatable__cell">{{ lang('root') }}</td>
-                        <td class="datatable__cell">admin@myclients.org</td>
-                        <td class="datatable__cell">25.11.2020</td>
+                        <td class="datatable__cell">{{ lang(row.role) }}</td>
+                        <td class="datatable__cell">{{ row.email }}</td>
+                        <td class="datatable__cell">{{ datetime(row.created_at) }}</td>
 
                         <td class="datatable__cell text-right">
                             <i class="las la-ellipsis-h datatable__more"></i>
@@ -121,7 +80,7 @@
 
             <tfoot
                 class="datatable__footer"
-                v-if="data.rows !== undefined && showFooter">
+                v-if="rows !== undefined && showFooter">
 
                 <tr>
                     <td></td>
@@ -133,141 +92,78 @@
             </tfoot>
         </table>
     </div>
-
-    <!-- Pagination -->
-    <div
-        v-if="pagination.totalPages > 1 && showPagination"
-        class="datatable__pagination">
-        
-        <ul class="datatable__pagination-items">
-            <li :class="prevPageClass" @click="prevPage">
-                <a>prev</a>
-            </li>
-
-            <li
-                @click="goToPage(pagination.firstPage)"
-                v-if="pagination.currentPage > pagination.firstPage">
-
-                <a>{{ pagination.firstPage }}</a>
-            </li>
-
-            <li
-                v-if="(pagination.currentPage - 1) > pagination.firstPage"
-                @click="goToPage(pagination.prevPage)">
-
-                <a>{{ pagination.prevPage }}</a>
-            </li>
-
-            <li class="datatable__pagination-active">
-                <a>{{ pagination.currentPage }}</a>
-            </li>
-
-            <li
-                v-if="(pagination.currentPage + 1) < pagination.totalPages"
-                @click="goToPage(pagination.nextPage)">
-
-                <a>{{ pagination.nextPage }}</a>
-            </li>
-
-            <li
-                v-if="pagination.currentPage < pagination.totalPages"
-                @click="goToPage(pagination.totalPages)">
-                
-                <a>{{ pagination.totalPages }}</a>
-            </li>
-
-            <li :class="nextPageClass" @click="nextPage">
-                <a>next</a>
-            </li>
-        </ul>
-    </div>
 </template>
 
 <script setup>
+    import { ref, computed, onMounted, onUnmounted } from 'vue'
     import { useStore } from 'vuex'
-    import { ref, computed } from 'vue'
     import useEnv from '/@/features/useEnv.js'
     import ButtonApp from '/@/components/Button.vue'
     import useLanguage from '/@/features/useLanguage.js'
     import LoadingLinear from '/@/components/Loading/Linear.vue'
     import OrganizationUsers from '/@/api/organization_users.js'
+    import { useDebounceFn } from '@vueuse/core'
 
     const { env } = useEnv()
     const store = useStore()
     const { lang } = useLanguage()
 
+    const user = computed(() => store.state.user)
+
+    const perPage = ref(25)
+    const search = ref('')
+    const rows = ref(null)
     const isLoading = ref(false)
     const showFooter = ref(false)
-    const showFilters = ref(false)
-    const stickyHeader = ref(true)
-    const showCheckbox = ref(false)
-    const showPagination = ref(false)
-    const searchQuery = ref('')
-
-    const data = ref({
-        rows: [
-            { id: 1, name: 'Martins Zeltins', email: 'thatguy@gmail.com' },
-            { id: 2, name: 'Egils Levits', email: 'him@gmail.com' },
-            { id: 3, name: 'Bils Geitss', email: 'richdude@gmail.com' },
-            { id: 4, name: 'Steve Jobs', email: 'appleman@gmail.com' },
-            { id: 5, name: 'Elon Musk', email: 'rocketman@gmail.com' },
-        ]
-    })
-
-    const pagination = ref({
-        totalPages: 2,
-        currentPage: 1,
-        firstPage: 1,
-        prevPage: 1,
-    })
-
-    const user = computed(() => store.state.user)
+    const total = ref('')
+    const datatableContainer = ref(null)
 
     fetchData()
 
     async function fetchData() {
+        isLoading.value = true
+
         const result = await OrganizationUsers.get({
-            organizationId: user.value.organization_id
+            organizationId: user.value.organization_id,
+            perPage: perPage.value,
+            search: search.value,
         })
 
-        data.value.rows = result
+        rows.value = result.data
+
+        if (!search.value) {
+            total.value = result.total 
+        }
+
+        isLoading.value = false
     }
 
     const searchedRows = computed(() => {
-        if (!searchQuery.value) return []
+        if (!search.value) return rows.value
 
-        return data.value.rows.filter(row => {
-            return row.name.includes(searchQuery.value) || row.email.includes(searchQuery.value)
+        return rows.value.filter(row => {
+            return row.name.includes(search.value) || row.email.includes(search.value)
         })
-    })
-
-    const prevPageClass = computed(() => {
-        return {
-            'enabled': ((pagination.value.currentPage - 1) > 0) ? true : false,
-            'disabled': ((pagination.value.currentPage - 1) <= 0) ? true : false,
-        }
-    })
-
-    const nextPageClass = computed(() => {
-        return {
-            'enabled': (pagination.value.currentPage < pagination.value.totalPages) ? true : false,
-            'disabled': (pagination.value.currentPage >= pagination.value.totalPages) ? true : false,
-        }
     })
     
     function sortBy(field) {
         //
     }
 
-    function prevPage() {
-        //
-    }
+    const performSearch = useDebounceFn(() => {
+        if (total.value > rows.value.length) {
+            fetchData()
+        }
+    }, 250)
 
-    function nextPage() {
-        //
-    }
-
-    function goToPage(page) {
-        //
+    function onDatatableScroll(event) {
+        const target = event.target
+        
+        if (target.scrollTop + window.innerHeight >= target.scrollHeight) {
+            if (!isLoading.value && total.value > perPage.value) {
+                perPage.value += 25
+                fetchData()
+            }
+        }
     }
 </script>

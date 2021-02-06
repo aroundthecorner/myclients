@@ -32,5 +32,11 @@ app.use(VueProgressBar, {
 
 app.provide('progressBar', app.config.globalProperties.$Progress)
 
+/** Global properties */
+app.config.globalProperties.datetime = function (datetime) {
+    let date = new Date(datetime)
+    return date.toDateString()
+}
+
 /** Mount the application */
 app.mount('#app')
