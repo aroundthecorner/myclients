@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique()->nullable();
             $table->enum('role', ['root', 'admin', 'user'])->default('user');
+            $table->integer('role_order');
             $table->string('profile_picture')->nullable();
             $table->enum('language', ['en', 'lv'])->default('en');
             $table->string('theme')->default('Aconite');

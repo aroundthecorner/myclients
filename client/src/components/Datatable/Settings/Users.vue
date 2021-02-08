@@ -35,7 +35,7 @@
             <thead>
                 <tr class="datatable__header sticky">
                     <td class="datatable__cell w-25p" @click="orderBy('name')">{{ lang('Name') }}</td>
-                    <td class="datatable__cell" @click="orderBy('role')">{{ lang('Role') }}</td>
+                    <td class="datatable__cell" @click="orderBy('role_order')">{{ lang('Role') }}</td>
                     <td class="datatable__cell" @click="orderBy('email')">{{ lang('Email') }}</td>
                     <td class="datatable__cell" @click="orderBy('created_at')">{{ lang('User since') }}</td>
                     <td class="datatable__cell w-10p"></td>
@@ -116,7 +116,7 @@
     const isLoading = ref(false)
     const showFooter = ref(false)
     const total = ref('')
-    const sortBy = ref('created_at')
+    const sortBy = ref('role_order')
     const sortDirection = ref('asc')
     const datatableContainer = ref(null)
 

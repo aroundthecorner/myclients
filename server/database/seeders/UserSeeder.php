@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'name' => 'Mārtiņš Zeltiņš',
             'email' => 'admin@myclients.org',
             'role' => 'root',
+            'role_order' => 1,
             'organization_id' => 1,
             'profile_picture' => 'img/martins_profile_picture.png',
         ]);

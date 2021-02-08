@@ -86,5 +86,5 @@ Route::get('organization/{organization}/users',     [OrganizationUsersController
  * Area 51
  */
 Route::get('area51', function() {
-    // 
+    log_msg('area51 has been hit!');
 });
