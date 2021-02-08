@@ -26,6 +26,7 @@ class OrganizationUsersController extends Controller
     {
         return User::whereOrganizationId($organization->id)
                    ->filter($filters)
+                   ->orderBy($request->orderBy, $request->sortDirection)
                    ->paginate($request->perPage);
     }
 }

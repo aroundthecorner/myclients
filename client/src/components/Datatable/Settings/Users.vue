@@ -34,11 +34,11 @@
 
             <thead>
                 <tr class="datatable__header sticky">
-                    <td class="datatable__cell w-25p" @click="sortBy('')">{{ lang('Name') }}</td>
-                    <td class="datatable__cell" @click="sortBy('')">{{ lang('Role') }}</td>
-                    <td class="datatable__cell" @click="sortBy('')">{{ lang('Email') }}</td>
-                    <td class="datatable__cell" @click="sortBy('')">{{ lang('User since') }}</td>
-                    <td class="datatable__cell w-10p" @click="sortBy('')"></td>
+                    <td class="datatable__cell w-25p" @click="orderBy('name')">{{ lang('Name') }}</td>
+                    <td class="datatable__cell" @click="orderBy('role')">{{ lang('Role') }}</td>
+                    <td class="datatable__cell" @click="orderBy('email')">{{ lang('Email') }}</td>
+                    <td class="datatable__cell" @click="orderBy('created_at')">{{ lang('User since') }}</td>
+                    <td class="datatable__cell w-10p"></td>
                 </tr>
             </thead>
 
@@ -116,6 +116,8 @@
     const isLoading = ref(false)
     const showFooter = ref(false)
     const total = ref('')
+    const sortBy = ref('created_at')
+    const sortDirection = ref('asc')
     const datatableContainer = ref(null)
 
     fetchData()
@@ -127,6 +129,8 @@
             organizationId: user.value.organization_id,
             perPage: perPage.value,
             search: search.value,
+            orderBy: sortBy.value,
+            sortDirection: sortDirection.value,
         })
 
         rows.value = result.data
@@ -146,8 +150,28 @@
         })
     })
     
-    function sortBy(field) {
-        //
+    function orderBy(field) {
+        sortBy.value = field
+        
+        if (total.value > rows.value.length) {
+            fetchData()
+        } else {
+            sortTable()
+        }
+
+        if (sortDirection.value == 'asc') {
+            sortDirection.value = 'desc'
+        } else {
+            sortDirection.value = 'asc'
+        }
+    }
+
+    function sortTable() {
+        if (sortDirection.value == 'asc') {
+            rows.value.sort((a,b) => (a[sortBy.value] > b[sortBy.value] ? 1 : -1))
+        } else {
+            rows.value.sort((a,b) => (a[sortBy.value] < b[sortBy.value] ? 1 : -1))
+        }
     }
 
     const performSearch = useDebounceFn(() => {
